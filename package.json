@@ -1,5 +1,5 @@
 {
-  "name": "benchbnb",
+  "name": "CapApp",
   "private": true,
   "dependencies": {
     "@babel/core": "^7.10.1",
