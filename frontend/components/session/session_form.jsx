@@ -21,18 +21,23 @@ class SessionForm extends React.Component {
         e.preventDefault();
         this.props.action(this.state);
     }
-    
+
     render() {
         let errors;
         // debugger;
 
         // check if errors state exists; if it does, access the session errors as an array
-        if (this.props.errors) errors = Object.values(this.props.errors.session); 
+        if (this.props.errors.session[0] !== undefined){
+            // debugger;
+            let errs = Object.values(this.props.errors.session); 
+            errors = errs.map( (error, i) => <li key={i}>{error}</li>);
+        } 
+
         return (
             <>
-                <div className="session-errors">
-                    {errors.map( (error, i) => <li key={i}>{error}</li>)}
-                </div>
+                <ul className="session-errors">
+                    {errors}
+                </ul>
                 
                 <form className="session-form" onSubmit={this.handleSubmit}>
                     <label htmlFor="username">Username:</label>
