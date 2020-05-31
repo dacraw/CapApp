@@ -28,7 +28,7 @@ export const login = formUser => dispatch => {
     return APIUtil.login(formUser)
         .then(
             user => dispatch(receiveCurrentUser(user)), 
-            errs => dispatch(receiveSessionErrors(errs))
+            errs => dispatch(receiveSessionErrors(errs.responseJSON))
         )
 }
 
@@ -36,7 +36,7 @@ export const signup = formUser => dispatch => {
     return APIUtil.signup(formUser)
         .then(
             user => dispatch(receiveCurrentUser(user)), 
-            errs => dispatch(receiveSessionErrors(errs))
+            errs => dispatch(receiveSessionErrors(errs.responseJSON))
         )
 }
 
