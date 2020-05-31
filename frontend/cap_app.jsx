@@ -2,25 +2,26 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 import configureStore from './store/store';
 import Root from './components/root';
-import * as actions from './actions/session_actions';
+// import * as actions from './actions/session_actions';
 
 document.addEventListener('DOMContentLoaded', () => {
-    // let store;
-    // if (window.currentUser){
-    //     debugger
-    //     const preloadedState = {
-    //         entities: {
-    //             users: { [window.currentUser.id]: window.currentUser }
-    //         },
-    //         session: { id: window.currentUser.id }
-    //     };
-    //     store = configureStore(preloadedState);
-    // } else {
-    //     store = configureStore();
-    // }
+    let store;
+    if (window.currentUser){
+        debugger
+        const preloadedState = {
+            entities: {
+                users: { [window.currentUser.id]: window.currentUser }
+            },
+            session: { id: window.currentUser.id }
+        };
+        store = configureStore(preloadedState);
+    } else {
+        store = configureStore();
+    }
     // window.actions = actions;
 
-    window.store = configureStore();
+    window.getState = store.getState;
+
     const root = document.getElementById('root');
     ReactDOM.render(<Root store={store} />, root)
 })
