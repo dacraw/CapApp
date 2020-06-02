@@ -743,6 +743,11 @@ var Login = /*#__PURE__*/function (_React$Component) {
     key: "handleSubmit",
     value: function handleSubmit(e) {
       e.preventDefault();
+
+      if (this.props.errors) {
+        document.querySelector('.login-invalid-credentials').style.display = "none";
+      }
+
       if (this.handleEmpty()) this.props.submit(this.state);
     }
   }, {
@@ -753,14 +758,18 @@ var Login = /*#__PURE__*/function (_React$Component) {
   }, {
     key: "render",
     value: function render() {
+      // debugger;
       var errors;
 
-      if (this.props.errors) {
+      if (this.props.errors[0].length > 0) {
         errors = this.props.errors.map(function (error, i) {
           return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("li", {
             key: i
-          }, error);
+          }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("i", {
+            className: "fas fa-exclamation-circle"
+          }), " ", error);
         });
+        document.querySelector('.login-invalid-credentials').style.display = "block";
       }
 
       return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {

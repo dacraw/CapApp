@@ -39,18 +39,22 @@ class Login extends React.Component {
 
     handleSubmit(e){
         e.preventDefault();
+        if (this.props.errors){
+            document.querySelector('.login-invalid-credentials').style.display = "none";
+        }
         if (this.handleEmpty()) this.props.submit(this.state);
     }
 
     hideErrors(e) {
         e.currentTarget.nextSibling.style.display = "none";
     }
-    
+
     render () {  
+        // debugger;
         let errors;
-        if (this.props.errors) {
-            
-            errors = this.props.errors.map((error, i)=><li key={i}>{error}</li>);
+        if (this.props.errors[0].length > 0) {
+            errors = this.props.errors.map((error, i)=><li key={i}><i className="fas fa-exclamation-circle"></i> {error}</li>);
+            document.querySelector('.login-invalid-credentials').style.display = "block";
         }
         return (
             <div className="login-container">

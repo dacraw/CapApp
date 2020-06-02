@@ -85,22 +85,31 @@
 }
 
 .login-form h1 {
-    font-size: 24px;
+    font-size: 22px;
     font-weight: 500;
     margin-bottom: 25px;
 }
 
 .login-form label { 
-    font-size: 16px;
+    font-size: 14px;
 }
 
 .login-form label, .login-form input {
-    margin-bottom: 10px;
+    margin-bottom: 15px;
 } 
 
 .login-form .forgot {
     display: block;
     margin-bottom: 20px;
+    font-size: 13px;
+}
+.login-invalid-credentials {
+    margin-bottom: 75px;
+}
+.login-invalid-credentials li {
+    font-weight: bold;
+    font-size: 13px;
+    margin-bottom:10px;
 }
 
 .signup-container {
@@ -174,7 +183,10 @@
     padding-left: 20px;
     margin-top: 20px;
     color: red;
+
 }
 .signup-invalid-credentials li {
     margin-bottom: 20px;
 }
+
+
