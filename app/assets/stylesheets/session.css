@@ -19,7 +19,9 @@
     padding: 20px;
 
 }
-
+.session-form a {
+    color: green;
+}
 .session-form input:focus, 
 .session-form input:hover {
     background-color: white;
@@ -64,12 +66,6 @@
     position: relative;
 }
 
-input:focus + p {
-    opacity: 0;
-    display: none;
-    border: 5px solid red;
-}
-
 .login-error-box {
     display: none;
     text-align: center;
@@ -107,53 +103,55 @@ input:focus + p {
     margin-bottom: 20px;
 }
 
-.login-form .login-invalid-credentials {
-   
-}
-
-.session-form a {
-    color: green;
-}
-
 .signup-container {
     max-width: 1100px;
     margin: 0 auto;
     height: 100%;
+    display: flex;
+    justify-content: space-between;
 }
 
 .signup-container .logo {
     margin-bottom: 50px;
+    padding-top: 30px;
 }
 
-.signup-main {
-    display: flex;
-    justify-content: space-between;
-    height: 100%;
-}
+
 
 .signup-form {
-    width: 60%;
+    width:55%;
     display: flex;
-
+    justify-content: space-between;
 }
 
 .signup-aside {
-    width: 30%;
+    width: 40%;
     background-color: #f2f7f7;
     height: 100%;
     padding: 0 50px;
-    padding-top: 100px;
+    padding-top: 200px;
     box-sizing: border-box;
 }
 
+
+.signup-aside h3 {
+    font-weight: 900;,
+    font-size: 26px;
+    margin-bottom: 10px;
+}
+
+.signup-aside p {
+    margin-bottom: 40px;
+}
 .signup-form h1 {
-    font-weight: 500;
+    font-weight: 700;
     font-size: 26px;
     margin-bottom: 20px;
 }
 
-.signup-form p {
-    margin-bottom: 50px;
+.signup-form h2 {
+    font-size: 18px;
+    margin-bottom: 80px;
 }
 
 .signup-form input {
@@ -170,13 +168,13 @@ input:focus + p {
     width: 48%;
 }
 
-.signup-aside h3 {
-    font-weight: 900;,
-    font-size: 26px;
-    margin-bottom: 10px;
-}
 
-.signup-aside p {
-    margin-bottom: 10px;
+.signup-invalid-credentials {
+    list-style: disc;
+    padding-left: 20px;
+    margin-top: 20px;
+    color: red;
 }
-
+.signup-invalid-credentials li {
+    margin-bottom: 20px;
+}

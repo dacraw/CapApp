@@ -42,8 +42,8 @@ class Login extends React.Component {
         if (this.handleEmpty()) this.props.submit(this.state);
     }
 
-    componentDidMount() {
-        
+    hideErrors(e) {
+        e.currentTarget.nextSibling.style.display = "none";
     }
     
     render () {  
@@ -60,13 +60,13 @@ class Login extends React.Component {
                     <h1>Welcome to CapApp</h1>
                         <div className="input-block">
                             <label htmlFor="username">Email or username</label>
-                            <input id="username" title="Please fill out this field." onChange={this.handleInput('username')} type="text" value={this.state.username} />
-                            <p className="login-error-box">Please fill out this field.</p>
+                            <input onFocus={this.hideErrors} id="username" title="Please fill out this field." onChange={this.handleInput('username')} type="text" value={this.state.username} />
+                            <p className="login-error-box">^ Please fill out this field.</p>
                         </div>
                         <div className="input-block">
                             <label htmlFor="password">Password</label>
-                            <input id="password" title="Please fill out this field." onChange={this.handleInput('password')} type="password" value={this.state.password} />
-                            <p className="login-error-box">Please fill out this field.</p>
+                            <input onFocus={this.hideErrors} id="password" title="Please fill out this field." onChange={this.handleInput('password')} type="password" value={this.state.password} />
+                            <p className="login-error-box">^ Please fill out this field.</p>
                         </div>
                         <Link to="/forgot" className="forgot">Forgot your username or password?</Link>
                         <ul className="login-invalid-credentials">
