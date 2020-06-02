@@ -6,17 +6,19 @@ import NavBarContainer from './other/nav_bar_container';
 import {AuthRoute} from '../util/route_util';
 import {ProtRoute} from '../util/route_util';
 import Dashboard from './dashboard/main';
+import Splash from './other/splash';
 
 const App = (props) => {
     return (
         <>
             <header>
-                <NavBarContainer />
+                <Route exact path={["/","dashboard"]} component={NavBarContainer} />
             </header>
             <Switch>
                 <AuthRoute exact path="/signup" component={SignupContainer} />
                 <AuthRoute exact path="/login" component={LoginContainer} />
-                <ProtRoute exact path="/" component={Dashboard} /> {/* placeholder */}
+                <ProtRoute exact path="/dashboard" component={Dashboard} /> {/* dash */}
+                <Route exact path="/" component={Splash} /> {/* splash*/}
             </Switch>
         </>
     )
