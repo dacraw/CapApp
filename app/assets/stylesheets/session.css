@@ -16,7 +16,7 @@
     border-radius: 2px;
     background-color: #f2f7f7;
     border: 1px solid #f2f7f7;; 
-    padding: 20px;
+    padding: 15px;
 
 }
 .session-form a {
@@ -37,8 +37,9 @@
     text-align: center;
     font-weight: 900;
     border-radius: 4px;
-    padding: 20px;
-    width: 150px;
+    padding: 17px;
+    width: 140px;
+    margin-bottom: 25px;
 }
 
 .session-form button:hover {
@@ -58,8 +59,15 @@
 
 .login-form {
     display: flex;
+    width: 50%;
     align-items: center;
-    padding: 0 70px;
+    padding: 0;
+
+}
+
+.login-form div:first-child {
+    width: 410px;
+    margin-left: 52px;
 }
 
 .login-form .input-block {
@@ -91,7 +99,7 @@
 }
 
 .login-form label { 
-    font-size: 14px;
+    font-size: 13px;
 }
 
 .login-form label, .login-form input {
@@ -103,6 +111,8 @@
     margin-bottom: 20px;
     font-size: 13px;
 }
+
+
 .login-invalid-credentials {
     margin-bottom: 75px;
 }
