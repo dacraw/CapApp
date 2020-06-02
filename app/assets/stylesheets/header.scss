@@ -1,5 +1,4 @@
 .header-container {
-    
     box-shadow: 0 1px 4px gray;
     font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
     font-size: 24px;
@@ -84,3 +83,49 @@
 .header-logged-options a:last-child:hover {// sign up button 
     background-color: darkgreen;
 } 
+
+.header-container input[type=search]{
+    border: 1px solid gray;
+    border-radius: 5px;
+    padding: 5px;
+    width:400px;
+}
+.header-container input[type=search]:hover {
+    box-shadow: 0 0 20px gray;
+}
+
+.logo-notext {
+    width: 40px;
+    margin-right: 50px;
+}
+
+.logged-in-nav {
+    display: flex;
+    margin-left: auto;
+    font-size: 14px;
+    font-weight: bold;
+}
+
+
+
+.dashboard-nav-account {
+    position: relative;
+}
+
+.dashboard-nav-dropdown {
+    display: none;
+    position: absolute;
+    top: 50px;
+    background-color: white;
+    border-radius: 5px;
+    box-shadow: 0 0 10px gray;
+    padding: 10px;
+    right: 40px;
+}
+.dashboard-nav-dropdown li {
+    padding: 10px;
+}
+
+.logged-in-nav .show {
+    display: block;
+}

@@ -12,7 +12,7 @@ const App = (props) => {
     return (
         <>
             <header>
-                <Route exact path={["/","dashboard"]} component={NavBarContainer} />
+                <Route exact path={["/","/dashboard"]} component={NavBarContainer} />
             </header>
             <Switch>
                 <AuthRoute exact path="/signup" component={SignupContainer} />
