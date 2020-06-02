@@ -714,8 +714,6 @@ var Login = /*#__PURE__*/function (_React$Component) {
       var _this2 = this;
 
       return function (e) {
-        document.getElementById(field).nextSibling.style.display = "none";
-
         _this2.setState(_defineProperty({}, field, e.currentTarget.value));
       };
     }
@@ -723,17 +721,19 @@ var Login = /*#__PURE__*/function (_React$Component) {
     key: "handleEmpty",
     value: function handleEmpty() {
       var username = document.getElementById('username');
-      var password = document.getElementById('password');
+      var password = document.getElementById('password'); // if user submits and field is empty, show the error box
 
       if (!username.value) {
         var errorBox = username.nextSibling;
-        errorBox.style.display = "block";
+        errorBox.classList.add('show');
         return false;
       }
 
       if (!password.value) {
         var _errorBox = password.nextSibling;
-        _errorBox.style.display = "block";
+
+        _errorBox.classList.add('show');
+
         return false;
       }
 
@@ -753,7 +753,7 @@ var Login = /*#__PURE__*/function (_React$Component) {
   }, {
     key: "hideErrors",
     value: function hideErrors(e) {
-      e.currentTarget.nextSibling.style.display = "none";
+      e.currentTarget.nextSibling.classList.remove('show');
     }
   }, {
     key: "render",
@@ -775,10 +775,12 @@ var Login = /*#__PURE__*/function (_React$Component) {
       return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
         className: "login-container"
       }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("img", {
-        src: window.image
-      }), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+        src: window.stockTwo
+      }), " ", /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
         className: "login-form"
-      }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("form", {
+      }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+        className: "login-form-holder"
+      }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("form", {
         className: "session-form",
         onSubmit: this.handleSubmit
       }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("h1", null, "Welcome to CapApp"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
@@ -792,9 +794,15 @@ var Login = /*#__PURE__*/function (_React$Component) {
         onChange: this.handleInput('username'),
         type: "text",
         value: this.state.username
-      }), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("p", {
+      }), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
         className: "login-error-box"
-      }, "^ Please fill out this field.")), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+      }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+        className: "arrow-up-outer"
+      }), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+        className: "arrow-up-inner"
+      }), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("i", {
+        className: "fas fa-exclamation-triangle"
+      }), "Please fill out this field.")), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
         className: "input-block"
       }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("label", {
         htmlFor: "password"
@@ -807,7 +815,13 @@ var Login = /*#__PURE__*/function (_React$Component) {
         value: this.state.password
       }), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("p", {
         className: "login-error-box"
-      }, "^ Please fill out this field.")), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_1__["Link"], {
+      }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+        className: "arrow-up-outer"
+      }), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+        className: "arrow-up-inner"
+      }), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("i", {
+        className: "fas fa-exclamation-triangle"
+      }), " Please fill out this field.")), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_1__["Link"], {
         to: "/forgot",
         className: "forgot"
       }, "Forgot your username or password?"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("ul", {

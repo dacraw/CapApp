@@ -13,9 +13,7 @@ class Login extends React.Component {
     }
 
     handleInput(field) {
-        
         return e => {
-            document.getElementById(field).nextSibling.style.display = "none";
             this.setState({ [field]: e.currentTarget.value })
         }
     }
@@ -24,14 +22,15 @@ class Login extends React.Component {
         let username = document.getElementById('username');
         let password = document.getElementById('password');
         
+        // if user submits and field is empty, show the error box
         if (!username.value){
             let errorBox = username.nextSibling;
-            errorBox.style.display = "block";
+            errorBox.classList.add('show');
             return false;
         }
         if (!password.value){
             let errorBox = password.nextSibling;
-            errorBox.style.display = "block";
+            errorBox.classList.add('show');
             return false;
         }
         return true;
@@ -46,7 +45,7 @@ class Login extends React.Component {
     }
 
     hideErrors(e) {
-        e.currentTarget.nextSibling.style.display = "none";
+        e.currentTarget.nextSibling.classList.remove('show');
     }
 
     render () {  
@@ -58,20 +57,21 @@ class Login extends React.Component {
         }
         return (
             <div className="login-container">
-                <img src={window.image} />
+                <img src={window.stockTwo} /> {/* Thanks to Clarisse Meyer for sharing their work on Unsplash. */}
                 <div className="login-form">
-                    <div>
+                    <div className="login-form-holder">
                         <form className="session-form" onSubmit={this.handleSubmit}>
                         <h1>Welcome to CapApp</h1>
                             <div className="input-block">
                                 <label htmlFor="username">Email or username</label>
                                 <input onFocus={this.hideErrors} id="username" title="Please fill out this field." onChange={this.handleInput('username')} type="text" value={this.state.username} />
-                                <p className="login-error-box">^ Please fill out this field.</p>
+                
+                                <div className="login-error-box"><div className="arrow-up-outer"></div><div className="arrow-up-inner"></div><i className="fas fa-exclamation-triangle"></i>Please fill out this field.</div>
                             </div>
                             <div className="input-block">
                                 <label htmlFor="password">Password</label>
                                 <input onFocus={this.hideErrors} id="password" title="Please fill out this field." onChange={this.handleInput('password')} type="password" value={this.state.password} />
-                                <p className="login-error-box">^ Please fill out this field.</p>
+                                <p className="login-error-box"><div className="arrow-up-outer"></div><div className="arrow-up-inner"></div><i className="fas fa-exclamation-triangle"></i> Please fill out this field.</p>
                             </div>
                             <Link to="/forgot" className="forgot">Forgot your username or password?</Link>
                             <ul className="login-invalid-credentials">

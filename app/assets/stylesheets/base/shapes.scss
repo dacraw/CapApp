@@ -1,0 +1,19 @@
+// outer uses css triangle trick (bottom border determines color)
+// in combination with inner 
+// to produce an arrow on the border of a box
+
+.arrow-up-outer {
+    width:0;
+    height:0;
+    border-left: 10px solid transparent;
+    border-right: 10px solid transparent;
+    border-bottom: 10px solid $gray;
+}
+
+.arrow-up-inner {
+    width:0;
+    height:0;
+    border-left: 10px solid transparent;
+    border-right: 10px solid transparent;
+    border-bottom: 10px solid $white;
+}
