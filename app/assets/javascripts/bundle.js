@@ -740,6 +740,11 @@ var Login = /*#__PURE__*/function (_React$Component) {
       return true;
     }
   }, {
+    key: "hideErrors",
+    value: function hideErrors(e) {
+      e.currentTarget.nextSibling.classList.remove('show');
+    }
+  }, {
     key: "handleSubmit",
     value: function handleSubmit(e) {
       e.preventDefault();
@@ -749,11 +754,6 @@ var Login = /*#__PURE__*/function (_React$Component) {
       }
 
       if (this.handleEmpty()) this.props.submit(this.state);
-    }
-  }, {
-    key: "hideErrors",
-    value: function hideErrors(e) {
-      e.currentTarget.nextSibling.classList.remove('show');
     }
   }, {
     key: "render",
@@ -775,7 +775,7 @@ var Login = /*#__PURE__*/function (_React$Component) {
       return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
         className: "login-container"
       }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("img", {
-        src: window.stockTwo
+        src: window.gradient
       }), " ", /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
         className: "login-form"
       }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
@@ -795,14 +795,14 @@ var Login = /*#__PURE__*/function (_React$Component) {
         type: "text",
         value: this.state.username
       }), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
-        className: "login-error-box"
+        className: "session-error-box"
       }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
         className: "arrow-up-outer"
       }), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
         className: "arrow-up-inner"
       }), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("i", {
         className: "fas fa-exclamation-triangle"
-      }), "Please fill out this field.")), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+      }), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("span", null, "Please fill out this field."))), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
         className: "input-block"
       }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("label", {
         htmlFor: "password"
@@ -813,15 +813,15 @@ var Login = /*#__PURE__*/function (_React$Component) {
         onChange: this.handleInput('password'),
         type: "password",
         value: this.state.password
-      }), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("p", {
-        className: "login-error-box"
+      }), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+        className: "session-error-box"
       }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
         className: "arrow-up-outer"
       }), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
         className: "arrow-up-inner"
       }), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("i", {
         className: "fas fa-exclamation-triangle"
-      }), " Please fill out this field.")), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_1__["Link"], {
+      }), " ", /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("span", null, "Please fill out this field."))), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_1__["Link"], {
         to: "/forgot",
         className: "forgot"
       }, "Forgot your username or password?"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("ul", {
@@ -924,7 +924,7 @@ var Signup = /*#__PURE__*/function (_React$Component) {
 
     _this = _super.call(this, props);
     _this.state = {
-      username: "",
+      email: "",
       password: "",
       fname: "",
       lname: ""
@@ -943,16 +943,43 @@ var Signup = /*#__PURE__*/function (_React$Component) {
       };
     }
   }, {
+    key: "validateEmail",
+    value: function validateEmail() {
+      var inputValue = document.getElementById('email').value; // convert to array to use .includes method
+
+      var inputValueArr = inputValue.split(""); // return a string if validation fails; first return stops the rest from happening; if no msg is returned and it's undefined, then validation succeeded
+      // check if '@' is in email '           Please include an '@' in the email address. `${inputValue}` is missing an '@'.
+
+      if (!inputValueArr.includes('@')) return "Please include an '@' in the email address. '".concat(inputValue, "' is missing an '@'."); // check if something is after '@'      Please enter a part following '@'. `${inputValue}` is incomplete.
+      // if (inputValueArr[0] === '@' || ) return `Please include an '@' in the email address. '${inputValue}' is missing an '@'.`
+      // check if there's a '.' after '@'     Please match the requested format.
+    }
+  }, {
+    key: "showErrorBox",
+    value: function showErrorBox(message) {
+      var errorBox = document.querySelector('.session-error-box'); // select the span inside the errorBox and set its messge to the error message
+
+      errorBox.querySelector('span').innerText = message;
+      errorBox.classList.add('show');
+    }
+  }, {
     key: "handleSubmit",
     value: function handleSubmit(e) {
-      e.preventDefault();
+      e.preventDefault(); // validate email address to show error box if needed
+
+      var emailErrorMessage = this.validateEmail();
+
+      if (emailErrorMessage !== undefined) {
+        this.showErrorBox(emailErrorMessage);
+      } // submit infomation for error handling
+
+
       this.props.submit(this.state);
     }
   }, {
     key: "render",
     value: function render() {
-      var errors;
-      debugger;
+      var errors; // debugger;
 
       if (this.props.errors[0].length > 0) {
         errors = this.props.errors.map(function (error, i) {
@@ -992,11 +1019,19 @@ var Signup = /*#__PURE__*/function (_React$Component) {
         className: "rows"
       }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("input", {
         placeholder: "Email",
-        id: "username",
-        onChange: this.handleInput('username'),
+        id: "email",
+        onChange: this.handleInput('email'),
         type: "text",
-        value: this.state.username
-      }), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("input", {
+        value: this.state.email
+      }), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+        className: "session-error-box"
+      }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+        className: "arrow-up-outer"
+      }), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+        className: "arrow-up-inner"
+      }), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("i", {
+        className: "fas fa-exclamation-triangle"
+      }), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("span", null, "Please fill out this field.")), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("input", {
         placeholder: "Password (min. 6 characters)",
         id: "password",
         onChange: this.handleInput('password'),

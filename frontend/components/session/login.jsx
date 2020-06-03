@@ -36,6 +36,10 @@ class Login extends React.Component {
         return true;
     }
 
+    hideErrors(e) {
+        e.currentTarget.nextSibling.classList.remove('show');
+    }
+
     handleSubmit(e){
         e.preventDefault();
         if (this.props.errors){
@@ -44,9 +48,6 @@ class Login extends React.Component {
         if (this.handleEmpty()) this.props.submit(this.state);
     }
 
-    hideErrors(e) {
-        e.currentTarget.nextSibling.classList.remove('show');
-    }
 
     render () {  
         // debugger;
@@ -57,7 +58,7 @@ class Login extends React.Component {
         }
         return (
             <div className="login-container">
-                <img src={window.stockTwo} /> {/* Thanks to Clarisse Meyer for sharing their work on Unsplash. */}
+                <img src={window.gradient} /> {/* gradient for login page */}
                 <div className="login-form">
                     <div className="login-form-holder">
                         <form className="session-form" onSubmit={this.handleSubmit}>
@@ -66,12 +67,12 @@ class Login extends React.Component {
                                 <label htmlFor="username">Email or username</label>
                                 <input onFocus={this.hideErrors} id="username" title="Please fill out this field." onChange={this.handleInput('username')} type="text" value={this.state.username} />
                 
-                                <div className="login-error-box"><div className="arrow-up-outer"></div><div className="arrow-up-inner"></div><i className="fas fa-exclamation-triangle"></i>Please fill out this field.</div>
+                                <div className="session-error-box"><div className="arrow-up-outer"></div><div className="arrow-up-inner"></div><i className="fas fa-exclamation-triangle"></i><span>Please fill out this field.</span></div>
                             </div>
                             <div className="input-block">
                                 <label htmlFor="password">Password</label>
                                 <input onFocus={this.hideErrors} id="password" title="Please fill out this field." onChange={this.handleInput('password')} type="password" value={this.state.password} />
-                                <p className="login-error-box"><div className="arrow-up-outer"></div><div className="arrow-up-inner"></div><i className="fas fa-exclamation-triangle"></i> Please fill out this field.</p>
+                                <div className="session-error-box"><div className="arrow-up-outer"></div><div className="arrow-up-inner"></div><i className="fas fa-exclamation-triangle"></i> <span>Please fill out this field.</span></div>
                             </div>
                             <Link to="/forgot" className="forgot">Forgot your username or password?</Link>
                             <ul className="login-invalid-credentials">

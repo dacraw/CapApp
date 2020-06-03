@@ -5,7 +5,7 @@ class Signup extends React.Component {
     constructor(props){
         super(props)
         this.state = {
-            username: "",
+            email: "",
             password: "",
             fname: "",
             lname: "",
@@ -19,14 +19,41 @@ class Signup extends React.Component {
         }
     }
 
+    validateEmail(){
+        const inputValue = document.getElementById('email').value;
+        // convert to array to use .includes method
+        const inputValueArr = inputValue.split("");
+        // return a string if validation fails; first return stops the rest from happening; if no msg is returned and it's undefined, then validation succeeded
+        // check if '@' is in email '           Please include an '@' in the email address. `${inputValue}` is missing an '@'.
+        if (!inputValueArr.includes('@')) return `Please include an '@' in the email address. '${inputValue}' is missing an '@'.`
+        // check if something is after '@'      Please enter a part following '@'. `${inputValue}` is incomplete.
+        // if (inputValueArr[0] === '@' || ) return `Please include an '@' in the email address. '${inputValue}' is missing an '@'.`
+        // check if there's a '.' after '@'     Please match the requested format.
+    }
+
+    showErrorBox(message){
+        const errorBox = document.querySelector('.session-error-box');
+        // select the span inside the errorBox and set its messge to the error message
+        errorBox.querySelector('span').innerText = message;
+        errorBox.classList.add('show');
+    }
+    
     handleSubmit(e){
         e.preventDefault();
+
+        // validate email address to show error box if needed
+        const emailErrorMessage = this.validateEmail();
+
+        if (emailErrorMessage !== undefined){
+            this.showErrorBox(emailErrorMessage)
+        }
+        // submit infomation for error handling
         this.props.submit(this.state)
     }
 
     render () {
         let errors;
-        debugger;
+        // debugger;
         if (this.props.errors[0].length > 0) {
             errors = this.props.errors.map((error, i)=><li key={i}>{error}</li>);
         }
@@ -42,7 +69,8 @@ class Signup extends React.Component {
                             <input id="lname" placeholder="Last name" className="form-user-names" onChange={this.handleInput('lname')} type="text" value={this.state.lname} />
                         </div>
                         <div className="rows">
-                            <input placeholder="Email" id="username" onChange={this.handleInput('username')} type="text" value={this.state.username} />
+                            <input placeholder="Email" id="email" onChange={this.handleInput('email')} type="text" value={this.state.email} />
+                            <div className="session-error-box"><div className="arrow-up-outer"></div><div className="arrow-up-inner"></div><i className="fas fa-exclamation-triangle"></i><span>Please fill out this field.</span></div>
                             <input placeholder="Password (min. 6 characters)" id="password" onChange={this.handleInput('password')} type="password" value={this.state.password} />
                         </div>
                         <div className="double-column">

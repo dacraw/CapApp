@@ -72,43 +72,8 @@
     position: relative;
 }
 
-.login-error-box {
-    display: none;
-    text-align: center;
-    position: absolute;
-    top:84px;
-    left: 100px;
-    width: 200px;
-    z-index: 1;
-    border: 1px solid $gray;
-    border-radius: 5px;
-    box-shadow:  5px 5px 10px $gray;
-    padding: 10px;
-    background-color: $white;
-    font-size: 14px;
-    line-height: 22px;
-}
 
-.login-error-box .arrow-up-outer {
-    position: absolute;
-    top:-10px;
-}
 
-.login-error-box .arrow-up-inner {
-    position: absolute;
-    top:-8px;
-}
-
-.fa-exclamation-triangle {
-    color: $orange;
-    font-size: 22px;
-    margin-right: 10px;
-}
-
-.login-form .show {
-    display: flex;
-    align-items: center;
-}
 
 .login-form h1 {
     font-size: 22px;
@@ -221,3 +186,39 @@
 }
 
 
+.session-error-box {
+    display: none;
+    text-align: center;
+    position: absolute;
+    top:84px;
+    left: 100px;
+    width: 200px;
+    z-index: 1;
+    border: 1px solid $gray;
+    border-radius: 5px;
+    box-shadow:  5px 5px 10px $gray;
+    padding: 10px;
+    background-color: $white;
+    font-size: 14px;
+    line-height: 22px;
+
+    &.show {
+        display: flex;
+        align-items: center;
+    }
+
+    .arrow-up-outer {
+        position: absolute;
+        top:-10px;
+    }
+    
+    .arrow-up-inner {
+        position: absolute;
+        top:-8px;
+    }
+    .fa-exclamation-triangle {
+        color: $orange;
+        font-size: 22px;
+        margin-right: 10px;
+    }
+}
