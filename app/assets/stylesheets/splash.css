@@ -1,0 +1,155 @@
+.splash {
+}
+
+.splash section {
+    border-bottom: 1px solid black;
+    padding: 20px;
+}
+
+.splash-main-promo-component {
+    display: flex;
+    justify-content: space-evenly;
+    background-color: green;
+}
+
+.splash-main-promo-component img {
+    width: 300px;
+}
+
+.splash-secondary-promo-component {
+    margin: 0 auto;
+    text-align: center;
+    padding: 0 100px;
+}
+
+.splash-fractional-shares-component {
+    display: flex;
+    justify-content: space-between;
+}
+
+.splash-fractional-shares-component img {
+    width: 300px;
+}
+.splash-fractional-shares-component h1 {
+    font-weight: bold;
+    font-size: 24px;
+    margin-bottom: 20px;    
+} 
+
+.splash-fractional-shares-component h3 {
+    font-weight: bold;
+    margin-bottom: 10px;
+}
+
+.splash-fractional-shares-component p {
+    line-height: 20px;
+}
+
+.splash-fractional-shares-component h2 {
+    color: gray;
+    margin-bottom: 20px;
+}
+
+.splash-fractional-shares-component form {
+    margin: 20px 0;
+}
+
+.three-col {
+    display: flex;
+}
+
+.three-col div {
+    width: 30%;
+}
+
+.splash-features-component {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    background-color: black;
+    color: white;
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif
+}
+.splash-features-component h1 {
+    font-size: 30px;
+    font-weight: bold;
+}
+
+.splash-features-component li {
+    color: gray;
+    cursor: pointer;
+    text-align: right;
+    font-size: 20px;
+}
+
+.splash-features-component li:hover {
+    color: white;
+}
+
+.splash-products-component {
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    display: flex;
+    justify-content: space-around;
+
+}
+
+.splash-products-component .image {
+    text-align: center;
+}
+.splash-products-component h1 {
+    font-size: 36px;
+}
+
+.splash-products-list {
+    display: flex;
+}
+
+.splash-products-list li {
+    padding-right: 20px;
+    font-size: 30px;
+}
+
+.splash-products-list li {
+    color: gray;
+}
+
+.splash-products-list li:hover {
+    color: green;
+}
+
+.splash-products-selected-information a {
+    display: block;
+}
+
+.double-col {
+    display: flex;
+    justify-content: space-between;
+}
+
+.four-col {
+    display: flex;
+    justify-content: space-between;
+}
+
+.splash-footer-component {
+    background-color: black;
+    color: white;
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+}
+
+.splash-footer-component a {
+    color: white;
+    font-weight: bold;
+    display: inline-block;
+    margin-bottom: 15px;
+}
+
+.footer-social-media {
+    display: flex;
+    justify-content: space-between;
+}
+
+
+.footer-social-media a {
+    padding: 10px;
+}
