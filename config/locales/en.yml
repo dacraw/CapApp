@@ -34,3 +34,4 @@ en:
   errors:
     # format to use in full error messages.
     format: "%{message}" # default for errors.full_messages
+

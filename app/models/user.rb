@@ -1,12 +1,13 @@
 class User < ApplicationRecord
-    validates :username, presence: { message: 'Please enter your email'}, uniqueness: true
+    validates :username, presence: { message: 'Please enter your email'}, email: {message: "Please enter a valid email."}
     validates :session_token, presence: true, uniqueness: true
     validates :fname, presence: { message: "Please enter your first name."}
     validates :lname, presence: { message: "Please enter your last name."}
     validates :password_digest, presence: true
-    validates :password, length: { minimum: 6, message: "Password must be at least 6 characters." }, allow_nil: true
+    validates :password, length: { minimum: 6, message: "Your password must be at least 6 characters." }, allow_nil: true
     after_initialize :ensure_session_token
     attr_reader :password
+
 
     def self.find_by_credentials(username, password)
         user = User.find_by(username: username)
@@ -37,3 +38,6 @@ class User < ApplicationRecord
         self.session_token
     end
 end
+
+
+

@@ -8,7 +8,7 @@ class NavBar extends React.Component {
     }
 
     toggleDropdown(e){
-        // debugger;
+        
         e.preventDefault();
         document.querySelector('.header-products-dropdown').classList.toggle('show');
     }

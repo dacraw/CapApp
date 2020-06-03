@@ -90,7 +90,7 @@
 /*!*********************************************!*\
   !*** ./frontend/actions/session_actions.js ***!
   \*********************************************/
-/*! exports provided: RECEIVE_CURRENT_USER, RECEIVE_SESSION_ERRORS, LOGOUT_CURRENT_USER, login, signup, logout */
+/*! exports provided: RECEIVE_CURRENT_USER, RECEIVE_SESSION_ERRORS, LOGOUT_CURRENT_USER, CLEAR_SESSION_ERRORS, login, signup, logout */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -98,6 +98,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "RECEIVE_CURRENT_USER", function() { return RECEIVE_CURRENT_USER; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "RECEIVE_SESSION_ERRORS", function() { return RECEIVE_SESSION_ERRORS; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "LOGOUT_CURRENT_USER", function() { return LOGOUT_CURRENT_USER; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "CLEAR_SESSION_ERRORS", function() { return CLEAR_SESSION_ERRORS; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "login", function() { return login; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "signup", function() { return signup; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "logout", function() { return logout; });
@@ -106,6 +107,7 @@ __webpack_require__.r(__webpack_exports__);
 var RECEIVE_CURRENT_USER = 'RECEIVE_CURRENT_USER';
 var RECEIVE_SESSION_ERRORS = 'RECEIVE_SESSION_ERRORS';
 var LOGOUT_CURRENT_USER = 'LOGOUT_CURRENT_USER';
+var CLEAR_SESSION_ERRORS = 'CLEAR_SESSION_ERRORS';
 
 var receiveCurrentUser = function receiveCurrentUser(user) {
   return {
@@ -379,7 +381,6 @@ var NavBar = /*#__PURE__*/function (_React$Component) {
   _createClass(NavBar, [{
     key: "toggleDropdown",
     value: function toggleDropdown(e) {
-      // debugger;
       e.preventDefault();
       document.querySelector('.header-products-dropdown').classList.toggle('show');
     }
@@ -706,9 +707,15 @@ var Login = /*#__PURE__*/function (_React$Component) {
     };
     _this.handleSubmit = _this.handleSubmit.bind(_assertThisInitialized(_this));
     return _this;
-  }
+  } // clear errors if there are any and the user changes routes
+
 
   _createClass(Login, [{
+    key: "componentWillUnmount",
+    value: function componentWillUnmount() {
+      this.props.clearErrors();
+    }
+  }, {
     key: "handleInput",
     value: function handleInput(field) {
       var _this2 = this;
@@ -758,10 +765,11 @@ var Login = /*#__PURE__*/function (_React$Component) {
   }, {
     key: "render",
     value: function render() {
-      // debugger;
       var errors;
+      var invalidCredentialCntr = document.querySelector('.login-invalid-credentials'); // this conditional checks if errors exists AND if the DOM container is loaded;
+      // this is to avoid errors when switching from the signup route to here
 
-      if (this.props.errors[0].length > 0) {
+      if (this.props.errors[0].length > 0 && invalidCredentialCntr) {
         errors = this.props.errors.map(function (error, i) {
           return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("li", {
             key: i
@@ -769,7 +777,7 @@ var Login = /*#__PURE__*/function (_React$Component) {
             className: "fas fa-exclamation-circle"
           }), " ", error);
         });
-        document.querySelector('.login-invalid-credentials').style.display = "block";
+        invalidCredentialCntr.style.display = "block";
       }
 
       return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
@@ -778,7 +786,13 @@ var Login = /*#__PURE__*/function (_React$Component) {
         src: window.gradient
       }), " ", /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
         className: "login-form"
-      }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+      }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("section", {
+        className: "demo-user"
+      }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("button", {
+        onClick: this.props.demoUser
+      }, "Click Here To Demo", /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("i", {
+        "class": "fas fa-comment-dollar"
+      }))), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
         className: "login-form-holder"
       }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("form", {
         className: "session-form",
@@ -865,6 +879,17 @@ var mapDispatchToProps = function mapDispatchToProps(dispatch) {
   return {
     submit: function submit(formUser) {
       return dispatch(Object(_actions_session_actions__WEBPACK_IMPORTED_MODULE_2__["login"])(formUser));
+    },
+    clearErrors: function clearErrors() {
+      return dispatch({
+        type: _actions_session_actions__WEBPACK_IMPORTED_MODULE_2__["CLEAR_SESSION_ERRORS"]
+      });
+    },
+    demoUser: function demoUser() {
+      return dispatch(Object(_actions_session_actions__WEBPACK_IMPORTED_MODULE_2__["login"])({
+        username: 'demo@demo.demo',
+        password: 'password'
+      }));
     }
   };
 };
@@ -922,18 +947,26 @@ var Signup = /*#__PURE__*/function (_React$Component) {
 
     _classCallCheck(this, Signup);
 
-    _this = _super.call(this, props);
+    _this = _super.call(this, props); // username here instead of email since it's the name of the col in db
+    // email will be used otherwise in this page
+
     _this.state = {
-      email: "",
+      username: "",
       password: "",
       fname: "",
       lname: ""
     };
     _this.handleSubmit = _this.handleSubmit.bind(_assertThisInitialized(_this));
     return _this;
-  }
+  } // clear errors if there are any and the user changes routes
+
 
   _createClass(Signup, [{
+    key: "componentWillUnmount",
+    value: function componentWillUnmount() {
+      this.props.clearErrors();
+    }
+  }, {
     key: "handleInput",
     value: function handleInput(field) {
       var _this2 = this;
@@ -965,7 +998,6 @@ var Signup = /*#__PURE__*/function (_React$Component) {
     key: "showErrorBox",
     value: function showErrorBox(message) {
       var errorBox = document.querySelector('.session-error-box'); // if message is null, hide the box and return
-      // debugger;
 
       if (message === null) {
         errorBox.classList.remove('show');
@@ -977,20 +1009,47 @@ var Signup = /*#__PURE__*/function (_React$Component) {
       errorBox.classList.add('show');
     }
   }, {
+    key: "hideError",
+    value: function hideError() {
+      var errorBox = document.querySelector('.session-error-box');
+      errorBox.classList.remove('show');
+    }
+  }, {
+    key: "handleEmpty",
+    value: function handleEmpty() {
+      var $sessionForm = $('.session-form');
+      var $emptyInputs = $('input[value=""]'); // add onchange handler to inputs to remove empty class when user types
+
+      $emptyInputs.change(function (e) {
+        return e.currentTarget.classList.remove('empty');
+      }); // add empty to all empty inputs
+
+      $sessionForm.find($emptyInputs).addClass('empty'); // cursor into first empty text input
+
+      $sessionForm.find($emptyInputs).first().focus();
+    }
+  }, {
     key: "handleSubmit",
     value: function handleSubmit(e) {
-      e.preventDefault(); // debugger;
-      // validate email address to show error box if needed
+      e.preventDefault(); // only validate email if the field has a value
 
       var emailErrorMessage = this.validateEmail();
-      this.showErrorBox(emailErrorMessage); // submit infomation for error handling
+
+      if (document.getElementById('email').value && emailErrorMessage !== null) {
+        $('#email').focus();
+        this.showErrorBox(emailErrorMessage);
+      } else {
+        this.handleEmpty();
+      } // add styles to empty inputs
+      // submit infomation for error handling
+
 
       this.props.submit(this.state);
     }
   }, {
     key: "render",
     value: function render() {
-      var errors; // debugger;
+      var errors;
 
       if (this.props.errors[0].length > 0) {
         errors = this.props.errors.map(function (error, i) {
@@ -1004,7 +1063,13 @@ var Signup = /*#__PURE__*/function (_React$Component) {
         className: "signup-container"
       }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
         className: "signup-form"
-      }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("form", {
+      }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("section", {
+        className: "demo-user"
+      }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("button", {
+        onClick: this.props.demoUser
+      }, "Click Here To Demo", /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("i", {
+        "class": "fas fa-comment-dollar"
+      }))), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("form", {
         className: "session-form",
         onSubmit: this.handleSubmit
       }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("img", {
@@ -1033,9 +1098,10 @@ var Signup = /*#__PURE__*/function (_React$Component) {
       }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("input", {
         placeholder: "Email",
         id: "email",
-        onChange: this.handleInput('email'),
+        onBlur: this.hideError,
+        onChange: this.handleInput('username'),
         type: "text",
-        value: this.state.email
+        value: this.state.username
       }), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
         className: "session-error-box signup"
       }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
@@ -1051,17 +1117,59 @@ var Signup = /*#__PURE__*/function (_React$Component) {
         type: "password",
         value: this.state.password
       })), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
-        className: "double-column"
-      }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("button", {
+        className: "double-column continue"
+      }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("section", null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("button", {
         type: "submit"
-      }, "Continue"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("p", null, "Already started?", /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_1__["Link"], {
-        to: "/forgot",
+      }, "Continue")), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("section", null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("p", null, "Already started?", /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_1__["Link"], {
+        to: "/login",
         className: "forgot"
-      }, " Login to complete your application."))), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("ul", {
+      }, " Login to complete your application.")))), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("ul", {
         className: "signup-invalid-credentials"
-      }, errors))), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+      }, errors)), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+        className: "disclosure"
+      }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("p", null, "All investments involve risk and the past performance of a security, or financial product does not guarantee future results or returns. Keep in mind that while diversification may help spread risk it does not assure a profit, or protect against loss, in a down market. There is always the potential of losing money when you invest in securities, or other financial products. Investors should consider their investment objectives and risks carefully before investing."), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("p", null, "All securities and investments are offered to self-directed customers by Robinhood Financial, LLC, member ", /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("a", {
+        href: "http://www.finra.org"
+      }, "FINRA"), " & ", /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("a", {
+        href: "http://www.sipc.org"
+      }, "SIPC"), ". Additional information about your broker can be found by clicking ", /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("a", {
+        href: "http://www.brokercheck.finra.org"
+      }, "here"), ". Robinhood Financial, LLC is a wholly owned subsidiary of Robinhood Markets, Inc."), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("p", null, "Check the background of Robinhood Financial LLC and Robinhood Securities, LLC on ", /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("a", {
+        href: "http://www.brokercheck.finra.org"
+      }, "FINRA's BrokerCheck.")), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("ul", {
+        className: "links"
+      }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("li", null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_1__["Link"], {
+        to: "/terms"
+      }, "Robinhood Terms & Conditions")), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("li", null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_1__["Link"], {
+        to: "/disclosure"
+      }, "Disclosure Library")), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("li", null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_1__["Link"], {
+        to: "/contact"
+      }, "Contact Us")), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("li", null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_1__["Link"], {
+        to: "/faq"
+      }, "FAQ"))), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("p", null, "\xA9 2020"))), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
         className: "signup-aside"
-      }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("h3", null, "Lorem ipsum dolor sit amet"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("p", null, "Vivamus tristique aliquam risus convallis malesuada. Aenean fermentum interdum nulla, sit amet lacinia est placerat sit amet."), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("h3", null, "Maecenas sem lectus"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("p", null, "Pellentesque elit nunc, viverra sed metus sed, viverra commodo justo."), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("h3", null, "Praesent pharetra leo et tortor blandit viverra"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("p", null, "Praesent maximus quam a sem malesuada, et ullamcorper purus porttitor. ")));
+      }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("main", null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("h3", null, "Lorem ipsum dolor sit amet"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("p", null, "Vivamus tristique aliquam risus convallis malesuada. Aenean fermentum interdum nulla, sit amet lacinia est placerat sit amet."), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("h3", null, "Maecenas sem lectus"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("p", null, "Pellentesque elit nunc, viverra sed metus sed, viverra commodo justo ", /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("a", {
+        href: "http://www.sipc.org"
+      }, "www.sipc.org"), "."), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("h3", null, "Praesent pharetra leo et tortor blandit viverra"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("p", null, "Praesent maximus quam a sem malesuada, et ullamcorper purus porttitor. ")), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+        className: "disclosure"
+      }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("p", null, "All investments involve risk and the past performance of a security, or financial product does not guarantee future results or returns. Keep in mind that while diversification may help spread risk it does not assure a profit, or protect against loss, in a down market. There is always the potential of losing money when you invest in securities, or other financial products. Investors should consider their investment objectives and risks carefully before investing."), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("p", null, "All securities and investments are offered to self-directed customers by Robinhood Financial, LLC, member ", /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("a", {
+        href: "http://www.finra.org"
+      }, "FINRA"), " & ", /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("a", {
+        href: "http://www.sipc.org"
+      }, "SIPC"), ". Additional information about your broker can be found by clicking ", /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("a", {
+        href: "http://www.brokercheck.finra.org"
+      }, "here"), ". Robinhood Financial, LLC is a wholly owned subsidiary of Robinhood Markets, Inc."), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("p", null, "Check the background of Robinhood Financial LLC and Robinhood Securities, LLC on ", /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("a", {
+        href: "http://www.brokercheck.finra.org"
+      }, "FINRA's BrokerCheck.")), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("ul", {
+        className: "links"
+      }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("li", null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_1__["Link"], {
+        to: "/terms"
+      }, "Robinhood Terms & Conditions")), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("li", null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_1__["Link"], {
+        to: "/disclosure"
+      }, "Disclosure Library")), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("li", null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_1__["Link"], {
+        to: "/contact"
+      }, "Contact Us")), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("li", null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_1__["Link"], {
+        to: "/faq"
+      }, "FAQ"))), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("p", null, "\xA9 2020"))));
     }
   }]);
 
@@ -1098,6 +1206,17 @@ var mapDispatchToProps = function mapDispatchToProps(dispatch) {
   return {
     submit: function submit(formUser) {
       return dispatch(Object(_actions_session_actions__WEBPACK_IMPORTED_MODULE_2__["signup"])(formUser));
+    },
+    clearErrors: function clearErrors() {
+      return dispatch({
+        type: _actions_session_actions__WEBPACK_IMPORTED_MODULE_2__["CLEAR_SESSION_ERRORS"]
+      });
+    },
+    demoUser: function demoUser() {
+      return dispatch(Object(_actions_session_actions__WEBPACK_IMPORTED_MODULE_2__["login"])({
+        username: 'demo@demo.demo',
+        password: 'password'
+      }));
     }
   };
 };
@@ -1193,6 +1312,9 @@ var _nullState = {
       return Object.assign({}, action.errors);
 
     case _actions_session_actions__WEBPACK_IMPORTED_MODULE_0__["RECEIVE_CURRENT_USER"]:
+      return _nullState;
+
+    case _actions_session_actions__WEBPACK_IMPORTED_MODULE_0__["CLEAR_SESSION_ERRORS"]:
       return _nullState;
 
     default:

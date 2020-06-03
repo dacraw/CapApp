@@ -11,6 +11,10 @@ class Login extends React.Component {
         }
         this.handleSubmit = this.handleSubmit.bind(this);
     }
+    // clear errors if there are any and the user changes routes
+    componentWillUnmount(){
+        this.props.clearErrors();
+    }
 
     handleInput(field) {
         return e => {
@@ -50,16 +54,23 @@ class Login extends React.Component {
 
 
     render () {  
-        // debugger;
+        
         let errors;
-        if (this.props.errors[0].length > 0) {
+        let invalidCredentialCntr = document.querySelector('.login-invalid-credentials')
+
+        // this conditional checks if errors exists AND if the DOM container is loaded;
+        // this is to avoid errors when switching from the signup route to here
+        if (this.props.errors[0].length > 0 && invalidCredentialCntr) {
             errors = this.props.errors.map((error, i)=><li key={i}><i className="fas fa-exclamation-circle"></i> {error}</li>);
-            document.querySelector('.login-invalid-credentials').style.display = "block";
+            invalidCredentialCntr.style.display = "block";
         }
         return (
             <div className="login-container">
                 <img src={window.gradient} /> {/* gradient for login page */}
                 <div className="login-form">
+                    <section className="demo-user">
+                        <button onClick={this.props.demoUser}>Click Here To Demo<i class="fas fa-comment-dollar"></i></button>
+                    </section>
                     <div className="login-form-holder">
                         <form className="session-form" onSubmit={this.handleSubmit}>
                         <h1>Welcome to CapApp</h1>

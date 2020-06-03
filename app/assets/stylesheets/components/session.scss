@@ -10,7 +10,7 @@
     }
     input {
         width: 100%;
-        border-radius: 2px;
+        border-radius: 4px;
         background-color: $lightblue;
         border: 1px solid $lightblue; 
         padding: 15px;
@@ -19,7 +19,7 @@
         color: $lightgreen;
     }
     input:focus {
-        border: 1px solid $lightgreen;
+        border: 1px solid $lightgreen !important;
     }
     input:focus, input:hover {
         background-color: $white;
@@ -43,10 +43,11 @@
 
 .login-container {
     display: flex;
-    height: 100%;
+    
     img {
-        width: 50%;
-        height: 100%;
+        width: 50vw;
+        height: 100vh;
+        
         display: block;
     }
     .login-form {
@@ -54,10 +55,15 @@
         width: 50%;
         align-items: center;
         padding: 0;
+        position: relative;
 
         .login-form-holder {
             width: 410px;
             margin-left: 52px;
+        }
+
+        .demo-user {
+            left:50px;
         }
 
         h1 {
@@ -76,8 +82,10 @@
             margin-bottom: 20px;
             font-size: 13px;
         }
-        button {
-            margin-top: 75px;
+        .session-form {
+            button {
+                margin-top: 75px;
+            }
         }
 
         .login-invalid-credentials li {
@@ -88,76 +96,209 @@
     }
 }
 
+.demo-user {
+    position: absolute;
+    right:0;
+    top: 35px;
+    button {
+        padding: 20px;
+        background-color: $lightgreen;
+        border-radius: 5px;
+        color: $white;
+        font-weight: bold;
+        margin-top: 0;
+        vertical-align: middle;
+        line-height: 1.5em;
+        &:hover {
+            color: $black;
+            background-color: $lightgray
+        }
+        .fa-comment-dollar {
+            font-size: 1.5em;
+            display: inline-block;
+            margin-left: 10px;
+
+        }
+    }
+}
+
 .signup-container {
-    max-width: 1100px;
-    margin: 0 auto;
+    margin-left: auto;
+    
     height: 100%;
     display: flex;
-    justify-content: space-between;
+    justify-content: flex-end;
 
     .logo {
-        margin-bottom: 50px;
+        margin-bottom: 55px;
         padding-top: 30px;
     }
-
+    .disclosure {
+        color: $lightgray;
+        font-size: 13px;
+        padding: 0 10px;
+        margin-top: 75px;
+        p {
+            line-height: 1.5em;
+            margin-bottom: 20px;
+        }
+        a {
+            color: $green;
+            font-weight: 400;
+        }
+        .links {
+            display: flex;
+            margin-bottom: 20px;
+            li {
+                margin-right: 5px;
+            }
+        }
+    }
     .signup-form {
-        width:55%;
-        display: flex;
-        justify-content: space-between;
+        margin-right: 60px;   
+        max-width:640px;
+        box-sizing:border-box;
+        padding: 0 50px;
+        position: relative;
+        
+        .session-form{
+            width: 100%;
+            margin: 0;
+    
+        }
 
         h1 {
-            font-weight: 700;
+            font-weight: 500;
             font-size: 26px;
-            margin-bottom: 20px;
+            margin-bottom: 30px;
         }
         
         h2 {
-            font-size: 18px;
+            font-size: 15px;
             margin-bottom: 80px;
         }
         
         input {
-            margin-bottom: 20px;
+            margin-bottom: 25px;
             padding: 10px;
+        }
+        input::placeholder {
+            color: $lightgray;
         }
         
         .double-column {
             display: flex;
-            justify-content: space-between
+            justify-content: space-between;
+
+            section {
+                width: 50%;
+                line-height: 1.75em;
+            }
+        }
+
+        .empty {
+            border: 1px solid $red;
         }
         
         .form-user-names {
             width: 48%;
         }
         .signup-invalid-credentials {
-            list-style: disc;
+           
             padding-left: 20px;
-            margin-top: 20px;
-            color: red;
+            margin-top: 10px;
+            color: $red;
         
             li {
                 margin-bottom: 20px;
+                 list-style: disc;
             }
+        }
+
+        .continue {
+            margin-top: 60px;
         }
     }
 
     .signup-aside {
-        width: 40%;
+        width: 40.5%;
         background-color: #f2f7f7;
-        height: 100%;
+        min-height: 100vh;
         padding: 0 50px;
-        padding-top: 200px;
+        padding-top: 175px;
         box-sizing: border-box;
         h3 {
             font-weight: 900;
-            font-size: 26px;
-            margin-bottom: 10px;
+            font-size: 14px;
+            margin-bottom: 15px;
         }
         
         p {
             margin-bottom: 40px;
+            font-size: 15px;
+            line-height: 1.75em;
+        }
+        main {
+            width: 270px;
+        }
+
+        a {
+            color: $green;
+        }
+        .disclosure {
+            display: none
         }
     }
+}
+
+@media only screen and (max-width: 700px) {
+  .signup-container {
+    display: block;
+    height:auto;
+    width: auto;
+    .session-form {
+        width: 100%;
+    }
+    .signup-form {
+        margin: 0 auto;
+        width: auto;
+        padding-left: 10px;
+        display: block;
+        .session-form {
+            margin: 0;
+        }         
+        .double-column {
+            display: block;
+            width: 100%;
+        }
+        .form-user-names {
+            width: 100%;
+    
+        }
+        main {
+            margin: 0;
+            width: 100%;
+        }
+        .signup-aside-media {
+            display: block;
+        }
+        .disclosure {
+            display: none;
+        }
+    }
+    .signup-aside {
+        width: auto;
+        height: 100%;
+        padding: 20px;   
+        main {
+            width: auto;
+        }
+        .disclosure {
+            display: block;
+        }
+    }   
+  }
+
 }
 
 .session-error-box {
