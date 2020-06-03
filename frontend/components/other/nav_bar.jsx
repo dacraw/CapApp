@@ -8,7 +8,11 @@ class NavBar extends React.Component {
     }
 
     toggleDropdown(e){
+<<<<<<< HEAD
         
+=======
+        // debugger;
+>>>>>>> splash
         e.preventDefault();
         document.querySelector('.header-products-dropdown').classList.toggle('show');
     }
