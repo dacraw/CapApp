@@ -795,7 +795,7 @@ var Login = /*#__PURE__*/function (_React$Component) {
         type: "text",
         value: this.state.username
       }), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
-        className: "session-error-box"
+        className: "session-error-box login"
       }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
         className: "arrow-up-outer"
       }), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
@@ -814,7 +814,7 @@ var Login = /*#__PURE__*/function (_React$Component) {
         type: "password",
         value: this.state.password
       }), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
-        className: "session-error-box"
+        className: "session-error-box login"
       }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
         className: "arrow-up-outer"
       }), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
@@ -950,14 +950,28 @@ var Signup = /*#__PURE__*/function (_React$Component) {
       var inputValueArr = inputValue.split(""); // return a string if validation fails; first return stops the rest from happening; if no msg is returned and it's undefined, then validation succeeded
       // check if '@' is in email '           Please include an '@' in the email address. `${inputValue}` is missing an '@'.
 
-      if (!inputValueArr.includes('@')) return "Please include an '@' in the email address. '".concat(inputValue, "' is missing an '@'."); // check if something is after '@'      Please enter a part following '@'. `${inputValue}` is incomplete.
-      // if (inputValueArr[0] === '@' || ) return `Please include an '@' in the email address. '${inputValue}' is missing an '@'.`
-      // check if there's a '.' after '@'     Please match the requested format.
+      if (!inputValueArr.includes('@')) return "Please include an '@' in the email address. '".concat(inputValue, "' is missing an '@'."); // check if there's multiple '@'     A part following '@' should not contain the symbol '@'
+
+      if (inputValue.split('@').length > 2) return "A part following '@' should not contain the symbol '@'."; // check if something is after '@'      Please enter a part following '@'. `${inputValue}` is incomplete.
+
+      if (inputValueArr[0] === '@' || !inputValue.split('@')[1].length) return "Please enter a part following '@'. ".concat(inputValue, " is incomplete."); // check if there's a '.' after '@'     Please match the requested format.
+
+      if (!inputValue.split('@')[1].includes('.')) return "Please match the requested format."; // check if there's something after '.' '.' is used at a wrong position in ${inputValue}.
+
+      if (inputValue.split('@')[1].includes('.') && !inputValue.split('.')[1].length) return "'.' is used at a wrong position in '".concat(inputValue.slice(inputValue.indexOf('@') + 1), "'.");
+      return null;
     }
   }, {
     key: "showErrorBox",
     value: function showErrorBox(message) {
-      var errorBox = document.querySelector('.session-error-box'); // select the span inside the errorBox and set its messge to the error message
+      var errorBox = document.querySelector('.session-error-box'); // if message is null, hide the box and return
+      // debugger;
+
+      if (message === null) {
+        errorBox.classList.remove('show');
+        return;
+      } // select the span inside the errorBox and set its messge to the error message
+
 
       errorBox.querySelector('span').innerText = message;
       errorBox.classList.add('show');
@@ -965,14 +979,11 @@ var Signup = /*#__PURE__*/function (_React$Component) {
   }, {
     key: "handleSubmit",
     value: function handleSubmit(e) {
-      e.preventDefault(); // validate email address to show error box if needed
+      e.preventDefault(); // debugger;
+      // validate email address to show error box if needed
 
       var emailErrorMessage = this.validateEmail();
-
-      if (emailErrorMessage !== undefined) {
-        this.showErrorBox(emailErrorMessage);
-      } // submit infomation for error handling
-
+      this.showErrorBox(emailErrorMessage); // submit infomation for error handling
 
       this.props.submit(this.state);
     }
@@ -1017,6 +1028,8 @@ var Signup = /*#__PURE__*/function (_React$Component) {
         value: this.state.lname
       })), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
         className: "rows"
+      }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+        className: "input-block"
       }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("input", {
         placeholder: "Email",
         id: "email",
@@ -1024,14 +1037,14 @@ var Signup = /*#__PURE__*/function (_React$Component) {
         type: "text",
         value: this.state.email
       }), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
-        className: "session-error-box"
+        className: "session-error-box signup"
       }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
         className: "arrow-up-outer"
       }), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
         className: "arrow-up-inner"
       }), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("i", {
         className: "fas fa-exclamation-triangle"
-      }), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("span", null, "Please fill out this field.")), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("input", {
+      }), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("span", null, "Please fill out this field."))), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("input", {
         placeholder: "Password (min. 6 characters)",
         id: "password",
         onChange: this.handleInput('password'),
