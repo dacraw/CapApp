@@ -2,10 +2,12 @@
     box-shadow: 0 1px 4px gray;
     font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
     font-size: 24px;
+    height: 50px;
+    box-sizing: border-box;
     .header {
         display: flex;
         padding: 10px 20px;
-        height: 50px;
+        
         align-items: center;
 
         a {
