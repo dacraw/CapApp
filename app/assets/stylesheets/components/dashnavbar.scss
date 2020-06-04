@@ -1,18 +1,20 @@
 .dashboard-nav-container {
-    border: 5px solid red;
+    padding: 10px;
     height: 50px;
+    width: 90%;
+    margin: 0 auto;
     box-sizing: border-box;
     font-family: $arial;
-
+    
     .content {
         display: flex;
         height: 100%;
         align-items: center;
-        border:5px solid green;
+       
         .logo-notext {
             display: block;
             width:150px;
-            border: 5px solid blue;
+            
         }
         .search {
             box-shadow: 0px 0px 10px $lightgray;
@@ -32,16 +34,16 @@
             }
             .account-dropdown {
                 position: relative;
-                border:5px solid pink;
+               
                 .account-options {
                     display: none; 
                     position: absolute; 
                     min-width: 200px; 
-                    border: 5px solid yellow;
+                    
                 
                     right:0;
                     .summary {
-                        border: 5px solid purple;
+                        
                         padding: 10px;
 
                         h3 {
@@ -61,7 +63,11 @@
 
                         a {
                             display: inline-block;
+                            width: 100%;
                             padding: 10px;
+                            &:hover {
+                                background-color: $lightblue;
+                            }
                         }
                     }     
                 }
