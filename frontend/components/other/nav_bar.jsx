@@ -1,6 +1,5 @@
 import React from 'react';
 import { NavLink, Link } from 'react-router-dom';
-import DashNavBar from './dash_nav_bar';
 
 class NavBar extends React.Component {
     constructor(props){
