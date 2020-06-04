@@ -15,7 +15,7 @@ class DashNavBar extends React.Component{
             <div className="dashboard-nav-container">
                 <section className="content">
                     <img className="logo-notext" src={window.logoNoText} />
-                    <input type="search" name="stock-search" id=""/>
+                    <input className="search" type="search" name="stock-search" id=""/>
                     <ul className="links">
                         <li><Link>Free Stocks</Link></li>
                         <li><Link>Portfolio</Link></li>
@@ -25,29 +25,32 @@ class DashNavBar extends React.Component{
                             <ul className="account-options">
                                 <li>
                                     <div className="summary"> {/* TOP PART OF ACCOUNT DROPDOWN */}
-                                        <p>{window.currentUser.username}</p>
+                                        <h3>{window.currentUser.username}</h3>
                                         <div className="double-col">
                                             <div>
-                                                <p>$12.16</p>{/* REPLACE WITH PORTFOLIO VALUE */}
-                                                <p>Portfolio Value</p>
+                                                <h4>$12.16</h4>{/* REPLACE WITH PORTFOLIO VALUE */}
+                                                <h5>Portfolio Value</h5>
                                             </div>
                                             <div>
-                                                <p>$10,000</p>{/* REPLACE WITH BUYING POWER */}
-                                                <p>Buying Power</p>
+                                                <h4>$10,000</h4>{/* REPLACE WITH BUYING POWER */}
+                                                <h5>Buying Power</h5>
                                             </div>
                                         </div>
                                     </div>
                                 </li>
-                                <li><Link>Free Stock</Link></li>
-                                <li><Link>Account</Link></li>
-                                <li><Link>Banking</Link></li>
-                                <li><Link>History</Link></li>
-                                <li><Link>Documents</Link></li>
-                                <li><Link>Settings</Link></li>
-                                <li><Link>Help Center</Link></li>
-                                <li><Link>Get Support</Link></li>
-                                <li><Link>Disclosures</Link></li>
-                                <li onClick={logout}>Logout</li>
+                                <hr />
+                                <li><Link><i class="fas fa-gift"></i>Free Stock</Link></li>
+                                <li><Link><i class="fas fa-suitcase"></i>Account</Link></li>
+                                <li><Link><i class="fas fa-university"></i>Banking</Link></li>
+                                <li><Link><i class="fas fa-history"></i>History</Link></li>
+                                <li><Link><i class="far fa-file-alt"></i>Documents</Link></li>
+                                <li><Link><i class="fas fa-cog"></i>Settings</Link></li>
+                                <hr />
+                                <li><Link><i class="fas fa-question"></i>Help Center</Link></li>
+                                <li><Link><i class="fas fa-info-circle"></i>Get Support</Link></li>
+                                <li><Link><i class="fas fa-bars"></i>Disclosures</Link></li>
+                                <hr />
+                                <li><a onClick={logout}><i class="fas fa-sign-out-alt"></i>Logout</a></li>
                             </ul>
                         </li>
                     </ul>
