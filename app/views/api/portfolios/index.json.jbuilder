@@ -1,3 +1,1 @@
-json.set! @portfolio.id do
-    json.extract! @portfolio, :id, :cash_available
-end
+json.extract! @portfolio, :id, :user_id, :cash_available

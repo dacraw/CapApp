@@ -1,14 +1,17 @@
 import React from 'react';
 
-class Dashboard extends React.Component {
+class DashMain extends React.Component {
     constructor(props) {
         super(props);
         this.state = {
             
         }
     }
+
     
     render() {
+
+
         return (
             <>
                 <main className="dashboard-main-container">
@@ -18,4 +21,4 @@ class Dashboard extends React.Component {
         )
     }
 }
-export default Dashboard;
+export default DashMain;

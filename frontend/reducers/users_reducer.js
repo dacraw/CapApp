@@ -1,6 +1,7 @@
 import {
     RECEIVE_CURRENT_USER,
 } from '../actions/session_actions';
+import { RECEIVE_PORTFOLIO } from '../actions/portfolio_actions';
 
 export default (state = {}, action) => {
     Object.freeze(state);
@@ -13,6 +14,16 @@ export default (state = {}, action) => {
                     id: action.user.id,
                     username: action.user.username,
                 }})
+        case RECEIVE_PORTFOLIO:
+            return Object.assign(
+                {},
+                state,
+                {
+                    [action.portfolio.user_id]: {
+                        cashAvailable: action.portfolio.cash_available,
+                    }
+                }
+            )
         default:
             return state;
     }

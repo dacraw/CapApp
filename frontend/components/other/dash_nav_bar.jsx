@@ -9,9 +9,15 @@ class DashNavBar extends React.Component{
         e.preventDefault();
         e.currentTarget.nextSibling.classList.toggle('show');
     }
+
+    componentDidMount(){
+        this.props.fetchPortfolio(state.session.id)
+    }
+
     render(){
-        const { currentUser, logout } = this.props;
-        if (!currentUser) return null;
+        if (!currentUser) return null
+        if (!cashAvailable) return null
+        const { currentUser, logout, cashAvailable } = this.props;
         return (
             <div className="dashboard-nav-container">
                 <section className="content">
@@ -36,7 +42,7 @@ class DashNavBar extends React.Component{
                                                 <h5>Portfolio Value</h5>
                                             </div>
                                             <div>
-                                                <h4>$10,000</h4>{/* REPLACE WITH BUYING POWER */}
+                                                <h4>{cashAvailable}</h4>{/* REPLACE WITH BUYING POWER */}
                                                 <h5>Buying Power</h5>
                                             </div>
                                         </div>
