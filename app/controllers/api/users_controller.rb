@@ -2,6 +2,7 @@ class Api::UsersController < ApplicationController
     def create
         @user = User.new(user_params)
         if @user.save
+            Portfolio.create!({user_id: @user, cash_available: 10000.00})
             login(@user)
             #render json: @user
             render 'api/users/user';
