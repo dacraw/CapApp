@@ -1,7 +1,7 @@
 .dashboard-nav-container {
-    padding: 10px;
-    height: 50px;
-    width: 90%;
+    padding: 30px;
+    height: 55px;
+    width: 95%;
     margin: 0 auto;
     box-sizing: border-box;
     font-family: $serif;
@@ -14,17 +14,17 @@
         .logo-notext {
             display: block;
             height: 45px;
-            width:45px;
+            width:40px;
             margin-right: 20px;
-            border:1px solid gray;
+           
             
         }
         .search-wrapper {
             position: relative;
             .search {
-                border: 1px solid $lightgray;
+                border: 1px solid $lighter-gray;
                 border-radius: 5px;
-                height: 30px;
+                height: 100%;
                 width: 400px;
                 padding: 10px 40px;
 
@@ -35,7 +35,7 @@
             .fa-search {
                 position: absolute;
                 left:20px;
-                top:7px;
+                top:10px;
                 color: $gray;   
             }
         }
@@ -44,10 +44,8 @@
             margin-left:auto;
             font-weight: 700;
             li {
-                font-size: .85em;
-                
-               
-                margin-left: 20px;
+                font-size: .75em;
+                margin-left: 40px;
                 a {
                     color: $black;
                     text-decoration: none;
