@@ -44,6 +44,7 @@
         margin-left: 20px;
         font-weight: 900;
         text-align: center;
+        font-family: $condensed;
         &:first-child:hover { // sign in link
             color: $lightgreen;
         }
