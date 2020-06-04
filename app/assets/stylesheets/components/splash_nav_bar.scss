@@ -7,7 +7,7 @@
     box-sizing: border-box;
     height: 60px; //margin-top in splash must match this height
     background-color: $white;
-    
+    z-index: 1;
     box-sizing:border-box;
     .show {
         display: flex;

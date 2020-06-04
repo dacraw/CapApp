@@ -6,7 +6,7 @@ import SplashNavBarContainer from './nav/splash_nav_bar_container';
 import {AuthRoute} from '../util/route_util';
 import {ProtRoute} from '../util/route_util';
 import Dashboard from './dashboard/main';
-import Splash from './nav/splash';
+import Splash from './splash/splash';
 
 const App = (props) => {
     return (
