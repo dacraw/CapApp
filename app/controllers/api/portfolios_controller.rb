@@ -1,11 +1,8 @@
 class Api::PortfoliosController < ApplicationController
-    def create
-        @portfolio = Portfolio.new(portfolio_params)
-        @portfolio.user_id = current_user.id
-        # default 10,000 for demo purposes
-        @portfolio.cash_available = 10000.00
-        if @portfolio.save
-            render json: @portfolio
+    def index
+        @portfolio = Portfolio.find(params[:user_id])
+        if @portfolio
+            render :index
         else
             render json: @portfolio.errors.full_messages, status: 422
         end
