@@ -93,7 +93,7 @@ class Signup extends React.Component {
     }
 
     render () {
-        const { errors, createPortfolio, demoUser } = this.props;
+        const { errors, demoUser } = this.props;
         
         if (errors && errors[0].length > 0) {
             errors = errors.map((error, i)=><li key={i}>{error}</li>);

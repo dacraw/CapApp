@@ -10,7 +10,7 @@ export default (state = {}, action) => {
         case RECEIVE_PORTFOLIO:
             return Object.assign({}, { [action.portfolio.id]: action.portfolio })
         case REMOVE_PORTFOLIO:
-            return _nullState
+            return _nullState;
         default:
             return state;
     }

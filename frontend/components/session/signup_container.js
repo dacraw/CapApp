@@ -10,7 +10,6 @@ const mapStateToProps = state => ({
 const mapDispatchToProps = dispatch => {
     return ({
         submit: formUser => dispatch(signup(formUser)),
-        createPortfolio: userId => dispatch(createPortfolio(userId)),
         clearErrors: () => dispatch({type: CLEAR_SESSION_ERRORS}),
         demoUser: () => dispatch(login({username:'demo@demo.com',password:'password'})),
     })

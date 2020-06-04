@@ -11,7 +11,9 @@ class Dashboard extends React.Component {
     render() {
         return (
             <>
+                <main className="dashboard-main-container">
                 <h1>placeholder</h1>
+                </main>
             </>
         )
     }
