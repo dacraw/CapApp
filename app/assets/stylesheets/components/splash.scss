@@ -24,6 +24,7 @@
     height:87vh;
 
     .left {
+        margin-top: 10px;
         width: 400px;
         span {
             color: $black;
@@ -33,7 +34,7 @@
     h1 {
         color: $white;
         font-size: 4em;
-        margin-bottom: 40px;
+        margin-bottom: 30px;
 
     }
     h2 {
@@ -47,7 +48,7 @@
     }
     .signup-button { // signin/signup
         font-family: $condensed;
-        
+        font-size: 1.25em;
         font-weight: 900;
         text-align: center;
         &:first-child:hover { // sign in link
@@ -95,7 +96,7 @@
     h3 {
         font-size: 1.5em;
         font-weight:600;
-        font-faimly: $narrow;
+        font-family: $condensed;
         color: $gray;
     }
 }
@@ -116,17 +117,18 @@
         width: 300px;
     }
     h1 {
-        font-weight: bold;
-        font-size: 2em;
+//         font-weight: bold;
+        font-size: 2.25em;
         margin-bottom: 20px;    
     } 
     h2 {
         color: gray;
         margin-bottom: 40px;
-        font-size: .8em;
+        font-size: 1em;
+        font-family: $serif;
     }
     h3 {
-        font-family: $narrow;
+        font-family: $serif;
         font-weight: bold;
         margin-bottom: 20px;
         font-size: .9em;
@@ -163,10 +165,13 @@
 .splash-footer-component {
     background-color: black;
     color: white;
-    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
-    padding: 0 2em;
+    font-family: $narrow;
+    
+    font-size: 1.25em;
+    padding: 0 10em;
     article {
         display: flex;
+        font-weight: bold;
         justify-content: space-evenly;
         border-bottom: 1px solid $darkgray;
         margin-bottom: 30px;
@@ -179,7 +184,7 @@
         margin-bottom: 20px;
         a {
             color: white;
-            font-weight: 900;
+        
             display: inline-block;
             &:hover {
                 color: $lightgreen;

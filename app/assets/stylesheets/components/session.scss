@@ -27,7 +27,7 @@
     button {
         font-family: $narrow;
         background-color: $lightgreen;
-        
+
         color: $white;
         text-align: center;
         border-radius: 4px;
@@ -45,6 +45,16 @@
 
 .login-container {
     display: flex;
+    align-items:center;
+   
+
+    .relative {
+        position: relative;
+        height: 100%;
+        width: 100%;
+ 
+    }
+
     
     img {
         width: 50vw;
@@ -55,6 +65,8 @@
     .login-form {
         display: flex;
         width: 50%;
+        height: 100%;
+  
         align-items: center;
         padding: 0;
         position: relative;
@@ -66,6 +78,7 @@
 
         .demo-user {
             left:50px;
+            top: -100px;
         }
 
         h1 {
@@ -132,6 +145,7 @@
     justify-content: flex-end;
 
     .logo {
+        width: 150px;
         margin-bottom: 55px;
         padding-top: 30px;
     }
@@ -171,6 +185,7 @@
 
         h1 {
             font-weight: 500;
+
             font-size: 26px;
             margin-bottom: 30px;
         }

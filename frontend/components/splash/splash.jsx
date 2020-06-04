@@ -36,7 +36,7 @@ class Index extends React.Component {
                             <h2>Invest in thousands of stocks with as little as $0, since the money is fake.</h2>
                             <div className="three-col">
                                 <div>
-                                    <h3>Invest your fake money.</h3>
+                                    <h3>Invest your fake money</h3>
                                     <h4>Choose how much you want to invest, and lorem ipsum dolar sit amet.</h4>
                                 </div>
                                 <div>
@@ -62,7 +62,6 @@ class Index extends React.Component {
                         <ul className="footer-page-nav"> 
                             <li><Link to='/login'>Login</Link></li>
                             <li><Link to='/signup'>Signup</Link></li>
-                            <li><Link to='/'>Back to Top</Link></li>
                         </ul>
                     </article>
                     <div className="disclosure">

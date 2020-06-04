@@ -68,30 +68,32 @@ class Login extends React.Component {
             <div className="login-container">
                 <img src={window.gradient} /> {/* gradient for login page */}
                 <div className="login-form">
-                    <section className="demo-user">
-                        <button onClick={this.props.demoUser}>Click Here To Demo<i class="fas fa-comment-dollar"></i></button>
+                    <section className="relative">
+                        <section className="demo-user">
+                            <button onClick={this.props.demoUser}>Click Here To Demo<i class="fas fa-comment-dollar"></i></button>
+                        </section>
+                        <div className="login-form-holder">
+                            <form className="session-form" onSubmit={this.handleSubmit}>
+                            <h1>Welcome to CapApp</h1>
+                                <div className="input-block">
+                                    <label htmlFor="username">Email or username</label>
+                                    <input onFocus={this.hideErrors} id="username" title="Please fill out this field." onChange={this.handleInput('username')} type="text" value={this.state.username} />
+                    
+                                    <div className="session-error-box login"><div className="arrow-up-outer"></div><div className="arrow-up-inner"></div><i className="fas fa-exclamation-triangle"></i><span>Please fill out this field.</span></div>
+                                </div>
+                                <div className="input-block">
+                                    <label htmlFor="password">Password</label>
+                                    <input onFocus={this.hideErrors} id="password" title="Please fill out this field." onChange={this.handleInput('password')} type="password" value={this.state.password} />
+                                    <div className="session-error-box login"><div className="arrow-up-outer"></div><div className="arrow-up-inner"></div><i className="fas fa-exclamation-triangle"></i> <span>Please fill out this field.</span></div>
+                                </div>
+                                <Link to="/forgot" className="forgot">Forgot your username or password?</Link>
+                                <ul className="login-invalid-credentials">
+                                        {errors}
+                                </ul>  
+                                <button type="submit">Sign In</button>
+                            </form>
+                        </div>
                     </section>
-                    <div className="login-form-holder">
-                        <form className="session-form" onSubmit={this.handleSubmit}>
-                        <h1>Welcome to CapApp</h1>
-                            <div className="input-block">
-                                <label htmlFor="username">Email or username</label>
-                                <input onFocus={this.hideErrors} id="username" title="Please fill out this field." onChange={this.handleInput('username')} type="text" value={this.state.username} />
-                
-                                <div className="session-error-box login"><div className="arrow-up-outer"></div><div className="arrow-up-inner"></div><i className="fas fa-exclamation-triangle"></i><span>Please fill out this field.</span></div>
-                            </div>
-                            <div className="input-block">
-                                <label htmlFor="password">Password</label>
-                                <input onFocus={this.hideErrors} id="password" title="Please fill out this field." onChange={this.handleInput('password')} type="password" value={this.state.password} />
-                                <div className="session-error-box login"><div className="arrow-up-outer"></div><div className="arrow-up-inner"></div><i className="fas fa-exclamation-triangle"></i> <span>Please fill out this field.</span></div>
-                            </div>
-                            <Link to="/forgot" className="forgot">Forgot your username or password?</Link>
-                            <ul className="login-invalid-credentials">
-                                    {errors}
-                            </ul>  
-                            <button type="submit">Sign In</button>
-                        </form>
-                    </div>
                 </div>
             </div>
         )
