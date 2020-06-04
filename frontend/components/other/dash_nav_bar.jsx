@@ -25,7 +25,7 @@ class DashNavBar extends React.Component{
                         <li><Link>Portfolio</Link></li>
                         <li><Link>Cash</Link></li>
                         <li><Link>Messages</Link></li>
-                        <li className="account-dropdown"><Link onClick={this.toggleAccountDropdown} onBlur={this.toggleAccountDropdown}>Account</Link>
+                        <li className="account-dropdown"><Link onClick={this.toggleAccountDropdown}>Account</Link>
                             <ul className="account-options">
                                 <li>
                                     <div className="summary"> {/* TOP PART OF ACCOUNT DROPDOWN */}
