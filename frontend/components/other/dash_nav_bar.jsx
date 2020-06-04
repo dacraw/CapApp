@@ -12,20 +12,20 @@ class DashNavBar extends React.Component{
     render(){
         const { logout } = this.props;
         return (
-            <div className="header-container">
-                <section className="header">
+            <div className="dashboard-nav-container">
+                <section className="content">
                     <img className="logo-notext" src={window.logoNoText} />
                     <input type="search" name="stock-search" id=""/>
-                    <ul className="logged-in-nav">
+                    <ul className="links">
                         <li><Link>Free Stocks</Link></li>
                         <li><Link>Portfolio</Link></li>
                         <li><Link>Cash</Link></li>
                         <li><Link>Messages</Link></li>
-                        <li className="dashboard-account"><Link onClick={this.toggleAccountDropdown}>Account</Link>
-                            <ul className="dashboard-nav-dropdown">
+                        <li className="account-dropdown"><Link onClick={this.toggleAccountDropdown}>Account</Link>
+                            <ul className="account-options">
                                 <li>
                                     <div className="summary"> {/* TOP PART OF ACCOUNT DROPDOWN */}
-                                        <p>{currentUser.username}</p>
+                                        <p>{window.currentUser.username}</p>
                                         <div className="double-col">
                                             <div>
                                                 <p>$12.16</p>{/* REPLACE WITH PORTFOLIO VALUE */}

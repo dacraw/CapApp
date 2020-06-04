@@ -91,33 +91,5 @@
     box-shadow: 0 0 20px gray;
 }
 
-.logo-notext {
-    width: 40px;
-    margin-right: 50px;
-}
-
-.logged-in-nav {
-    display: flex;
-    margin-left: auto;
-    font-size: 14px;
-    font-weight: bold;
-    .show {
-        display: block;
-    }
-
-}
-
-.dashboard-account {
-    display: none;
-}
-
-.dashboard-nav-account {
-    position: relative;
-}
-
-
-.dashboard-nav-dropdown li {
-    padding: 10px;
-}
 
 
