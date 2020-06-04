@@ -95,7 +95,7 @@ class Signup extends React.Component {
     render () {
         let errors;
         
-        if (this.props.errors[0].length > 0) {
+        if (this.props.errors && this.props.errors[0].length > 0) {
             errors = this.props.errors.map((error, i)=><li key={i}>{error}</li>);
         }
         return (
