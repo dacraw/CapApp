@@ -38,6 +38,9 @@
     display: flex;
     li {
         padding-left: 50px;
+        a:hover {
+            color: $lightgreen;
+        }
     }
 }
 
