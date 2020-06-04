@@ -1,7 +1,6 @@
-export const createPortfolio = ( portfolio ) => (
+export const createPortfolio = () => (
     $.ajax({
         method: 'POST',
         url: '/api/portfolios',
-        data: { portfolio }
     })
 )

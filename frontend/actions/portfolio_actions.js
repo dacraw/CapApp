@@ -1,5 +1,7 @@
 export const RECEIVE_PORTFOLIO = "RECEIVE_PORTFOLIO";
 export const RECEIVE_PORTFOLIO_ERRORS = "RECEIVE_PORTFOLIO_ERRORS";
+export const REMOVE_PORTFOLIO = "REMOVE_PORTFOLIO"
+
 import * as PortfolioUtil from '../util/portfolio_util'
 
 const receivePortfolio = portfolio => ({
@@ -12,8 +14,8 @@ const receivePortfolioErrors = errors => ({
     errors,
 })
 
-export const createPortfolio = portfolio => dispatch => (
-    PortfolioUtil.createPortfolio(portfolio)
+export const createPortfolio = userId => dispatch => (
+    PortfolioUtil.createPortfolio(userId)
         .then( 
             newPortfolio => dispatch(receivePortfolio(newPortfolio)),
             errs => dispatch(receivePortfolioErrors(errs.responseJSON))
