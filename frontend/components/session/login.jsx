@@ -60,7 +60,7 @@ class Login extends React.Component {
 
         // this conditional checks if errors exists AND if the DOM container is loaded;
         // this is to avoid errors when switching from the signup route to here
-        if (this.props.errors[0].length > 0 && invalidCredentialCntr) {
+        if (this.props.errors && this.props.errors[0].length > 0 && invalidCredentialCntr) {
             errors = this.props.errors.map((error, i)=><li key={i}><i className="fas fa-exclamation-circle"></i> {error}</li>);
             invalidCredentialCntr.style.display = "block";
         }
