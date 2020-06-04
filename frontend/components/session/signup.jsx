@@ -93,16 +93,16 @@ class Signup extends React.Component {
     }
 
     render () {
-        const { errors, demoUser } = this.props;
+        let errors;
         
-        if (errors && errors[0].length > 0) {
-            errors = errors.map((error, i)=><li key={i}>{error}</li>);
+        if (this.props.errors && this.props.errors[0].length > 0) {
+            errors = this.props.errors.map((error, i)=><li key={i}>{error}</li>);
         }
         return (
             <div className="signup-container">
                 <div className="signup-form">
                     <section className="demo-user">
-                        <button onClick={demoUser}>Click Here To Demo<i className="fas fa-comment-dollar"></i></button>
+                        <button onClick={this.props.demoUser}>Click Here To Demo<i class="fas fa-comment-dollar"></i></button>
                     </section>
                     <form className="session-form" onSubmit={this.handleSubmit}>
                         <img className="logo" src={window.logo} />
