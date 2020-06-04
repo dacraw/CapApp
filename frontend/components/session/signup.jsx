@@ -102,7 +102,7 @@ class Signup extends React.Component {
             <div className="signup-container">
                 <div className="signup-form">
                     <section className="demo-user">
-                        <button onClick={this.props.demoUser}>Click Here To Demo<i class="fas fa-comment-dollar"></i></button>
+                        <button onClick={this.props.demoUser}>Click Here To Demo<i className="fas fa-comment-dollar"></i></button>
                     </section>
                     <form className="session-form" onSubmit={this.handleSubmit}>
                         <img className="logo" src={window.logo} />

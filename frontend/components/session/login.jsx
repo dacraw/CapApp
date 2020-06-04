@@ -69,7 +69,7 @@ class Login extends React.Component {
                 <img src={window.gradient} /> {/* gradient for login page */}
                 <div className="login-form">
                     <section className="demo-user">
-                        <button onClick={this.props.demoUser}>Click Here To Demo<i class="fas fa-comment-dollar"></i></button>
+                        <button onClick={this.props.demoUser}>Click Here To Demo<i className="fas fa-comment-dollar"></i></button>
                     </section>
                     <div className="login-form-holder">
                         <form className="session-form" onSubmit={this.handleSubmit}>

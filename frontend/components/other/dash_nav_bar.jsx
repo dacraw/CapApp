@@ -10,12 +10,16 @@ class DashNavBar extends React.Component{
         e.currentTarget.nextSibling.classList.toggle('show');
     }
     render(){
-        const { logout } = this.props;
+        const { currentUser, logout } = this.props;
+        if (!currentUser) return null;
         return (
             <div className="dashboard-nav-container">
                 <section className="content">
                     <img className="logo-notext" src={window.logoNoText} />
-                    <input className="search" type="search" name="stock-search" id=""/>
+                    <div className="search-wrapper">
+                        <input className="search" placeholder="Search" type="search" name="stock-search" id=""/>
+                        <i className="fas fa-search"></i>
+                    </div>
                     <ul className="links">
                         <li><Link>Free Stocks</Link></li>
                         <li><Link>Portfolio</Link></li>
@@ -25,7 +29,7 @@ class DashNavBar extends React.Component{
                             <ul className="account-options">
                                 <li>
                                     <div className="summary"> {/* TOP PART OF ACCOUNT DROPDOWN */}
-                                        <h3>{window.currentUser.username}</h3>
+                                        <h3>{currentUser.username}</h3>
                                         <div className="double-col">
                                             <div>
                                                 <h4>$12.16</h4>{/* REPLACE WITH PORTFOLIO VALUE */}
@@ -39,18 +43,18 @@ class DashNavBar extends React.Component{
                                     </div>
                                 </li>
                                 <hr />
-                                <li><Link><i class="fas fa-gift"></i>Free Stock</Link></li>
-                                <li><Link><i class="fas fa-suitcase"></i>Account</Link></li>
-                                <li><Link><i class="fas fa-university"></i>Banking</Link></li>
-                                <li><Link><i class="fas fa-history"></i>History</Link></li>
-                                <li><Link><i class="far fa-file-alt"></i>Documents</Link></li>
-                                <li><Link><i class="fas fa-cog"></i>Settings</Link></li>
+                                <li><Link><i className="fas fa-gift"></i>Free Stock</Link></li>
+                                <li><Link><i className="fas fa-suitcase"></i>Account</Link></li>
+                                <li><Link><i className="fas fa-university"></i>Banking</Link></li>
+                                <li><Link><i className="fas fa-history"></i>History</Link></li>
+                                <li><Link><i className="fas fa-file-alt"></i>Documents</Link></li>
+                                <li><Link><i className="fas fa-cog"></i>Settings</Link></li>
                                 <hr />
-                                <li><Link><i class="fas fa-question"></i>Help Center</Link></li>
-                                <li><Link><i class="fas fa-info-circle"></i>Get Support</Link></li>
-                                <li><Link><i class="fas fa-bars"></i>Disclosures</Link></li>
+                                <li><Link><i className="fas fa-question"></i>Help Center</Link></li>
+                                <li><Link><i className="fas fa-info-circle"></i>Get Support</Link></li>
+                                <li><Link><i className="fas fa-bars"></i>Disclosures</Link></li>
                                 <hr />
-                                <li><a onClick={logout}><i class="fas fa-sign-out-alt"></i>Logout</a></li>
+                                <li><a onClick={logout}><i className="fas fa-sign-out-alt"></i>Logout</a></li>
                             </ul>
                         </li>
                     </ul>

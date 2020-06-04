@@ -13,15 +13,36 @@
        
         .logo-notext {
             display: block;
-            width:150px;
+            height: 45px;
+            width:45px;
+            margin-right: 20px;
+            border:1px solid gray;
             
         }
-        .search {
-            box-shadow: 0px 0px 10px $lightgray;
+        .search-wrapper {
+            position: relative;
+            .search {
+                border: 1px solid $lighter-gray;
+                border-radius: 5px;
+                height: 30px;
+                width: 400px;
+                padding: 10px 40px;
+
+                &:hover {
+                    box-shadow: 0px 0px 10px $lightgray;
+                }
+            }
+            .fa-search {
+                position: absolute;
+                left:20px;
+                top:7px;
+                color: $gray;   
+            }
         }
         .links {
             display: flex;
             margin-left:auto;
+            font-weight: 700;
             li {
                 font-size: .85em;
                 
@@ -39,9 +60,9 @@
                     display: none; 
                     position: absolute; 
                     min-width: 200px; 
-                    
-                
                     right:0;
+                
+                    
                     .summary {
                         
                         padding: 10px;
@@ -69,6 +90,13 @@
                                 background-color: $lightblue;
                             }
                         }
+                    }
+                    .fas {
+                        display: inline-block;
+                        margin-right: 10px;
+                        width: 20px;
+                        text-align:center;
+                        
                     }     
                 }
                 .show {
