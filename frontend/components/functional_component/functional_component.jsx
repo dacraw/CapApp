@@ -57,7 +57,15 @@ class FunctionalComponent extends Component {
                     <section className="buying-power">
                             <span onClick={this.showBox}>$10,000 available for trading. </span>
                             <p className="info-box">
-                                Good luck!  
+                                <h3>Good luck!</h3>
+                                <div className="line">
+                                    <p>Vestibulum convallis ut nulla non tincidunt.  </p>
+                                    <p>Praesent congue sed neque in sagittis.  </p>
+                                </div>  
+                                <div className="line">
+                                    <p>Praesent in efficitur massa, at feugiat lectus.  </p>
+                                    <p>Proin imperdiet, felis nec tristique tempor </p>
+                                </div>  
                             </p>
                             <i className="fas fa-question-circle"></i>
                     </section>

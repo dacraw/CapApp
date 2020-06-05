@@ -1,7 +1,7 @@
 .functional-component-container { // containers for stocks, dashboard
     position: relative;
     top: 100px;// must match height of dashboardnav
-    background: red;
+   
     height: 100%;
     font-family: $serif;
     display: flex;
@@ -9,7 +9,7 @@
     max-width:1053px;
     margin: 0 auto;
     .main {
-        background: blue;
+       
         width: 710px;
       
     }
@@ -62,19 +62,41 @@
         }
     }
     .buying-power {
+        position: relative;
         color: $green;
         font-size: .9em;
         text-align: center;
         cursor: pointer;
         .info-box {
             display: none;
+            font-size: .85em;
+            box-sizing:border-box;
+            box-shadow: 0 0 20px $lightgray;
+            position: fixed;
+            bottom:10px;
+            right: 410px;
+            width: 400px;
+            height: 150px;
+            background-color: $white;
+            box-shadow: 0 0 20px $lightgray;
+            padding: 20px;
+            color: $black;
+            h3 {
+                margin-bottom: 20px;
+            }
+            .line {
+                display: flex;
+                justify-content: space-between;
+                
+                p {
+                    width: 50%;
+                    margin-bottom: 10px;
+                }
+            }
+
         }
         .show {
             display: block;
-            position: fixed;
-            background-color: blue;
-            box-shadow: 0 0 20px $lighter-gray;
-            padding: 10px;
         }
     }
 }
