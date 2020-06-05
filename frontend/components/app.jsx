@@ -5,7 +5,6 @@ import SignupContainer from './session/signup_container';
 import SplashNavBarContainer from './nav/splash_nav_bar_container';
 import {AuthRoute} from '../util/route_util';
 import {ProtRoute} from '../util/route_util';
-import Dashboard from './dashboard/main';
 import Splash from './splash/splash';
 import NavBarContainer from './nav_bar/nav_bar_container';
 import DashNavBarContainer from './nav_bar/dash_nav_bar_container';
@@ -23,7 +22,6 @@ const App = (props) => {
             <Switch>
                 <AuthRoute exact path="/signup" component={SignupContainer} />
                 <AuthRoute exact path="/login" component={LoginContainer} />
-                <ProtRoute exact path="/dashboard" component={Dashboard} /> {/* dash */}
                 <ProtRoute exact path="/stocks/:symbol" component={FunctionalComponent} /> {/* dash */}
                 <Route exact path="/" component={Splash} /> {/* splash*/}
             </Switch>
