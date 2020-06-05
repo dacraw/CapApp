@@ -13,17 +13,18 @@ class FunctionalComponent extends Component {
         return (
             <main className="functional-component-container">
                 <section className="main">
-                    <p>test</p>
+                    <p>MAIN</p>
                 </section>
-                <ul className="side-nav">
-                    <li className="buy-sell">
-                        <a>Buy TSLA</a>
-                        <a>Sell TSLA</a>
-                    </li>
+                <aside>
+                    <ul className="buy-sell">
+                        <li className="selected">Buy TSLA</li>
+                        <li>Sell TSLA</li>
+                    </ul>
                     <hr />
-                    <li>
+                    <section>
                         <form className="pst-form">
                             <section className="line">
+                                {/* <i class="fas fa-arrows-alt-v"></i> */}
                                 <label>Invest In</label>
                                 <select>
                                     <option selected>Shares</option>
@@ -36,20 +37,21 @@ class FunctionalComponent extends Component {
                             </section>
                             <section className="line">
                                 <label>Market Price</label>
-                                <data>$12.99</data>
+                                <data className="cost-credit">$12.99</data>
                             </section>
-                            <section className="line">
-                                <label>Market Price</label>
+                            <hr />
+                            <section className="line cost-credit">
+                                <label>Estimated cost</label>
                                 <data>$12.99</data>
                             </section>
                             <button>Review Order</button>
-                            <hr />
-                            <details className="buying-power">
-                                $10,000 buying power available.
-                            </details>
                         </form>
-                    </li>
-                </ul>
+                    </section>
+                    <hr />
+                    <section className="buying-power">
+                            $10,000 available for trading. <i class="far fa-question-circle"></i>
+                    </section>
+                </aside>
             </main>
         )
     }
