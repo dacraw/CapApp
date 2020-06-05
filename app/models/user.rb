@@ -1,5 +1,5 @@
 class User < ApplicationRecord
-    validates :username, presence: { message: 'Please enter your email'}, email: {message: "Please enter a valid email."}
+    validates :username, presence: { message: 'Please enter your email'}, email: {message: "Please enter a valid email."}, uniqueness: true
     validates :session_token, presence: true, uniqueness: true
     validates :fname, presence: { message: "Please enter your first name."}
     validates :lname, presence: { message: "Please enter your last name."}
