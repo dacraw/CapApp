@@ -10,7 +10,7 @@ const mapDispatchToProps = dispatch => {
     return ({
         submit: formUser => dispatch(signup(formUser)),
         clearErrors: () => dispatch({type: CLEAR_SESSION_ERRORS}),
-        demoUser: () => dispatch(login({username:'demo@demo.demo',password:'password'}))
+        demoUser: () => dispatch(login({username:'demo@demo.demo',password:'password'})),
     })
 }
 

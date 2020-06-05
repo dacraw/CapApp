@@ -1,0 +1,123 @@
+.dashboard-nav-container {
+    position: fixed;
+//     border: 5px solid red;
+
+    height: 55px;
+    width: 100%;
+    margin: 0 auto;
+    box-sizing: border-box;
+    font-family: $serif;
+    
+    .content {
+        display: flex;
+//         border: 5px solid blue;
+        width: 95%;
+        margin: 0 auto;
+        height: 100%;
+        align-items: center;
+        padding: 30px;
+       
+        .logo-notext {
+            display: block;
+            height: 45px;
+            width:40px;
+            margin-right: 20px;
+           
+            
+        }
+        .search-wrapper {
+            position: relative;
+            .search {
+                border: 1px solid $lighter-gray;
+                border-radius: 5px;
+                height: 100%;
+                width: 400px;
+                padding: 10px 40px;
+
+                &:hover {
+                    box-shadow: 0px 0px 30px $lighter-gray;
+                }
+            }
+            .fa-search {
+                position: absolute;
+                left:20px;
+                top:10px;
+                color: $gray;   
+            }
+        }
+        .links {
+            display: flex;
+            margin-left:auto;
+            font-weight: 700;
+            li {
+                font-size: .75em;
+                margin-left: 40px;
+                a {
+                    color: $black;
+                    text-decoration: none;
+                }
+            }
+            .account-dropdown {
+                position: relative;
+               
+                .account-options {
+                    font-size: 1.15em;
+                    display: none; 
+                    position: absolute; 
+                    min-width: 250px; 
+                    max-height: 85vh;
+                    overflow: auto;
+                    right:0;
+                    top: 30px;
+                    box-shadow: 0 0 30px $lightgray;
+                    border-radius: 3px;
+                    
+                    .summary {
+                        // this padding must match 'a' below
+                        padding: 20px;
+
+                        h3 {
+                            text-transform: uppercase;
+                            margin-bottom: 10px;
+                            font-weight:600;
+                        }
+                        h4, h5 {
+                            line-height: 1.5em;
+                        }
+                        h4 {
+                            font-weight: 600;
+                        }
+                    }
+                    li {
+                        margin: 0;
+                        vertical-align: middle;
+                        a {
+                            display: inline-block;
+                            width: 100%;
+                            line-height: 1.45em;
+                            // match padding with .summary
+                            padding: 20px;
+                            &:hover {
+                                background-color: $lightblue;
+                            }
+                        }
+                    }
+                    .fas {
+                        display: inline-block;
+                        margin-right: 10px;
+                        font-size: 1.45em;
+                        
+                        width: 20px;
+                        text-align:center;
+                        
+                    }     
+                }
+                .show {
+                    display: block;
+                }
+                
+            }
+        }
+    }
+
+}
