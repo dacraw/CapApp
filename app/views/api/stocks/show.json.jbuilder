@@ -1,0 +1,1 @@
+json.extract! @stock, :symbol, :id

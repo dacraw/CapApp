@@ -56,7 +56,7 @@ class FunctionalComponent extends Component {
                     <hr />
                     <section className="buying-power">
                             <a onClick={this.showBox}>$10,000 available for trading. </a>
-                            <p className="info-box" id="sidebar-info-dropdown">
+                            <div className="info-box" id="sidebar-info-dropdown">
                                 <h3>Good luck!</h3>
                                 <div className="line">
                                     <p>Vestibulum convallis ut nulla non tincidunt.  </p>
@@ -66,7 +66,7 @@ class FunctionalComponent extends Component {
                                     <p>Praesent in efficitur massa, at feugiat lectus.  </p>
                                     <p>Proin imperdiet, felis nec tristique tempor </p>
                                 </div>  
-                            </p>
+                            </div>
                             <i className="fas fa-question-circle"></i>
                     </section>
                 </aside>
