@@ -11,7 +11,7 @@ class FunctionalComponent extends Component {
 
     showBox(e){
         e.preventDefault();
-        debugger
+        // debugger
         e.currentTarget.nextSibling.classList.toggle('show');
     }
     
@@ -55,7 +55,7 @@ class FunctionalComponent extends Component {
                     </section>
                     <hr />
                     <section className="buying-power">
-                            <span onClick={this.showBox}>$10,000 available for trading. </span>
+                            <a onClick={this.showBox}>$10,000 available for trading. </a>
                             <p className="info-box">
                                 <h3>Good luck!</h3>
                                 <div className="line">
