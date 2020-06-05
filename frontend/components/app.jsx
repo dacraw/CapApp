@@ -6,8 +6,7 @@ import SplashNavBarContainer from './nav/splash_nav_bar_container';
 import {AuthRoute} from '../util/route_util';
 import {ProtRoute} from '../util/route_util';
 import Splash from './splash/splash';
-import NavBarContainer from './nav_bar/nav_bar_container';
-import DashNavBarContainer from './nav_bar/dash_nav_bar_container';
+import DashNavBarContainer from './nav/dash_nav_bar_container';
 import FunctionalComponent from './functional_component/functional_component_container';
 
 const App = (props) => {
