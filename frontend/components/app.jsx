@@ -10,11 +10,12 @@ import Dashboard from './dashboard/dash_main';
 import Splash from './other/splash';
 
 const App = (props) => {
+    debugger
     return (
         <>
             <header>
-                <Route exact path={"/"} component={NavBarContainer} />
-                <Route exact path={"/dashboard"} component={DashNavBarContainer} />
+                <Route exact path="/" component={NavBarContainer} />
+                <Route exact path="/dashboard" component={DashNavBarContainer} />
             </header>
             <Switch>
                 <AuthRoute exact path="/signup" component={SignupContainer} />

@@ -15,9 +15,11 @@ class DashNavBar extends React.Component{
     }
 
     render(){
+        debugger
+        
+        const { currentUser, logout, cashAvailable } = this.props;
         if (!currentUser) return null
         if (!cashAvailable) return null
-        const { currentUser, logout, cashAvailable } = this.props;
         return (
             <div className="dashboard-nav-container">
                 <section className="content">
