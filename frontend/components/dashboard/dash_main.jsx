@@ -14,8 +14,8 @@ class DashMain extends React.Component {
 
         return (
             <>
-                <main className="dashboard-main-container">
-                <h1>placeholder</h1>
+                <main className="functional-container">
+                    <h1>placeholder</h1>
                 </main>
             </>
         )

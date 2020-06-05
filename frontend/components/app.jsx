@@ -8,6 +8,7 @@ import {AuthRoute} from '../util/route_util';
 import {ProtRoute} from '../util/route_util';
 import Dashboard from './dashboard/dash_main';
 import Splash from './splash/splash';
+import StockShow from './stocks/stock_show';
 
 const App = (props) => {
     debugger
@@ -15,12 +16,13 @@ const App = (props) => {
         <>
             <header>
                 <Route exact path="/" component={NavBarContainer} />
-                <Route exact path="/dashboard" component={DashNavBarContainer} />
+                <Route exact path={["/dashboard","/stocks","/stocks/:id"]} component={DashNavBarContainer} />
             </header>
             <Switch>
                 <AuthRoute exact path="/signup" component={SignupContainer} />
                 <AuthRoute exact path="/login" component={LoginContainer} />
                 <ProtRoute exact path="/dashboard" component={Dashboard} /> {/* dash */}
+                <ProtRoute exact path="/stocks/:id" component={StockShow} /> {/* dash */}
                 <Route exact path="/" component={Splash} /> {/* splash*/}
             </Switch>
         </>
