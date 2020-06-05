@@ -9,6 +9,7 @@ class StockShowSidebar extends Component {
     }
 
     componentDidMount() {
+        debugger
         this.props.fetchStock(this.props.match.params.symbol)
     }
 

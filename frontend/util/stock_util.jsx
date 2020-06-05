@@ -1,5 +1,5 @@
 export const fetchStock = stockSymbol => (
     $.ajax({
-        url: `/stocks/${stockSymbol}`
+        url: `api/stocks/${stockSymbol}`
     })
 )

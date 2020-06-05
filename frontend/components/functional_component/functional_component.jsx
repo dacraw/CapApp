@@ -18,7 +18,7 @@ class FunctionalComponent extends Component {
                     <p>MAIN</p>
                 </section>
                 <aside>
-                    <Route path='/stocks/:id' component={StockShowSidebarContainer} />
+                    <Route path='/stocks/:symbol' component={StockShowSidebarContainer} />
                 </aside>
             </main>
         )
