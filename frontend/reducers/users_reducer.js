@@ -21,7 +21,7 @@ export default (state = {}, action) => {
                 state,
                 {
                     [action.portfolio.user_id]: {
-                        cashAvailable: action.portfolio.cash_available,
+                        cashAvailable: action.portfolio.cashAvailable,
                     }
                 }
             )
