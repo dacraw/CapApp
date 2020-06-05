@@ -11,7 +11,7 @@ class DashNavBar extends React.Component{
     }
 
     componentDidMount(){
-        this.props.fetchPortfolio(state.session.id)
+        this.props.fetchPortfolio(this.props.currentUser.id)
     }
 
     render(){

@@ -14,10 +14,13 @@ const receivePortfolioErrors = errors => ({
     errors,
 })
 
-export const fetchPortfolio = userId => dispatch => (
-    PortfolioUtil.fetchPortfolio(userId)
+export const fetchPortfolio = userId => dispatch => {
+//     debugger
+    return (
+        PortfolioUtil.fetchPortfolio(userId)
         .then( 
             portfolio => dispatch(receivePortfolio(portfolio)),
             errs => dispatch(receivePortfolioErrors(errs.responseJSON))
         )
-)
+    )
+}

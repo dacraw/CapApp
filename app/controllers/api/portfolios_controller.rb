@@ -1,6 +1,6 @@
 class Api::PortfoliosController < ApplicationController
     def index
-        @portfolio = Portfolio.find(params[:user_id])
+        @portfolio = Portfolio.find_by(user_id: params[:user_id])
         if @portfolio
             render :index
         else

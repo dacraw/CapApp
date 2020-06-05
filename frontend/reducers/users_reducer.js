@@ -2,6 +2,7 @@ import {
     RECEIVE_CURRENT_USER,
 } from '../actions/session_actions';
 import { RECEIVE_PORTFOLIO } from '../actions/portfolio_actions';
+import {merge} from 'lodash'
 
 export default (state = {}, action) => {
     Object.freeze(state);
@@ -15,7 +16,7 @@ export default (state = {}, action) => {
                     username: action.user.username,
                 }})
         case RECEIVE_PORTFOLIO:
-            return Object.assign(
+            return _.merge(
                 {},
                 state,
                 {
