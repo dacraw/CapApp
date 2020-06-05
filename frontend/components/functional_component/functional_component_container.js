@@ -5,9 +5,9 @@ import {fetchPortfolio} from '../../util/portfolio_util'
 const mapStateToProps = (state) => {
     return ({
         currentUser: state.session.id,
-
     })
 }
+
 const mapDispatchToProps = dispatch => {
     return ({
 
