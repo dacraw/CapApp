@@ -8,6 +8,12 @@ class FunctionalComponent extends Component {
             
         }
     }
+
+    showBox(e){
+        e.preventDefault();
+        debugger
+        e.currentTarget.nextSibling.classList.toggle('show');
+    }
     
     render() {
         return (
@@ -26,8 +32,8 @@ class FunctionalComponent extends Component {
                             <section className="line">
                                 {/* <i class="fas fa-arrows-alt-v"></i> */}
                                 <label>Invest In</label>
-                                <select>
-                                    <option selected>Shares</option>
+                                <select defaultValue="Shares">
+                                    <option>Shares</option>
                                     <option>Dollars</option>
                                 </select>
                             </section>
@@ -49,7 +55,11 @@ class FunctionalComponent extends Component {
                     </section>
                     <hr />
                     <section className="buying-power">
-                            $10,000 available for trading. <i class="far fa-question-circle"></i>
+                            <span onClick={this.showBox}>$10,000 available for trading. </span>
+                            <p className="info-box">
+                                Good luck!  
+                            </p>
+                            <i className="fas fa-question-circle"></i>
                     </section>
                 </aside>
             </main>

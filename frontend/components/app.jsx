@@ -11,7 +11,7 @@ import Splash from './splash/splash';
 import FunctionalComponent from './functional_component/functional_component_container';
 
 const App = (props) => {
-    debugger
+    
     return (
         <>
             <header>

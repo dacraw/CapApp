@@ -15,7 +15,7 @@ class DashNavBar extends React.Component{
     }
 
     render(){
-        debugger
+        
         
         const { currentUser, logout, cashAvailable } = this.props;
         if (!currentUser) return null
