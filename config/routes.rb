@@ -4,7 +4,7 @@ Rails.application.routes.draw do
     resources :users, only: [:create] do
       resources :portfolios, only: [:index]
     end
-    resources :stocks, param: :symbol, only: [:show]
+    resources :stocks, param: :symbol, only: [:show, :index]
     resource :session, only: [:create, :destroy]
     resources :portfolios, only: [:create]
   end

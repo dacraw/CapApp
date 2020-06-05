@@ -8,9 +8,17 @@ class StockShowSidebar extends Component {
         }
     }
 
+    componentDidUpdate() {
+        
+    }
+    
     componentDidMount() {
-        debugger
-        this.props.fetchStock(this.props.match.params.symbol)
+        this.props.fetchStocks()
+        // debugger
+    }
+
+    componentDidUpdate() {
+        // this.props.fetchStock(this.props.match.params.symbol)
     }
 
     showBox(e){
@@ -20,13 +28,14 @@ class StockShowSidebar extends Component {
     }
     
     render() {
+        const { cashAvailable, stock } = this.props;
         // debugger
-        const { cashAvailable } = this.props;
+        if (!stock) return null;
         return (
             <>
                 <ul className="buy-sell">
-                    <li className="selected">Buy TSLA</li>
-                    <li>Sell TSLA</li>
+                    <li className="selected">Buy {stock.symbol}</li>
+                    <li>Sell {stock.symbol}</li>
                 </ul>
                 <hr />
                 <section>

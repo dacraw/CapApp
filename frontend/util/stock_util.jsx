@@ -3,3 +3,9 @@ export const fetchStock = stockSymbol => (
         url: `api/stocks/${stockSymbol}`
     })
 )
+
+export const fetchStocks = () => (
+    $.ajax({
+        url: 'api/stocks',
+    })
+)

@@ -1,4 +1,4 @@
-import {RECEIVE_STOCK} from '../actions/stock_actions'
+import {RECEIVE_STOCK, RECEIVE_STOCKS} from '../actions/stock_actions'
 import {merge} from 'lodash'
 
 export default (state = {}, action) => {
@@ -10,6 +10,8 @@ export default (state = {}, action) => {
                 state,
                 action.stock
             ) 
+        case RECEIVE_STOCKS:
+            return action.stocks
         default:
             return state;
     }
