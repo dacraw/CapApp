@@ -6,7 +6,7 @@ class DashNavBar extends React.Component{
         super(props)
     }
     toggleAccountDropdown(e){
-        e.preventDefault();
+        e.stopPropagation();
         e.currentTarget.nextSibling.classList.toggle('show');
     }
 
@@ -15,7 +15,6 @@ class DashNavBar extends React.Component{
     }
 
     render(){
-        
         
         const { currentUser, logout, cashAvailable } = this.props;
         if (!currentUser) return null
@@ -34,7 +33,7 @@ class DashNavBar extends React.Component{
                         <li><Link>Cash</Link></li>
                         <li><Link>Messages</Link></li>
                         <li className="account-dropdown"><Link onClick={this.toggleAccountDropdown}>Account</Link>
-                            <ul className="account-options">
+                            <ul className="account-options" id="dash-nav-account-options">
                                 <li>
                                     <div className="summary"> {/* TOP PART OF ACCOUNT DROPDOWN */}
                                         <h3>{currentUser.username}</h3>

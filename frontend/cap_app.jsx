@@ -5,6 +5,14 @@ import Root from './components/root';
 // import * as actions from './actions/session_actions';
 
 document.addEventListener('DOMContentLoaded', () => {
+        // hide dropdowns if user clicks on window
+        window.onclick = function(e){
+            document.getElementById('sidebar-info-dropdown').classList.remove('show');
+            document.getElementById('dash-nav-account-options').classList.remove('show');
+        }
+
+
+
     let store;
     if (window.currentUser){
         
