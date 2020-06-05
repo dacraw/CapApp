@@ -1,7 +1,7 @@
 .functional-component-container { // containers for stocks, dashboard
     position: relative;
     top: 100px;// must match height of dashboardnav
-   
+    
     height: 100%;
     font-family: $serif;
     display: flex;
@@ -16,9 +16,10 @@
     aside {
         position: fixed;
         box-sizing: border-box;
-        
+        background-color: $white;
         left: 875px;
         width:275px;
+        z-index: -1;
         box-shadow: 0 0 20px $lightgray;
       
 
