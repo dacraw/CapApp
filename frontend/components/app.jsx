@@ -6,9 +6,9 @@ import NavBarContainer from './nav_bar/nav_bar_container';
 import DashNavBarContainer from './nav_bar/dash_nav_bar_container';
 import {AuthRoute} from '../util/route_util';
 import {ProtRoute} from '../util/route_util';
-import Dashboard from './dashboard/dash_main';
+import Dashboard from './functional_component/functional_component';
 import Splash from './splash/splash';
-import StockShow from './stocks/stock_show';
+import FunctionalComponent from './functional_component/functional_component_container';
 
 const App = (props) => {
     debugger
@@ -16,13 +16,13 @@ const App = (props) => {
         <>
             <header>
                 <Route exact path="/" component={NavBarContainer} />
-                <Route exact path={["/dashboard","/stocks","/stocks/:id"]} component={DashNavBarContainer} />
+                <Route exact path={["/dashboard","/stocks","/stocks/:symbol"]} component={DashNavBarContainer} />
             </header>
             <Switch>
                 <AuthRoute exact path="/signup" component={SignupContainer} />
                 <AuthRoute exact path="/login" component={LoginContainer} />
                 <ProtRoute exact path="/dashboard" component={Dashboard} /> {/* dash */}
-                <ProtRoute exact path="/stocks/:id" component={StockShow} /> {/* dash */}
+                <ProtRoute exact path="/stocks/:symbol" component={FunctionalComponent} /> {/* dash */}
                 <Route exact path="/" component={Splash} /> {/* splash*/}
             </Switch>
         </>

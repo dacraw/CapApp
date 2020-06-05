@@ -1,5 +1,5 @@
 import {connect} from 'react-redux'
-import DashMain from './dash_main'
+import FunctionalComponent from './functional_component'
 import {fetchPortfolio} from '../../util/portfolio_util'
 
 const mapStateToProps = (state) => {
@@ -14,4 +14,4 @@ const mapDispatchToProps = dispatch => {
     })
 }
 
-export default connect(mapStateToProps, mapDispatchToProps)(DashMain);
+export default connect(mapStateToProps, mapDispatchToProps)(FunctionalComponent);
