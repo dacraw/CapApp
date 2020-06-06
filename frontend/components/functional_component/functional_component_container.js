@@ -1,7 +1,6 @@
 import {connect} from 'react-redux'
 import FunctionalComponent from './functional_component'
-import {fetchStocks, RECEIVE_STOCKS} from '../../actions/stock_actions'
-
+import {fetchStocks} from '../../actions/stock_actions'
 
 
 const mapStateToProps = (state) => {
@@ -12,10 +11,7 @@ const mapStateToProps = (state) => {
 
 const mapDispatchToProps = dispatch => {
     return ({
-        fetchStocks: () => dispatch({type: RECEIVE_STOCKS}),
-
-        // hard coding sample stocks while developing
-        // fetchStocks: () => dispatch(fetchStocks()),
+        fetchStocks: () => dispatch(fetchStocks()),
     })
 }
 
