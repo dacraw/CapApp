@@ -5,7 +5,7 @@ require 'json'
 # populate the initial state with stock data
 all_stock_symbols = Stock.pluck(:symbol).join(",")
 # this uri uses the sandbox & test key
-uri = URI.parse("https://sandbox.iexapis.com/stable/stock/market/batch?types=price,recommendation-trends&symbols=#{all_stock_symbols}&range=5y&token=#{ENV['TEST_IEX_KEY']}")
+uri = URI.parse("https://sandbox.iexapis.com/stable/stock/market/batch?types=price,previous&symbols=#{all_stock_symbols}&range=5y&token=#{ENV['TEST_IEX_KEY']}")
 response = Net::HTTP.get_response(uri)
 JSON.parse(response.body)
 
