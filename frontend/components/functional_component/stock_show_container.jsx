@@ -1,5 +1,5 @@
 import {connect} from 'react-redux';
-import StockShowSidebar from './stock_show_sidebar';
+import StockShow from './stock_show';
 import {fetchStocks} from '../../actions/stock_actions'
 
 const mapStateToProps = ( {entities: { users, stocks}, session }, ownProps ) => {
@@ -13,4 +13,4 @@ const mapDispatchToProps = dispatch => ({
     fetchStocks: () => dispatch(fetchStocks()),
 })
 
-export default connect(mapStateToProps, mapDispatchToProps)(StockShowSidebar)
+export default connect(mapStateToProps, mapDispatchToProps)(StockShow)
