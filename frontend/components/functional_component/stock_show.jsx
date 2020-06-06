@@ -17,7 +17,9 @@ class StockShow extends Component {
         if (!stock) return null
         return (
             <>
-                
+                <p>
+                    
+                </p>
             </>
         )
     }
