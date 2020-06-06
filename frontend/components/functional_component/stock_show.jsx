@@ -20,9 +20,16 @@ class StockShow extends Component {
             <>
                 <p>
                     {this.props.match.params.symbol}
-                    {this.props.stock.currentPrice}
-                    {this.props.stock.dayChange}
+                    {stock.currentPrice}
+                    {stock.dayChange}
+
                 </p>
+                <ul>
+                    {/* {stock.chart.map(point => {
+                        <li>${point['close']}</li>
+                        })
+                    } */}
+                </ul>
             </>
         )
     }

@@ -1,8 +1,9 @@
 import {RECEIVE_STOCK, RECEIVE_STOCKS} from '../actions/stock_actions'
 import {merge} from 'lodash'
+import sampleStocks from './sample_stock_index'
 
 export default (state = {}, action) => {
-    debugger
+    // debugger
     Object.freeze(state);
     switch (action.type) {
         case RECEIVE_STOCK:
@@ -12,7 +13,10 @@ export default (state = {}, action) => {
                 action.stock
             ) 
         case RECEIVE_STOCKS:
-            return action.stocks
+
+            // use sample stocks while developing
+            return sampleStocks;
+            // return action.stocks
         default:
             return state;
     }
