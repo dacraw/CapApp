@@ -9,7 +9,8 @@ class StockShow extends Component {
     }
 
     componentDidMount() {
-       this.props.fetchStock(this.props.params.match.symbol)
+        debugger
+       this.props.fetchStock(this.props.match.params.symbol)
     }
     
     render() {

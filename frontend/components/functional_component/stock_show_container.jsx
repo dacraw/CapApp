@@ -1,6 +1,6 @@
 import {connect} from 'react-redux';
 import StockShow from './stock_show';
-import {fetchStocks} from '../../actions/stock_actions'
+import {fetchStock} from '../../actions/stock_actions'
 
 const mapStateToProps = ( {entities: { users, stocks}, session }, ownProps ) => {
     return ({
