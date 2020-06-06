@@ -10,4 +10,6 @@ response = Net::HTTP.get_response(uri)
 
 json.set! @stock.symbol do
     chart = JSON.parse(response.body)[@stock.symbol.upcase]['chart'] # pulls current price
+    json.chart chart
+    # debugger
 end

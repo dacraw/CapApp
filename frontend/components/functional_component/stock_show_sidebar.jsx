@@ -13,7 +13,7 @@ class StockShowSidebar extends Component {
     }
     
     componentDidMount() {
-        this.props.fetchStocks()
+        // this.props.fetchStocks()
         // debugger
     }
 

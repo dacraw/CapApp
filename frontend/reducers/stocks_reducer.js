@@ -2,6 +2,7 @@ import {RECEIVE_STOCK, RECEIVE_STOCKS} from '../actions/stock_actions'
 import {merge} from 'lodash'
 
 export default (state = {}, action) => {
+    debugger
     Object.freeze(state);
     switch (action.type) {
         case RECEIVE_STOCK:

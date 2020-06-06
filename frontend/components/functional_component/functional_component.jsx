@@ -6,10 +6,9 @@ import StockShowContainer from './stock_show_container'
 class FunctionalComponent extends Component {
     constructor(props) {
         super(props);
-        this.state = {
-            
-        }
+        this.state = this.props.fetchStocks();
     }
+
     
     render() {
         
