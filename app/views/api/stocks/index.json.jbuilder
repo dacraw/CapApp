@@ -20,8 +20,11 @@ JSON.parse(response.body)
         # uri = URI.parse("https://www.alphavantage.co/query?function=GLOBAL_QUOTE&symbol=#{stock.symbol.upcase}&apikey=7YVL16BDCKAB0BEU")
         #uri = URI.parse("https://sandbox.iexapis.com/stable/stock/GOOG/quote?token=Tpk_6b9b93666ee34896b554a35f81ecbd3a")
 
-        current_price = JSON.parse(response.body)[stock.symbol]["price"]
+        current_price = JSON.parse(response.body)[stock.symbol]["price"] # pulls current price
+        previous_day_close_price = JSON.parse(response.body)[stock.symbol]["previous"]['close'] # pulls current price
+        previous_day_percentage_change = ((current_price/previous_day_close_price) -1 ) * 100 # pulls current price
         json.currentPrice current_price
+        json.dayChange number_to_percentage(previous_day_percentage_change)
     end
 end
 

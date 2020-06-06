@@ -10,7 +10,7 @@ const mapStateToProps = ( {entities: { users, stocks}, session }, ownProps ) => 
 }
 
 const mapDispatchToProps = dispatch => ({
-    fetchStocks: () => dispatch(fetchStocks()),
+    fetchStock: symbol => dispatch(fetchStock(symbol)),
 })
 
 export default connect(mapStateToProps, mapDispatchToProps)(StockShow)

@@ -9,7 +9,7 @@ class StockShow extends Component {
     }
 
     componentDidMount() {
-        this.props.fetchStocks()
+       this.props.fetchStock(this.props.params.match.symbol)
     }
     
     render() {
@@ -20,6 +20,7 @@ class StockShow extends Component {
                 <p>
                     {this.props.match.params.symbol}
                     {this.props.stock.currentPrice}
+                    {this.props.stock.dayChange}
                 </p>
             </>
         )
