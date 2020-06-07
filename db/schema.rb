@@ -10,33 +10,16 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_06_07_183926) do
+ActiveRecord::Schema.define(version: 2020_06_07_211635) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
-
-  create_table "portfolios", force: :cascade do |t|
-    t.integer "user_id", null: false
-    t.float "cash_available", null: false
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-    t.index ["user_id"], name: "index_portfolios_on_user_id", unique: true
-  end
 
   create_table "stocks", force: :cascade do |t|
     t.string "symbol", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["symbol"], name: "index_stocks_on_symbol", unique: true
-  end
-
-  create_table "user_stocks", force: :cascade do |t|
-    t.integer "portfolio_id", null: false
-    t.integer "stock_id", null: false
-    t.float "num_shares", null: false
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-    t.index ["portfolio_id", "stock_id"], name: "index_user_stocks_on_portfolio_id_and_stock_id", unique: true
   end
 
   create_table "users", force: :cascade do |t|
