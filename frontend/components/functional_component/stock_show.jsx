@@ -1,6 +1,7 @@
 import React, {Component} from 'react'
 import GraphComponent from './graph_component'
 import AboutComponent from './about_component'
+import NewsComponent from './news_component'
 
 class StockShow extends Component {
     constructor(props) {
@@ -26,9 +27,10 @@ class StockShow extends Component {
     
     render() {
         const { stock } = this.props;
-        debugger
+        
         if (!stock) return null
         if (!stock.chart) return null;
+        
         return (
             <main className="stock-show-container">
                 <p>
@@ -36,6 +38,7 @@ class StockShow extends Component {
                 </p>
                 <GraphComponent chart={stock.chart} />
                 <AboutComponent about={stock.about} />
+                <NewsComponent news={stock.news} />
 
             </main>
 

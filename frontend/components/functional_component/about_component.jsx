@@ -1,6 +1,7 @@
 import React from 'react'
 
 export default ({ about }) => {
+    if (!about) return null;
     return (    
         <section className="about">
             <h1>About</h1>
