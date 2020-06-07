@@ -1,5 +1,6 @@
 import React, {Component} from 'react'
 import GraphComponent from './graph_component'
+import AboutComponent from './graph_component'
 
 class StockShow extends Component {
     constructor(props) {
@@ -34,6 +35,7 @@ class StockShow extends Component {
                     {this.props.match.params.symbol}
                 </p>
                 <GraphComponent chart={stock.chart} />
+                <AboutComponent about={stock.about} />
 
             </main>
 
