@@ -10,11 +10,19 @@ class StockShow extends Component {
 
     componentDidMount() {
         // debugger
-    //    this.props.fetchStock(this.props.match.params.symbol)
+       this.props.fetchStock(this.props.match.params.symbol)
+    }
+
+    shouldComponentUpdate(nextProps, nextState){
+        debugger
+        if (this.props.stock){
+            return this.props.match.params.symbol !== this.props.stock.symbol
+        }
     }
     
     render() {
         const { stock } = this.props;
+        debugger
         if (!stock) return null
         return (
             <>
@@ -25,10 +33,7 @@ class StockShow extends Component {
 
                 </p>
                 <ul>
-                    {/* {stock.chart.map(point => {
-                        <li>${point['close']}</li>
-                        })
-                    } */}
+                    
                 </ul>
             </>
         )
