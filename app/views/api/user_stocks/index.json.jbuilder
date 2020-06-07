@@ -1,5 +1,6 @@
 json.set! @user.id do
-    @user.owned_stocks.each do |stock|
-        json.extract! stock.symbol
+    symbols = @user.owned_stocks.map do |stock|
+        stock.symbol
     end
+    json.ownedStocks symbols
 end
