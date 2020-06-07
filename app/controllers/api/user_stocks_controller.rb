@@ -1,4 +1,12 @@
 class Api::UserStocksController < ApplicationController
+    def index
+        @user = User.find(current_user.id)
+        if @user
+            render :index
+        else
+            render json: @user_stocks.errors.full_messages
+        end
+    end
   
     def create
         @user_stock = UserStock.new(user_stocks_params)

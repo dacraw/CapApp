@@ -20,6 +20,11 @@ const receiveStockErrors = errors => ({
     errors,
 })
 
+const receiveUserStocks = userStocks => ({
+    type: RECEIVE_USER_STOCKS,
+    userStocks
+})
+
 export const fetchStock = stockSymbol => dispatch => (
     StockUtil.fetchStock(stockSymbol)
         .then(
@@ -39,6 +44,7 @@ export const fetchStocks = () => dispatch => (
 export const fetchUserStocks = () => dispatch => (
     StockUtil.fetchUserStocks()
         .then(
-            stocks => dispatch(receiveUserStocks(stocks))
+            stocks => dispatch(receiveUserStocks(stocks)),
+            errs => dispatch(receiveStockErrors(errs))
         )
 )

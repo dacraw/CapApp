@@ -11,10 +11,7 @@ export default (state = {}, action) => {
             return Object.assign(
                 {}, 
                 state, 
-                { [action.user.id]: {
-                    id: action.user.id,
-                    username: action.user.username,
-                }})
+                { [action.user.id]: action.user})
         case RECEIVE_PORTFOLIO:
             return _.merge(
                 {},
@@ -22,6 +19,16 @@ export default (state = {}, action) => {
                 {
                     [action.portfolio.user_id]: {
                         cashAvailable: action.portfolio.cashAvailable,
+                    }
+                }
+            )
+        case RECEIVE_USER_STOCKS:
+            return _.merge(
+                {},
+                state,
+                {
+                    [action.portfolio.user_id]: {
+                        ownedStocks: action.portfolio.cashAvailable,
                     }
                 }
             )
