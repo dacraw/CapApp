@@ -1,9 +1,5 @@
 class Api::UserStocksController < ApplicationController
-    def index
-        @user_stocks = User.find(current_user.id).portfolio.user_stocks
-        render :index
-    end
-    
+  
     def create
         @user_stock = UserStock.new(user_stocks_params)
         @user_stock.portfolio_id = User.find(current_user.id).portfolio.id

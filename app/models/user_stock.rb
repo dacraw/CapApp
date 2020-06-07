@@ -6,4 +6,6 @@ class UserStock < ApplicationRecord
 
     belongs_to :portfolio
     belongs_to :stock
+    has_one :user,
+        through: :portfolio
 end
