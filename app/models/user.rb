@@ -8,11 +8,13 @@ class User < ApplicationRecord
     after_initialize :ensure_session_token
     attr_reader :password
 
-    has_one :portfolio
-    has_many :owned_stocks,
-        through: :portfolio,
-        source: :stocks
+    has_many :portfolio_items,
+        foreign_key: :user_id,
+        class_name: :Portfolio
 
+    has_many :stocks,
+        through: :portfolio_items,
+        source: :stocks
 
 
     def self.find_by_credentials(username, password)
