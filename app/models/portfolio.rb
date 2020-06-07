@@ -3,4 +3,5 @@ class Portfolio < ApplicationRecord
     validates :cash_available, presence: true
 
     belongs_to :user
+    has_many :user_stocks
 end
