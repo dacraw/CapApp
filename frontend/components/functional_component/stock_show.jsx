@@ -1,4 +1,5 @@
 import React, {Component} from 'react'
+import GraphComponent from './graph_component'
 
 class StockShow extends Component {
     constructor(props) {
@@ -13,10 +14,12 @@ class StockShow extends Component {
        this.props.fetchStock(this.props.match.params.symbol)
     }
 
-    shouldComponentUpdate(nextProps, nextState){
-        debugger
-        if (this.props.stock){
-            return this.props.match.params.symbol !== this.props.stock.symbol
+    componentDidUpdate(prevProps, prevState){
+        // debugger
+        // check if the hash has changed; if so, fetch single stock info UNLESS already in the state
+        // currently only fetching 1d graph
+        if (this.props.match.params.symbol !== prevProps.match.params.symbol && !this.props.stocks[this.props.match.params.symbol.toUpperCase()].chart ){
+            this.props.fetchStock(this.props.match.params.symbol)
         }
     }
     
@@ -24,18 +27,16 @@ class StockShow extends Component {
         const { stock } = this.props;
         debugger
         if (!stock) return null
+        if (!stock.chart) return null;
         return (
-            <>
+            <main className="stock-show-container">
                 <p>
                     {this.props.match.params.symbol}
-                    {stock.currentPrice}
-                    {stock.dayChange}
-
                 </p>
-                <ul>
-                    
-                </ul>
-            </>
+                <GraphComponent chart={stock.chart} />
+
+            </main>
+
         )
     }
 }
