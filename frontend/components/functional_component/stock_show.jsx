@@ -33,9 +33,15 @@ class StockShow extends Component {
         
         return (
             <main className="stock-show-container">
-                <p>
+                <h1 className="company-name">
                     {stock.about.companyName}
-                </p>
+                </h1>
+                <h1 className="current-price">
+                    {stock.chart[stock.chart.length-1].close}
+                </h1>
+                <h1 className="percentage-change">
+                    {stock.dayChange}
+                </h1>
                 <GraphComponent chart={stock.chart} />
                 <AboutComponent about={stock.about} />
                 <NewsComponent news={stock.news} />

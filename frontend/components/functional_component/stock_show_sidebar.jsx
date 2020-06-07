@@ -30,7 +30,8 @@ class StockShowSidebar extends Component {
     render() {
         const { cashAvailable, stock } = this.props;
         // debugger
-        if (!stock) return null;
+        // this requires stock.chart for pricing, so return null if it isnt established yet
+        if (!stock || !stock.chart) return null;
         return (
             <>
                 <ul className="buy-sell">
@@ -54,12 +55,12 @@ class StockShowSidebar extends Component {
                         </section>
                         <section className="line">
                             <label>Market Price</label>
-                            <data className="cost-credit">$12.99</data>
+                            <data className="cost-credit">{stock.chart[stock.chart.length-1].close}</data>
                         </section>
                         <hr />
                         <section className="line cost-credit">
                             <label>Estimated cost</label>
-                            <data>$12.99</data>
+                            <data>{stock.chart[stock.chart.length-1].close}</data>
                         </section>
                         <button>Review Order</button>
                     </form>
