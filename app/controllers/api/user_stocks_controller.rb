@@ -1,7 +1,7 @@
 class Api::UserStocksController < ApplicationController
     def index
-        @user = User.find(current_user.id)
-        if @user
+        @user_stock = UserStock.new(:user_stocks_params)
+        if @user_stock
             render :index
         else
             render json: @user_stocks.errors.full_messages
@@ -11,7 +11,6 @@ class Api::UserStocksController < ApplicationController
     def create
         @user_stock = UserStock.new(user_stocks_params)
         @user_stock.portfolio_id = User.find(current_user.id).portfolio.id
-        @user_stock
         if @user_stock.save!
             render :create
         else

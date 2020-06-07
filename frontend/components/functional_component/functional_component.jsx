@@ -7,6 +7,7 @@ class FunctionalComponent extends Component {
     constructor(props) {
         super(props);
         this.state = this.props.fetchStocks();
+        this.state = this.props.fetchUserStocks();
     }
 
     

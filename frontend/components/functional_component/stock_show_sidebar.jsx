@@ -4,8 +4,11 @@ class StockShowSidebar extends Component {
     constructor(props) {
         super(props);
         this.state = {
-            
+            num_shares: 0,
+            stock_id: "",
+            user_id: window.currentUser.id,
         }
+        this.handleSubmit = this.handleSubmit.bind(this);
     }
 
     componentDidUpdate() {
@@ -19,6 +22,19 @@ class StockShowSidebar extends Component {
 
     componentDidUpdate() {
         // this.props.fetchStock(this.props.match.params.symbol)
+    }
+
+    handleInput(field){
+        return e => (
+            this.setState({[field]: e.currentTarget.value})
+        )
+    }
+
+    handleSubmit(e){
+        e.preventDefault();
+//         debugger
+        this.setState({stock_id: this.props.stock.id})
+        this.props.submit(this.state);
     }
 
     showBox(e){
@@ -39,19 +55,19 @@ class StockShowSidebar extends Component {
                     <li>Sell {stock.symbol}</li>
                 </ul>
                 <hr />
-                <section>
+                <section onSubmit={this.handleSubmit}>
                     <form className="pst-form">
                         <section className="line">
                             {/* <i class="fas fa-arrows-alt-v"></i> */}
                             <label>Invest In</label>
-                            <select defaultValue="Shares">
-                                <option>Shares</option>
+                            <select defaultValue="Dollars">
+                                {/* <option>Shares</option> */}
                                 <option>Dollars</option>
                             </select>
                         </section>
                         <section className="line">
                             <label>Shares</label>
-                            <input type="number" placeholder="0" />
+                            <input type="number" placeholder="0" onChange={this.handleInput('num_shares')} value={this.state.num_shares} />
                         </section>
                         <section className="line">
                             <label>Market Price</label>

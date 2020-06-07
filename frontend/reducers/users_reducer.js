@@ -27,8 +27,12 @@ export default (state = {}, action) => {
             return _.merge(
                 {},
                 state,
-                action.user_stocks,
-            )
+                {
+                    [action.userStocks.userId]: {
+                        ownedStocks: action.userStocks.ownedStocks,
+                    }
+                }
+            )   
         default:
             return state;
     }

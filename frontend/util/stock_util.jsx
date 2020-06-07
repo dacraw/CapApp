@@ -12,11 +12,11 @@ export const fetchStock = symbol => (
     })
 )
 
-export const createUserStock = userStock => (
+export const createUserStock = user_stock => (
     $.ajax({
         method: 'POST',
         url: 'api/user_stocks',
-        data: { userStock }
+        data: { user_stock }
     })
 )
 

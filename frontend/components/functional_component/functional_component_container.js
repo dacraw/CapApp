@@ -1,6 +1,6 @@
 import {connect} from 'react-redux'
 import FunctionalComponent from './functional_component'
-import {fetchStocks} from '../../actions/stock_actions'
+import {fetchStocks, fetchUserStocks} from '../../actions/stock_actions'
 
 
 const mapStateToProps = (state) => {
@@ -12,6 +12,7 @@ const mapStateToProps = (state) => {
 const mapDispatchToProps = dispatch => {
     return ({
         fetchStocks: () => dispatch(fetchStocks()),
+        fetchUserStocks: () => dispatch(fetchUserStocks()),
     })
 }
 
