@@ -2,6 +2,7 @@ import {
     RECEIVE_CURRENT_USER,
 } from '../actions/session_actions';
 import { RECEIVE_PORTFOLIO } from '../actions/portfolio_actions';
+import {RECEIVE_USER_STOCKS} from '../actions/stock_actions'
 import {merge} from 'lodash'
 
 export default (state = {}, action) => {
@@ -26,11 +27,7 @@ export default (state = {}, action) => {
             return _.merge(
                 {},
                 state,
-                {
-                    [action.portfolio.user_id]: {
-                        ownedStocks: action.portfolio.cashAvailable,
-                    }
-                }
+                action.user_stocks,
             )
         default:
             return state;
