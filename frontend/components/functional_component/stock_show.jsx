@@ -16,7 +16,7 @@ class StockShow extends Component {
        this.props.fetchStock(this.props.match.params.symbol)
     }
 
-    componentDidUpdate(prevProps, prevState){
+    componentDidUpdate(prevProps){
        
         // check if the hash has changed; if so, fetch single stock info UNLESS already in the state
         // currently only fetching 1d graph

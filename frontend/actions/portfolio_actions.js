@@ -25,7 +25,7 @@ export const createPortfolio = portfolio => dispatch => (
     PortfolioUtil.createPortfolio(portfolio)
         .then(
             portfolio => dispatch(receivePortfolio(portfolio)),
-            errs => dispatch(receivePortfolioErrors(errs))
+            errs => dispatch(receivePortfolioErrors(errs.responseJSON))
         )    
 )
 
@@ -33,7 +33,7 @@ export const updatePortfolio = portfolio => dispatch => (
     PortfolioUtil.updatePortfolio(portfolio)
         .then(
             portfolio => dispatch(receivePortfolio(portfolio)),
-            errs => dispatch(receivePortfolioErrors(errs))
+            errs => dispatch(receivePortfolioErrors(errs.responseJSON))
         )    
 )
 
@@ -41,6 +41,6 @@ export const fetchPortfolios = currentUser => dispatch => (
     PortfolioUtil.fetchPortfolios(currentUser)
         .then(
             portfolios => dispatch(receivePortfolios(portfolios)),
-            errs => dispatch(receivePortfolioErrors(errs))
+            errs => dispatch(receivePortfolioErrors(errs.responseJSON))
         )
 )

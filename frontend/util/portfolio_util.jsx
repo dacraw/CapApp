@@ -12,10 +12,11 @@ export const fetchPortfolios = currentUser => (
     })
 )
 
-export const updatePortfolio = portfolio => (
+export const updatePortfolio = portfolio => {
+    debugger
     $.ajax({
         method: 'PATCH',
         url: `/api/users/${portfolio.user_id}/portfolios/${portfolio.symbol}`,
         data: { portfolio },
     })
-)
+}

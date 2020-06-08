@@ -30,7 +30,7 @@ class Api::PortfoliosController < ApplicationController
         user_id = portfolio_params[:user_id].to_i
         num_shares = portfolio_params[:num_shares].to_i
         stock_price = portfolio_params[:stock_price].to_i
-
+        
         if @portfolio
             current_shares = @portfolio.num_shares
             updated_shares = current_shares + num_shares
@@ -61,7 +61,7 @@ class Api::PortfoliosController < ApplicationController
                     render json: ['Sorry, something went wrong.'], status: 422
                 end	
             else
-                render json: ["Sorry, you can't sell these shares because you don't own this stock or don't have enough shares to sell."]
+                render json: ["Sorry, you either don't own any shares of this stock or don't have enough money to buy more."], status: 422
             end
         end
     end
