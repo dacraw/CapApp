@@ -15,7 +15,7 @@ class StockShowSidebar extends Component {
     
     componentDidMount() {
         // this.props.fetchStocks()
-        // debugger
+        
         window.onclick = function(e){
             document.getElementById('sidebar-info-dropdown').classList.remove('show');
         }
@@ -41,7 +41,7 @@ class StockShowSidebar extends Component {
 
     handleSubmit(e){
         e.preventDefault();
-        debugger
+
         // if user doenst own the stock, then create it
         if (!this.props.userInfo.stocks.includes(this.state.symbol.toUpperCase())) {
             this.props.createPortfolio(this.state);
@@ -53,13 +53,13 @@ class StockShowSidebar extends Component {
 
     showBox(e){
         e.stopPropagation();
-        // debugger
+        
         e.currentTarget.nextSibling.classList.toggle('show');
     }
     
     render() {
         const { userInfo, stock } = this.props;
-        // debugger
+        
         // this requires stock.chart for pricing, so return null if it isnt established yet
         if (!stock || !stock.chart) return null;
         let estimatedPrice = (this.state.num_shares == 0) ? stock.chart[stock.chart.length-1].close : stock.chart[stock.chart.length-1].close * this.state.num_shares;

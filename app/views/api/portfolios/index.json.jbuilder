@@ -6,7 +6,7 @@
 #     }
 # }
 
-# debugger
+
 json.set! @portfolio.first.user_id do
     json.stocks @portfolio.map {|item| item.symbol } 
 end

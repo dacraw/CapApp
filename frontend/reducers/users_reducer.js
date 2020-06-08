@@ -13,7 +13,7 @@ export default (state = {}, action) => {
                 state, 
                 { [action.user.id]: action.user })
         case RECEIVE_PORTFOLIO:
-            debugger
+
             const nextState = merge({}, state);
             nextState[action.portfolio.user_id]['stocks'].push(action.portfolio.symbol);
             return nextState;

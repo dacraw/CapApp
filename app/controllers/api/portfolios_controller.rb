@@ -1,7 +1,7 @@
 class Api::PortfoliosController < ApplicationController
     def index
         @portfolio = Portfolio.where(user_id: params[:user_id])
-        # debugger
+        
         if @portfolio
             render :index
         else
@@ -11,7 +11,6 @@ class Api::PortfoliosController < ApplicationController
 
     def create
         # this is for when the user buys a stock for the first time
-        debugger
         @portfolio = Portfolio.new(portfolio_params)
         cash_available = User.find(portfolio_params[:user_id]).cash_available
         if cash_available >= portfolio_params[:stock_price]
@@ -28,7 +27,6 @@ class Api::PortfoliosController < ApplicationController
     def update
         # Check if user already owns the share.
         @portfolio = Portfolio.find_by(user_id: portfolio_params[:user_id], symbol: portfolio_params[:symbol])
-        debugger
         if @portfolio
             current_shares = @portfolio.num_shares
             new_shares = portfolio_params[:num_shares]
