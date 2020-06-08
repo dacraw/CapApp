@@ -66,7 +66,7 @@ class Login extends React.Component {
         }
         return (
             <div className="login-container">
-                <img src={window.gradient} /> {/* gradient for login page */}
+                <img src={window.dollars} /> {/* gradient for login page */}
                 <div className="login-form">
                     <section className="relative">
                         <section className="demo-user">
