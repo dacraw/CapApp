@@ -1,7 +1,7 @@
 import DashNavBar from './dash_nav_bar';
 import {connect} from 'react-redux';
 import {logout} from '../../actions/session_actions.js';
-import {fetchPortfolio} from '../../actions/portfolio_actions'
+import {fetchPortfolios} from '../../actions/portfolio_actions'
 
 const mapStateToProps = ({session, entities: { users }}) => {
     
@@ -15,7 +15,7 @@ const mapDispatchToProps = dispatch => {
     
     return {
         logout: () => dispatch(logout()),
-        fetchPortfolio: userId => dispatch(fetchPortfolio(userId)),
+        fetchPortfolios: currentUser => dispatch(fetchPortfolios(currentUser)),
     };
 };
 

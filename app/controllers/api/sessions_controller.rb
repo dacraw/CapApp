@@ -4,7 +4,7 @@ class Api::SessionsController < ApplicationController
         if @user
             
             login(@user)
-            render 'api/users/user';
+            render 'api/users/create';
         else
             render json: ['Unable to log in with provided credentials.'], status: 422
         end

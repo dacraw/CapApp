@@ -1,6 +1,7 @@
 class Api::PortfoliosController < ApplicationController
     def index
         @portfolio = Portfolio.where(user_id: params[:user_id])
+        # debugger
         if @portfolio
             render :index
         else
@@ -9,16 +10,20 @@ class Api::PortfoliosController < ApplicationController
     end
   
     def create
-        @portfolio = Portfolio.new(user_stocks_params)
-        @portfolio.portfolio_id = User.find(current_user.id).portfolio.id
-        if @portfolio.save!
-            render :create
+        @portfolio = Portfolio.new(portfolio_params)
+
+        if @portfolio.user_id == current_user.id
+            if @portfolio.save!
+                render :create
+            else
+                render json: @portfolio.errors.full_messages, status: 422
+            end
         else
-            render json: @portfolio.errors.full_messages, status: 422
+            render json: ["You are not authorized to do this."], status: 422
         end
     end
 
-    # def user_stocks_params
-    #     params.require(:user_stock).permit(:portfolio_id, :stock_id, :num_shares)
-    # end
+    def portfolio_params
+        params.require(:portfolio).permit(:user_id, :stock_id, :num_shares)
+    end
 end

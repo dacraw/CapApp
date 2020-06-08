@@ -14,10 +14,12 @@ aboutResponse = Net::HTTP.get_response(aboutUri)
 
 json.set! @stock.symbol do
     chart = JSON.parse(chartNewsresponse.body)[@stock.symbol.upcase]['chart'] # pulls current price
-    news = JSON.parse(chartNewsresponse.body)[@stock.symbol.upcase]['news'] # pulls current price
-    about = JSON.parse(aboutResponse.body) # pulls current price
     json.chart chart
-    json.about about
+
+    news = JSON.parse(chartNewsresponse.body)[@stock.symbol.upcase]['news'] # pulls current price
     json.news news
+    
+    about = JSON.parse(aboutResponse.body) # pulls current price
+    json.about about
     # debugger
 end

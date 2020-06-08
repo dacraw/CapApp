@@ -18,6 +18,9 @@ class StockShowSidebar extends Component {
     componentDidMount() {
         // this.props.fetchStocks()
         // debugger
+        window.onclick = function(e){
+            document.getElementById('sidebar-info-dropdown').classList.remove('show');
+        }
     }
 
     componentDidUpdate() {

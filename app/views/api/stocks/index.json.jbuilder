@@ -1,7 +1,7 @@
 require 'net/http'
 require 'uri'
 require 'json'
-require_relative 'sample_state'
+# require_relative 'sample_state'
 
 ## edit this bakc in for production!
 # populate the initial state with stock data
@@ -13,7 +13,7 @@ require_relative 'sample_state'
 #
 # using below for testing on local
 #debugger
-response = StockDefaults::SAMPLE_STATE
+# response = StockDefaults::SAMPLE_STATE
 
 # how to access response:
 # response.code
@@ -21,20 +21,7 @@ response = StockDefaults::SAMPLE_STATE
 
 @stocks.each do |stock|
     json.set! stock.symbol do
-        json.extract! stock, :symbol, :id
-# debugger
-        
-        #uri = URI.parse("https://sandbox.iexapis.com/stable/stock/GOOG/quote?token=Tpk_6b9b93666ee34896b554a35f81ecbd3a")
-        # debugger
-        # current_price = JSON.parse(response.body)[stock.symbol]["price"] # pulls current price
-        current_price = response[stock.symbol.to_sym][:price] # pulls current price
-
-        # previous_day_close_price = JSON.parse(response.body)[stock.symbol]["previous"]['close'] # pulls current price
-        previous_day_close_price = response[stock.symbol.to_sym][:previous][:close] # pulls current price
-        
-        previous_day_percentage_change = ((current_price/previous_day_close_price) -1 ) * 100 # pulls current price
-        json.currentPrice current_price
-        json.dayChange number_to_percentage(previous_day_percentage_change)
+        json.extract! stock.symbol
     end
 end
 

@@ -5,11 +5,7 @@ import Root from './components/root';
 // import * as actions from './actions/session_actions';
 
 document.addEventListener('DOMContentLoaded', () => {
-    // hide dropdowns if user clicks on window
-    window.onclick = function(e){
-        document.getElementById('sidebar-info-dropdown').classList.remove('show');
-        document.getElementById('dash-nav-account-options').classList.remove('show');
-    }
+
 
     let store;
     if (window.currentUser){
@@ -27,6 +23,8 @@ document.addEventListener('DOMContentLoaded', () => {
     // window.actions = actions;
 
     window.getState = store.getState;
+    // hide dropdowns if user clicks on window
+
 
     const root = document.getElementById('root');
     ReactDOM.render(<Root store={store} />, root)
