@@ -2,6 +2,7 @@ class Api::PortfoliosController < ApplicationController
     def index
         @portfolio = Portfolio.where(user_id: params[:user_id])
         # debugger
+
         if @portfolio
             render :index
         else
@@ -11,7 +12,7 @@ class Api::PortfoliosController < ApplicationController
 
     def create
         # this is for when the user buys a stock for the first time
-        debugger
+        # debugger
         @portfolio = Portfolio.new(portfolio_params)
         cash_available = User.find(portfolio_params[:user_id]).cash_available
         if cash_available >= portfolio_params[:stock_price]
