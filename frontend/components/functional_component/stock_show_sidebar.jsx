@@ -19,6 +19,7 @@ class StockShowSidebar extends Component {
         window.onclick = function(e){
             document.getElementById('sidebar-info-dropdown').classList.remove('show');
         }
+
         // set user_id to currentuser for form submission
         this.setState({user_id: this.props.currentUser, symbol: this.props.match.params.symbol})
         
@@ -26,6 +27,7 @@ class StockShowSidebar extends Component {
 
     componentDidUpdate(prevProps) {
         // if user changes hash locations, update the symbol
+     
         if (this.props.match.params.symbol !== prevProps.match.params.symbol){ this.setState({symbol: this.props.match.params.symbol.toUpperCase()}) }
         
     }
