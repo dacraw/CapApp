@@ -6,7 +6,7 @@ import {createPortfolio, updatePortfolio} from '../../actions/portfolio_actions'
 const mapStateToProps = ( {entities: { users, stocks}, session }, ownProps ) => {
     return ({
         userInfo: users[session.id],
-        // stock: stocks[ownProps.match.params.symbol.toUpperCase()],
+        stock: stocks[ownProps.match.params.symbol.toUpperCase()],
         currentUser: session.id,
         stocks: stocks,
     })

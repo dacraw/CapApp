@@ -16,7 +16,7 @@ class StockShowSidebar extends Component {
     componentDidMount() {
         // this.props.fetchStocks()
         // set user_id to currentuser for form submission
-        // this.setState({user_id: this.props.currentUser, symbol: this.props.match.params.symbol})
+        this.setState({user_id: this.props.currentUser, symbol: this.props.match.params.symbol})
         
     }
 
@@ -24,9 +24,9 @@ class StockShowSidebar extends Component {
         // if user changes hash locations, update the symbol
         // 2nd part of conditional only updates the state's symbol to the given symbol if it's present in the stock list
         
-        // if (this.props.match.params.symbol !== prevProps.match.params.symbol && !!this.props.stocks[this.props.match.params.symbol.toUpperCase()]){
-        //     this.setState({symbol: this.props.match.params.symbol.toUpperCase()}) 
-        // }
+        if (this.props.match.params.symbol !== prevProps.match.params.symbol && !!this.props.stocks[this.props.match.params.symbol.toUpperCase()]){
+            this.setState({symbol: this.props.match.params.symbol.toUpperCase()}) 
+        }
         
     }
 
