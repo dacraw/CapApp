@@ -4,16 +4,14 @@ class StockShowSidebar extends Component {
     constructor(props) {
         super(props);
         this.state = {
-            num_shares: 0,
+            num_shares: 0.00,
             symbol: "",
             user_id: 0,
+            stock_price: "",
         }
         this.handleSubmit = this.handleSubmit.bind(this);
     }
 
-    componentDidUpdate() {
-        
-    }
     
     componentDidMount() {
         // this.props.fetchStocks()
@@ -21,23 +19,36 @@ class StockShowSidebar extends Component {
         window.onclick = function(e){
             document.getElementById('sidebar-info-dropdown').classList.remove('show');
         }
-        this.setState({symbol: this.props.match.params.symbol.toUpperCase(), user_id: this.props.currentUser})
+        // set user_id to currentuser for form submission
+        this.setState({user_id: this.props.currentUser, symbol: this.props.match.params.symbol})
+        
     }
 
-    componentDidUpdate() {
-        // this.props.fetchStock(this.props.match.params.symbol)
+    componentDidUpdate(prevProps) {
+        // if user changes hash locations, update the symbol
+        if (this.props.match.params.symbol !== prevProps.match.params.symbol){ this.setState({symbol: this.props.match.params.symbol.toUpperCase()}) }
+        
     }
 
     handleInput(field){
         return e => (
-            this.setState({[field]: e.currentTarget.value})
+            this.setState({
+                [field]: e.currentTarget.value,
+                stock_price: this.props.stock.chart[this.props.stock.chart.length-1].close,
+            })
         )
     }
 
     handleSubmit(e){
         e.preventDefault();
-//         debugger
-        this.props.submit(this.state);
+        debugger
+        // if user doenst own the stock, then create it
+        if (!this.props.userInfo.stocks.includes(this.state.symbol.toUpperCase())) {
+            this.props.createPortfolio(this.state);
+        } else {
+            // otherwise, update it
+            this.props.updatePortfolio(this.state)
+        }
     }
 
     showBox(e){
@@ -47,10 +58,11 @@ class StockShowSidebar extends Component {
     }
     
     render() {
-        const { cashAvailable, stock } = this.props;
+        const { userInfo, stock } = this.props;
         // debugger
         // this requires stock.chart for pricing, so return null if it isnt established yet
         if (!stock || !stock.chart) return null;
+        let estimatedPrice = (this.state.num_shares == 0) ? stock.chart[stock.chart.length-1].close : stock.chart[stock.chart.length-1].close * this.state.num_shares;
         return (
             <>
                 <ul className="buy-sell">
@@ -79,14 +91,14 @@ class StockShowSidebar extends Component {
                         <hr />
                         <section className="line cost-credit">
                             <label>Estimated cost</label>
-                            <data>{stock.chart[stock.chart.length-1].close}</data>
+                            <data>{estimatedPrice} </data>
                         </section>
                         <button>Review Order</button>
                     </form>
                 </section>
                 <hr />
                 <section className="buying-power">
-                        <a onClick={this.showBox}>{cashAvailable} available for trading. </a>
+                        <a onClick={this.showBox}>{userInfo.cashAvailable} available for trading. </a>
                         <div className="info-box" id="sidebar-info-dropdown">
                             <h3>Good luck!</h3>
                             <div className="line">
