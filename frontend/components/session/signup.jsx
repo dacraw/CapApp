@@ -134,16 +134,11 @@ class Signup extends React.Component {
                         </ul>
                     </form>
                     <div className="disclosure">
-                        <p>All investments involve risk and the past performance of a security, or financial product does not guarantee future results or returns. Keep in mind that while diversification may help spread risk it does not assure a profit, or protect against loss, in a down market. There is always the potential of losing money when you invest in securities, or other financial products. Investors should consider their investment objectives and risks carefully before investing.</p>
-                        <p>All securities and investments are offered to self-directed customers by Robinhood Financial, LLC, member <a href="http://www.finra.org">FINRA</a> & <a href="http://www.sipc.org">SIPC</a>. Additional information about your broker can be found by clicking <a href="http://www.brokercheck.finra.org">here</a>. Robinhood Financial, LLC is a wholly owned subsidiary of Robinhood Markets, Inc.</p>
-                        <p>Check the background of Robinhood Financial LLC and Robinhood Securities, LLC on <a href="http://www.brokercheck.finra.org">FINRA's BrokerCheck.</a></p>
-                        <ul className="links">
-                            <li><Link to='/terms'>Robinhood Terms & Conditions</Link></li>  
-                            <li><Link to='/disclosure'>Disclosure Library</Link></li>
-                            <li><Link to='/contact'>Contact Us</Link></li>
-                            <li><Link to='/faq'>FAQ</Link></li>
-                        </ul>
-                        <p>© 2020</p>
+                        <p>Nulla vulputate, neque non scelerisque blandit, leo erat tincidunt massa, at volutpat ligula libero eget neque. Duis aliquet aliquam elit, at venenatis ligula. Suspendisse potenti. Nullam malesuada sagittis turpis eget aliquam. Pellentesque metus lacus, egestas sit amet blandit sed, laoreet in lacus. Suspendisse potenti.</p>
+
+                        <p>Sed mattis eleifend libero ac iaculis. Sed non mi fringilla, aliquet lorem non, condimentum neque. Etiam id urna nec ipsum finibus tempor. Donec venenatis tincidunt sem, sed facilisis nisi maximus id. Mauris eget pulvinar erat. Pellentesque vitae lorem vitae magna aliquam viverra. </p>
+
+                        <p>Donec dictum eros a lacus rhoncus pulvinar. Aliquam erat volutpat. Morbi iaculis ex luctus massa euismod placer  </p>
                     </div>
                 </div>
                 <div className="signup-aside">
@@ -156,16 +151,11 @@ class Signup extends React.Component {
                         <p>Praesent maximus quam a sem malesuada, et ullamcorper purus porttitor. </p>
                     </main>
                     <div className="disclosure">
-                        <p>All investments involve risk and the past performance of a security, or financial product does not guarantee future results or returns. Keep in mind that while diversification may help spread risk it does not assure a profit, or protect against loss, in a down market. There is always the potential of losing money when you invest in securities, or other financial products. Investors should consider their investment objectives and risks carefully before investing.</p>
-                        <p>All securities and investments are offered to self-directed customers by Robinhood Financial, LLC, member <a href="http://www.finra.org">FINRA</a> & <a href="http://www.sipc.org">SIPC</a>. Additional information about your broker can be found by clicking <a href="http://www.brokercheck.finra.org">here</a>. Robinhood Financial, LLC is a wholly owned subsidiary of Robinhood Markets, Inc.</p>
-                        <p>Check the background of Robinhood Financial LLC and Robinhood Securities, LLC on <a href="http://www.brokercheck.finra.org">FINRA's BrokerCheck.</a></p>
-                        <ul className="links">
-                            <li><Link to='/terms'>Robinhood Terms & Conditions</Link></li>  
-                            <li><Link to='/disclosure'>Disclosure Library</Link></li>
-                            <li><Link to='/contact'>Contact Us</Link></li>
-                            <li><Link to='/faq'>FAQ</Link></li>
-                        </ul>
-                        <p>© 2020</p>
+                        <p>Nulla vulputate, neque non scelerisque blandit, leo erat tincidunt massa, at volutpat ligula libero eget neque. Duis aliquet aliquam elit, at venenatis ligula. Suspendisse potenti. Nullam malesuada sagittis turpis eget aliquam. Pellentesque metus lacus, egestas sit amet blandit sed, laoreet in lacus. Suspendisse potenti.</p>
+
+                        <p>Sed mattis eleifend libero ac iaculis. Sed non mi fringilla, aliquet lorem non, condimentum neque. Etiam id urna nec ipsum finibus tempor. Donec venenatis tincidunt sem, sed facilisis nisi maximus id. Mauris eget pulvinar erat. Pellentesque vitae lorem vitae magna aliquam viverra. </p>
+
+                        <p>Donec dictum eros a lacus rhoncus pulvinar. Aliquam erat volutpat. Morbi iaculis ex luctus massa euismod placer  </p>
                     </div>
                 </div>
             </div>
