@@ -14,7 +14,7 @@ aboutUri = URI.parse("https://sandbox.iexapis.com/stable/stock/#{@stock.symbol}/
 aboutResponse = Net::HTTP.get_response(aboutUri)
 
 json.set! @stock.symbol do
-    # debugger
+    
     chart = JSON.parse(chartNewsresponse.body)[@stock.symbol.upcase]['chart'] # pulls 
     json.chart chart
 
@@ -27,5 +27,5 @@ json.set! @stock.symbol do
     about = JSON.parse(aboutResponse.body) # 
     json.about about
 
-    # debugger
+    
 end

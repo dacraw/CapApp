@@ -3,7 +3,7 @@ class Api::UsersController < ApplicationController
         @user = User.new(user_params)
         @user.cash_available = 10000.00
         if @user.save
-            # debugger
+            
             
             login(@user)
             #render json: @user
