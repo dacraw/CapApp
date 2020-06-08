@@ -2,7 +2,6 @@ class Api::PortfoliosController < ApplicationController
     def index
         @portfolio = Portfolio.where(user_id: params[:user_id])
         
-
         if @portfolio
             render :index
         else
