@@ -7,7 +7,8 @@ const mapStateToProps = ( {entities: { users, stocks}, session }, ownProps ) => 
     return ({
         userInfo: users[session.id],
         stock: stocks[ownProps.match.params.symbol.toUpperCase()],
-        currentUser: session.id
+        currentUser: session.id,
+        stocks: stocks,
     })
 }
 

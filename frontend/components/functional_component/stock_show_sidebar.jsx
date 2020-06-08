@@ -22,9 +22,12 @@ class StockShowSidebar extends Component {
 
     componentDidUpdate(prevProps) {
         // if user changes hash locations, update the symbol
-        if (this.props.match.params.symbol !== prevProps.match.params.symbol){ 
+        // 2nd part of conditional only updates the state's symbol to the given symbol if it's present in the stock list
+        
+        if (this.props.match.params.symbol !== prevProps.match.params.symbol && !!this.props.stocks[this.props.match.params.symbol.toUpperCase()]){
             this.setState({symbol: this.props.match.params.symbol.toUpperCase()}) 
         }
+        
     }
 
     handleInput(field){

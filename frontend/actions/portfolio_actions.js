@@ -29,13 +29,16 @@ export const createPortfolio = portfolio => dispatch => (
         )    
 )
 
-export const updatePortfolio = portfolio => dispatch => (
+export const updatePortfolio = portfolio => dispatch => {
+    debugger
+    return (
     PortfolioUtil.updatePortfolio(portfolio)
         .then(
             portfolio => dispatch(receivePortfolio(portfolio)),
             errs => dispatch(receivePortfolioErrors(errs.responseJSON))
-        )    
-)
+        )
+    )    
+}
 
 export const fetchPortfolios = currentUser => dispatch => (
     PortfolioUtil.fetchPortfolios(currentUser)
