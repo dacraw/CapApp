@@ -66,7 +66,7 @@ class Login extends React.Component {
         }
         return (
             <div className="login-container">
-                <img src={window.gradient} /> {/* gradient for login page */}
+                <img src={window.dollars} /> {/* gradient for login page */}
                 <div className="login-form">
                     <section className="relative">
                         <section className="demo-user">
@@ -86,7 +86,7 @@ class Login extends React.Component {
                                     <input onFocus={this.hideErrors} id="password" title="Please fill out this field." onChange={this.handleInput('password')} type="password" value={this.state.password} />
                                     <div className="session-error-box login"><div className="arrow-up-outer"></div><div className="arrow-up-inner"></div><i className="fas fa-exclamation-triangle"></i> <span>Please fill out this field.</span></div>
                                 </div>
-                                <Link to="/forgot" className="forgot">Forgot your username or password?</Link>
+                                
                                 <ul className="login-invalid-credentials">
                                         {errors}
                                 </ul>  
