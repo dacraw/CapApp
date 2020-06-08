@@ -25,7 +25,7 @@ class DashNavBar extends React.Component{
         return (
             <div className="dashboard-nav-container">
                 <section className="content">
-                    <img className="logo-notext" src={window.logoNoText} />
+                    <Link to="/"><img className="logo-notext" src={window.logoNoText} /></Link>
                     <div className="search-wrapper">
                         <input className="search" placeholder="Search" type="search" name="stock-search" id=""/>
                         <i className="fas fa-search"></i>
