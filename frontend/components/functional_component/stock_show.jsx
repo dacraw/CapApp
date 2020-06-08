@@ -13,7 +13,7 @@ class StockShow extends Component {
 
     componentDidMount() {
         
-       this.props.fetchStock(this.props.match.params.symbol)
+    //    this.props.fetchStock(this.props.match.params.symbol)
     }
 
     componentDidUpdate(prevProps){

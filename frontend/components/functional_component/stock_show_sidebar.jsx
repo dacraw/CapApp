@@ -16,7 +16,7 @@ class StockShowSidebar extends Component {
     componentDidMount() {
         // this.props.fetchStocks()
         // set user_id to currentuser for form submission
-        this.setState({user_id: this.props.currentUser, symbol: this.props.match.params.symbol})
+        // this.setState({user_id: this.props.currentUser, symbol: this.props.match.params.symbol})
         
     }
 
