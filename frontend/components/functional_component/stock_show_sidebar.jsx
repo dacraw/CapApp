@@ -36,7 +36,6 @@ class StockShowSidebar extends Component {
     handleSubmit(e){
         e.preventDefault();
 //         debugger
-        this.setState({stock_id: this.props.stock.id})
         this.props.submit(this.state);
     }
 

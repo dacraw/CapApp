@@ -11,7 +11,6 @@ class DashNavBar extends React.Component{
     }
 
     componentDidMount(){
-        this.props.fetchPortfolios(this.props.currentUser.id)
         window.onclick = function(e){
             document.getElementById('dash-nav-account-options').classList.remove('show');
         }

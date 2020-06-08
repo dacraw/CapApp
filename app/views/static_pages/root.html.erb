@@ -2,7 +2,8 @@
     <script>
         window.currentUser = {
             id: <%= current_user.id %>,
-            username: "<%= current_user.username %>"
+            username: "<%= current_user.username %>",
+            cashAvailable: "<%= current_user.cash_available %>"
         }
     </script>
 <% end %>

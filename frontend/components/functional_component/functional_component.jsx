@@ -6,11 +6,12 @@ import StockShowContainer from './stock_show_container'
 class FunctionalComponent extends Component {
     constructor(props) {
         super(props);
-        this.state = this.props.fetchStocks();
+        this.state = this.props;
     }
 
     componentDidMount(){
-        this.props.fetchPortfolios(this.props.currentUser)
+        this.props.fetchPortfolios(this.props.currentUser);
+        this.props.fetchStocks();
     }
 
     
