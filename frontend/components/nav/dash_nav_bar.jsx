@@ -12,9 +12,7 @@ class DashNavBar extends React.Component{
     }
 
     componentDidMount(){
-        window.onclick = function(e){
-            document.getElementById('dash-nav-account-options').classList.remove('show');
-        }
+
     }
 
     render(){

@@ -24,7 +24,10 @@ document.addEventListener('DOMContentLoaded', () => {
 
     window.getState = store.getState;
     // hide dropdowns if user clicks on window
-
+    window.onclick = function(e){
+        document.getElementById('sidebar-info-dropdown').classList.remove('show');
+        document.getElementById('dash-nav-account-options').classList.remove('show');
+    }
 
     const root = document.getElementById('root');
     ReactDOM.render(<Root store={store} />, root)
