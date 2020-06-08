@@ -5,17 +5,19 @@ class DashNavBar extends React.Component{
     constructor(props){
         super(props)
     }
+    
     toggleAccountDropdown(e){
-        e.preventDefault();
+        e.stopPropagation();
         e.currentTarget.nextSibling.classList.toggle('show');
     }
 
     componentDidMount(){
-        this.props.fetchPortfolio(this.props.currentUser.id)
+        window.onclick = function(e){
+            document.getElementById('dash-nav-account-options').classList.remove('show');
+        }
     }
 
     render(){
-        
         
         const { currentUser, logout, cashAvailable } = this.props;
         if (!currentUser) return null
@@ -29,12 +31,12 @@ class DashNavBar extends React.Component{
                         <i className="fas fa-search"></i>
                     </div>
                     <ul className="links">
-                        <li><Link>Free Stocks</Link></li>
-                        <li><Link>Portfolio</Link></li>
-                        <li><Link>Cash</Link></li>
-                        <li><Link>Messages</Link></li>
-                        <li className="account-dropdown"><Link onClick={this.toggleAccountDropdown}>Account</Link>
-                            <ul className="account-options">
+                        <li><a>Free Stocks</a></li>
+                        <li><a>Portfolio</a></li>
+                        <li><a>Cash</a></li>
+                        <li><a>Messages</a></li>
+                        <li className="account-dropdown"><a onClick={this.toggleAccountDropdown}>Account</a>
+                            <ul className="account-options" id="dash-nav-account-options">
                                 <li>
                                     <div className="summary"> {/* TOP PART OF ACCOUNT DROPDOWN */}
                                         <h3>{currentUser.username}</h3>
@@ -51,16 +53,16 @@ class DashNavBar extends React.Component{
                                     </div>
                                 </li>
                                 <hr />
-                                <li><Link><i className="fas fa-gift"></i>Free Stock</Link></li>
-                                <li><Link><i className="fas fa-suitcase"></i>Account</Link></li>
-                                <li><Link><i className="fas fa-university"></i>Banking</Link></li>
-                                <li><Link><i className="fas fa-history"></i>History</Link></li>
-                                <li><Link><i className="fas fa-file-alt"></i>Documents</Link></li>
-                                <li><Link><i className="fas fa-cog"></i>Settings</Link></li>
+                                <li><a><i className="fas fa-gift"></i>Free Stock</a></li>
+                                <li><a><i className="fas fa-suitcase"></i>Account</a></li>
+                                <li><a><i className="fas fa-university"></i>Banking</a></li>
+                                <li><a><i className="fas fa-history"></i>History</a></li>
+                                <li><a><i className="fas fa-file-alt"></i>Documents</a></li>
+                                <li><a><i className="fas fa-cog"></i>Settings</a></li>
                                 <hr />
-                                <li><Link><i className="fas fa-question"></i>Help Center</Link></li>
-                                <li><Link><i className="fas fa-info-circle"></i>Get Support</Link></li>
-                                <li><Link><i className="fas fa-bars"></i>Disclosures</Link></li>
+                                <li><a><i className="fas fa-question"></i>Help Center</a></li>
+                                <li><a><i className="fas fa-info-circle"></i>Get Support</a></li>
+                                <li><a><i className="fas fa-bars"></i>Disclosures</a></li>
                                 <hr />
                                 <li><a onClick={logout}><i className="fas fa-sign-out-alt"></i>Logout</a></li>
                             </ul>

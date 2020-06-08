@@ -5,6 +5,8 @@ import Root from './components/root';
 // import * as actions from './actions/session_actions';
 
 document.addEventListener('DOMContentLoaded', () => {
+
+
     let store;
     if (window.currentUser){
         
@@ -21,6 +23,8 @@ document.addEventListener('DOMContentLoaded', () => {
     // window.actions = actions;
 
     window.getState = store.getState;
+    // hide dropdowns if user clicks on window
+
 
     const root = document.getElementById('root');
     ReactDOM.render(<Root store={store} />, root)

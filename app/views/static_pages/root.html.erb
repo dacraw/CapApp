@@ -2,7 +2,8 @@
     <script>
         window.currentUser = {
             id: <%= current_user.id %>,
-            username: "<%= current_user.username %>"
+            username: "<%= current_user.username %>",
+            cashAvailable: "<%= current_user.cash_available %>"
         }
     </script>
 <% end %>
@@ -18,6 +19,8 @@
     window.laptopTwo = "<%= image_url('laptop2.png') %>"
     window.confetti = "<%= image_url('confetti.png') %>"
     window.dollars = "<%= image_url('dollars.jpg') %>"
+    window.logoNoText = "<%= image_url('logonotext.png') %>";
+    window.stockThree = "<%= image_url('stock3.jpg') %>";
 </script>
 
 <div id="root"></div>

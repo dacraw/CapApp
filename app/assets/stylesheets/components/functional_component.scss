@@ -117,6 +117,17 @@
         &:hover {
             box-shadow: 0 0 10px $lighter-gray;
         }
+        option {
+            border: 0;
+           
+            outline: none;
+            &:hover {
+                border: 0;
+                background: red;
+                outline: none;
+
+            }
+        }
     }
     input[type=number] {
         width: 60px;

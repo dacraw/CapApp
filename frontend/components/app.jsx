@@ -15,7 +15,7 @@ const App = (props) => {
         <>
             <header>
                 <Route exact path="/" component={SplashNavBarContainer} />
-                <ProtRoute exact path={["/dashboard","/stocks","/stocks/:symbol"]} component={DashNavBarContainer} />
+                <ProtRoute path={["/dashboard","/stocks","/stocks/:symbol"]} component={DashNavBarContainer} />
             </header>
 
             <Switch>

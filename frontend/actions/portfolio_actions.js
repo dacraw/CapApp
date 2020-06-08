@@ -1,26 +1,46 @@
-export const RECEIVE_PORTFOLIO = "RECEIVE_PORTFOLIO";
+import * as PortfolioUtil from '../util/portfolio_util'
+
 export const RECEIVE_PORTFOLIO_ERRORS = "RECEIVE_PORTFOLIO_ERRORS";
 export const REMOVE_PORTFOLIO = "REMOVE_PORTFOLIO"
 
-import * as PortfolioUtil from '../util/portfolio_util'
-
-const receivePortfolio = portfolio => ({
-    type: RECEIVE_PORTFOLIO,
-    portfolio,
-})
+export const RECEIVE_PORTFOLIOS = 'RECEIVE_PORTFOLIOS';
+export const RECEIVE_PORTFOLIO = 'RECEIVE_PORTFOLIO';
 
 const receivePortfolioErrors = errors => ({
     type: RECEIVE_PORTFOLIO_ERRORS,
     errors,
 })
 
-export const fetchPortfolio = userId => dispatch => {
-//     debugger
-    return (
-        PortfolioUtil.fetchPortfolio(userId)
-        .then( 
+const receivePortfolios= portfolios => ({
+    type: RECEIVE_PORTFOLIOS,
+    portfolios
+})
+
+const receivePortfolio = portfolio => ({
+    type: RECEIVE_PORTFOLIO,
+    portfolio
+})
+
+export const createPortfolio = portfolio => dispatch => (
+    PortfolioUtil.createPortfolio(portfolio)
+        .then(
             portfolio => dispatch(receivePortfolio(portfolio)),
-            errs => dispatch(receivePortfolioErrors(errs.responseJSON))
+            errs => dispatch(receivePortfolioErrors(errs))
+        )    
+)
+
+export const updatePortfolio = portfolio => dispatch => (
+    PortfolioUtil.updatePortfolio(portfolio)
+        .then(
+            portfolio => dispatch(receivePortfolio(portfolio)),
+            errs => dispatch(receivePortfolioErrors(errs))
+        )    
+)
+
+export const fetchPortfolios = currentUser => dispatch => (
+    PortfolioUtil.fetchPortfolios(currentUser)
+        .then(
+            portfolios => dispatch(receivePortfolios(portfolios)),
+            errs => dispatch(receivePortfolioErrors(errs))
         )
-    )
-}
+)
