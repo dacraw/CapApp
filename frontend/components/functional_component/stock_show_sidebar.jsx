@@ -5,8 +5,8 @@ class StockShowSidebar extends Component {
         super(props);
         this.state = {
             num_shares: 0,
-            stock_id: "",
-            user_id: window.currentUser.id,
+            symbol: "",
+            user_id: 0,
         }
         this.handleSubmit = this.handleSubmit.bind(this);
     }
@@ -21,6 +21,7 @@ class StockShowSidebar extends Component {
         window.onclick = function(e){
             document.getElementById('sidebar-info-dropdown').classList.remove('show');
         }
+        this.setState({symbol: this.props.match.params.symbol.toUpperCase(), user_id: this.props.currentUser})
     }
 
     componentDidUpdate() {

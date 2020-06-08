@@ -8,17 +8,18 @@ export default (state = {}, action) => {
     Object.freeze(state);
     switch (action.type) {
         case RECEIVE_CURRENT_USER:
-            debugger
+            
             return merge(
                 {}, 
                 state, 
                 { [action.user.id]: action.user })
         case RECEIVE_PORTFOLIO:
+            debugger
             const nextState = merge({},state);
             nextState[action.portfolio.user_id][stocks].push(action.portfolio.symbol);
             return nextState;
         case RECEIVE_PORTFOLIOS:
-            debugger
+            
             return _.merge(
                 {},
                 state,

@@ -70,7 +70,7 @@ class Login extends React.Component {
                 <div className="login-form">
                     <section className="relative">
                         <section className="demo-user">
-                            <button onClick={this.props.demoUser}>Click Here To Demo<i class="fas fa-comment-dollar"></i></button>
+                            <button onClick={this.props.demoUser}>Click Here To Demo<i className="fas fa-comment-dollar"></i></button>
                         </section>
                         <div className="login-form-holder">
                             <form className="session-form" onSubmit={this.handleSubmit}>

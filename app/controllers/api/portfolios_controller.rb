@@ -11,7 +11,7 @@ class Api::PortfoliosController < ApplicationController
   
     def create
         @portfolio = Portfolio.new(portfolio_params)
-
+        
         if @portfolio.user_id == current_user.id
             if @portfolio.save!
                 render :create
@@ -24,6 +24,6 @@ class Api::PortfoliosController < ApplicationController
     end
 
     def portfolio_params
-        params.require(:portfolio).permit(:user_id, :stock_id, :num_shares)
+        params.require(:portfolio).permit(:user_id, :symbol, :num_shares)
     end
 end
