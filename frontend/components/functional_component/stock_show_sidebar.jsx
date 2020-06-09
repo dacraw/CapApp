@@ -93,7 +93,7 @@ class StockShowSidebar extends Component {
         
         // this requires stock.chart for pricing, so return null if it isnt established yet
         if (!stock || !stock.chart || !userInfo) return null;
-        let estimatedPrice = (this.state.num_shares == 0) ? stock.chart[stock.chart.length-1].close : stock.chart[stock.chart.length-1].close * this.state.num_shares;
+        let estimatedPrice = (this.state.num_shares == 0) ? stock.price : stock.price * this.state.num_shares;
         
         // NUMSHARES check if user owns shares before displaying num_shares
         let numShares = 0;
@@ -124,7 +124,7 @@ class StockShowSidebar extends Component {
                         </section>
                         <section className="line">
                             <label>Market Price</label>
-                            <data className="cost-credit">{stock.chart[stock.chart.length-1].close}</data>
+                            <data className="cost-credit">{stock.price}</data>
                         </section>
                         <hr />
                         <section className="line cost-credit">

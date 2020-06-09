@@ -38,7 +38,7 @@ class StockShow extends Component {
                     {stock.about.companyName}
                 </h1>
                 <h1 className="current-price">
-                    {stock.chart[stock.chart.length-1].close}
+                    {stock.price}
                 </h1>
                 <h1 className="percentage-change">
                     {stock.dayChange}
