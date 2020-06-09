@@ -41,7 +41,7 @@ class StockShowSidebar extends Component {
         return e => (
             this.setState({
                 [field]: e.currentTarget.value,
-                stock_price: this.props.stock.chart[this.props.stock.chart.length-1].close,
+                stock_price: this.props.stock.price,
             })
         )
     }
@@ -57,6 +57,8 @@ class StockShowSidebar extends Component {
             // otherwise, update it
             this.props.updatePortfolio(this.state)
         }
+
+        
     }
 
     setFormType(type){
@@ -99,12 +101,20 @@ class StockShowSidebar extends Component {
         let numShares = 0;
         if (!!userInfo.ownedStocks[this.props.match.params.symbol.toUpperCase()]){
             numShares = userInfo.ownedStocks[this.props.match.params.symbol.toUpperCase()]['num_shares'] 
-        } 
+        }
+        
+        // give selected class to buy and change formType to buy and show buying power box
+        if (numShares == 0 && this.state.formType === 'sell'){
+            $('#buy').addClass('selected');
+            this.setState({formType:'buy'});
+            $('.num-shares').removeClass('show').addClass('hide');
+            $('.buying-power').removeClass('hide').addClass('show');
+        }
    
         return (
             <>
                 <ul className="buy-sell">
-                    <li onClick={this.setFormType('buy')} className="selected">Buy {stock.symbol}</li>
+                    <li onClick={this.setFormType('buy')} id="buy" className="selected">Buy {stock.symbol}</li>
                     <li onClick={this.setFormType('sell')} className={(numShares > 0) ? "show" : "hide"}>Sell {stock.symbol}</li>
                 </ul>
                 <hr />

@@ -21,7 +21,7 @@ json.set! @stock.symbol do
     news = JSON.parse(chartNewsresponse.body)[@stock.symbol.upcase]['news'] # pulls 
     json.news news
     
-    price = JSON.parse(chartNewsresponse.body)[@stock.symbol.upcase]['price'] # 
+    price = JSON.parse(chartNewsresponse.body)[@stock.symbol.upcase]['price'].round(2) # 
     json.price price
 
     about = JSON.parse(aboutResponse.body) # 

@@ -11,7 +11,7 @@ class Api::PortfoliosController < ApplicationController
 
     def create
         # this is for when the user buys a stock for the first time
-        debugger
+        #debugger
        
         @portfolio = Portfolio.new(portfolio_params)
         cash_available = User.find(portfolio_params[:user_id]).cash_available
