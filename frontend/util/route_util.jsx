@@ -19,7 +19,7 @@ const Prot = ({ component: Component, exact, loggedIn, path }) => (
         exact={exact}
         render={(props) => (
             loggedIn ? <Component {...props} /> 
-            : <Redirect to="/login" />
+            : <Redirect to="/" />
         )}
     />
 )
