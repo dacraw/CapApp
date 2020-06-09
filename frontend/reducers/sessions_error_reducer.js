@@ -4,7 +4,7 @@ import {
     CLEAR_SESSION_ERRORS,
  } from '../actions/session_actions';
 import {RECEIVE_STOCK_ERRORS} from '../actions/stock_actions'
-import {RECEIVE_PORTFOLIO_ERRORS} from '../actions/portfolio_actions'
+import {RECEIVE_PORTFOLIO_ERRORS, RECEIVE_PORTFOLIO} from '../actions/portfolio_actions'
 import {merge} from 'lodash'
 
 const _nullState = {
@@ -21,6 +21,8 @@ export default (state = _nullState, action) => {
         case RECEIVE_PORTFOLIO_ERRORS:
             return merge({}, state, action.errors)
         case RECEIVE_CURRENT_USER:
+            return _nullState;
+        case RECEIVE_PORTFOLIO:
             return _nullState;
         case CLEAR_SESSION_ERRORS:
             return _nullState;

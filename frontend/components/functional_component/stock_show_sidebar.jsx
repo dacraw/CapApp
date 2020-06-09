@@ -4,7 +4,7 @@ class StockShowSidebar extends Component {
     constructor(props) {
         super(props);
         this.state = {
-            num_shares: 0.00,
+            num_shares: "",
             symbol: "",
             user_id: 0,
             stock_price: "",
@@ -22,7 +22,7 @@ class StockShowSidebar extends Component {
         }
 
         // set user_id to currentuser for form submission
-        this.setState({user_id: this.props.currentUser, symbol: this.props.match.params.symbol})
+        this.setState({user_id: this.props.currentUser, symbol: this.props.match.params.symbol.toUpperCase()})
         
     }
 
@@ -89,12 +89,12 @@ class StockShowSidebar extends Component {
     }
     
     render() {
-        const { userInfo, stock } = this.props;
+        const { userInfo, stock, errors } = this.props;
         
         // this requires stock.chart for pricing, so return null if it isnt established yet
         if (!stock || !stock.chart || !userInfo) return null;
         let estimatedPrice = (this.state.num_shares == 0) ? stock.price : stock.price * this.state.num_shares;
-        
+        debugger
         // NUMSHARES check if user owns shares before displaying num_shares
         let numShares = 0;
         if (!!userInfo.ownedStocks[this.props.match.params.symbol.toUpperCase()]){
@@ -130,6 +130,9 @@ class StockShowSidebar extends Component {
                         <section className="line cost-credit">
                             <label>Estimated cost</label>
                             <data>{estimatedPrice} </data>
+                        </section>
+                        <section className="errors">
+                            {errors[0]}
                         </section>
                         <button>Review Order</button>
                     </form>

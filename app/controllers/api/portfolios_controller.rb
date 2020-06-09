@@ -11,6 +11,8 @@ class Api::PortfoliosController < ApplicationController
 
     def create
         # this is for when the user buys a stock for the first time
+        debugger
+       
         @portfolio = Portfolio.new(portfolio_params)
         cash_available = User.find(portfolio_params[:user_id]).cash_available
         if cash_available >= portfolio_params[:stock_price].to_f
@@ -49,7 +51,7 @@ class Api::PortfoliosController < ApplicationController
                 else
                     render json: ['Sorry, something went wrong.'], status: 422
                 end
-            elsif portfolio_params[:formType] == 'sell' && @portfolio.num_shares > num_shares
+            elsif portfolio_params[:formType] == 'sell' && @portfolio.num_shares >= num_shares
                 # user sells stock
                 updated_shares = current_shares - num_shares
                 if @portfolio.update!(num_shares: updated_shares)

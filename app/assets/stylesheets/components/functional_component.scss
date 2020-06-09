@@ -69,6 +69,7 @@
         font-size: .9em;
         text-align: center;
         cursor: pointer;
+        
         .info-box {
             display: none;
             font-size: .85em;
@@ -83,6 +84,10 @@
             box-shadow: 0 0 20px $lightgray;
             padding: 20px;
             color: $black;
+            &.show {
+                display: block;
+            }
+
             h3 {
                 margin-bottom: 20px;
             }
@@ -94,8 +99,7 @@
                     width: 50%;
                     margin-bottom: 10px;
                 }
-            }
-
+            } 
         }
     }
 }
