@@ -1,7 +1,7 @@
 json.set! @portfolio.user_id do
     # update cash available
     json.cashAvailable User.find(@portfolio.user_id).cash_available.to_f
-    #debugger
+    # debugger
     # update num shares in owned stocks
     json.ownedStocks do
         json.set! @portfolio.symbol do

@@ -8,7 +8,7 @@ class User < ApplicationRecord
     after_initialize :ensure_session_token
     attr_reader :password
 
-    has_many :portfolio_items,
+    has_many :portfolios,
         foreign_key: :user_id,
         class_name: :Portfolio
 

@@ -52,9 +52,10 @@ class Api::PortfoliosController < ApplicationController
                     render json: ['Sorry, something went wrong.'], status: 422
                 end
             elsif portfolio_params[:formType] == 'sell' && @portfolio.num_shares >= num_shares
+                #debugger
                 # user sells stock
                 updated_shares = current_shares - num_shares
-                if @portfolio.update!(num_shares: updated_shares)
+                if @portfolio.update!(num_shares: updated_shares.round(2))
                     # update user's cash_available
                     current_cash = User.find(@portfolio.user_id).cash_available
                     total_cost = -num_shares * stock_price
