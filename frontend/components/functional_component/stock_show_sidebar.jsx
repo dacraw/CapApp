@@ -17,9 +17,7 @@ class StockShowSidebar extends Component {
     componentDidMount() {
         // this.props.fetchStocks()
         
-        window.onclick = function(e){
-            document.getElementById('sidebar-info-dropdown').classList.remove('show');
-        }
+
 
         // set user_id to currentuser for form submission
         this.setState({user_id: this.props.currentUser, symbol: this.props.match.params.symbol.toUpperCase()})
