@@ -144,7 +144,7 @@ class StockShowSidebar extends Component {
                         </section>
                         <hr />
                         <section className="line cost-credit">
-                            <label>Estimated cost</label>
+                            <label>{(this.state.formType === 'buy') ? 'Estimated Cost' : 'Estimated Credit'}</label>
                             <data>{formatter.format(estimatedPrice)} </data>
                         </section>
                         <section className="errors">
