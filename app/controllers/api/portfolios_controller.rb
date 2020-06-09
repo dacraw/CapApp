@@ -31,6 +31,7 @@ class Api::PortfoliosController < ApplicationController
         @portfolio = Portfolio.find_by(user_id: portfolio_params[:user_id], symbol: portfolio_params[:symbol].upcase)
         user_id = portfolio_params[:user_id].to_i
         num_shares = portfolio_params[:num_shares].to_f
+        @new_shares = num_shares
         stock_price = portfolio_params[:stock_price].to_f.round(2)
         #debugger
         if @portfolio
@@ -63,7 +64,7 @@ class Api::PortfoliosController < ApplicationController
                     User.find(@portfolio.user_id).update(cash_available: updated_cash.round(2))
 
                     # reduce user shares
-
+                    
                     render :update
                 else
                     render json: ['Sorry, something went wrong.'], status: 422

@@ -5,7 +5,9 @@ json.set! @portfolio.user_id do
     # update num shares in owned stocks
     json.ownedStocks do
         json.set! @portfolio.symbol do
+            # debugger
             json.extract! @portfolio, :symbol, :num_shares
         end
     end
+    json.newShares @new_shares
 end
