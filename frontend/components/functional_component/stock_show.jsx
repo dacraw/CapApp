@@ -13,8 +13,8 @@ class StockShow extends Component {
     }
 
     componentDidMount() {
-        
-       this.props.fetchStock(this.props.match.params.symbol)
+        debugger
+       this.props.fetchStock(this.props.match.params.symbol.toUpperCase())
     }
 
     componentDidUpdate(prevProps){

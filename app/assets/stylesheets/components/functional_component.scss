@@ -121,7 +121,7 @@
         
     }
     .success { color: $green }
-    .errors {color:$red}
+    .errors {color:$red; background-color: $white;}
     select {
         
         border: 1px solid $lighter-gray;
