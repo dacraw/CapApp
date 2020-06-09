@@ -8,7 +8,7 @@ const _nullState = {
 export default (state = {}, action) => {
     switch (action.type) {
         case RECEIVE_PORTFOLIO:
-            debugger
+            
             return Object.assign({}, { [action.portfolio.id]: action.portfolio })
         case REMOVE_PORTFOLIO:
             return _nullState;

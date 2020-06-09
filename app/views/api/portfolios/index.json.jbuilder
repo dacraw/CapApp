@@ -8,5 +8,5 @@
 
 
 json.set! @portfolio.first.user_id do
-    json.stocks @portfolio.map {|item| item.symbol } 
+    json.array! @portfolio, :symbol, :num_shares 
 end
