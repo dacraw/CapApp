@@ -1,1 +1,1 @@
-json.extract! @portfolio, :id, :user_id, :symbol, :num_shares
+json.extract! @portfolio, :id, :user_id, :symbol
