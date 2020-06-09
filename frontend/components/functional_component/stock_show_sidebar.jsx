@@ -33,8 +33,7 @@ class StockShowSidebar extends Component {
                 stock_price: "",
                 formType: 'buy',
             });
-            // $('.errors').css('color','white');
-            // $('.success').hide();
+            this.props.userInfo.newShares = "";
         }
         
     }

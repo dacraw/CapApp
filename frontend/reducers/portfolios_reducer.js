@@ -1,4 +1,4 @@
-import {RECEIVE_PORTFOLIO, REMOVE_PORTFOLIO} from '../actions/portfolio_actions';
+import {RECEIVE_PORTFOLIO, REMOVE_PORTFOLIO, CLEAR_SUCCESS} from '../actions/portfolio_actions';
 
 const _nullState = {
     id: null,

@@ -6,6 +6,8 @@ export const REMOVE_PORTFOLIO = "REMOVE_PORTFOLIO"
 export const RECEIVE_PORTFOLIOS = 'RECEIVE_PORTFOLIOS';
 export const RECEIVE_PORTFOLIO = 'RECEIVE_PORTFOLIO';
 
+export const CLEAR_SUCCESS = 'CLEAR_SUCCESS';
+
 const receivePortfolioErrors = errors => ({
     type: RECEIVE_PORTFOLIO_ERRORS,
     errors,
