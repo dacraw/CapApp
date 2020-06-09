@@ -92,6 +92,12 @@ class StockShowSidebar extends Component {
     
     render() {
         const { userInfo, stock, errors } = this.props;
+
+        const formatter = new Intl.NumberFormat('en-US', {
+            style: 'currency',
+            currency: 'USD',
+            minimumFractionDigits: 2
+          })
         
         // this requires stock.chart for pricing, so return null if it isnt established yet
         if (!stock || !stock.chart || !userInfo) return null;
@@ -134,12 +140,12 @@ class StockShowSidebar extends Component {
                         </section>
                         <section className="line">
                             <label>Market Price</label>
-                            <data className="cost-credit">{stock.price}</data>
+                            <data className="cost-credit">{formatter.format(stock.price)}</data>
                         </section>
                         <hr />
                         <section className="line cost-credit">
                             <label>Estimated cost</label>
-                            <data>${estimatedPrice} </data>
+                            <data>{formatter.format(estimatedPrice)} </data>
                         </section>
                         <section className="errors">
                             {errors[0]}

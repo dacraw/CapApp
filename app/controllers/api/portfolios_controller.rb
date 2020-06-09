@@ -15,7 +15,7 @@ class Api::PortfoliosController < ApplicationController
        
         @portfolio = Portfolio.new(portfolio_params)
         cash_available = User.find(portfolio_params[:user_id]).cash_available
-        if cash_available >= portfolio_params[:stock_price].to_f
+        if cash_available >= portfolio_params[:stock_price].to_f.round(2)
             if @portfolio.save!
                 render :update
             else
@@ -31,7 +31,7 @@ class Api::PortfoliosController < ApplicationController
         @portfolio = Portfolio.find_by(user_id: portfolio_params[:user_id], symbol: portfolio_params[:symbol].upcase)
         user_id = portfolio_params[:user_id].to_i
         num_shares = portfolio_params[:num_shares].to_f
-        stock_price = portfolio_params[:stock_price].to_f
+        stock_price = portfolio_params[:stock_price].to_f.round(2)
         #debugger
         if @portfolio
             current_shares = @portfolio.num_shares
