@@ -37,7 +37,7 @@ class Api::PortfoliosController < ApplicationController
             cash_available = User.find(user_id).cash_available
             
             # If user already owns the stock and wants to buy more shares
-            if num_shares > 0 && cash_available >= stock_price
+            if portfolio_params[:formType] == 'buy' && num_shares > 0 && cash_available >= stock_price
                 if @portfolio.update!(num_shares: updated_shares)
                     # update user's cash_available
                     current_cash = User.find(@portfolio.user_id).cash_available
@@ -49,14 +49,18 @@ class Api::PortfoliosController < ApplicationController
                 else
                     render json: ['Sorry, something went wrong.'], status: 422
                 end
-            elsif num_shares < 0 && @portfolio.num_shares > -num_shares
+            elsif portfolio_params[:formType] == 'sell' && @portfolio.num_shares > num_shares
                 # user sells stock
+                updated_shares = current_shares - num_shares
                 if @portfolio.update!(num_shares: updated_shares)
                     # update user's cash_available
                     current_cash = User.find(@portfolio.user_id).cash_available
                     total_cost = -num_shares * stock_price
-                    updated_cash = current_cash + total_cost
+                    updated_cash = current_cash - total_cost
                     User.find(@portfolio.user_id).update(cash_available: updated_cash)
+
+                    # reduce user shares
+
                     render :update
                 else
                     render json: ['Sorry, something went wrong.'], status: 422
