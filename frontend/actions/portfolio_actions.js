@@ -31,11 +31,12 @@ export const createPortfolio = portfolio => dispatch => (
 
 export const updatePortfolio = portfolio => dispatch => {
     debugger
+    
     return (
-    PortfolioUtil.updatePortfolio(portfolio)
-        .then(
-            portfolio => dispatch(receivePortfolio(portfolio)),
-            errs => dispatch(receivePortfolioErrors(errs.responseJSON))
+        PortfolioUtil.updatePortfolio(portfolio)
+            .then(
+                portfolio => dispatch(receivePortfolio(portfolio)),
+                errs => dispatch(receivePortfolioErrors(errs.responseJSON))
         )
     )    
 }

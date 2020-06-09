@@ -31,7 +31,7 @@ class Api::PortfoliosController < ApplicationController
         user_id = portfolio_params[:user_id].to_i
         num_shares = portfolio_params[:num_shares].to_i
         stock_price = portfolio_params[:stock_price].to_i
-        
+        # debugger
         if @portfolio
             current_shares = @portfolio.num_shares
             updated_shares = current_shares + num_shares
