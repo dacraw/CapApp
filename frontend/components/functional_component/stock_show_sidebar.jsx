@@ -4,7 +4,7 @@ class StockShowSidebar extends Component {
     constructor(props) {
         super(props);
         this.state = {
-            num_shares: "",
+            num_shares: 0,
             symbol: "",
             user_id: 0,
             stock_price: "",
@@ -130,7 +130,7 @@ class StockShowSidebar extends Component {
                         </section>
                         <section className="line">
                             <label>Shares</label>
-                            <input type="number" placeholder="0" onChange={this.handleInput('num_shares')} value={this.state.num_shares} />
+                            <input onChange={this.handleInput('num_shares')} value={this.state.num_shares} type="number" placeholder="0" min="1" max={(this.state.formType === 'sell') ? numShares : ""} step=".01" />
                         </section>
                         <section className="line">
                             <label>Market Price</label>
