@@ -106,10 +106,22 @@
 
 .pst-form {
     font-size: .83em;
+    position: relative;
     * {
         display: block;
     }
-
+    
+    .success, .errors {
+        position: absolute;
+        text-align: center;
+        font-weight: bold;
+        padding: 10px 0;
+        box-sizing:border-box;
+     
+        
+    }
+    .success { color: $green }
+    .errors {color:$red}
     select {
         
         border: 1px solid $lighter-gray;
@@ -167,7 +179,7 @@
     }
 
     button {
-        margin-top: 20px;
+        margin-top: 50px;
         background-color: $lightgreen;
         color: $white;
         height: 50px;

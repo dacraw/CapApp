@@ -16,12 +16,9 @@ class StockShowSidebar extends Component {
     
     componentDidMount() {
         // this.props.fetchStocks()
-        
-
 
         // set user_id to currentuser for form submission
         this.setState({user_id: this.props.currentUser, symbol: this.props.match.params.symbol.toUpperCase()})
-        
     }
 
     componentDidUpdate(prevProps) {
@@ -46,7 +43,10 @@ class StockShowSidebar extends Component {
 
     handleSubmit(e){
         e.preventDefault();
-
+        // $('.success').css('display','block');
+        // $('.success').css('opacity',1.0);
+        $('.success').stop(true, true).show().fadeOut(7000);
+        $('.errors').stop(true, true).show().fadeOut(7000);
         // if user doenst own the stock, then create it
         debugger
         if (!this.props.userInfo.ownedStocks[this.state.symbol.toUpperCase()]) {
@@ -55,8 +55,6 @@ class StockShowSidebar extends Component {
             // otherwise, update it
             this.props.updatePortfolio(this.state)
         }
-
-        
     }
 
     setFormType(type){
