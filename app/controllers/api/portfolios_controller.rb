@@ -45,7 +45,7 @@ class Api::PortfoliosController < ApplicationController
                     current_cash = User.find(@portfolio.user_id).cash_available
                     total_cost = num_shares * stock_price
                     updated_cash = current_cash - total_cost
-                    User.find(@portfolio.user_id).update(cash_available: updated_cash)
+                    User.find(@portfolio.user_id).update(cash_available: updated_cash.round(2))
 
                     render :update
                 else
@@ -60,7 +60,7 @@ class Api::PortfoliosController < ApplicationController
                     current_cash = User.find(@portfolio.user_id).cash_available
                     total_cost = -num_shares * stock_price
                     updated_cash = current_cash - total_cost
-                    User.find(@portfolio.user_id).update(cash_available: updated_cash)
+                    User.find(@portfolio.user_id).update(cash_available: updated_cash.round(2))
 
                     # reduce user shares
 

@@ -13,7 +13,7 @@ class User < ApplicationRecord
         class_name: :Portfolio
 
     has_many :stocks,
-        through: :portfolio_items,
+        through: :portfolios,
         source: :stocks
 
 
