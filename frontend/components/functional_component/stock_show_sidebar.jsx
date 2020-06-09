@@ -147,6 +147,9 @@ class StockShowSidebar extends Component {
                             <label>{(this.state.formType === 'buy') ? 'Estimated Cost' : 'Estimated Credit'}</label>
                             <data>{formatter.format(estimatedPrice)} </data>
                         </section>
+                        <section className="success">
+                            {this.props.userInfo.newShares}
+                        </section>
                         <section className="errors">
                             {errors[0]}
                         </section>

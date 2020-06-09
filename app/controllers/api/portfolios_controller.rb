@@ -32,6 +32,7 @@ class Api::PortfoliosController < ApplicationController
         user_id = portfolio_params[:user_id].to_i
         num_shares = portfolio_params[:num_shares].to_f
         @new_shares = num_shares
+        @form_type = portfolio_params[:formType]
         stock_price = portfolio_params[:stock_price].to_f.round(2)
         #debugger
         if @portfolio
