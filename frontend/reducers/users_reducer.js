@@ -13,12 +13,10 @@ export default (state = {}, action) => {
                 state, 
                 { [action.user.id]: action.user })
         case RECEIVE_PORTFOLIO:
-
-            const nextState = merge({}, state);
-            nextState[action.portfolio.user_id]['stocks'].push(action.portfolio.symbol);
-            return nextState;
-        case RECEIVE_PORTFOLIOS:
+            debugger
             
+            return merge({}, state, action.portfolio);
+        case RECEIVE_PORTFOLIOS:
             return _.merge(
                 {},
                 state,

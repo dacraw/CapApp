@@ -14,7 +14,7 @@ export const fetchPortfolios = currentUser => (
 
 export const updatePortfolio = portfolio => {
     debugger
-    $.ajax({
+    return $.ajax({
         method: 'PATCH',
         url: `/api/users/${portfolio.user_id}/portfolios/${portfolio.symbol}`,
         data: { portfolio },

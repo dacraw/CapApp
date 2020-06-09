@@ -96,9 +96,9 @@
             }
 
         }
-        .show {
-            display: block;
-        }
+
+        .hide { display: none; }
+        .show { display: block;}
     }
 }
 
@@ -107,6 +107,7 @@
     * {
         display: block;
     }
+
     select {
         
         border: 1px solid $lighter-gray;
