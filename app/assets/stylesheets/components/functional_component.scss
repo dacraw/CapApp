@@ -22,7 +22,8 @@
 
         box-shadow: 0 0 20px $lightgray;
       
-
+        .hide { display: none; }
+        
         > *:not(hr) { // all immediate children, minus lines
             padding: 20px;
         }
@@ -96,9 +97,6 @@
             }
 
         }
-
-        .hide { display: none; }
-        .show { display: block;}
     }
 }
 

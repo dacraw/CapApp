@@ -13,8 +13,7 @@ export default (state = {}, action) => {
                 state, 
                 { [action.user.id]: action.user })
         case RECEIVE_PORTFOLIO:
-            debugger
-            
+            debugger            
             return merge({}, state, action.portfolio);
         case RECEIVE_PORTFOLIOS:
             return _.merge(

@@ -13,7 +13,7 @@ class Api::PortfoliosController < ApplicationController
         # this is for when the user buys a stock for the first time
         @portfolio = Portfolio.new(portfolio_params)
         cash_available = User.find(portfolio_params[:user_id]).cash_available
-        if cash_available >= portfolio_params[:stock_price].to_i
+        if cash_available >= portfolio_params[:stock_price].to_f
             if @portfolio.save!
                 render :update
             else
@@ -28,8 +28,8 @@ class Api::PortfoliosController < ApplicationController
         # Check if user already owns the share.
         @portfolio = Portfolio.find_by(user_id: portfolio_params[:user_id], symbol: portfolio_params[:symbol].upcase)
         user_id = portfolio_params[:user_id].to_i
-        num_shares = portfolio_params[:num_shares].to_i
-        stock_price = portfolio_params[:stock_price].to_i
+        num_shares = portfolio_params[:num_shares].to_f
+        stock_price = portfolio_params[:stock_price].to_f
         
         if @portfolio
             current_shares = @portfolio.num_shares
