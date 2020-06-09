@@ -60,11 +60,18 @@ class StockShowSidebar extends Component {
     }
 
     setFormType(type){
-        // debugger
+        // set formType when user clicks buy or sell in the sidebar
+        // also hide or show cash available or num shares accordingly
         return e => {
-            // set formType when user clicks buy or sell in the sidebar
-            // also hide or show cash available or num shares accordingly
-            this.setState({formType: type})
+            debugger
+            e.stopPropagation();
+
+            $('.buy-sell .selected').removeClass('selected');
+
+            // add selected to current 
+            e.currentTarget.classList.add('selected');
+
+            this.setState({formType: type});
             if (type === 'sell') {
                 $('.buying-power').removeClass('show').addClass('hide');
                 $('.num-shares').removeClass('hide').addClass('show')
@@ -97,8 +104,8 @@ class StockShowSidebar extends Component {
         return (
             <>
                 <ul className="buy-sell">
-                    <li onClick={() => this.setFormType('buy')} className="selected">Buy {stock.symbol}</li>
-                    <li onClick={() => this.setFormType('sell')} className={(numShares > 0) ? "show" : "hide"}>Sell {stock.symbol}</li>
+                    <li onClick={this.setFormType('buy')} className="selected">Buy {stock.symbol}</li>
+                    <li onClick={this.setFormType('sell')} className={(numShares > 0) ? "show" : "hide"}>Sell {stock.symbol}</li>
                 </ul>
                 <hr />
                 <section onSubmit={this.handleSubmit}>

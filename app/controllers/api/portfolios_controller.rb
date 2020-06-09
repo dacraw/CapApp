@@ -30,7 +30,7 @@ class Api::PortfoliosController < ApplicationController
         user_id = portfolio_params[:user_id].to_i
         num_shares = portfolio_params[:num_shares].to_f
         stock_price = portfolio_params[:stock_price].to_f
-        
+        #debugger
         if @portfolio
             current_shares = @portfolio.num_shares
             updated_shares = current_shares + num_shares
@@ -49,11 +49,12 @@ class Api::PortfoliosController < ApplicationController
                 else
                     render json: ['Sorry, something went wrong.'], status: 422
                 end
-            elsif num_shares < 0 && num_shares * 1 > @portfolio.num_shares
+            elsif num_shares < 0 && @portfolio.num_shares > -num_shares
+                # user sells stock
                 if @portfolio.update!(num_shares: updated_shares)
                     # update user's cash_available
                     current_cash = User.find(@portfolio.user_id).cash_available
-                    total_cost = num_shares * stock_price
+                    total_cost = -num_shares * stock_price
                     updated_cash = current_cash + total_cost
                     User.find(@portfolio.user_id).update(cash_available: updated_cash)
                     render :update
@@ -67,6 +68,6 @@ class Api::PortfoliosController < ApplicationController
     end
 
     def portfolio_params
-        params.require(:portfolio).permit(:user_id, :symbol, :num_shares, :stock_price)
+        params.require(:portfolio).permit(:user_id, :symbol, :num_shares, :stock_price, :formType)
     end
 end
