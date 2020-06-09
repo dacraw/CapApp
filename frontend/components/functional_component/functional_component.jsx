@@ -1,6 +1,6 @@
 import React, {Component} from 'react'
 import {Route} from 'react-router-dom'
-import StockShowSidebarBuyContainer from './stock_show_sidebar_buy_container'
+import StockShowSidebarContainer from './stock_show_sidebar_container'
 import StockShowContainer from './stock_show_container'
 
 class FunctionalComponent extends Component {
@@ -23,7 +23,7 @@ class FunctionalComponent extends Component {
                     <Route path='/stocks/:symbol' component={StockShowContainer} />
                 </section>
                 <aside>
-                    <Route path='/stocks/:symbol' component={StockShowSidebarBuyContainer} />
+                    <Route path='/stocks/:symbol' component={StockShowSidebarContainer} />
                 </aside>
             </main>
         )
