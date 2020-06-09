@@ -8,6 +8,7 @@
 
 
 json.set! @portfolio.first.user_id do
+    json.cashAvailable number_to_currency(@portfolio.first.user.cash_available)
     json.ownedStocks do
         @portfolio.each do |item|
             json.set! item.symbol do
