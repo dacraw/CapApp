@@ -27,7 +27,12 @@ class StockShowSidebar extends Component {
         
         if (this.props.match.params.symbol !== prevProps.match.params.symbol && !!this.props.stocks[this.props.match.params.symbol.toUpperCase()]){
             
-            this.setState({symbol: this.props.match.params.symbol.toUpperCase()}) 
+            this.setState({
+                symbol: this.props.match.params.symbol.toUpperCase(),
+                num_shares: "",
+                stock_price: "",
+                formType: 'buy',
+            }) 
         }
         
     }
@@ -49,7 +54,7 @@ class StockShowSidebar extends Component {
         $('.errors').stop(true, true).show().fadeOut(7000);
         // if user doenst own the stock, then create it
         debugger
-        if (!this.props.userInfo.ownedStocks[this.state.symbol.toUpperCase()]) {
+        if (this.props.userInfo.ownedStocks && !this.props.userInfo.ownedStocks[this.state.symbol.toUpperCase()]) {
             this.props.createPortfolio(this.state);
         } else {
             // otherwise, update it

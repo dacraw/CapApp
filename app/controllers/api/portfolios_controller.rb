@@ -14,9 +14,19 @@ class Api::PortfoliosController < ApplicationController
         #debugger
        
         @portfolio = Portfolio.new(portfolio_params)
+        user_id = portfolio_params[:user_id].to_i
+        num_shares = portfolio_params[:num_shares].to_f
+        @new_shares = num_shares
+        @form_type = portfolio_params[:formType]
+        stock_price = portfolio_params[:stock_price].to_f.round(2)
         cash_available = User.find(portfolio_params[:user_id]).cash_available
+
         if cash_available >= portfolio_params[:stock_price].to_f.round(2)
             if @portfolio.save!
+                current_cash = User.find(@portfolio.user_id).cash_available
+                total_cost = num_shares * stock_price
+                updated_cash = current_cash - total_cost
+                User.find(@portfolio.user_id).update(cash_available: updated_cash.round(2))
                 render :update
             else
                 render json: @portfolio.errors.full_messages, status: 422
