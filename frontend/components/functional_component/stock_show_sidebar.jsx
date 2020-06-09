@@ -8,6 +8,7 @@ class StockShowSidebar extends Component {
             symbol: "",
             user_id: 0,
             stock_price: "",
+            formType: 'buy',
         }
         this.handleSubmit = this.handleSubmit.bind(this);
     }
@@ -57,6 +58,11 @@ class StockShowSidebar extends Component {
         }
     }
 
+    setFormType(type){
+        // debugger
+        this.setState({formType: type})
+    }
+
     showBox(e){
         e.stopPropagation();
         
@@ -67,13 +73,18 @@ class StockShowSidebar extends Component {
         const { userInfo, stock } = this.props;
         
         // this requires stock.chart for pricing, so return null if it isnt established yet
-        if (!stock || !stock.chart) return null;
+        if (!stock || !stock.chart || !userInfo) return null;
         let estimatedPrice = (this.state.num_shares == 0) ? stock.chart[stock.chart.length-1].close : stock.chart[stock.chart.length-1].close * this.state.num_shares;
+        debugger
+
+        let numShares = (!!userInfo.ownedStocks[this.props.match.params.symbol.toUpperCase()]['num_shares']) ? userInfo.ownedStocks[this.props.match.params.symbol.toUpperCase()]['num_shares'] : 0;
+        // check if user owns shares before displaying num_shares
+   
         return (
             <>
                 <ul className="buy-sell">
-                    <li className="selected">Buy {stock.symbol}</li>
-                    <li>Sell {stock.symbol}</li>
+                    <li onClick={() => this.setFormType('buy')} className="selected">Buy {stock.symbol}</li>
+                    <li onClick={() => this.setFormType('sell')}>Sell {stock.symbol}</li>
                 </ul>
                 <hr />
                 <section onSubmit={this.handleSubmit}>
@@ -103,7 +114,7 @@ class StockShowSidebar extends Component {
                     </form>
                 </section>
                 <hr />
-                <section className="buying-power">
+                <section className="buying-power bottom">
                         <a onClick={this.showBox}>{userInfo.cashAvailable} available for trading. </a>
                         <div className="info-box" id="sidebar-info-dropdown">
                             <h3>Good luck!</h3>
@@ -117,6 +128,9 @@ class StockShowSidebar extends Component {
                             </div>  
                         </div>
                         <i className="fas fa-question-circle"></i>
+                </section>
+                <section className="num-shares bottom">
+                    {numShares} shares available for trading.
                 </section>
             </>
         )

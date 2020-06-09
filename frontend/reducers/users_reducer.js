@@ -18,6 +18,7 @@ export default (state = {}, action) => {
             nextState[action.portfolio.user_id]['stocks'].push(action.portfolio.symbol);
             return nextState;
         case RECEIVE_PORTFOLIOS:
+            
             return _.merge(
                 {},
                 state,
