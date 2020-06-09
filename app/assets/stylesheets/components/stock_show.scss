@@ -1,4 +1,5 @@
 .stock-show-container {
+    position: relative;
     h1 {
         font-family: $narrow;
         font-size: 1.75em;
@@ -8,6 +9,25 @@
     }
     .percentage-change {
         font-weight: bold;
+    }
+    .stock-list {
+        position: absolute;
+        right: 0;
+        top: 0;
+        background-color: $white;
+        border: 1px solid $lighter-gray;
+        h3, ul a{ padding: 10px; }
+        ul {
+            display: none;
+            height: 300px;
+            overflow: auto;
+            text-align: center;
+            li:hover {
+                background-color: $lightblue;
+            }
+            a { color: $green; display: block; }
+            &.show { display: block; }
+        }
     }
     > section {
         margin-bottom: 30px;

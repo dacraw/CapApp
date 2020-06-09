@@ -2,6 +2,7 @@ import React, {Component} from 'react'
 import GraphComponent from './graph_component'
 import AboutComponent from './about_component'
 import NewsComponent from './news_component'
+import {Link} from 'react-router-dom'
 
 class StockShow extends Component {
     constructor(props) {
@@ -25,6 +26,12 @@ class StockShow extends Component {
             this.props.fetchStock(this.props.match.params.symbol)
         }
     }
+
+    showStocks(e){
+        e.preventDefault();
+        // debugger
+        e.currentTarget.nextSibling.classList.toggle('show');
+    }
     
     render() {
         const { stock } = this.props;
@@ -34,6 +41,12 @@ class StockShow extends Component {
         
         return (
             <main className="stock-show-container">
+                <section className="stock-list">
+                    <h3 onClick={this.showStocks} className="stock-list-toggle">Select A Stock:</h3>
+                    <ul>
+                        {Object.keys(this.props.stocks).map( (stock, idx) => <li key={idx}><Link to={`/stocks/${stock.toLowerCase()}`}>{stock}</Link></li>)}
+                    </ul>    
+                </section>
                 <h1 className="company-name">
                     {stock.about.companyName}
                 </h1>
