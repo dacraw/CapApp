@@ -101,7 +101,8 @@ class StockShowSidebar extends Component {
        
         // NUMSHARES check if user owns shares before displaying num_shares
         let numShares = 0;
-        if (!!userInfo.ownedStocks[this.props.match.params.symbol.toUpperCase()]){
+        
+        if (!!userInfo.ownedStocks && !!userInfo.ownedStocks[this.props.match.params.symbol.toUpperCase()]){
             numShares = userInfo.ownedStocks[this.props.match.params.symbol.toUpperCase()]['num_shares'] 
         }
         

@@ -1,11 +1,11 @@
 class Api::PortfoliosController < ApplicationController
     def index
         @portfolio = Portfolio.where(user_id: params[:user_id])
-        
-        if @portfolio
+        # debugger
+        if @portfolio.length != 0
             render :index
         else
-            render json: @user_stocks.errors.full_messages
+            render json: ["User currently has no portfolios"]
         end
     end
 
