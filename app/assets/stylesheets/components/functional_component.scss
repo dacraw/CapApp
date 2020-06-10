@@ -47,22 +47,23 @@
                 padding-bottom: 20px;
                 margin-right: 10px;
                 color: $black;
+                &.negative-change:hover{
+                    color: $red;
+                }  
+                &.positive-change:hover{
+                    color: $green;
+                }  
                 &.selected {
                     border-bottom: 1px solid;
                     &.positive-change {
                         color: $green;
-                        border-color: $green;
-                        &:hover {
-                            color: $green;
-                        }
+                        border-color: $lightgreen;
+//                         &:hover {color: $green;}
                     }
                     &.negative-change {
                         color: $red;
                         border-color: $red;
-                        &:hover{
-                            color: $red;
-
-                        }   
+//                         &:hover {color: $red;}
                     }
                 }               
             } 
@@ -189,11 +190,16 @@
 
     button {
         margin-top: 50px;
-        background-color: $lightgreen;
         color: $white;
         height: 50px;
         display: block;
         width: 100%;
         border-radius: 5px;
+        &.negative-change {
+            background-color: $red;
+        }
+        &.positive_change {
+            background-color: $lightgreen;
+        }
     }
 }

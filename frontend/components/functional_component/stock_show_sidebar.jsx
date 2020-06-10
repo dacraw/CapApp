@@ -126,11 +126,17 @@ class StockShowSidebar extends Component {
             $('.buying-power').removeClass('hide').addClass('show');
         }
    
+        const sellClass = () => {
+            const change = (stock.dollarChange <= 0) ? "negative-change" : "positive-change";
+            const reveal = (numShares > 0) ? "show" : "hide";
+            return `${change} ${reveal}`;
+        }
+
         return (
             <>
                 <ul className="buy-sell">
                     <li onClick={this.setFormType('buy')} id="buy" className={`selected ${(stock.dollarChange <= 0) ? "negative-change" : "positive-change"}`}>Buy {stock.symbol}</li>
-                    <li onClick={this.setFormType('sell')} className={(numShares > 0) ? "show" : "hide"}>Sell {stock.symbol}</li>
+                    <li onClick={this.setFormType('sell')} className={sellClass()}>Sell {stock.symbol}</li>
                 </ul>
                 <hr />
                 <section onSubmit={this.handleSubmit}>
@@ -162,7 +168,7 @@ class StockShowSidebar extends Component {
                         <section className="errors">
                             {errors[0]}
                         </section>
-                        <button>Review Order</button>
+                        <button className={stock.dollarChange <= 0 ? "negative-change" : "positive-change"}>Review Order</button>
                     </form>
                 </section>
                 <hr />

@@ -27,7 +27,7 @@ class StockShow extends Component {
         
         if (this.props.match.params.symbol !== prevProps.match.params.symbol && !!this.props.stocks[this.props.match.params.symbol.toUpperCase()] && !this.props.stocks[this.props.match.params.symbol.toUpperCase()].chart ){
             this.props.fetchStock(this.props.match.params.symbol.toUpperCase());
-            debugger;
+            
         }
     }
 
