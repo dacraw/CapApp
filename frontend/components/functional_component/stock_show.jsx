@@ -37,7 +37,6 @@ class StockShow extends Component {
         const { stock } = this.props;
         
         if (!stock) return null
-        if (!stock.chart) return null;
         
         return (
             <main className="stock-show-container">
@@ -48,7 +47,7 @@ class StockShow extends Component {
                     </ul>    
                 </section>
   
-                <GraphComponent chart={stock.chart} />
+                <GraphComponent />
                 <AboutComponent about={stock.about} />
                 <NewsComponent news={stock.news} />
 

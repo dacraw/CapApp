@@ -10,22 +10,26 @@ class GraphComponent extends Component {
     }
     
     render() {
-        const { chart, stocks } = this.props;
-        if (!chart || !stocks) return null;
         debugger
+        const { stocks, match: { params: { symbol }}}= this.props;
+        
+        const sym = symbol.toUpperCase();
+        const stock = stocks[sym];
 
-        const data = chart;
+        if (!stocks || !stock || !stock.about) return null;
+
+        const data = stock.chart;
 
         return (
             <section className="stock-graph">
                 <h1 className="company-name">
-                {stocks[this.props.match.params.symbol.toUpperCase()].about.companyName}
+                {stock.about.companyName}
                 </h1>
                 <h1 className="current-price">
-                    {/* {stock.price} */}
+                    {stock.price}
                 </h1>
                 <h1 className="percentage-change">
-                    {/* {stock.dayChange} */}
+                    { stock.price / stock.chart.open}
                 </h1>
 
                 <LineChart width={710} height={200} data={data}>

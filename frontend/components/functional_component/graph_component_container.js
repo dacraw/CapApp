@@ -4,7 +4,7 @@ import {withRouter} from 'react-router-dom'
 
 const mapStateToProps = ({ entities: { stocks } }) => {
     return ({
-        stocks: stocks
+        stocks: stocks,
     })
 }
 
