@@ -24,9 +24,9 @@ json.set! @stock.symbol do
     currentPrice = JSON.parse(priceNewsresponse.body)[@stock.symbol.upcase]['price'].round(2) # 
     
     chart = JSON.parse(intradayChartresponse.body) # pulls 
-    # if any nil values, asign to current price
-    chart.map do |point,idx| 
-        point['average'] = currentPrice if point['average'] == nil
+    # if any nil values, use average of last 3 prices
+    chart.map.with_index do |point,idx| 
+        point['average'] = (chart[idx-1]['average'] + chart[idx-2]['average'] + chart[idx-3]['average']) / 3 if point['average'] == nil
         point['average'] = point['average'].round(2)
     end
     json.chart chart
