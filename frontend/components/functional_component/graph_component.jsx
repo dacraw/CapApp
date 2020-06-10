@@ -15,6 +15,7 @@ class GraphComponent extends Component {
         if (this.props.match.params.symbol !== prevProps.match.params.symbol){
             this.setState({
                 price: this.props.stock.price,
+                
             })
         }
     }

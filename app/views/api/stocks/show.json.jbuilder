@@ -31,8 +31,17 @@ json.set! @stock.symbol do
     end
     json.chart chart
 
+    price = chart.last['average'].round(2)
     # set the stock price to the last average of the chart
-    json.price chart.last['average'].round(2)
+    json.price price
+
+    # set the dollar and percentage change for the day based on current price
+    # using last price of the chart for current price
+    dollar_change = (price - chart[0]['average']).round(2)
+    percentage_change = (((price / chart[0]['average']) - 1) * 100).round(2)
+    json.change "$#{dollar_change} (#{percentage_change}%)"
+        
+
 
     news = JSON.parse(priceNewsresponse.body)[@stock.symbol.upcase]['news'] # pulls 
     json.news news
