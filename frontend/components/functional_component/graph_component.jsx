@@ -89,7 +89,7 @@ class GraphComponent extends Component {
                 <LineChart onMouseMove={this.handleEnter} onMouseLeave={() => this.handleLeave(stock.price)} width={710} height={200} data={data}>
                     <Line type="linear" dataKey={"average"} stroke="#8884d8" dot={false} strokeWidth="2.5" />
                     <XAxis hide={true} dataKey="label" />
-                    <YAxis domain={[dataMin => (dataMin * .8).toFixed(2), 'dataMax']} hide={false} />
+                    <YAxis domain={['dataMin', 'dataMax']} hide={true} />
                     <Tooltip content={<CustomTooltip />} payload={[{ name: "label", value: "average" }]} />
                 </LineChart>
             </section>  
