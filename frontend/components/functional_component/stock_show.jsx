@@ -23,7 +23,7 @@ class StockShow extends Component {
         // currently only fetching 1d graph
         
         if (this.props.match.params.symbol !== prevProps.match.params.symbol && !!this.props.stocks[this.props.match.params.symbol.toUpperCase()] && !this.props.stocks[this.props.match.params.symbol.toUpperCase()].chart ){
-            this.props.fetchStock(this.props.match.params.symbol)
+            this.props.fetchStock(this.props.match.params.symbol.toUpperCase())
         }
     }
 
@@ -36,7 +36,7 @@ class StockShow extends Component {
     render() {
         const { stock } = this.props;
         
-        if (!stock) return null
+        if (!stock || !stock.about) return null
         
         return (
             <main className="stock-show-container">

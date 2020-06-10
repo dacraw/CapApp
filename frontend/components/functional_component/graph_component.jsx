@@ -5,26 +5,40 @@ class GraphComponent extends Component {
     constructor(props) {
         super(props);
         this.state = {
-            
+            price: this.props.stock.price,
+        }
+        this.handleEnter = this.handleEnter.bind(this);
+        this.handleLeave = this.handleLeave.bind(this);
+    }
+
+    componentDidUpdate(prevProps){
+        if (this.props.match.params.symbol !== prevProps.match.params.symbol){
+            this.setState({
+                price: this.props.stock.price,
+            })
         }
     }
 
-    handleEnter(){
-
+    handleEnter(e){
+        // debugger;
+        if (!e.activePayload) return null;
+        this.setState({
+            price: e.activePayload[0].value,
+        });
+    }
+    
+    handleLeave(value){
+        // debugger;
+        this.setState({
+            price: value,
+        });
     }
 
-
-
-
-    
     render() {
         
-        const { stocks, match: { params: { symbol }}}= this.props;
+        const { stock } = this.props;
         
-        const sym = symbol.toUpperCase();
-        const stock = stocks[sym];
-
-        if (!stocks || !stock || !stock.about) return null;
+        if (!stock || !stock.about) return null;
 
         const data = stock.chart;
 
@@ -49,22 +63,21 @@ class GraphComponent extends Component {
             return null;
         }
 
-    
         // debugger
         return (
             <section className="stock-graph">
-                <h1 className="company-name">
+                <h2 className="company-name">
                 {stock.about.companyName}
-                </h1>
-                <h1 className="current-price">
-                    {stock.price}
-                </h1>
-                <h1 className="percentage-change">
-                    { (((stock.price / stock.chart[0].average) - 1 ) * 100).toFixed(2) /* current price vs average */} % 
-                </h1>
+                </h2>
+                <h2 className="current-price">
+                    {this.state.price}
+                </h2>
+                <h2 className="percentage-change">
+                    { (((stock.price / stock.chart[0].marketAverage) - 1 ) * 100).toFixed(2) /* current price vs average */} % 
+                </h2>
 
-                <LineChart onMouseEnter={this.handleEnter} width={710} height={200} data={data}>
-                    <Line type="monotone" dataKey="average" stroke="#8884d8" dot={false} />
+                <LineChart onMouseMove={this.handleEnter} onMouseLeave={() => this.handleLeave(stock.price)} width={710} height={200} data={data}>
+                    <Line type="monotone" dataKey={"average"} stroke="#8884d8" dot={false} />
                     <XAxis hide={true} dataKey="label" />
                     <YAxis domain={['dataMin', 'dataMax']} hide={true} />
                     <Tooltip content={<CustomTooltip />} payload={[{ name: "label", value: "average" }]} />
