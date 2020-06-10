@@ -79,6 +79,8 @@
         font-size: .9em;
         text-align: center;
         cursor: pointer;
+        &.negative-change { color: $red; }
+       
         
         .info-box {
             display: none;
@@ -197,9 +199,11 @@
         border-radius: 5px;
         &.negative-change {
             background-color: $red;
+            &:hover { background-color: $darkred;}
         }
-        &.positive_change {
+        &.positive-change {
             background-color: $lightgreen;
+            &:hover {background-color: $darkgreen;}
         }
     }
 }

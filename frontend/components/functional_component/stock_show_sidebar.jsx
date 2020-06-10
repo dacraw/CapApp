@@ -132,10 +132,12 @@ class StockShowSidebar extends Component {
             return `${change} ${reveal}`;
         }
 
+        const dollarChange = (stock.dollarChange <= 0) ? "negative-change" : "positive-change";
+
         return (
             <>
                 <ul className="buy-sell">
-                    <li onClick={this.setFormType('buy')} id="buy" className={`selected ${(stock.dollarChange <= 0) ? "negative-change" : "positive-change"}`}>Buy {stock.symbol}</li>
+                    <li onClick={this.setFormType('buy')} id="buy" className={`selected ${dollarChange}`}>Buy {stock.symbol}</li>
                     <li onClick={this.setFormType('sell')} className={sellClass()}>Sell {stock.symbol}</li>
                 </ul>
                 <hr />
@@ -168,11 +170,11 @@ class StockShowSidebar extends Component {
                         <section className="errors">
                             {errors[0]}
                         </section>
-                        <button className={stock.dollarChange <= 0 ? "negative-change" : "positive-change"}>Review Order</button>
+                        <button className={dollarChange}>Review Order</button>
                     </form>
                 </section>
                 <hr />
-                <section className="buying-power bottom show">
+                <section className={`buying-power bottom show ${dollarChange}`}>
                         <a onClick={this.showBox}>{userInfo.cashAvailable} available for trading. </a>
                         <div className="info-box" id="sidebar-info-dropdown">
                             <h3>Good luck!</h3>
