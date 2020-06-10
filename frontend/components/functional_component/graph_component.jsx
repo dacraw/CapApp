@@ -25,7 +25,7 @@ class GraphComponent extends Component {
 
     handleEnter(e){
        
-        if (!e.activePayload) return null;
+        if (!e.activePayload || !e.activePayload[0].value) return null;
         this.setState({
             price: e.activePayload[0].value,
             dollarChange: (e.activePayload[0].value - this.props.stock.chart[0].average).toFixed(2),      
@@ -61,9 +61,7 @@ class GraphComponent extends Component {
             if (active) {
                 return (
                     <div className="custom-tooltip">
-                        <p className="label">{`${label} : ${payload[0].value}`}</p>
-                        <p className="intro">{getIntroOfPage(label)}</p>
-                        <p className="desc">Anything you want can be displayed here.</p>
+                        <p className="label">{`${label}}`}</p>
                     </div>
                 );
             }
@@ -71,6 +69,7 @@ class GraphComponent extends Component {
             return null;
         }
 
+        const strokeColor = (stock.dollarChange >= 0) ? "$green" : "$red"
         
         return (
             <section className="stock-graph">
@@ -87,7 +86,7 @@ class GraphComponent extends Component {
                 </h2>
 
                 <LineChart onMouseMove={this.handleEnter} onMouseLeave={() => this.handleLeave(stock.price)} width={710} height={200} data={data}>
-                    <Line type="linear" dataKey={"average"} stroke="#8884d8" dot={false} strokeWidth="2.5" />
+                    <Line connectNulls={true} type="linear" dataKey={"average"} stroke="rgb(241, 96, 60)" dot={false} strokeWidth="2" />
                     <XAxis hide={true} dataKey="label" />
                     <YAxis domain={['dataMin', 'dataMax']} hide={true} />
                     <Tooltip content={<CustomTooltip />} payload={[{ name: "label", value: "average" }]} />

@@ -55,7 +55,7 @@ class StockShowSidebar extends Component {
         $('.success').stop(true, true).show().fadeOut(7000);
         $('.errors').stop(true, true).show().fadeOut(7000);
         // if user doenst own the stock, then create it
-        debugger
+       
         if (this.props.userInfo.ownedStocks && !this.props.userInfo.ownedStocks[this.state.symbol.toUpperCase()]) {
             this.props.createPortfolio(this.state);
         } else {
@@ -68,13 +68,18 @@ class StockShowSidebar extends Component {
         // set formType when user clicks buy or sell in the sidebar
         // also hide or show cash available or num shares accordingly
         return e => {
-            debugger
+            
             e.stopPropagation();
+
+            this.setState({num_shares: ""});
 
             $('.buy-sell .selected').removeClass('selected');
 
             // add selected to current 
             e.currentTarget.classList.add('selected');
+
+            // if shares are less than 0, add the color class
+            (this.props.stock.dollarChange <= 0) ? e.currentTarget.classList.add('negative-change') : e.currentTarget.classList.add('positive-change');
 
             this.setState({formType: type});
             if (type === 'sell') {
@@ -124,7 +129,7 @@ class StockShowSidebar extends Component {
         return (
             <>
                 <ul className="buy-sell">
-                    <li onClick={this.setFormType('buy')} id="buy" className="selected">Buy {stock.symbol}</li>
+                    <li onClick={this.setFormType('buy')} id="buy" className={`selected ${(stock.dollarChange <= 0) ? "negative-change" : "positive-change"}`}>Buy {stock.symbol}</li>
                     <li onClick={this.setFormType('sell')} className={(numShares > 0) ? "show" : "hide"}>Sell {stock.symbol}</li>
                 </ul>
                 <hr />

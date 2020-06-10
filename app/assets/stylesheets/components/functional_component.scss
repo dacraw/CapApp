@@ -47,16 +47,25 @@
                 padding-bottom: 20px;
                 margin-right: 10px;
                 color: $black;
-               
-                &:hover {
-                    color: $green;
-                }
-               
-            }
-            .selected {
-                color: $green;
-                border-bottom: 1px solid $green;
-            }
+                &.selected {
+                    border-bottom: 1px solid;
+                    &.positive-change {
+                        color: $green;
+                        border-color: $green;
+                        &:hover {
+                            color: $green;
+                        }
+                    }
+                    &.negative-change {
+                        color: $red;
+                        border-color: $red;
+                        &:hover{
+                            color: $red;
+
+                        }   
+                    }
+                }               
+            } 
         }
         > section:nth-child(3) { // fix padding on top line
             padding-top: 10px;

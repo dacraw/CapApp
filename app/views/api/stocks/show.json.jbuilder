@@ -25,6 +25,7 @@ json.set! @stock.symbol do
     
     chart = JSON.parse(intradayChartresponse.body) # pulls 
     # if any nil values, use average of last 3 prices
+    # added connectNulls to lineChart, but still using this average to display values on hover for demoing
     chart.map.with_index do |point,idx| 
         point['average'] = (chart[idx-1]['average'] + chart[idx-2]['average'] + chart[idx-3]['average']) / 3 if point['average'] == nil
         point['average'] = point['average'].round(2)

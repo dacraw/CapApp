@@ -32,7 +32,7 @@ export const createPortfolio = portfolio => dispatch => (
 )
 
 export const updatePortfolio = portfolio => dispatch => {
-    debugger
+    
     return (
     PortfolioUtil.updatePortfolio(portfolio)
         .then(

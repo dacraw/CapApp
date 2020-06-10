@@ -11,11 +11,13 @@ class StockShow extends Component {
             
         }
         
-        props.fetchStock(props.match.params.symbol.toUpperCase())
     }
-
+    
     componentDidMount() {
         
+        this.props.fetchStock(this.props.match.params.symbol.toUpperCase());
+        
+
     }
 
     componentDidUpdate(prevProps){
@@ -24,7 +26,8 @@ class StockShow extends Component {
         // currently only fetching 1d graph
         
         if (this.props.match.params.symbol !== prevProps.match.params.symbol && !!this.props.stocks[this.props.match.params.symbol.toUpperCase()] && !this.props.stocks[this.props.match.params.symbol.toUpperCase()].chart ){
-            this.props.fetchStock(this.props.match.params.symbol.toUpperCase())
+            this.props.fetchStock(this.props.match.params.symbol.toUpperCase());
+            debugger;
         }
     }
 
@@ -34,11 +37,22 @@ class StockShow extends Component {
         e.currentTarget.nextSibling.classList.toggle('show');
     }
     
+    updateColors(){
+
+            // $('.functional-component-container aside .buy-sell li').css('border','5px solid red')
+            console.log('hi');
+
+    }
+
     render() {
+
         // this.props.fetchStock(this.props.match.params.symbol.toUpperCase())
-        const { stock } = this.props;
+        const { stockSym } = this.props;
         
-        if (!stock || !stock.about) return null
+        if (!stockSym || !stockSym.about) return null
+
+        // add css class 'stock-negative' for negative change; default is green for positive
+
         
         return (
             <main className="stock-show-container">
@@ -50,8 +64,8 @@ class StockShow extends Component {
                 </section>
   
                 <GraphComponent />
-                <AboutComponent about={stock.about} />
-                <NewsComponent news={stock.news} />
+                <AboutComponent about={stockSym.about} />
+                <NewsComponent news={stockSym.news} />
 
             </main>
 
