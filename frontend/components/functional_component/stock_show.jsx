@@ -1,5 +1,5 @@
 import React, {Component} from 'react'
-import GraphComponent from './graph_component'
+import GraphComponent from './graph_component_container'
 import AboutComponent from './about_component'
 import NewsComponent from './news_component'
 import {Link} from 'react-router-dom'
@@ -13,7 +13,7 @@ class StockShow extends Component {
     }
 
     componentDidMount() {
-        debugger
+        
        this.props.fetchStock(this.props.match.params.symbol.toUpperCase())
     }
 
@@ -47,15 +47,7 @@ class StockShow extends Component {
                         {Object.keys(this.props.stocks).sort().map( (stock, idx) => <li key={idx}><Link to={`/stocks/${stock.toLowerCase()}`}>{stock}</Link></li>)}
                     </ul>    
                 </section>
-                <h1 className="company-name">
-                    {stock.about.companyName}
-                </h1>
-                <h1 className="current-price">
-                    {stock.price}
-                </h1>
-                <h1 className="percentage-change">
-                    {stock.dayChange}
-                </h1>
+  
                 <GraphComponent chart={stock.chart} />
                 <AboutComponent about={stock.about} />
                 <NewsComponent news={stock.news} />

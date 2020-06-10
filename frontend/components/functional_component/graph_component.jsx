@@ -1,5 +1,5 @@
 import React, {Component} from 'react'
-import GraphPointComponent from './graph_point_component'
+import { LineChart, Line, XAxis, YAxis, Tooltip } from 'recharts';
 
 class GraphComponent extends Component {
     constructor(props) {
@@ -10,14 +10,30 @@ class GraphComponent extends Component {
     }
     
     render() {
-        const { chart } = this.props;
-        if (!chart) return null;
+        const { chart, stocks } = this.props;
+        if (!chart || !stocks) return null;
+        debugger
+
+        const data = chart;
+
         return (
-            <section className="graph">
-                <ul>
-                    {chart.map( (point, idx) => <GraphPointComponent key={idx} point={point} />)}
-                </ul>
-            </section>
+            <section className="stock-graph">
+                <h1 className="company-name">
+                {stocks[this.props.match.params.symbol.toUpperCase()].about.companyName}
+                </h1>
+                <h1 className="current-price">
+                    {/* {stock.price} */}
+                </h1>
+                <h1 className="percentage-change">
+                    {/* {stock.dayChange} */}
+                </h1>
+
+                <LineChart width={710} height={200} data={data}>
+                    <Line type="monotone" dataKey="average" stroke="#8884d8" dot={false} />
+                    <YAxis domain={['dataMin', 'dataMax']} hide={true} />
+                    <Tooltip />
+                </LineChart>
+            </section>  
         )
     }
 }

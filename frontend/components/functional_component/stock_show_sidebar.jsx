@@ -24,7 +24,7 @@ class StockShowSidebar extends Component {
     componentDidUpdate(prevProps) {
         // if user changes hash locations, update the symbol
         // 2nd part of conditional only updates the state's symbol to the given symbol if it's present in the stock list
-        debugger
+        
         if (this.props.match.params.symbol.toUpperCase() !== prevProps.match.params.symbol.toUpperCase() && !!this.props.stocks[this.props.match.params.symbol.toUpperCase()]){
             
             this.setState({
@@ -33,6 +33,7 @@ class StockShowSidebar extends Component {
                 stock_price: "",
                 formType: 'buy',
             });
+            // this clears the success message when changing to another stock
             this.props.userInfo.newShares = "";
         }
         
@@ -132,9 +133,9 @@ class StockShowSidebar extends Component {
                         <section className="line">
                             {/* <i class="fas fa-arrows-alt-v"></i> */}
                             <label>Invest In</label>
-                            <select defaultValue="Dollars">
+                            <select defaultValue="Shares">
                                 {/* <option>Shares</option> */}
-                                <option>Dollars</option>
+                                <option>Shares</option>
                             </select>
                         </section>
                         <section className="line">
