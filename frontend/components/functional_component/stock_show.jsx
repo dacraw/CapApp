@@ -10,11 +10,12 @@ class StockShow extends Component {
         this.state = {
             
         }
+        
+        props.fetchStock(props.match.params.symbol.toUpperCase())
     }
 
     componentDidMount() {
         
-       this.props.fetchStock(this.props.match.params.symbol.toUpperCase())
     }
 
     componentDidUpdate(prevProps){
@@ -34,6 +35,7 @@ class StockShow extends Component {
     }
     
     render() {
+        // this.props.fetchStock(this.props.match.params.symbol.toUpperCase())
         const { stock } = this.props;
         
         if (!stock || !stock.about) return null

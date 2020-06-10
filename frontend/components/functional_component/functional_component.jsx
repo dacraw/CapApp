@@ -7,11 +7,11 @@ class FunctionalComponent extends Component {
     constructor(props) {
         super(props);
  
+        props.fetchStocks();
+        props.fetchPortfolios(props.currentUser);
     }
 
     componentDidMount(){
-        this.props.fetchPortfolios(this.props.currentUser);
-        this.props.fetchStocks();
     }
 
     

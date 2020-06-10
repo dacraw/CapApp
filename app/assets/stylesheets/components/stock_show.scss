@@ -16,11 +16,11 @@
             font-weight: bold;
             margin-bottom:50px;
             font-size: .8em;
-            .percentage, .dollar {
+            > * {
                 display: inline-block;
-               
+               margin-right: 5px;
             }
-            .dollar { margin-right: 5px;}
+            .timeframe {color: $gray}
         }
     }
     .stock-list {
