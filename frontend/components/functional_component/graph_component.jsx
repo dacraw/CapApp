@@ -13,12 +13,9 @@ class GraphComponent extends Component {
 
     }
 
-    getIntroOfPage(label) {
-        // if (label === 'Page A') {
-        //   return 'Page A is about men's clothing';
-        // }
-        return `${label}`
-      }
+
+
+
     
     render() {
         
@@ -31,22 +28,28 @@ class GraphComponent extends Component {
 
         const data = stock.chart;
 
+        function getIntroOfPage(label) {
+            // if (label === 'Page A') {
+            //   return 'Page A is about men's clothing';
+            // }
+            return `${label}`
+        }
 
-
-          
-          function CustomTooltip({ payload, label, active }) {
+        function CustomTooltip({ payload, label, active }) {
             if (active) {
-              return (
-                <div className="custom-tooltip">
-                  <p className="label">{`${label} : ${payload[0].value}`}</p>
-                  <p className="intro">{getIntroOfPage(label)}</p>
-                  <p className="desc">Anything you want can be displayed here.</p>
-                </div>
-              );
+                return (
+                    <div className="custom-tooltip">
+                        <p className="label">{`${label} : ${payload[0].value}`}</p>
+                        <p className="intro">{getIntroOfPage(label)}</p>
+                        <p className="desc">Anything you want can be displayed here.</p>
+                    </div>
+                );
             }
-          
+        
             return null;
-          }
+        }
+
+    
         // debugger
         return (
             <section className="stock-graph">
@@ -57,13 +60,14 @@ class GraphComponent extends Component {
                     {stock.price}
                 </h1>
                 <h1 className="percentage-change">
-                    { (((stock.price / stock.chart[0].average) - 1 ) * 100).toFixed(2) /* current price vs opening */} % 
+                    { (((stock.price / stock.chart[0].average) - 1 ) * 100).toFixed(2) /* current price vs average */} % 
                 </h1>
 
                 <LineChart onMouseEnter={this.handleEnter} width={710} height={200} data={data}>
                     <Line type="monotone" dataKey="average" stroke="#8884d8" dot={false} />
+                    <XAxis hide={true} dataKey="label" />
                     <YAxis domain={['dataMin', 'dataMax']} hide={true} />
-                    <Tooltip payload={[{ name: "label", value: "average" }]} />
+                    <Tooltip content={<CustomTooltip />} payload={[{ name: "label", value: "average" }]} />
                 </LineChart>
             </section>  
         )
