@@ -83,7 +83,7 @@ class GraphComponent extends Component {
                     <Line connectNulls={true} type="linear" dataKey={"average"} stroke={strokeColor} dot={false} strokeWidth="2" />
                     <XAxis hide={true} dataKey="label" />
                     <YAxis domain={['auto', 'auto']} hide={true} />
-                    <Tooltip offset="0" filterNull={true} position={{y: -100}} content={<CustomTooltip />} payload={[{ name: "label", value: "average" }]} />
+                    <Tooltip wrapperStyle={{left: -20, fontSize: '.8em'}}isAnimationActive={false} offset="50" filterNull={true} position={{y: -20}} content={<CustomTooltip />} payload={[{ name: "label", value: "average" }]} />
                 </LineChart>
             </section>  
         )
