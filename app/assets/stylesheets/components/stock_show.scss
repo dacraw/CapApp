@@ -22,6 +22,7 @@
             }
             .timeframe {color: $gray}
         }
+
     }
     .stock-list {
         position: absolute;
@@ -90,4 +91,11 @@
             }
         }
     }
+}
+
+.recharts-wrapper {
+    
+    .recharts-surface {
+    }
+        
 }

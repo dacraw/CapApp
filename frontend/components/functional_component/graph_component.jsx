@@ -24,7 +24,7 @@ class GraphComponent extends Component {
     }
 
     handleEnter(e){
-        debugger;
+       
         if (!e.activePayload) return null;
         this.setState({
             price: e.activePayload[0].value,
@@ -71,7 +71,7 @@ class GraphComponent extends Component {
             return null;
         }
 
-        // debugger
+        
         return (
             <section className="stock-graph">
                 <h2 className="company-name">
@@ -87,9 +87,9 @@ class GraphComponent extends Component {
                 </h2>
 
                 <LineChart onMouseMove={this.handleEnter} onMouseLeave={() => this.handleLeave(stock.price)} width={710} height={200} data={data}>
-                    <Line type="monotone" dataKey={"average"} stroke="#8884d8" dot={false} />
+                    <Line type="linear" dataKey={"average"} stroke="#8884d8" dot={false} strokeWidth="2.5" />
                     <XAxis hide={true} dataKey="label" />
-                    <YAxis domain={['dataMin', 'dataMax']} hide={true} />
+                    <YAxis domain={[dataMin => (dataMin * .8).toFixed(2), 'dataMax']} hide={false} />
                     <Tooltip content={<CustomTooltip />} payload={[{ name: "label", value: "average" }]} />
                 </LineChart>
             </section>  
