@@ -50,18 +50,12 @@ class GraphComponent extends Component {
 
         const data = stock.chart;
 
-        function getIntroOfPage(label) {
-            // if (label === 'Page A') {
-            //   return 'Page A is about men's clothing';
-            // }
-            return `${label}`
-        }
 
         function CustomTooltip({ payload, label, active }) {
             if (active) {
                 return (
                     <div className="custom-tooltip">
-                        <p className="label">{`${label}}`}</p>
+                        <p className="label">{`${label}`}</p>
                     </div>
                 );
             }
@@ -69,7 +63,7 @@ class GraphComponent extends Component {
             return null;
         }
 
-        const strokeColor = (stock.dollarChange >= 0) ? "rgb(16, 197, 40)" : "#ff4f0b"
+        const strokeColor = (stock.dollarChange >= 0) ? "rgb(16, 197, 40)" : "#ff4f0b";
         
         return (
             <section className="stock-graph">
@@ -89,7 +83,7 @@ class GraphComponent extends Component {
                     <Line connectNulls={true} type="linear" dataKey={"average"} stroke={strokeColor} dot={false} strokeWidth="2" />
                     <XAxis hide={true} dataKey="label" />
                     <YAxis domain={['auto', 'auto']} hide={true} />
-                    <Tooltip content={<CustomTooltip />} payload={[{ name: "label", value: "average" }]} />
+                    <Tooltip offset="0" filterNull={true} position={{y: -100}} content={<CustomTooltip />} payload={[{ name: "label", value: "average" }]} />
                 </LineChart>
             </section>  
         )
