@@ -1,15 +1,26 @@
 .stock-show-container {
    position: relative;
     h1 {
-        font-family: $narrow;
+        font-family: $condensed;
         font-size: 1.75em;
     }
     .stock-graph {
-        .company-name, .current-price {
+        .company-name, .current-price, .percentage-change {
+            
+            line-height: 1.5em;
+        }
+        .company-name, .current-price{
             font-size: 2em;
         }
-        .percentage-change {
+        .percentage-change {  
             font-weight: bold;
+            margin-bottom:50px;
+            font-size: .8em;
+            .percentage, .dollar {
+                display: inline-block;
+               
+            }
+            .dollar { margin-right: 5px;}
         }
     }
     .stock-list {

@@ -70,10 +70,11 @@ class GraphComponent extends Component {
                 {stock.about.companyName}
                 </h2>
                 <h2 className="current-price">
-                    {this.state.price}
+                    ${this.state.price}
                 </h2>
                 <h2 className="percentage-change">
-                    { (((stock.price / stock.chart[0].marketAverage) - 1 ) * 100).toFixed(2) /* current price vs average */} % 
+                    <span className="dollar">${ (stock.price - stock.chart[0].average).toFixed(2) }</span>
+                    <span className="percentage">({ (((stock.price / stock.chart[0].average) - 1 ) * 100).toFixed(2) /* current price vs average */}%)</span>
                 </h2>
 
                 <LineChart onMouseMove={this.handleEnter} onMouseLeave={() => this.handleLeave(stock.price)} width={710} height={200} data={data}>
