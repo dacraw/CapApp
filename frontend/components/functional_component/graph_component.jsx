@@ -64,6 +64,7 @@ class GraphComponent extends Component {
         }
 
         const strokeColor = (stock.dollarChange >= 0) ? "rgb(16, 197, 40)" : "#ff4f0b";
+        const dollarChange = (stock.dollarChange >= 0) ? "" : "negative-change";
         
         return (
             <section className="stock-graph">
@@ -83,8 +84,11 @@ class GraphComponent extends Component {
                     <Line connectNulls={true} type="linear" dataKey={"average"} stroke={strokeColor} dot={false} strokeWidth="2" />
                     <XAxis hide={true} dataKey="label" />
                     <YAxis domain={['auto', 'auto']} hide={true} />
-                    <Tooltip wrapperStyle={{left: -20, fontSize: '.8em'}}isAnimationActive={false} offset="50" filterNull={true} position={{y: -20}} content={<CustomTooltip />} payload={[{ name: "label", value: "average" }]} />
+                    <Tooltip wrapperStyle={{left: -30, fontSize: '.8em'}}isAnimationActive={false} filterNull={true} position={{y: -20}} content={<CustomTooltip />} payload={[{ name: "label", value: "average" }]} />
                 </LineChart>
+                <ul className={`time-frame`}>
+                    <li className={`selected ${dollarChange}`}>1D</li>
+                </ul>
             </section>  
         )
     }

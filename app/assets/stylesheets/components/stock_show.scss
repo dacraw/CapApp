@@ -5,8 +5,33 @@
         font-size: 1.75em;
     }
     .stock-graph {
-        border-bottom: 2px dotted $lighter-gray;
+        
         margin-bottom: 50px;
+        .time-frame {
+            display: flex;
+            border-bottom: 1px solid $lighter-gray;
+            box-sizing: border-box;
+            font-family: $narrow;
+            font-weight: bolder;
+            color: $black;
+            margin-top: 10px;
+            padding-top: 10px;
+            li {
+                cursor: pointer;
+                font-size: .8em;
+                box-sizing: border-box;
+                padding-bottom: 10px;
+                &.selected {
+                    color: $lightgreen;
+                    border-bottom: 1px solid;
+                    &.negative-change { 
+                        color: $red;
+                    }
+                }
+                &:hover { color: $lightgreen; }
+                &.negative-change:hover { color: $red }                
+            } 
+        }
         .company-name, .current-price, .percentage-change {
             
             line-height: 1.5em;
@@ -98,7 +123,7 @@
 .recharts-wrapper {
     
     .recharts-surface {
-
+        border-bottom: 2px dotted $lighter-gray;
     }
         
 }

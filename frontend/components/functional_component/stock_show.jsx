@@ -56,7 +56,7 @@ class StockShow extends Component {
         
         return (
             <main className="stock-show-container">
-                <section className="stock-list">
+                <section className="stock-list" id="stock-list">
                     <h3 onClick={this.showStocks} className="stock-list-toggle">Select A Stock:</h3>
                     <ul>
                         {Object.keys(this.props.stocks).sort().map( (stock, idx) => <li key={idx}><Link to={`/stocks/${stock.toLowerCase()}`}>{stock}</Link></li>)}
