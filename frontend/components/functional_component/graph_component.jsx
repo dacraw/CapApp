@@ -69,7 +69,7 @@ class GraphComponent extends Component {
             return null;
         }
 
-        const strokeColor = (stock.dollarChange >= 0) ? "$green" : "$red"
+        const strokeColor = (stock.dollarChange >= 0) ? "rgb(16, 197, 40)" : "#ff4f0b"
         
         return (
             <section className="stock-graph">
@@ -86,9 +86,9 @@ class GraphComponent extends Component {
                 </h2>
 
                 <LineChart onMouseMove={this.handleEnter} onMouseLeave={() => this.handleLeave(stock.price)} width={710} height={200} data={data}>
-                    <Line connectNulls={true} type="linear" dataKey={"average"} stroke="rgb(241, 96, 60)" dot={false} strokeWidth="2" />
+                    <Line connectNulls={true} type="linear" dataKey={"average"} stroke={strokeColor} dot={false} strokeWidth="2" />
                     <XAxis hide={true} dataKey="label" />
-                    <YAxis domain={['dataMin', 'dataMax']} hide={true} />
+                    <YAxis domain={['auto', 'auto']} hide={true} />
                     <Tooltip content={<CustomTooltip />} payload={[{ name: "label", value: "average" }]} />
                 </LineChart>
             </section>  

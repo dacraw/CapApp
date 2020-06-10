@@ -5,6 +5,8 @@
         font-size: 1.75em;
     }
     .stock-graph {
+        border-bottom: 2px dotted $lighter-gray;
+        margin-bottom: 50px;
         .company-name, .current-price, .percentage-change {
             
             line-height: 1.5em;
@@ -96,6 +98,7 @@
 .recharts-wrapper {
     
     .recharts-surface {
+
     }
         
 }
