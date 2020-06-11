@@ -6,7 +6,7 @@
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
 
-demo = User.create!({username: 'demo@demo.demo', password:'password', fname:'demo', lname:'demo', cash_available: 10000.00})
+#demo = User.create!({username: 'demo@demo.demo', password:'password', fname:'demo', lname:'demo', cash_available: 10000.00})
 
 Stock.create!({symbol: 'MSFT', company: 'Microsoft'})
 Stock.create!({symbol: 'AAPL', company: 'Apple'})
@@ -58,7 +58,7 @@ Stock.create!({symbol: 'TXN', company: 'Texas Instruments'})
 Stock.create!({symbol: 'PM', company: 'Phillip Morris'})
 Stock.create!({symbol: 'TSLA', company: 'Tesla'})
 
-Portfolio.create!(user_id: demo.id, symbol: 'MSFT', num_shares: 12.5)
-Portfolio.create!(user_id: demo.id, symbol: 'AAPL', num_shares: 78.2)
-Portfolio.create!(user_id: demo.id, symbol: 'GOOG', num_shares: 182.7)
-Portfolio.create!(user_id: demo.id, symbol: 'FB', num_shares: 815)
+#Portfolio.create!(user_id: demo.id, symbol: 'MSFT', num_shares: 12.5)
+#Portfolio.create!(user_id: demo.id, symbol: 'AAPL', num_shares: 78.2)
+#Portfolio.create!(user_id: demo.id, symbol: 'GOOG', num_shares: 182.7)
+#Portfolio.create!(user_id: demo.id, symbol: 'FB', num_shares: 815)
