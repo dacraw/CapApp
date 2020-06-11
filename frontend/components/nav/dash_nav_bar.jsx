@@ -69,7 +69,7 @@ class DashNavBar extends React.Component{
 
                         <section className="stock-list" id="stock-list">
                             <ul>
-                                {Object.keys(stocks).sort().map( (stock, idx) => <li key={idx}><Link to={`/stocks/${stock.toLowerCase()}`}>{stock}</Link></li>)}
+                                {Object.values(stocks).sort().map( (stock, idx) => <li key={idx}><Link to={`/stocks/${stock.symbol.toLowerCase()}`}><span className="symbol">{stock.symbol}</span><span className="company">{stock.company}</span></Link></li>)}
                             </ul>    
                         </section>
 
