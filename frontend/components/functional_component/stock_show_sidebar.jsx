@@ -9,7 +9,7 @@ class StockShowSidebar extends Component {
             user_id: 0,
             stock_price: "",
             formType: 'buy',
-            investType: 'Dollars',
+            investType: 'Shares',
         }
         this.handleSubmit = this.handleSubmit.bind(this);
         this.handleInvestType = this.handleInvestType.bind(this);
@@ -54,7 +54,7 @@ class StockShowSidebar extends Component {
 
     handleInvestType(e){
         e.preventDefault();
-        debugger;
+        
         e.currentTarget.parentNode.style.display = "none";
         $('.invest-type ul li.selected').removeClass('selected');
         e.currentTarget.classList.add('selected');
@@ -209,8 +209,8 @@ class StockShowSidebar extends Component {
                             <ul className="invest-type">
                                 <li onClick={this.showInvestTypes}>{this.state.investType}</li>
                                 <ul>
-                                    <li onClick={this.handleInvestType} className={changeType}>Shares</li>
-                                    <li onClick={this.handleInvestType} className={`selected ${changeType}`}>Dollars</li>
+                                    {/* <li onClick={this.handleInvestType} className={changeType}>Dollars</li> */}
+                                    <li onClick={this.handleInvestType} className={`selected ${changeType}`}>Shares</li>
                                 </ul>
                             </ul>
                         </section>

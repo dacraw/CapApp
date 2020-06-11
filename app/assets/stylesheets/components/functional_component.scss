@@ -13,11 +13,12 @@
         width: 710px;
       
     }
+    .stock-sidebar-container { margin-left: 50px; }
     aside {
         position: fixed;
         box-sizing: border-box;
         background-color: $white;
-        left: 875px;
+        margin-left: 50px;
         width:275px;
 
         box-shadow: 0 0 20px $lightgray;
