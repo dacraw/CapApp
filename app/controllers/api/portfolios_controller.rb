@@ -2,11 +2,11 @@ class Api::PortfoliosController < ApplicationController
     def index
         @portfolio = Portfolio.where(user_id: params[:user_id])
         # debugger
-        if @portfolio.length != 0
+        # if @portfolio.length != 0
             render :index
-        else
-            render json: ["User currently has no portfolios"]
-        end
+        # else
+        #     render json: ["User currently has no portfolios"]
+        # end
     end
 
     def create
@@ -26,6 +26,7 @@ class Api::PortfoliosController < ApplicationController
                 current_cash = User.find(@portfolio.user_id).cash_available
                 total_cost = num_shares * stock_price
                 updated_cash = current_cash - total_cost
+                
                 User.find(@portfolio.user_id).update(cash_available: updated_cash.round(2))
                 render :update
             else
