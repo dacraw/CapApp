@@ -9,7 +9,8 @@ document.addEventListener('DOMContentLoaded', () => {
         e.stopPropagation();
         document.getElementById('dash-nav-account-options').classList.remove('show');
         document.getElementById('sidebar-info-dropdown').classList.remove('show');
-       console.log('hi')
+        document.querySelector('#stock-list ul').style.display = "none";
+        
     }
 
     let store;
