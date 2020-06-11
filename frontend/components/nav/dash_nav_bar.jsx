@@ -24,6 +24,13 @@ class DashNavBar extends React.Component{
 
     filterResults(e){
         e.preventDefault();
+
+        
+        document.querySelectorAll('.stock-list ul li').forEach ( (item, idx) => {
+            if (item.textContent === 'No results match.'){
+                      item.parentNode.removeChild(item)
+            }
+        })
        
         this.setState({ searchValue: e.currentTarget.value});
 
@@ -38,20 +45,25 @@ class DashNavBar extends React.Component{
         let currentValue = e.currentTarget.value;
 
         let li = stockList.getElementsByTagName('li');
-
+        
         for (let i = 0; i < li.length; i++){
             let a = li[i].getElementsByTagName('a')[0];
-            let symbol;
             // make sure a has a value to avoid console errors
+            debugger
             if (a){
-                symbol = a.textContent;
-                if (symbol.includes(currentValue.toUpperCase())){
-                    li[i].style.display = "";
+                const info = a.getElementsByTagName('span');
+                const symbol = info[0].textContent;
+                const company = info[1].textContent;
+                if (symbol.includes(currentValue.toUpperCase()) || company.includes(currentValue[0].toUpperCase() + currentValue.slice(1))){
+                    li[i].style.display = "block";
                 } else {
                     li[i].style.display = "none";
                 }
             } 
-
+        }
+        // debugger
+        if (!$('#stock-list ul li:visible').length){
+            $('.stock-list ul').append('<li>No results match.</li>')
         }
     }
 
@@ -69,7 +81,7 @@ class DashNavBar extends React.Component{
 
                         <section className="stock-list" id="stock-list">
                             <ul>
-                                {Object.values(stocks).sort().map( (stock, idx) => <li key={idx}><Link to={`/stocks/${stock.symbol.toLowerCase()}`}><span className="symbol">{stock.symbol}</span><span className="company">{stock.company}</span></Link></li>)}
+                                {Object.values(stocks).map( (stock, idx) => <li key={idx}><Link to={`/stocks/${stock.symbol.toLowerCase()}`}><span className="symbol">{stock.symbol}</span><span className="company">{stock.company}</span></Link></li>)}
                             </ul>    
                         </section>
 

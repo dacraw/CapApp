@@ -34,21 +34,29 @@ background-color: $white;
                 width: 400px;
                 padding: 10px 40px;
 
-                &:hover {
+                &:focus, &:hover {
                     box-shadow: 0px 0px 30px $lighter-gray;
                 }
             }
             .stock-list {
                 position: absolute;
+                top: 30px;
                 z-index: 1;
-                background-color: $white;
-                border: 1px solid $lighter-gray;
+                width: 100%;
+                
+                
                 h3, ul a{ padding: 10px; }
                 ul {
-                    border: 1px solid $lighter-gray;
+                    box-shadow: 0px 50px 50px $lighter-gray;
+                    font-size: .85em;
+                    font-family: $narrow;
                     box-sizing: border-box;
-                    display: none;
+                    background-color: $white;
+                    padding: 20px 0px;
+                    // add this back 
+//                     display: none;
                     max-height: 200px;
+                    
                     overflow: auto;
                     /* Hide scrollbar for IE and Edge */
                     -ms-overflow-style: none;
@@ -57,13 +65,28 @@ background-color: $white;
                       display: none;
                     }
 
-                    
-                    text-align: center;
-                    width: 150px;
-                    li:hover {
-                        background-color: $lightblue;
+                    li {
+                        display:block;
                     }
-                    a { color: $green; display: block; }
+                    
+
+                    a { 
+                        color: $green; 
+                        display: block; 
+                        display: flex;
+                        padding: 10px 20px;
+                        &:hover {
+                            background-color: $lightblue;
+                        }
+                        span {
+                            display: inline-block;
+                            &.symbol {
+                                margin-right: 30px;
+                               width: 45px;
+                            }
+                        }
+                        
+                    }
                     &.show { display: block; }
                 }
             }
