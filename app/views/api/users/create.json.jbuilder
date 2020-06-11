@@ -12,5 +12,5 @@ if @user.portfolios.length != 0
         end
     end
 else
-    json.ownedStocks []
+    json.ownedStocks {}
 end
