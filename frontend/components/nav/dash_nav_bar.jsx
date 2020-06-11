@@ -8,6 +8,7 @@ class DashNavBar extends React.Component{
             searchValue: "",
         }
         this.filterResults = this.filterResults.bind(this);
+        this.enterSearchList = this.enterSearchList.bind(this);
     }
     
     toggleAccountDropdown(e){
@@ -16,16 +17,58 @@ class DashNavBar extends React.Component{
     }
 
     componentDidUpdate(prevProps){
-        if (this.props.location.pathname !== prevProps.location.pathname){ 
+        if (this.props.location.hash !== prevProps.location.hash){ 
             this.setState({searchValue: ""})
             $('#stock-list ul').hide();
         }
     }
 
+    enterSearchList(e){
+        debugger
+        e.preventDefault();
+        
+        switch (e.keyCode) {
+            case 40:
+                if (!$('#stock-list .selected').length) {
+                    $('#stock-list ul li:visible a')[0].classList.add('selected')
+                } else {
+                    // move to next sibling
+                    $(e.currentTarget).next().find('.selected').parent().next('li:visible').find('a').addClass('selected')
+                    // remove selected from current item
+                    e.currentTarget.nextSibling.querySelectorAll('.selected')[0].classList.remove('selected');
+                }
+                break;
+            case 38:
+                // only use up arrow if a list item is selected
+                if ($('#stock-list .selected').length){
+                    // move to next sibling
+                    $(e.currentTarget).next().find('.selected').parent().prev('li:visible').find('a').addClass('selected')
+                    // remove selected from current item
+                    e.currentTarget.nextSibling.querySelectorAll('.selected')[1].classList.remove('selected');
+                }
+
+                break;
+            case 13:
+                // // press enter to visit link
+
+                // only use enter if a stock is selected
+                if ($('#stock-list .selected').length){
+                    $('#stock-list .selected')[0].click();
+                    $('#stock-list .selected')[0].removeClass('selected');
+                    $('#stock-list li').hide();
+                }
+                break;
+            default:
+                // hide any selected list items
+                $('#stock-list ul li a.selected').removeClass('selected');
+                break;
+        }
+    }
+    
     filterResults(e){
         e.preventDefault();
 
-        
+ 
         document.querySelectorAll('.stock-list ul li').forEach ( (item, idx) => {
             if (item.textContent === 'No results match.'){
                       item.parentNode.removeChild(item)
@@ -49,7 +92,7 @@ class DashNavBar extends React.Component{
         for (let i = 0; i < li.length; i++){
             let a = li[i].getElementsByTagName('a')[0];
             // make sure a has a value to avoid console errors
-            debugger
+            
             if (a){
                 const info = a.getElementsByTagName('span');
                 const symbol = info[0].textContent;
@@ -66,21 +109,24 @@ class DashNavBar extends React.Component{
             $('.stock-list ul').append('<li>No results match.</li>')
         }
     }
-
+    
     render(){
         
         const { currentUser, logout, cashAvailable, stocks } = this.props;
         if (!currentUser) return null
         if (!cashAvailable) return null
+         
+        $('#stock-list .selected').keypress( e => console.log(e));
+        
         return (
             <div className="dashboard-nav-container">
                 <section className="content">
                     <Link to="/"><img className="logo-notext" src={window.logoNoText} /></Link>
-                    <div className="search-wrapper">
-                        <input id="stock-search" onChange={this.filterResults} value={this.state.searchValue} className="search" placeholder="Search" type="text" autoComplete="off" name="stock-search" id=""/>
+                    <div className="search-wrapper"  >
+                        <input id="stock-search" onChange={this.filterResults} onKeyUp={this.enterSearchList} value={this.state.searchValue} className="search" placeholder="Search" type="text" autoComplete="off" name="stock-search" id=""/>
 
                         <section className="stock-list" id="stock-list">
-                            <ul>
+                            <ul onKeyDown={this.navigateResults}>
                                 {Object.values(stocks).map( (stock, idx) => <li key={idx}><Link to={`/stocks/${stock.symbol.toLowerCase()}`}><span className="symbol">{stock.symbol}</span><span className="company">{stock.company}</span></Link></li>)}
                             </ul>    
                         </section>

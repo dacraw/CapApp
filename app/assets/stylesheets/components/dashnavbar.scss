@@ -67,15 +67,14 @@ background-color: $white;
 
                     li {
                         display:block;
+                      
                     }
-                    
-
                     a { 
                         color: $green; 
                         display: block; 
                         display: flex;
                         padding: 10px 20px;
-                        &:hover {
+                        &:hover, &.selected {
                             background-color: $lightblue;
                         }
                         span {
