@@ -46,7 +46,7 @@ class GraphComponent extends Component {
         
         const { stock } = this.props;
         
-        if (!stock || !stock.about) return null;
+        if (!stock) return null;
 
         const data = stock.chart;
 
@@ -69,7 +69,7 @@ class GraphComponent extends Component {
         return (
             <section className="stock-graph">
                 <h2 className="company-name">
-                {stock.about.companyName}
+                {stock.company}
                 </h2>
                 <h2 className="current-price">
                     ${this.state.price}
