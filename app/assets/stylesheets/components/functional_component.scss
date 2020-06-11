@@ -22,7 +22,8 @@
 
         box-shadow: 0 0 20px $lightgray;
       
-
+        .hide { display: none; }
+        
         > *:not(hr) { // all immediate children, minus lines
             padding: 20px;
         }
@@ -46,16 +47,26 @@
                 padding-bottom: 20px;
                 margin-right: 10px;
                 color: $black;
-               
-                &:hover {
+                &.negative-change:hover{
+                    color: $red;
+                }  
+                &.positive-change:hover{
                     color: $green;
-                }
-               
-            }
-            .selected {
-                color: $green;
-                border-bottom: 1px solid $green;
-            }
+                }  
+                &.selected {
+                    border-bottom: 1px solid;
+                    &.positive-change {
+                        color: $green;
+                        border-color: $lightgreen;
+//                         &:hover {color: $green;}
+                    }
+                    &.negative-change {
+                        color: $red;
+                        border-color: $red;
+//                         &:hover {color: $red;}
+                    }
+                }               
+            } 
         }
         > section:nth-child(3) { // fix padding on top line
             padding-top: 10px;
@@ -68,6 +79,9 @@
         font-size: .9em;
         text-align: center;
         cursor: pointer;
+        &.negative-change { color: $red; }
+       
+        
         .info-box {
             display: none;
             font-size: .85em;
@@ -82,6 +96,10 @@
             box-shadow: 0 0 20px $lightgray;
             padding: 20px;
             color: $black;
+            &.show {
+                display: block;
+            }
+
             h3 {
                 margin-bottom: 20px;
             }
@@ -93,20 +111,29 @@
                     width: 50%;
                     margin-bottom: 10px;
                 }
-            }
-
-        }
-        .show {
-            display: block;
+            } 
         }
     }
 }
 
 .pst-form {
     font-size: .83em;
+    position: relative;
     * {
         display: block;
     }
+    
+    .success, .errors {
+        position: absolute;
+        text-align: center;
+        font-weight: bold;
+        padding: 10px 0;
+        box-sizing:border-box;
+     
+        
+    }
+    .success { color: $green }
+    .errors {color:$red; background-color: $white;}
     select {
         
         border: 1px solid $lighter-gray;
@@ -164,12 +191,19 @@
     }
 
     button {
-        margin-top: 20px;
-        background-color: $lightgreen;
+        margin-top: 50px;
         color: $white;
         height: 50px;
         display: block;
         width: 100%;
         border-radius: 5px;
+        &.negative-change {
+            background-color: $red;
+            &:hover { background-color: $darkred;}
+        }
+        &.positive-change {
+            background-color: $lightgreen;
+            &:hover {background-color: $darkgreen;}
+        }
     }
 }

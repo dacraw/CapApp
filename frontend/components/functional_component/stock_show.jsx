@@ -1,7 +1,8 @@
 import React, {Component} from 'react'
-import GraphComponent from './graph_component'
+import GraphComponent from './graph_component_container'
 import AboutComponent from './about_component'
 import NewsComponent from './news_component'
+import {Link} from 'react-router-dom'
 
 class StockShow extends Component {
     constructor(props) {
@@ -9,11 +10,14 @@ class StockShow extends Component {
         this.state = {
             
         }
+        
     }
-
+    
     componentDidMount() {
         
-       this.props.fetchStock(this.props.match.params.symbol)
+        this.props.fetchStock(this.props.match.params.symbol.toUpperCase());
+        
+
     }
 
     componentDidUpdate(prevProps){
@@ -22,30 +26,29 @@ class StockShow extends Component {
         // currently only fetching 1d graph
         
         if (this.props.match.params.symbol !== prevProps.match.params.symbol && !!this.props.stocks[this.props.match.params.symbol.toUpperCase()] && !this.props.stocks[this.props.match.params.symbol.toUpperCase()].chart ){
-            this.props.fetchStock(this.props.match.params.symbol)
+            this.props.fetchStock(this.props.match.params.symbol.toUpperCase());
+            
         }
     }
-    
+
+
+
     render() {
-        const { stock } = this.props;
+
+        // this.props.fetchStock(this.props.match.params.symbol.toUpperCase())
+        const { stockSym } = this.props;
         
-        if (!stock) return null
-        if (!stock.chart) return null;
+        if (!stockSym || !stockSym.about) return null
+
+        // add css class 'stock-negative' for negative change; default is green for positive
+
         
         return (
             <main className="stock-show-container">
-                <h1 className="company-name">
-                    {stock.about.companyName}
-                </h1>
-                <h1 className="current-price">
-                    {stock.chart[stock.chart.length-1].close}
-                </h1>
-                <h1 className="percentage-change">
-                    {stock.dayChange}
-                </h1>
-                <GraphComponent chart={stock.chart} />
-                <AboutComponent about={stock.about} />
-                <NewsComponent news={stock.news} />
+ 
+                <GraphComponent />
+                <AboutComponent about={stockSym.about} />
+                <NewsComponent news={stockSym.news} />
 
             </main>
 

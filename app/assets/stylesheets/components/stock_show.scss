@@ -1,14 +1,57 @@
 .stock-show-container {
+   position: relative;
     h1 {
-        font-family: $narrow;
+        font-family: $condensed;
         font-size: 1.75em;
     }
-    .company-name, .current-price {
-        font-size: 2em;
+    .stock-graph {
+        
+        margin-bottom: 50px;
+        .time-frame {
+            display: flex;
+            border-bottom: 1px solid $lighter-gray;
+            box-sizing: border-box;
+            font-family: $narrow;
+            font-weight: bolder;
+            color: $black;
+            margin-top: 10px;
+            padding-top: 10px;
+            li {
+                cursor: pointer;
+                font-size: .8em;
+                box-sizing: border-box;
+                padding-bottom: 10px;
+                &.selected {
+                    color: $lightgreen;
+                    border-bottom: 1px solid;
+                    &.negative-change { 
+                        color: $red;
+                    }
+                }
+                &:hover { color: $lightgreen; }
+                &.negative-change:hover { color: $red }                
+            } 
+        }
+        .company-name, .current-price, .percentage-change {
+            
+            line-height: 1.5em;
+        }
+        .company-name, .current-price{
+            font-size: 2em;
+        }
+        .percentage-change {  
+            font-weight: bold;
+            margin-bottom:50px;
+            font-size: .8em;
+            > * {
+                display: inline-block;
+               margin-right: 5px;
+            }
+            .timeframe {color: $gray}
+        }
+
     }
-    .percentage-change {
-        font-weight: bold;
-    }
+    
     > section {
         margin-bottom: 30px;
         h1 {
@@ -56,4 +99,12 @@
             }
         }
     }
+}
+
+.recharts-wrapper {
+    
+    .recharts-surface {
+        border-bottom: 2px dotted $lighter-gray;
+    }
+        
 }

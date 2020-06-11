@@ -6,17 +6,17 @@ import StockShowContainer from './stock_show_container'
 class FunctionalComponent extends Component {
     constructor(props) {
         super(props);
- 
     }
-
+    
     componentDidMount(){
-        this.props.fetchPortfolios(this.props.currentUser);
+        
         this.props.fetchStocks();
+        this.props.fetchPortfolios(this.props.currentUser);
     }
 
     
     render() {
-        
+
         return (
             <main className="functional-component-container">
                 <section className="main">

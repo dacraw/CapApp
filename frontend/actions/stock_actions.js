@@ -26,7 +26,7 @@ export const fetchStock = stockSymbol => dispatch => (
     StockUtil.fetchStock(stockSymbol)
         .then(
             stock => dispatch(receiveStock(stock)),
-            errs => dispatch(receiveStockErrors(errs))
+            errs => dispatch(receiveStockErrors(errs.responseText))
         )
 )
 

@@ -1,7 +1,7 @@
 class Api::StocksController < ApplicationController
     def show
+        # debugger
         @stock = Stock.find_by(symbol: params[:symbol].upcase) # to upcase ; db is case sensitive
-        
         if @stock
             render :show
         else

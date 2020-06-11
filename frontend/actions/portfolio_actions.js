@@ -6,6 +6,9 @@ export const REMOVE_PORTFOLIO = "REMOVE_PORTFOLIO"
 export const RECEIVE_PORTFOLIOS = 'RECEIVE_PORTFOLIOS';
 export const RECEIVE_PORTFOLIO = 'RECEIVE_PORTFOLIO';
 
+export const CLEAR_SUCCESS = 'CLEAR_SUCCESS';
+export const CLEAR_MESSAGES = 'CLEAR_MESSAGES';
+
 const receivePortfolioErrors = errors => ({
     type: RECEIVE_PORTFOLIO_ERRORS,
     errors,
@@ -30,7 +33,6 @@ export const createPortfolio = portfolio => dispatch => (
 )
 
 export const updatePortfolio = portfolio => dispatch => {
-    debugger
     
     return (
         PortfolioUtil.updatePortfolio(portfolio)

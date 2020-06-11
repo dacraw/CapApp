@@ -15,9 +15,41 @@ class DashNavBar extends React.Component{
 
     }
 
+    filterResults(e){
+        e.preventDefault();
+        debugger;
+
+        let stockList = document.getElementById('stock-list');
+
+        if (!e.currentTarget.value){
+            stockList.firstChild.style.display = "none"
+        } else {
+            stockList.firstChild.style.display = "block"
+        }
+        
+        let currentValue = e.currentTarget.value;
+
+        let li = stockList.getElementsByTagName('li');
+
+        for (let i = 0; i < li.length; i++){
+            let a = li[i].getElementsByTagName('a')[0];
+            let symbol;
+            // make sure a has a value to avoid console errors
+            if (a){
+                symbol = a.textContent;
+                if (symbol.includes(currentValue.toUpperCase())){
+                    li[i].style.display = "";
+                } else {
+                    li[i].style.display = "none";
+                }
+            } 
+
+        }
+    }
+
     render(){
         
-        const { currentUser, logout, cashAvailable } = this.props;
+        const { currentUser, logout, cashAvailable, stocks } = this.props;
         if (!currentUser) return null
         if (!cashAvailable) return null
         return (
@@ -25,7 +57,14 @@ class DashNavBar extends React.Component{
                 <section className="content">
                     <Link to="/"><img className="logo-notext" src={window.logoNoText} /></Link>
                     <div className="search-wrapper">
-                        <input className="search" placeholder="Search" type="search" name="stock-search" id=""/>
+                        <input id="stock-search" onChange={this.filterResults} className="search" placeholder="Search" type="search" name="stock-search" id=""/>
+
+                        <section className="stock-list" id="stock-list">
+                            <ul>
+                                {Object.keys(stocks).sort().map( (stock, idx) => <li key={idx}><Link to={`/stocks/${stock.toLowerCase()}`}>{stock}</Link></li>)}
+                            </ul>    
+                        </section>
+
                         <i className="fas fa-search"></i>
                     </div>
                     <ul className="links">

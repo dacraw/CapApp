@@ -90,7 +90,7 @@ class Login extends React.Component {
                                 <ul className="login-invalid-credentials">
                                         {errors}
                                 </ul>  
-                                <button type="submit">Sign In</button>
+                                <button type="submit">Sign In</button> 
                             </form>
                         </div>
                     </section>

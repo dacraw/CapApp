@@ -1,8 +1,13 @@
 import {
     RECEIVE_CURRENT_USER,
+    LOGOUT_CURRENT_USER,
 } from '../actions/session_actions';
 import { RECEIVE_PORTFOLIO, RECEIVE_PORTFOLIOS } from '../actions/portfolio_actions';
 import {merge} from 'lodash'
+
+const _nullState = {
+
+}
 
 export default (state = {}, action) => {
     Object.freeze(state);
@@ -13,15 +18,16 @@ export default (state = {}, action) => {
                 state, 
                 { [action.user.id]: action.user })
         case RECEIVE_PORTFOLIO:
-            const nextState = merge({}, state);
-            nextState[action.portfolio.user_id]['stocks'].push(action.portfolio.symbol);
-            return nextState;
+                        
+            return merge({}, state, action.portfolio);
         case RECEIVE_PORTFOLIOS:
             return _.merge(
                 {},
                 state,
                 action.portfolios
             )   
+        case LOGOUT_CURRENT_USER:
+            return _nullState;
         default:
             return state;
     }
