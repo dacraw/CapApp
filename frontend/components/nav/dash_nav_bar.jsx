@@ -4,6 +4,10 @@ import {Link} from 'react-router-dom'
 class DashNavBar extends React.Component{
     constructor(props){
         super(props)
+        this.state = {
+            searchValue: "",
+        }
+        this.filterResults = this.filterResults.bind(this);
     }
     
     toggleAccountDropdown(e){
@@ -11,13 +15,17 @@ class DashNavBar extends React.Component{
         e.currentTarget.nextSibling.classList.toggle('show');
     }
 
-    componentDidMount(){
-
+    componentDidUpdate(prevProps){
+        if (this.props.location.pathname !== prevProps.location.pathname){ 
+            this.setState({searchValue: ""})
+            $('#stock-list ul').hide();
+        }
     }
 
     filterResults(e){
         e.preventDefault();
-        debugger;
+       
+        this.setState({ searchValue: e.currentTarget.value});
 
         let stockList = document.getElementById('stock-list');
 
@@ -57,7 +65,7 @@ class DashNavBar extends React.Component{
                 <section className="content">
                     <Link to="/"><img className="logo-notext" src={window.logoNoText} /></Link>
                     <div className="search-wrapper">
-                        <input id="stock-search" onChange={this.filterResults} className="search" placeholder="Search" type="search" name="stock-search" id=""/>
+                        <input id="stock-search" onChange={this.filterResults} value={this.state.searchValue} className="search" placeholder="Search" type="search" name="stock-search" id=""/>
 
                         <section className="stock-list" id="stock-list">
                             <ul>
