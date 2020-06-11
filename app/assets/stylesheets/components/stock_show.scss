@@ -51,26 +51,7 @@
         }
 
     }
-    .stock-list {
-        position: absolute;
-        z-index: 1;
-        right: 0;
-        top: 0;
-        background-color: $white;
-        border: 1px solid $lighter-gray;
-        h3, ul a{ padding: 10px; }
-        ul {
-            display: none;
-            height: 300px;
-            overflow: auto;
-            text-align: center;
-            li:hover {
-                background-color: $lightblue;
-            }
-            a { color: $green; display: block; }
-            &.show { display: block; }
-        }
-    }
+    
     > section {
         margin-bottom: 30px;
         h1 {

@@ -31,18 +31,7 @@ class StockShow extends Component {
         }
     }
 
-    showStocks(e){
-        e.preventDefault();
-        // debugger
-        e.currentTarget.nextSibling.classList.toggle('show');
-    }
-    
-    updateColors(){
 
-            // $('.functional-component-container aside .buy-sell li').css('border','5px solid red')
-            console.log('hi');
-
-    }
 
     render() {
 
@@ -56,13 +45,7 @@ class StockShow extends Component {
         
         return (
             <main className="stock-show-container">
-                <section className="stock-list" id="stock-list">
-                    <h3 onClick={this.showStocks} className="stock-list-toggle">Select A Stock:</h3>
-                    <ul>
-                        {Object.keys(this.props.stocks).sort().map( (stock, idx) => <li key={idx}><Link to={`/stocks/${stock.toLowerCase()}`}>{stock}</Link></li>)}
-                    </ul>    
-                </section>
-  
+ 
                 <GraphComponent />
                 <AboutComponent about={stockSym.about} />
                 <NewsComponent news={stockSym.news} />
