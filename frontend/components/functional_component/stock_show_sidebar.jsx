@@ -209,8 +209,8 @@ class StockShowSidebar extends Component {
                             <ul className="invest-type">
                                 <li onClick={this.showInvestTypes}>{this.state.investType}</li>
                                 <ul>
-                                    <li onClick={this.handleInvestType} className={`selected ${changeType}`}>Shares</li>
-                                    <li onClick={this.handleInvestType} className={changeType}>Dollars</li>
+                                    <li onClick={this.handleInvestType} className={changeType}>Shares</li>
+                                    <li onClick={this.handleInvestType} className={`selected ${changeType}`}>Dollars</li>
                                 </ul>
                             </ul>
                         </section>
