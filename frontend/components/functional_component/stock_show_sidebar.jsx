@@ -9,8 +9,10 @@ class StockShowSidebar extends Component {
             user_id: 0,
             stock_price: "",
             formType: 'buy',
+            investType: 'Dollars',
         }
         this.handleSubmit = this.handleSubmit.bind(this);
+        this.handleInvestType = this.handleInvestType.bind(this);
     }
 
     
@@ -39,11 +41,29 @@ class StockShowSidebar extends Component {
             });
             // this clears the success message when changing to another stock
             this.props.userInfo.newShares = "";
-            
+            this.handleInvestType = this.handleInvestType.bind(this)
         }
         
     }
 
+    showInvestTypes(e){
+        e.preventDefault();
+        
+        e.currentTarget.nextSibling.style.display = "block";
+    }
+
+    handleInvestType(e){
+        e.preventDefault();
+        debugger;
+        e.currentTarget.parentNode.style.display = "none";
+        $('.invest-type ul li.selected').removeClass('selected');
+        e.currentTarget.classList.add('selected');
+        this.setState({
+            investType: e.currentTarget.textContent,
+            num_shares: "",
+        })
+    }
+    
     handleInput(field){
         return e => (
             this.setState({
@@ -102,19 +122,54 @@ class StockShowSidebar extends Component {
         
         e.currentTarget.nextSibling.classList.toggle('show');
     }
+
+    
     
     render() {
         const { userInfo, stock, errors } = this.props;
 
-        const formatter = new Intl.NumberFormat('en-US', {
-            style: 'currency',
-            currency: 'USD',
-            minimumFractionDigits: 2
-          })
-        
+
+        const renderInvestType = (investType) => {
+            const { stock } = this.props;
+    
+            let estimatedPrice = (this.state.num_shares == 0) ? stock.price : Math.round((stock.price * this.state.num_shares + Number.EPSILON) * 100) / 100;
+            const formatter = new Intl.NumberFormat('en-US', {
+                style: 'currency',
+                currency: 'USD',
+                minimumFractionDigits: 2
+            });
+    
+            switch (investType) {
+                case 'Shares':
+                    return (
+                        <>
+                        <section className="line">
+                            <label>Shares</label>
+                            <input onChange={this.handleInput('num_shares')} value={this.state.num_shares} type="number" placeholder="0" min='.01' max={(this.state.formType === 'sell') ? numShares : ""} step=".01" required />
+                        </section>
+                        <section className="line">
+                            <label>Market Price</label>
+                            <data className="cost-credit">{formatter.format(stock.price)}</data>
+                        </section>
+                        <hr />
+                        <section className="line cost-credit">
+                            <label>{(this.state.formType === 'buy') ? 'Estimated Cost' : 'Estimated Credit'}</label>
+                            <data>{formatter.format(estimatedPrice)} </data>
+                        </section>
+                      </>
+                    )
+                default:
+                    break;
+            }
+        }
         // this requires stock.chart for pricing, so return null if it isnt established yet
         if (!stock || !stock.chart || !userInfo) return null;
-        let estimatedPrice = (this.state.num_shares == 0) ? stock.price : Math.round((stock.price * this.state.num_shares + Number.EPSILON) * 100) / 100;
+
+
+        const changeType = (stock.dollarChange <= 0) ? "negative-change" : "";
+
+
+        
        
         // NUMSHARES check if user owns shares before displaying num_shares
         let numShares = 0;
@@ -151,24 +206,17 @@ class StockShowSidebar extends Component {
                         <section className="line">
                             {/* <i class="fas fa-arrows-alt-v"></i> */}
                             <label>Invest In</label>
-                            <select defaultValue="Shares">
-                                {/* <option>Dollars</option> */}
-                                <option>Shares</option>
-                            </select>
+                            <ul className="invest-type">
+                                <li onClick={this.showInvestTypes}>{this.state.investType}</li>
+                                <ul>
+                                    <li onClick={this.handleInvestType} className={changeType}>Shares</li>
+                                    <li onClick={this.handleInvestType} className={`selected ${changeType}`}>Dollars</li>
+                                </ul>
+                            </ul>
                         </section>
-                        <section className="line">
-                            <label>Shares</label>
-                            <input onChange={this.handleInput('num_shares')} value={this.state.num_shares} type="number" placeholder="0" min='.01' max={(this.state.formType === 'sell') ? numShares : ""} step=".01" required />
-                        </section>
-                        <section className="line">
-                            <label>Market Price</label>
-                            <data className="cost-credit">{formatter.format(stock.price)}</data>
-                        </section>
-                        <hr />
-                        <section className="line cost-credit">
-                            <label>{(this.state.formType === 'buy') ? 'Estimated Cost' : 'Estimated Credit'}</label>
-                            <data>{formatter.format(estimatedPrice)} </data>
-                        </section>
+
+                        {renderInvestType(this.state.investType)}
+
                         <section className="success">
                             {this.props.userInfo.newShares}
                         </section>
