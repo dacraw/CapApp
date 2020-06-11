@@ -28,7 +28,6 @@
         .search-wrapper {
             position: relative;
             .search {
-                border: 1px solid $lighter-gray;
                 border-radius: 5px;
                 height: 100%;
                 width: 400px;
@@ -45,6 +44,7 @@
                 border: 1px solid $lighter-gray;
                 h3, ul a{ padding: 10px; }
                 ul {
+                    border: 1px solid $lighter-gray;
                     box-sizing: border-box;
                     display: none;
                     max-height: 200px;
