@@ -42,8 +42,7 @@ class StockShowSidebar extends Component {
             // this clears the success message when changing to another stock
             this.props.userInfo.newShares = "";
             this.handleInvestType = this.handleInvestType.bind(this)
-        }
-        
+        }        
     }
 
     showInvestTypes(e){
@@ -181,7 +180,7 @@ class StockShowSidebar extends Component {
         // give selected class to buy and change formType to buy and show buying power box
         if (numShares == 0 && this.state.formType === 'sell'){
             $('#buy').addClass('selected');
-            this.setState({formType:'buy'});
+            this.setState({formType:'buy', num_shares: ""});
             $('.num-shares').removeClass('show').addClass('hide');
             $('.buying-power').removeClass('hide').addClass('show');
         }
