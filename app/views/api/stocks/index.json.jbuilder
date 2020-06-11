@@ -21,7 +21,7 @@ require 'json'
 
 @stocks.each do |stock|
     json.set! stock.symbol do
-        json.symbol stock.symbol     
+        json.extract! stock, :symbol, :company     
     end
 end
 
