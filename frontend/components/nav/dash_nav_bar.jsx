@@ -17,15 +17,18 @@ class DashNavBar extends React.Component{
     }
 
     componentDidUpdate(prevProps){
-        if (this.props.location.hash !== prevProps.location.hash){ 
+        debugger
+        if (this.props.location.pathname !== prevProps.location.pathname){ 
             this.setState({searchValue: ""})
-            $('#stock-list ul').hide();
+            $('#stock-list ul:first-child').hide();
         }
     }
 
     enterSearchList(e){
         debugger
         e.preventDefault();
+
+        if (!e.currentTarget.value) return null;
         
         switch (e.keyCode) {
             case 40:
@@ -33,18 +36,18 @@ class DashNavBar extends React.Component{
                     $('#stock-list ul li:visible a')[0].classList.add('selected')
                 } else {
                     // move to next sibling
-                    $(e.currentTarget).next().find('.selected').parent().next('li:visible').find('a').addClass('selected')
+                    $(e.currentTarget).next().find('.selected').parent().nextAll('li:visible').first().find('a').addClass('selected')
                     // remove selected from current item
                     e.currentTarget.nextSibling.querySelectorAll('.selected')[0].classList.remove('selected');
                 }
                 break;
             case 38:
                 // only use up arrow if a list item is selected
-                if ($('#stock-list .selected').length){
+                if ($('#stock-list .selected').length && $('#stock-list li:visible').length > 1){
                     // move to next sibling
-                    $(e.currentTarget).next().find('.selected').parent().prev('li:visible').find('a').addClass('selected')
+                    $(e.currentTarget).next().find('.selected').parent().prevAll('li:visible').first().find('a').addClass('selected')
                     // remove selected from current item
-                    e.currentTarget.nextSibling.querySelectorAll('.selected')[1].classList.remove('selected');
+                    $(e.currentTarget).next().find('.selected').last().removeClass('selected');
                 }
 
                 break;
@@ -54,7 +57,9 @@ class DashNavBar extends React.Component{
                 // only use enter if a stock is selected
                 if ($('#stock-list .selected').length){
                     $('#stock-list .selected')[0].click();
-                    $('#stock-list .selected')[0].removeClass('selected');
+                    // remove focus from search bar when user presses enter
+                    document.activeElement.blur();
+                    $('#stock-list .selected')[0].classList.remove('selected');
                     $('#stock-list li').hide();
                 }
                 break;

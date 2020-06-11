@@ -6,8 +6,10 @@ import Root from './components/root';
 
 document.addEventListener('DOMContentLoaded', () => {
     window.onclick = function(e){
+        e.stopPropagation();
         document.getElementById('dash-nav-account-options').classList.remove('show');
         document.getElementById('sidebar-info-dropdown').classList.remove('show');
+       console.log('hi')
     }
 
     let store;
