@@ -21,6 +21,10 @@ class StockShowSidebar extends Component {
         this.setState({user_id: this.props.currentUser, symbol: this.props.match.params.symbol.toUpperCase()})
     }
 
+    componentWillUnmount(){
+        this.props.clearMessages();
+    }
+
     componentDidUpdate(prevProps) {
         // if user changes hash locations, update the symbol
         // 2nd part of conditional only updates the state's symbol to the given symbol if it's present in the stock list
@@ -35,6 +39,7 @@ class StockShowSidebar extends Component {
             });
             // this clears the success message when changing to another stock
             this.props.userInfo.newShares = "";
+            
         }
         
     }
@@ -147,7 +152,7 @@ class StockShowSidebar extends Component {
                             {/* <i class="fas fa-arrows-alt-v"></i> */}
                             <label>Invest In</label>
                             <select defaultValue="Shares">
-                                {/* <option>Shares</option> */}
+                                {/* <option>Dollars</option> */}
                                 <option>Shares</option>
                             </select>
                         </section>

@@ -7,6 +7,7 @@ export const RECEIVE_PORTFOLIOS = 'RECEIVE_PORTFOLIOS';
 export const RECEIVE_PORTFOLIO = 'RECEIVE_PORTFOLIO';
 
 export const CLEAR_SUCCESS = 'CLEAR_SUCCESS';
+export const CLEAR_MESSAGES = 'CLEAR_MESSAGES';
 
 const receivePortfolioErrors = errors => ({
     type: RECEIVE_PORTFOLIO_ERRORS,

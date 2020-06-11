@@ -16,7 +16,8 @@ const mapStateToProps = ( { entities: { users, stocks}, session, errors }, ownPr
 const mapDispatchToProps = dispatch => ({
     fetchStocks: () => dispatch(fetchStocks()),
     createPortfolio: userStock => dispatch(createPortfolio(userStock)),
-    updatePortfolio: portfolio => dispatch(updatePortfolio(portfolio))
+    updatePortfolio: portfolio => dispatch(updatePortfolio(portfolio)),
+    clearMessages: () => dispatch({type:"CLEAR_MESSAGES"}),
 })
 
 export default connect(mapStateToProps, mapDispatchToProps)(StockShowSidebar)
