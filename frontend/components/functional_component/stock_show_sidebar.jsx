@@ -9,8 +9,10 @@ class StockShowSidebar extends Component {
             user_id: 0,
             stock_price: "",
             formType: 'buy',
+            investType: 'Dollars',
         }
         this.handleSubmit = this.handleSubmit.bind(this);
+        this.handleInvestType = this.handleInvestType.bind(this);
     }
 
     
@@ -39,11 +41,28 @@ class StockShowSidebar extends Component {
             });
             // this clears the success message when changing to another stock
             this.props.userInfo.newShares = "";
-            
+            this.handleInvestType = this.handleInvestType.bind(this)
         }
         
     }
 
+    showInvestTypes(e){
+        e.preventDefault();
+        
+        e.currentTarget.nextSibling.style.display = "block";
+    }
+
+    handleInvestType(e){
+        e.preventDefault();
+        debugger;
+        e.currentTarget.parentNode.style.display = "none";
+        $('.invest-type ul li.selected').removeClass('selected');
+        e.currentTarget.classList.add('selected');
+        this.setState({
+            investType: e.currentTarget.textContent,
+        })
+    }
+    
     handleInput(field){
         return e => (
             this.setState({
@@ -111,9 +130,14 @@ class StockShowSidebar extends Component {
             currency: 'USD',
             minimumFractionDigits: 2
           })
-        
+
         // this requires stock.chart for pricing, so return null if it isnt established yet
         if (!stock || !stock.chart || !userInfo) return null;
+
+
+        const changeType = (stock.dollarChange <= 0) ? "negative-change" : "";
+
+
         let estimatedPrice = (this.state.num_shares == 0) ? stock.price : Math.round((stock.price * this.state.num_shares + Number.EPSILON) * 100) / 100;
        
         // NUMSHARES check if user owns shares before displaying num_shares
@@ -151,10 +175,13 @@ class StockShowSidebar extends Component {
                         <section className="line">
                             {/* <i class="fas fa-arrows-alt-v"></i> */}
                             <label>Invest In</label>
-                            <select defaultValue="Shares">
-                                {/* <option>Dollars</option> */}
-                                <option>Shares</option>
-                            </select>
+                            <ul className="invest-type">
+                                <li onClick={this.showInvestTypes}>{this.state.investType}</li>
+                                <ul>
+                                    <li onClick={this.handleInvestType} className={`selected ${changeType}`}>Shares</li>
+                                    <li onClick={this.handleInvestType} className={changeType}>Dollars</li>
+                                </ul>
+                            </ul>
                         </section>
                         <section className="line">
                             <label>Shares</label>
