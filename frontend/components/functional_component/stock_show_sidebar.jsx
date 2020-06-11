@@ -119,7 +119,8 @@ class StockShowSidebar extends Component {
     showBox(e){
         e.stopPropagation();
         
-        e.currentTarget.nextSibling.classList.toggle('show');
+        // e.currentTarget.nextSibling.classList.toggle('show');
+        $(e.currentTarget).next().fadeToggle(200);
     }
 
     

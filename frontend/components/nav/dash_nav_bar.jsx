@@ -13,14 +13,14 @@ class DashNavBar extends React.Component{
     
     toggleAccountDropdown(e){
         e.stopPropagation();
-        e.currentTarget.nextSibling.classList.toggle('show');
+        $(e.currentTarget).next().fadeToggle(200);
     }
 
     componentDidUpdate(prevProps){
         debugger
         if (this.props.location.pathname !== prevProps.location.pathname){ 
             this.setState({searchValue: ""})
-            $('#stock-list ul:first-child').hide();
+            $('#stock-list ul:first-child').fadeOut(100);
         }
     }
 

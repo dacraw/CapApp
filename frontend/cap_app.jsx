@@ -5,14 +5,6 @@ import Root from './components/root';
 // import * as actions from './actions/session_actions';
 
 document.addEventListener('DOMContentLoaded', () => {
-    window.onclick = function(e){
-        e.stopPropagation();
-        document.getElementById('dash-nav-account-options').classList.remove('show');
-        document.getElementById('sidebar-info-dropdown').classList.remove('show');
-        document.querySelector('#stock-list ul').style.display = "none";
-        
-    }
-
     let store;
     if (window.currentUser){
         
@@ -31,8 +23,9 @@ document.addEventListener('DOMContentLoaded', () => {
     window.getState = store.getState;
     // hide dropdowns if user clicks on window
     window.onclick = function(e){
-        document.getElementById('sidebar-info-dropdown').classList.remove('show');
-        document.getElementById('dash-nav-account-options').classList.remove('show');
+        $('#sidebar-info-dropdown').fadeOut(200);
+        $('#dash-nav-account-options').fadeOut(200);
+        $('#stock-list ul').fadeOut(50);
     }
 
     const root = document.getElementById('root');
