@@ -24,7 +24,3 @@ require 'json'
         json.extract! stock, :symbol, :company     
     end
 end
-
-
-
-# 7YVL16BDCKAB0BEU
