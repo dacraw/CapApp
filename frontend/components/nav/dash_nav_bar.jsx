@@ -17,7 +17,7 @@ class DashNavBar extends React.Component{
     }
 
     componentDidUpdate(prevProps){
-        debugger
+        
         if (this.props.location.pathname !== prevProps.location.pathname){ 
             this.setState({searchValue: ""})
             $('#stock-list ul:first-child').fadeOut(100);
@@ -25,7 +25,7 @@ class DashNavBar extends React.Component{
     }
 
     enterSearchList(e){
-        debugger
+       
         e.preventDefault();
 
         if (!e.currentTarget.value) return null;

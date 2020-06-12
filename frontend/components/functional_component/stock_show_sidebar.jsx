@@ -196,6 +196,7 @@ class StockShowSidebar extends Component {
 
         return (
             <>
+            
                 <ul className="buy-sell">
                     <li onClick={this.setFormType('buy')} id="buy" className={`selected ${dollarChange}`}>Buy {stock.symbol}</li>
                     <li onClick={this.setFormType('sell')} className={sellClass()}>Sell {stock.symbol}</li>
