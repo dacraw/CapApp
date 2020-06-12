@@ -104,7 +104,7 @@ class DashNavBar extends React.Component{
                 const company = info[1].textContent;
                 if (symbol.includes(currentValue.toUpperCase()) || company.includes(currentValue[0].toUpperCase() + currentValue.slice(1))){
                     li[i].style.display = "block";
-                    debugger;
+                    
                     const change = (props.stocks[props.match.params.symbol.toUpperCase()]).dollarChange;
                     const color = (change <= 0) ? "negative-change" : "";
                     // const span = document.createElement('span');
@@ -146,6 +146,7 @@ class DashNavBar extends React.Component{
 
                         <section className="stock-list" id="stock-list">
                             <ul onKeyDown={this.navigateResults}>
+                                <li className="category">Stocks</li>
                                 {Object.values(stocks).map( (stock, idx) => <li key={idx}><Link to={`/stocks/${stock.symbol.toLowerCase()}`}><span className="symbol">{stock.symbol}</span><span className="company">{stock.company}</span></Link></li>)}
                             </ul>    
                         </section>
