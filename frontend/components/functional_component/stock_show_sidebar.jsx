@@ -163,7 +163,7 @@ class StockShowSidebar extends Component {
             }
         }
         // this requires stock.chart for pricing, so return null if it isnt established yet
-        if (!stock || !stock.chart || !userInfo) return null;
+        if (!stock || !stock.chart || !userInfo || !stock.price) return null;
 
 
         const changeType = (stock.dollarChange <= 0) ? "negative-change" : "";

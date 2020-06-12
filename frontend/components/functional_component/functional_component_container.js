@@ -4,9 +4,10 @@ import {fetchStocks} from '../../actions/stock_actions'
 import {fetchPortfolios} from '../../actions/portfolio_actions'
 
 
-const mapStateToProps = (state) => {
+const mapStateToProps = ({session, loading}) => {
     return ({
-        currentUser: state.session.id,
+        currentUser: session.id,
+        loading
     })
 }
 
