@@ -37,7 +37,20 @@ note: I am not affiliated with IEX Cloud.
 - Browse stock symbol info before purchase
 - Monitor specific stocks
 
-## Buy/Sell Stocks
-Upon login, user is redirected to `/stocks/goog` which provides a baseline for the investment tool. Use the search bar to browse other stock symbols by symbol or by company name. The search feature will highlight the matching text from the search in the results.
+### Buy/Sell Stocks
+![image](https://user-images.githubusercontent.com/59629330/84517820-c7ca7a80-ac9d-11ea-83ca-8e4aa7c1bc25.png)
+![image](https://user-images.githubusercontent.com/59629330/84518379-a1590f00-ac9e-11ea-9968-4e0de4335846.png)
+
+Upon login, user is redirected to `/stocks/goog` which provides a baseline for the investment tool. Use the search bar to browse other stock symbols by symbol or by company name. The search feature will highlight the matching text from the search in the results. Colors on the page change from green/red for positive/negative day change.
+
+### Stock Ticker Search
+![image](https://user-images.githubusercontent.com/59629330/84517881-dd3fa480-ac9d-11ea-8ca2-5ead4dcce696.png)
+
+Use the search bar to search for stocks available for trading. The up/down arrows and enter keys may be used to navigate the results.
+
+### Intraday Price Chart
+![image](https://user-images.githubusercontent.com/59629330/84517857-d4e76980-ac9d-11ea-8867-bd89f088ef03.png)
+
+Monitor the changes in intraday price by 5 minute time intervals.
 
 
