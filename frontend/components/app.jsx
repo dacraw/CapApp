@@ -22,6 +22,7 @@ const App = (props) => {
                 <AuthRoute exact path="/signup" component={SignupContainer} />
                 <AuthRoute exact path="/login" component={LoginContainer} />
                 <ProtRoute exact path="/stocks/:symbol" component={FunctionalComponent} /> {/* dash */}
+                <ProtRoute exact path="/dashboard" component={FunctionalComponent} /> {/* dash */}
                 <Route exact path="/" component={Splash} /> {/* splash*/}
             </Switch>
         </>
