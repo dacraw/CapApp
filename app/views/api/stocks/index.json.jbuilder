@@ -27,4 +27,3 @@ require_relative 'sample_state'
     end
 end
 
-
