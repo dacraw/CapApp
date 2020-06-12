@@ -104,6 +104,18 @@ class DashNavBar extends React.Component{
                 const company = info[1].textContent;
                 if (symbol.includes(currentValue.toUpperCase()) || company.includes(currentValue[0].toUpperCase() + currentValue.slice(1))){
                     li[i].style.display = "block";
+                    debugger;
+                    // const span = document.createElement('span');
+                    // span.style.color = "green";
+                    // const matchIdx = symbol.indexOf(currentValue.toUpperCase())
+                    // const match = symbol.slice(matchIdx, currentValue.length);
+                    // span.innerText = match;
+                    // const start = symbol.slice(0, matchIdx);
+                    // const stop = symbol.slice(match.length)
+                    // const updatedEle = document.createElement('a');
+                    li[i].getElementsByTagName('a')[0].getElementsByTagName('span')[0].innerHTML = symbol.replace(new RegExp(currentValue.toUpperCase(), "gi"), (match) => `<strong class="highlight">${match}</strong>`);
+                    li[i].getElementsByTagName('a')[0].getElementsByTagName('span')[1].innerHTML = company.replace(new RegExp(currentValue[0].toUpperCase() + currentValue.slice(1), "gi"), (match) => `<strong class="highlight">${match}</strong>`);
+                    
                 } else {
                     li[i].style.display = "none";
                 }

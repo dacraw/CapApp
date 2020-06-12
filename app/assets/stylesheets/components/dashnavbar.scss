@@ -92,10 +92,11 @@
         padding: 20px 0px;
         border: 1px solid $lighter-gray;
         border-top: 0;
+        
         // add this back 
         display: none;
-        max-height: 200px;
-
+        max-height: 198px;
+        
         overflow: auto;
         /* Hide scrollbar for IE and Edge */
         -ms-overflow-style: none;
@@ -108,8 +109,10 @@
             display:block;
 
         }
+        .highlight { background-color: none; color: $green;}
+
         a { 
-            color: $green; 
+            color: $black;
             display: block; 
             display: flex;
             padding: 10px 20px;
@@ -126,6 +129,7 @@
             }
 
         }
+        
         &.show { display: block; }
     }
 }
