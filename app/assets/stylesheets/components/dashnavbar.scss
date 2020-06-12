@@ -95,9 +95,9 @@
         
         // add this back 
         display: none;
-        max-height: 198px;
+        max-height: 195px;
         
-        overflow: auto;
+        overflow: hidden;
         /* Hide scrollbar for IE and Edge */
         -ms-overflow-style: none;
         /* Hide scrollbar for Chrome, Safari and Opera */
@@ -109,7 +109,12 @@
             display:block;
 
         }
-        .highlight { background-color: none; color: $green;}
+        .highlight { 
+            background-color: none; color: $green;
+            &.negative-change {
+                color: $red;
+            }
+        }
 
         a { 
             color: $black;
@@ -125,6 +130,7 @@
                 &.symbol {
                     margin-right: 30px;
                    width: 45px;
+
                 }
             }
 

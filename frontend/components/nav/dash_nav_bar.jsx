@@ -72,8 +72,8 @@ class DashNavBar extends React.Component{
     
     filterResults(e){
         e.preventDefault();
-
- 
+        const props = this.props; 
+        
         document.querySelectorAll('.stock-list ul li').forEach ( (item, idx) => {
             if (item.textContent === 'No results match.'){
                       item.parentNode.removeChild(item)
@@ -105,6 +105,8 @@ class DashNavBar extends React.Component{
                 if (symbol.includes(currentValue.toUpperCase()) || company.includes(currentValue[0].toUpperCase() + currentValue.slice(1))){
                     li[i].style.display = "block";
                     debugger;
+                    const change = (props.stocks[props.match.params.symbol.toUpperCase()]).dollarChange;
+                    const color = (change <= 0) ? "negative-change" : "";
                     // const span = document.createElement('span');
                     // span.style.color = "green";
                     // const matchIdx = symbol.indexOf(currentValue.toUpperCase())
@@ -113,8 +115,8 @@ class DashNavBar extends React.Component{
                     // const start = symbol.slice(0, matchIdx);
                     // const stop = symbol.slice(match.length)
                     // const updatedEle = document.createElement('a');
-                    li[i].getElementsByTagName('a')[0].getElementsByTagName('span')[0].innerHTML = symbol.replace(new RegExp(currentValue.toUpperCase(), "gi"), (match) => `<strong class="highlight">${match}</strong>`);
-                    li[i].getElementsByTagName('a')[0].getElementsByTagName('span')[1].innerHTML = company.replace(new RegExp(currentValue[0].toUpperCase() + currentValue.slice(1), "gi"), (match) => `<strong class="highlight">${match}</strong>`);
+                    li[i].getElementsByTagName('a')[0].getElementsByTagName('span')[0].innerHTML = symbol.replace(new RegExp(currentValue.toUpperCase(), "gi"), (match) => `<strong class="highlight ${color}">${match}</strong>`);
+                    li[i].getElementsByTagName('a')[0].getElementsByTagName('span')[1].innerHTML = company.replace(new RegExp(currentValue[0].toUpperCase() + currentValue.slice(1), "gi"), (match) => `<strong class="highlight ${color}">${match}</strong>`);
                     
                 } else {
                     li[i].style.display = "none";
