@@ -3,6 +3,7 @@ import GraphComponent from './graph_component_container'
 import AboutComponent from './about_component'
 import NewsComponent from './news_component'
 import {Link} from 'react-router-dom'
+import Loader from '../other/loader'
 
 class StockShow extends Component {
     constructor(props) {
@@ -36,16 +37,13 @@ class StockShow extends Component {
     render() {
 
         // this.props.fetchStock(this.props.match.params.symbol.toUpperCase())
-        const { stockSym } = this.props;
+        const { stockSym, loading } = this.props;
         
         if (!stockSym || !stockSym.about) return null
-
-        // add css class 'stock-negative' for negative change; default is green for positive
-
         
         return (
             <main className="stock-show-container">
- 
+
                 <GraphComponent />
                 <AboutComponent about={stockSym.about} />
                 <NewsComponent news={stockSym.news} />
