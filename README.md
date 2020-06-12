@@ -7,7 +7,7 @@ Things you may want to cover:
 
 ![alt text][logo]
 
-[logo]: https://github.com/adam-p/markdown-here/raw/master/src/common/images/icon48.png "Logo Title Text 2"
+[logo]: https://github.com/dacrawford89/CapApp/blob/master/app/assets/images/logo.png "Logo Title Text 2"
 
 * Ruby version
 
