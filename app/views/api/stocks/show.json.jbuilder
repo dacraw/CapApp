@@ -18,7 +18,6 @@ json.set! @stock.symbol do
     # debugger
     currentPrice = JSON.parse(priceNewsresponse.body)[@stock.symbol.upcase]['price'].round(2) # 
 
-    #debugger
     # set the stock price to the last average of the chart
     chart = StockDefaults::SAMPLE_STATE_GRAPH[@stock.symbol.to_sym][:chart]
     avg = chart[-1][:average]
