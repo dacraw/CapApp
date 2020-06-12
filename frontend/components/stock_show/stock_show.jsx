@@ -1,5 +1,5 @@
 import React, {Component} from 'react'
-import GraphComponent from './graph_component_container'
+import GraphComponent from '../other/graph_component_container'
 import AboutComponent from './about_component'
 import NewsComponent from './news_component'
 import {Link} from 'react-router-dom'
