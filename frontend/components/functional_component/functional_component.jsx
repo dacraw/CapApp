@@ -20,8 +20,6 @@ class FunctionalComponent extends Component {
     
     render() {
         const { currentUser } = this.props;
-        // if (loading) return <Loading />
-        const { currentUser } = this.props;
 
         if (!currentUser) return null;
 
