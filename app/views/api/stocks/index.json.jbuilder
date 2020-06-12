@@ -23,6 +23,8 @@ require_relative 'sample_state'
     json.set! stock.symbol do
         json.extract! stock, :symbol, :company
         chart = StockDefaults::SAMPLE_STATE_GRAPH[stock.symbol.to_sym][:chart]
-        json.chart 
+
+        #debugger
+        json.chart chart
     end
 end
