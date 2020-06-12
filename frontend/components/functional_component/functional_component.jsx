@@ -1,7 +1,8 @@
 import React, {Component} from 'react'
 import {Route} from 'react-router-dom'
-import StockShowSidebarContainer from './stock_show_sidebar_container'
-import StockShowContainer from './stock_show_container'
+import StockShowSidebarContainer from '../stock_show//stock_show_sidebar_container'
+import StockShowContainer from '../stock_show/stock_show_container'
+import Loading from '../other/loader'
 
 class FunctionalComponent extends Component {
     constructor(props) {
@@ -16,6 +17,10 @@ class FunctionalComponent extends Component {
 
     
     render() {
+        // const { loading } = this.props;
+        // if (loading) return <Loading />
+
+        if (!currentUser) return null;
 
         return (
             <main className="functional-component-container">
