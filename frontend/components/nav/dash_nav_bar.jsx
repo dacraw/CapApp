@@ -133,7 +133,7 @@ class DashNavBar extends React.Component{
     render(){
         
         const { currentUser, logout, cashAvailable, stocks } = this.props;
-        if (!currentUser) return null
+        if (!currentUser || !stocks) return null
         if (!cashAvailable) return null
          
         $('#stock-list .selected').keypress( e => console.log(e));
