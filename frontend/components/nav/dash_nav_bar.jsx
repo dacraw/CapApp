@@ -73,7 +73,7 @@ class DashNavBar extends React.Component{
     filterResults(e){
         e.preventDefault();
         const props = this.props; 
-        
+        $('.category').show();
         document.querySelectorAll('.stock-list ul li').forEach ( (item, idx) => {
             if (item.textContent === 'No results match.'){
                       item.parentNode.removeChild(item)
@@ -124,8 +124,9 @@ class DashNavBar extends React.Component{
             } 
         }
         // debugger
-        if (!$('#stock-list ul li:visible').length){
-            $('.stock-list ul').append('<li>No results match.</li>')
+        if (!$('#stock-list ul li:visible a').length){
+            $('.category').hide();
+            $('.stock-list ul').append('<li class="no-results">No results match.</li>')
         }
     }
     
