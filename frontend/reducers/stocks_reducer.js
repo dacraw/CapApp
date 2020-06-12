@@ -7,13 +7,16 @@ export default (state = {}, action) => {
     Object.freeze(state);
     switch (action.type) {
         case RECEIVE_STOCK:
+            debugger;
             return merge(
                 {},
                 state,
                 action.stock
             ) 
         case RECEIVE_STOCKS:
-            return action.stocks
+            // using stock data 
+            debugger
+            return merge(action.stocks)
         default:
             return state;
     }

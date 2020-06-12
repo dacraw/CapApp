@@ -13,7 +13,7 @@ require 'json'
 #
 # using below for testing on local
 
-# response = StockDefaults::SAMPLE_STATE
+require_relative 'sample_state'
 
 # how to access response:
 # response.code
@@ -21,10 +21,10 @@ require 'json'
 
 @stocks.each do |stock|
     json.set! stock.symbol do
-        json.extract! stock, :symbol, :company     
+        json.extract! stock, :symbol, :company
+        json.chart StockDefaults::SAMPLE_STATE_GRAPH[stock.symbol.to_sym][:chart]
+             
     end
 end
 
 
-
-# 7YVL16BDCKAB0BEU

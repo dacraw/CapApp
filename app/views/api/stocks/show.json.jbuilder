@@ -1,18 +1,13 @@
 require 'net/http'
 require 'uri'
 require 'json'
-
+require_relative 'sample_state'
 
 # this uri uses the sandbox & test key
 uri = URI.parse("https://sandbox.iexapis.com/stable/stock/market/batch?types=news,price&symbols=#{@stock.symbol}&token=#{ENV['TEST_IEX_KEY']}")
 #uri = URI.parse("https://sandbox.iexapis.com/stable/stock/market/batch?types=chart&symbols=fb&range=1d&token=#{ENV['TEST_IEX_KEY']}")
 priceNewsresponse = Net::HTTP.get_response(uri)
 #JSON.parse(response.body)['FB']['chart']
-
-#pulls intraday chart
-intradayUri = URI.parse("https://sandbox.iexapis.com/stable/stock/#{@stock.symbol}/intraday-prices?chartInterval=5&token=#{ENV['TEST_IEX_KEY']}")
-# intradayUri = URI.parse("https://sandbox.iexapis.com/stable/stock/fb/intraday-prices?chartInterval=5&token=#{ENV['TEST_IEX_KEY']}")
-intradayChartresponse = Net::HTTP.get_response(intradayUri)
 
 # this pulls about copmany
 aboutUri = URI.parse("https://sandbox.iexapis.com/stable/stock/#{@stock.symbol}/company?token=#{ENV['TEST_IEX_KEY']}")
@@ -22,24 +17,20 @@ aboutResponse = Net::HTTP.get_response(aboutUri)
 json.set! @stock.symbol do
     # debugger
     currentPrice = JSON.parse(priceNewsresponse.body)[@stock.symbol.upcase]['price'].round(2) # 
-    
-    chart = JSON.parse(intradayChartresponse.body) # pulls 
-    # if any nil values, use average of last 3 prices
-    # added connectNulls to lineChart, but still using this average to display values on hover for demoing
-    chart.map.with_index do |point,idx| 
-        point['average'] = (chart[idx-1]['average'] + chart[idx-2]['average'] + chart[idx-3]['average']) / 3 if point['average'] == nil
-        point['average'] = point['average'].round(2)
-    end
-    json.chart chart
 
-    price = chart.last['average'].round(2)
+    #debugger
     # set the stock price to the last average of the chart
-    json.price price
+    chart = StockDefaults::SAMPLE_STATE_GRAPH[@stock.symbol.to_sym][:chart]
+    avg = chart[-1][:average]
+    price = avg || currentPrice
+    json.price price.round(2)
+
+    # chart
 
     # set the dollar and percentage change for the day based on current price
     # using last price of the chart for current price
-    json.dollarChange (price - chart[0]['average']).round(2)
-    json.percentageChange (((price / chart[0]['average']) - 1) * 100).round(2)
+    json.dollarChange (price - avg).round(2)
+    json.percentageChange (((price / avg) - 1) * 100).round(2)
 
     news = JSON.parse(priceNewsresponse.body)[@stock.symbol.upcase]['news'] # pulls 
     json.news news

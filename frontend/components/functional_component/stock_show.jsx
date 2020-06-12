@@ -24,8 +24,9 @@ class StockShow extends Component {
        
         // check if the hash has changed; if so, fetch single stock info UNLESS already in the state
         // currently only fetching 1d graph
-        
-        if (this.props.match.params.symbol !== prevProps.match.params.symbol && !!this.props.stocks[this.props.match.params.symbol.toUpperCase()] && !this.props.stocks[this.props.match.params.symbol.toUpperCase()].chart ){
+    //    debugger;
+
+        if (this.props.match.params.symbol !== prevProps.match.params.symbol && !!this.props.stocks[this.props.match.params.symbol.toUpperCase()] ){ 
             this.props.fetchStock(this.props.match.params.symbol.toUpperCase());
             
         }
