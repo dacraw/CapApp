@@ -25,6 +25,3 @@ require 'json'
     end
 end
 
-
-
-# 7YVL16BDCKAB0BEU
