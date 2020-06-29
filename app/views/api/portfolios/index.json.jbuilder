@@ -6,6 +6,7 @@
 #     }
 # }
 
+require_relative '../shared/stock_parser'
 
 json.set! @portfolio.first.user_id do
     json.cashAvailable number_to_currency(@portfolio.first.user.cash_available)
@@ -17,8 +18,11 @@ json.set! @portfolio.first.user_id do
                 json.symbol item.symbol
                 json.num_shares item.num_shares 
             end
+            stockParser = StockParser.new(item.symbol)
+            stockPrice = stockParser.getDefaultPrice
+            stockValue = item.num_shares * stockPrice
+            portfolioValue += stockValue
         end
-        # portfolioValue += item.
     end
-    # json.portfolioValue 
+    json.portfolioValue number_to_currency(portfolioValue)
 end
