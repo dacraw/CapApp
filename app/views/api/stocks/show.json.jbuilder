@@ -1,9 +1,9 @@
 require 'net/http'
 require 'uri'
 require 'json'
-require_relative 'sample_state'
+require_relative '../shared/sample_state'
 require_relative 'news_api'
-require_relative 'stock_parser'
+require_relative '../shared/stock_parser'
 
 # this uri uses the sandbox & test key
 stockParser = StockParser.new(@stock.symbol)

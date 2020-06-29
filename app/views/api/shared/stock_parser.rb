@@ -10,7 +10,7 @@ class StockParser
     def initialize(symbol)
         @symbol = symbol
         
-        self.getDefaultChart
+        @chart = getDefaultChart
     end
 
     def getPrice
@@ -33,6 +33,7 @@ class StockParser
     end
 
     def getDefaultChart
-        @chart || StockDefaults::SAMPLE_STATE_GRAPH[self.symbol.to_sym][:chart]
+        # debugger
+        StockDefaults::SAMPLE_STATE_GRAPH[self.symbol.to_sym][:chart]
     end
 end
