@@ -14,6 +14,8 @@ require 'json'
 # using below for testing on local
 
 require_relative 'sample_state'
+require_relative 'stock_parser'
+
 
 # how to access response:
 # response.code
@@ -21,10 +23,14 @@ require_relative 'sample_state'
 
 @stocks.each do |stock|
     json.set! stock.symbol do
+        stockParser = StockParser.new(stock.symbol)
         json.extract! stock, :symbol, :company
         chart = StockDefaults::SAMPLE_STATE_GRAPH[stock.symbol.to_sym][:chart]
+        # debugger
+        price = stockParser.getDefaultPrice
 
-        #debugger
+        json.price price
+
         json.chart chart
     end
 end

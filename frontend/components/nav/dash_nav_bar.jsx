@@ -170,8 +170,8 @@ class DashNavBar extends React.Component{
                                                 <h5>Portfolio Value</h5>
                                             </div>
                                             <div>
-                                                <h4>{cashAvailable}</h4>{/* REPLACE WITH BUYING POWER */}
-                                                <h5>Buying Power</h5>
+                                                <h4>{cashAvailable}</h4>
+                                                <h5>Cash Available</h5>
                                             </div>
                                         </div>
                                     </div>
