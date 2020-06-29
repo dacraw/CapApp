@@ -24,15 +24,8 @@ aboutUri = URI.parse("https://cloud.iexapis.com/stable/stock/#{@stock.symbol}/co
 aboutResponse = Net::HTTP.get_response(aboutUri)
 
 json.set! @stock.symbol do
-    # debugger
-    # currentPrice = JSON.parse(priceNewsresponse.body)[@stock.symbol.upcase]['price'].round(2) # 
-    # set the stock price to the last average of the chart
 
     json.price price
-    # chart = StockDefaults::SAMPLE_STATE_GRAPH[@stock.symbol.to_sym][:chart]
-    # avg = chart[-1][:average]
-    # price = avg || stockPrice
-    # json.price price.round(2)
 
     # chart
     #debugger
@@ -43,7 +36,6 @@ json.set! @stock.symbol do
 
     news = StockNews.new(@stock.company)
     company_news = news.fetch # pulls 
-    # debugger
     json.news company_news
     
     about = JSON.parse(aboutResponse.body) # 

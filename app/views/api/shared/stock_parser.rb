@@ -33,7 +33,6 @@ class StockParser
     end
 
     def getDefaultChart
-        # debugger
         StockDefaults::SAMPLE_STATE_GRAPH[self.symbol.to_sym][:chart]
     end
 end
