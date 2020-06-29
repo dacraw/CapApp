@@ -1,4 +1,5 @@
 class StockDefaults
+    attr_reader :SAMPLE_STATE_GRAPH
     SAMPLE_STATE_GRAPH = {
         "MSFT": {
         "chart": [

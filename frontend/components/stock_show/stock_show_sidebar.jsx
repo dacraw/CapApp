@@ -224,7 +224,9 @@ class StockShowSidebar extends Component {
                         <section className="errors">
                             {errors[0]}
                         </section>
-                        <button className={dollarChange}>Review Order</button>
+                        <button className={dollarChange}>
+                            {this.state.formType[0].toUpperCase() + this.state.formType.slice(1)} {this.state.symbol}
+                        </button>
                     </form>
                 </section>
                 <hr />

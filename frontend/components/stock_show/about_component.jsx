@@ -18,7 +18,7 @@ export default ({ about }) => {
                         <td>{about.CEO}</td>
                         <td>{about.employees}</td>
                         <td>{about.state}</td>
-                        <td>{about.website}</td>
+                        <td><a target="_blank" href={about.website}>{about.companyName}</a></td>
                     </tr>
                 </tbody>
             </table>
