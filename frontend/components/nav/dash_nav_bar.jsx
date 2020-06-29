@@ -155,10 +155,10 @@ class DashNavBar extends React.Component{
                         <i className="fas fa-search"></i>
                     </div>
                     <ul className="links">
-                        <li><a>Free Stocks</a></li>
-                        <li><a>Portfolio</a></li>
-                        <li><a>Cash</a></li>
-                        <li><a>Messages</a></li>
+                        {/* <li><a>Free Stocks</a></li> */}
+                        <li><Link to="/dashboard">Portfolio</Link></li>
+                        {/* <li><a>Cash</a></li> */}
+                        {/* <li><a>Messages</a></li> */}
                         <li className="account-dropdown"><a onClick={this.toggleAccountDropdown}>Account</a>
                             <ul className="account-options" id="dash-nav-account-options">
                                 <li>
@@ -177,7 +177,7 @@ class DashNavBar extends React.Component{
                                     </div>
                                 </li>
                                 <hr />
-                                <li><a><i className="fas fa-gift"></i>Free Stock</a></li>
+                                {/* <li><a><i className="fas fa-gift"></i>Free Stock</a></li>
                                 <li><a><i className="fas fa-suitcase"></i>Account</a></li>
                                 <li><a><i className="fas fa-university"></i>Banking</a></li>
                                 <li><a><i className="fas fa-history"></i>History</a></li>
@@ -186,8 +186,8 @@ class DashNavBar extends React.Component{
                                 <hr />
                                 <li><a><i className="fas fa-question"></i>Help Center</a></li>
                                 <li><a><i className="fas fa-info-circle"></i>Get Support</a></li>
-                                <li><a><i className="fas fa-bars"></i>Disclosures</a></li>
-                                <hr />
+                                <li><a><i className="fas fa-bars"></i>Disclosures</a></li> */}
+                                {/* <hr /> */}
                                 <li><a onClick={logout}><i className="fas fa-sign-out-alt"></i>Logout</a></li>
                             </ul>
                         </li>

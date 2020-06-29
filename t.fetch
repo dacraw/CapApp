@@ -1,0 +1,218 @@
+=> [32m#<StockNews:0x0000557226b51920[0m
+ @company[32m=[0m[31m[1;31m"[0m[31mApple[1;31m"[0m[31m[0m,
+ @parse[32m=[0m
+  {[31m[1;31m"[0m[31mstatus[1;31m"[0m[31m[0m=>[31m[1;31m"[0m[31mok[1;31m"[0m[31m[0m,
+   [31m[1;31m"[0m[31mtotalResults[1;31m"[0m[31m[0m=>[1;34m1375[0m,
+   [31m[1;31m"[0m[31marticles[1;31m"[0m[31m[0m=>
+    [{[31m[1;31m"[0m[31msource[1;31m"[0m[31m[0m=>{[31m[1;31m"[0m[31mid[1;31m"[0m[31m[0m=>[31m[1;31m"[0m[31mengadget[1;31m"[0m[31m[0m, [31m[1;31m"[0m[31mname[1;31m"[0m[31m[0m=>[31m[1;31m"[0m[31mEngadget[1;31m"[0m[31m[0m},
+      [31m[1;31m"[0m[31mauthor[1;31m"[0m[31m[0m=>[31m[1;31m"[0m[31mRachel England[1;31m"[0m[31m[0m,
+      [31m[1;31m"[0m[31mtitle[1;31m"[0m[31m[0m=>[31m[1;31m"[0m[31mApple Watch Series 3 discounted to its lowest ever price on Amazon[1;31m"[0m[31m[0m,
+      [31m[1;31m"[0m[31mdescription[1;31m"[0m[31m[0m=>
+       [31m[1;31m"[0m[31mThe Apple Watch Series 3 keeps getting cheaper. Back at the start of June Amazon had it on sale for $179, now the black GPS model has been discounted to $169 — that’s $30 off the usual $199 list price and the lowest we’ve seen since last year’s Black Friday d…[1;31m"[0m[31m[0m,
+      [31m[1;31m"[0m[31murl[1;31m"[0m[31m[0m=>[31m[1;31m"[0m[31mhttps://www.engadget.com/apple-watch-series-3-discounted-to-its-lowest-ever-price-on-amazon-104548548.html[1;31m"[0m[31m[0m,
+      [31m[1;31m"[0m[31murlToImage[1;31m"[0m[31m[0m=>
+       [31m[1;31m"[0m[31mhttps://o.aolcdn.com/images/dims?resize=1200%2C630&crop=1200%2C630%2C0%2C0&quality=95&image_uri=https%3A%2F%2Fs.yimg.com%2Fos%2Fcreatr-uploaded-images%2F2020-06%2F42ecbbe0-b9ed-11ea-bff1-2c7d7cff5479&client=amp-blogside-v2&signature=1a3927485989f7edac92401860ebc1248a277f60[1;31m"[0m[31m[0m,
+      [31m[1;31m"[0m[31mpublishedAt[1;31m"[0m[31m[0m=>[31m[1;31m"[0m[31m2020-06-29T10:45:48Z[1;31m"[0m[31m[0m,
+      [31m[1;31m"[0m[31mcontent[1;31m"[0m[31m[0m=>
+       [31m[1;31m"[0m[31mOf course, Apple’s up to the fifth iteration of its Watch Series now, so the older Series 3 is a budget option for those shopping for a smartwatch. It’s missing some of the Series’ newer features, su… [+1157 chars][1;31m"[0m[31m[0m},
+     {[31m[1;31m"[0m[31msource[1;31m"[0m[31m[0m=>{[31m[1;31m"[0m[31mid[1;31m"[0m[31m[0m=>[31m[1;31m"[0m[31mtechcrunch[1;31m"[0m[31m[0m, [31m[1;31m"[0m[31mname[1;31m"[0m[31m[0m=>[31m[1;31m"[0m[31mTechCrunch[1;31m"[0m[31m[0m},
+      [31m[1;31m"[0m[31mauthor[1;31m"[0m[31m[0m=>[31m[1;31m"[0m[31mBrian Heater[1;31m"[0m[31m[0m,
+      [31m[1;31m"[0m[31mtitle[1;31m"[0m[31m[0m=>[31m[1;31m"[0m[31mApple began work on the Watch’s hand washing feature years before COVID-19[1;31m"[0m[31m[0m,
+      [31m[1;31m"[0m[31mdescription[1;31m"[0m[31m[0m=>
+       [31m[1;31m"[0m[31mHandwashing for the Apple Watch happily slotted alongside face masks for Memojis in the list of COVID-19-related features the company introduced at last week’s WWDC keynote. It’s a pedestrian action, something we take entirely for granted the several times a …[1;31m"[0m[31m[0m,
+      [31m[1;31m"[0m[31murl[1;31m"[0m[31m[0m=>[31m[1;31m"[0m[31mhttp://techcrunch.com/2020/06/29/apple-began-work-on-the-watchs-hand-washing-feature-years-before-covid-19/[1;31m"[0m[31m[0m,
+      [31m[1;31m"[0m[31murlToImage[1;31m"[0m[31m[0m=>
+       [31m[1;31m"[0m[31mhttps://techcrunch.com/wp-content/uploads/2020/06/iPhone-iOS14-Apple-Watch-watchOS7_Handwashing-Health-App.jpg?w=764[1;31m"[0m[31m[0m,
+      [31m[1;31m"[0m[31mpublishedAt[1;31m"[0m[31m[0m=>[31m[1;31m"[0m[31m2020-06-29T13:00:48Z[1;31m"[0m[31m[0m,
+      [31m[1;31m"[0m[31mcontent[1;31m"[0m[31m[0m=>
+       [31m[1;31m"[0m[31mHandwashing for the Apple Watch happily slotted alongside face masks for Memojis in the list of COVID-19-related features the company introduced at last weeks WWDC keynote. Its a pedestrian action, s… [+3946 chars][1;31m"[0m[31m[0m},
+     {[31m[1;31m"[0m[31msource[1;31m"[0m[31m[0m=>{[31m[1;31m"[0m[31mid[1;31m"[0m[31m[0m=>[31m[1;31m"[0m[31mtechcrunch[1;31m"[0m[31m[0m, [31m[1;31m"[0m[31mname[1;31m"[0m[31m[0m=>[31m[1;31m"[0m[31mTechCrunch[1;31m"[0m[31m[0m},
+      [31m[1;31m"[0m[31mauthor[1;31m"[0m[31m[0m=>[31m[1;31m"[0m[31mAlex Wilhelm[1;31m"[0m[31m[0m,
+      [31m[1;31m"[0m[31mtitle[1;31m"[0m[31m[0m=>[31m[1;31m"[0m[31mEquity Monday: Scandal, one IPO, and the Indian startup market[1;31m"[0m[31m[0m,
+      [31m[1;31m"[0m[31mdescription[1;31m"[0m[31m[0m=>
+       [31m[1;31m"[0m[31mHello and welcome back to Equity, TechCrunch’s venture capital-focused podcast where we unpack the numbers behind the headlines. This is Equity Monday, our week-starting primer,  in which we go over the latest, look to the week ahead, talk about some neat fun…[1;31m"[0m[31m[0m,
+      [31m[1;31m"[0m[31murl[1;31m"[0m[31m[0m=>[31m[1;31m"[0m[31mhttp://techcrunch.com/2020/06/29/equity-monday-scandal-one-ipo-and-the-indian-startup-market/[1;31m"[0m[31m[0m,
+      [31m[1;31m"[0m[31murlToImage[1;31m"[0m[31m[0m=>[31m[1;31m"[0m[31mhttps://techcrunch.com/wp-content/uploads/2019/12/equity-podcast-2019-phone-1-1.jpg?w=430[1;31m"[0m[31m[0m,
+      [31m[1;31m"[0m[31mpublishedAt[1;31m"[0m[31m[0m=>[31m[1;31m"[0m[31m2020-06-29T13:49:46Z[1;31m"[0m[31m[0m,
+      [31m[1;31m"[0m[31mcontent[1;31m"[0m[31m[0m=>
+       [31m[1;31m"[0m[31mHello and welcome back to Equity, TechCrunchs venture capital-focused podcast where we unpack the numbers behind the headlines. This is Equity Monday, our week-starting primer,  in which we go over t… [+2080 chars][1;31m"[0m[31m[0m},
+     {[31m[1;31m"[0m[31msource[1;31m"[0m[31m[0m=>{[31m[1;31m"[0m[31mid[1;31m"[0m[31m[0m=>[31m[1;31m"[0m[31mmashable[1;31m"[0m[31m[0m, [31m[1;31m"[0m[31mname[1;31m"[0m[31m[0m=>[31m[1;31m"[0m[31mMashable[1;31m"[0m[31m[0m},
+      [31m[1;31m"[0m[31mauthor[1;31m"[0m[31m[0m=>[31m[1;31m"[0m[31mStan Schroeder[1;31m"[0m[31m[0m,
+      [31m[1;31m"[0m[31mtitle[1;31m"[0m[31m[0m=>[31m[1;31m"[0m[31mApple to launch 10.8-inch iPad this year, 8.5-inch iPad mini next year, report claims[1;31m"[0m[31m[0m,
+      [31m[1;31m"[0m[31mdescription[1;31m"[0m[31m[0m=>
+       [31m[1;31m"[0m[31mApple's got new iPads in the works, and they'll be quite different from the ones currently on the market. [1;35m\n[0m[31mAccording to Apple analyst Ming-Chi Kuo (via MacRumors), Apple is preparing to launch a new, 10.8-inch iPad in the second half of 2020, and an 8.5-inch …[1;31m"[0m[31m[0m,
+      [31m[1;31m"[0m[31murl[1;31m"[0m[31m[0m=>[31m[1;31m"[0m[31mhttps://mashable.com/article/apple-new-ipads-2020-2021/[1;31m"[0m[31m[0m,
+      [31m[1;31m"[0m[31murlToImage[1;31m"[0m[31m[0m=>
+       [31m[1;31m"[0m[31mhttps://mondrian.mashable.com/2020%252F06%252F29%252F0f%252F30ae1f5d56894af09459375b9e00e76b.5afc9.jpg%252F1200x630.jpg?signature=6SRVz8z2jKUGX4uia6WzQNSXD6A=[1;31m"[0m[31m[0m,
+      [31m[1;31m"[0m[31mpublishedAt[1;31m"[0m[31m[0m=>[31m[1;31m"[0m[31m2020-06-29T07:37:26Z[1;31m"[0m[31m[0m,
+      [31m[1;31m"[0m[31mcontent[1;31m"[0m[31m[0m=>
+       [31m[1;31m"[0m[31mApple's got new iPads in the works, and they'll be quite different from the ones currently on the market. [1;35m\r[0m[31m[1;35m\n[0m[31mAccording to Apple analyst Ming-Chi Kuo (via MacRumors), Apple is preparing to launch a new… [+1549 chars][1;31m"[0m[31m[0m},
+     {[31m[1;31m"[0m[31msource[1;31m"[0m[31m[0m=>{[31m[1;31m"[0m[31mid[1;31m"[0m[31m[0m=>[31m[1;31m"[0m[31mreuters[1;31m"[0m[31m[0m, [31m[1;31m"[0m[31mname[1;31m"[0m[31m[0m=>[31m[1;31m"[0m[31mReuters[1;31m"[0m[31m[0m},
+      [31m[1;31m"[0m[31mauthor[1;31m"[0m[31m[0m=>[31m[1;31m"[0m[31mSteve Stecklow[1;31m"[0m[31m[0m,
+      [31m[1;31m"[0m[31mtitle[1;31m"[0m[31m[0m=>[31m[1;31m"[0m[31mBritain's COVID-19 app: The game changer that wasn't - Reuters[1;31m"[0m[31m[0m,
+      [31m[1;31m"[0m[31mdescription[1;31m"[0m[31m[0m=>
+       [31m[1;31m"[0m[31mAs Britain's COVID-19 infections soared in the spring, the government reached for what it hoped could be a game changer – a smartphone app that could automate some of the work of human contact tracers.[1;31m"[0m[31m[0m,
+      [31m[1;31m"[0m[31murl[1;31m"[0m[31m[0m=>[31m[1;31m"[0m[31mhttps://www.reuters.com/article/us-health-coronavirus-britain-tracing-ap-idUSKBN2400YM[1;31m"[0m[31m[0m,
+      [31m[1;31m"[0m[31murlToImage[1;31m"[0m[31m[0m=>[31m[1;31m"[0m[31mhttps://s2.reutersmedia.net/resources/r/?m=02&d=20200629&t=2&i=1523958032&w=1200&r=LYNXMPEG5S0LE[1;31m"[0m[31m[0m,
+      [31m[1;31m"[0m[31mpublishedAt[1;31m"[0m[31m[0m=>[31m[1;31m"[0m[31m2020-06-29T09:15:00Z[1;31m"[0m[31m[0m,
+      [31m[1;31m"[0m[31mcontent[1;31m"[0m[31m[0m=>
+       [31m[1;31m"[0m[31mLONDON (Reuters) - As Britain’s COVID-19 infections soared in the spring, the government reached for what it hoped could be a game changer a smartphone app that could automate some of the work of hum… [+5827 chars][1;31m"[0m[31m[0m},
+     {[31m[1;31m"[0m[31msource[1;31m"[0m[31m[0m=>{[31m[1;31m"[0m[31mid[1;31m"[0m[31m[0m=>[31m[1;31m"[0m[31mreuters[1;31m"[0m[31m[0m, [31m[1;31m"[0m[31mname[1;31m"[0m[31m[0m=>[31m[1;31m"[0m[31mReuters[1;31m"[0m[31m[0m},
+      [31m[1;31m"[0m[31mauthor[1;31m"[0m[31m[0m=>[31m[1;31m"[0m[31mSteve Stecklow[1;31m"[0m[31m[0m,
+      [31m[1;31m"[0m[31mtitle[1;31m"[0m[31m[0m=>[31m[1;31m"[0m[31mBritain's COVID-19 app: The game changer that wasn't - Reuters[1;31m"[0m[31m[0m,
+      [31m[1;31m"[0m[31mdescription[1;31m"[0m[31m[0m=>
+       [31m[1;31m"[0m[31mAs Britain's COVID-19 infections soared in the spring, the government reached for what it hoped could be a game changer – a smartphone app that could automate some of the work of human contact tracers.[1;31m"[0m[31m[0m,
+      [31m[1;31m"[0m[31murl[1;31m"[0m[31m[0m=>[31m[1;31m"[0m[31mhttps://www.reuters.com/article/healthcoronavirus-britain-tracing-app-idUSL8N2E6105[1;31m"[0m[31m[0m,
+      [31m[1;31m"[0m[31murlToImage[1;31m"[0m[31m[0m=>[31m[1;31m"[0m[31mhttps://s4.reutersmedia.net/resources_v2/images/rcom-default.png[1;31m"[0m[31m[0m,
+      [31m[1;31m"[0m[31mpublishedAt[1;31m"[0m[31m[0m=>[31m[1;31m"[0m[31m2020-06-29T09:01:00Z[1;31m"[0m[31m[0m,
+      [31m[1;31m"[0m[31mcontent[1;31m"[0m[31m[0m=>
+       [31m[1;31m"[0m[31mLONDON, June 29 (Reuters) - As Britain’s COVID-19 infections soared in the spring, the government reached for what it hoped could be a game changer a smartphone app that could automate some of the wo… [+5836 chars][1;31m"[0m[31m[0m},
+     {[31m[1;31m"[0m[31msource[1;31m"[0m[31m[0m=>{[31m[1;31m"[0m[31mid[1;31m"[0m[31m[0m=>[31m[1;31m"[0m[31mreuters[1;31m"[0m[31m[0m, [31m[1;31m"[0m[31mname[1;31m"[0m[31m[0m=>[31m[1;31m"[0m[31mReuters[1;31m"[0m[31m[0m},
+      [31m[1;31m"[0m[31mauthor[1;31m"[0m[31m[0m=>[31m[1;31m"[0m[31mSpecial Reports[1;31m"[0m[31m[0m,
+      [31m[1;31m"[0m[31mtitle[1;31m"[0m[31m[0m=>[31m[1;31m"[0m[31mInto the fog: How Britain lost track of the coronavirus - Reuters UK[1;31m"[0m[31m[0m,
+      [31m[1;31m"[0m[31mdescription[1;31m"[0m[31m[0m=>
+       [31m[1;31m"[0m[31mTo tackle the coronavirus in Britain, doctors and health specialists needed to find it. But with few tests, little contact tracing and a government culture of secrecy, they lost sight of the enemy.[1;31m"[0m[31m[0m,
+      [31m[1;31m"[0m[31murl[1;31m"[0m[31m[0m=>[31m[1;31m"[0m[31mhttps://www.reuters.com/investigates/special-report/health-coronavirus-britain-tracing/[1;31m"[0m[31m[0m,
+      [31m[1;31m"[0m[31murlToImage[1;31m"[0m[31m[0m=>
+       [31m[1;31m"[0m[31mhttps://www.reuters.com/investigates/special-report/assets/health-coronavirus-britain-tracing/mastheads/Share-TRACING.jpg?v=145308290620[1;31m"[0m[31m[0m,
+      [31m[1;31m"[0m[31mpublishedAt[1;31m"[0m[31m[0m=>[31m[1;31m"[0m[31m2020-06-29T09:00:00Z[1;31m"[0m[31m[0m,
+      [31m[1;31m"[0m[31mcontent[1;31m"[0m[31m[0m=>
+       [31m[1;31m"[0m[31mInto the fog[1;35m\r[0m[31m[1;35m\n[0m[31mOnce it surfaced, the virus spread rapidly in Britain. Infections peaked weeks earlier than the authorities expected not just in England, but in all parts of the UK.[1;35m\r[0m[31m[1;35m\n[0m[31mEnglands Chief Med… [+38871 chars][1;31m"[0m[31m[0m},
+     {[31m[1;31m"[0m[31msource[1;31m"[0m[31m[0m=>{[31m[1;31m"[0m[31mid[1;31m"[0m[31m[0m=>[1;36mnil[0m, [31m[1;31m"[0m[31mname[1;31m"[0m[31m[0m=>[31m[1;31m"[0m[31mAndroid Central[1;31m"[0m[31m[0m},
+      [31m[1;31m"[0m[31mauthor[1;31m"[0m[31m[0m=>[31m[1;31m"[0m[31mJoe Maring[1;31m"[0m[31m[0m,
+      [31m[1;31m"[0m[31mtitle[1;31m"[0m[31m[0m=>[31m[1;31m"[0m[31mWith iOS 14, Apple made a better version of Android than Google ever will[1;31m"[0m[31m[0m,
+      [31m[1;31m"[0m[31mdescription[1;31m"[0m[31m[0m=>
+       [31m[1;31m"[0m[31mIt's not perfect, but this is a huge leap forward for Apple.[1;35m\n[0m[31m[1;35m\n[0m[31m[1;35m\n[0m[31m[1;35m\n[0m[31mIf you're reading this article, there's a good chance you've already heard about iOS 14 at this point. The next evolution of Apple's mobile operating system was announced at the WWDC opening keyn…[1;31m"[0m[31m[0m,
+      [31m[1;31m"[0m[31murl[1;31m"[0m[31m[0m=>[31m[1;31m"[0m[31mhttps://www.androidcentral.com/with-ios-14-apple-made-better-version-android-than-google-ever-will[1;31m"[0m[31m[0m,
+      [31m[1;31m"[0m[31murlToImage[1;31m"[0m[31m[0m=>
+       [31m[1;31m"[0m[31mhttps://www.androidcentral.com/sites/androidcentral.com/files/styles/large/public/article_images/2020/06/ios-14-and-android-11-joe-8.jpeg[1;31m"[0m[31m[0m,
+      [31m[1;31m"[0m[31mpublishedAt[1;31m"[0m[31m[0m=>[31m[1;31m"[0m[31m2020-06-29T12:00:02Z[1;31m"[0m[31m[0m,
+      [31m[1;31m"[0m[31mcontent[1;31m"[0m[31m[0m=>
+       [31m[1;31m"[0m[31mSource: Joe Maring / Android Central[1;35m\r[0m[31m[1;35m\n[0m[31mIf you're reading this article, there's a good chance you've already heard about iOS 14 at this point. The next evolution of Apple's mobile operating system was … [+7384 chars][1;31m"[0m[31m[0m},
+     {[31m[1;31m"[0m[31msource[1;31m"[0m[31m[0m=>{[31m[1;31m"[0m[31mid[1;31m"[0m[31m[0m=>[1;36mnil[0m, [31m[1;31m"[0m[31mname[1;31m"[0m[31m[0m=>[31m[1;31m"[0m[31mAndroid Central[1;31m"[0m[31m[0m},
+      [31m[1;31m"[0m[31mauthor[1;31m"[0m[31m[0m=>[31m[1;31m"[0m[31mJohn Levite[1;31m"[0m[31m[0m,
+      [31m[1;31m"[0m[31mtitle[1;31m"[0m[31m[0m=>[31m[1;31m"[0m[31mThe budget Rachio 3e sprinkler controller has matched its low price of $130[1;31m"[0m[31m[0m,
+      [31m[1;31m"[0m[31mdescription[1;31m"[0m[31m[0m=>
+       [31m[1;31m"[0m[31mThe Rachio R3e 8-zone smart sprinkler controller is down to $129.99 at Amazon. This price matches a low seen at a couple of different retailers, including Best Buy. The R3e normally sells for $150, and you can find it going for that price at places like Home …[1;31m"[0m[31m[0m,
+      [31m[1;31m"[0m[31murl[1;31m"[0m[31m[0m=>[31m[1;31m"[0m[31mhttps://www.androidcentral.com/budget-rachio-3e-sprinkler-controller-has-matched-its-low-price-130[1;31m"[0m[31m[0m,
+      [31m[1;31m"[0m[31murlToImage[1;31m"[0m[31m[0m=>
+       [31m[1;31m"[0m[31mhttps://www.androidcentral.com/sites/androidcentral.com/files/styles/large/public/article_images/2020/05/rachioe3.jpg[1;31m"[0m[31m[0m,
+      [31m[1;31m"[0m[31mpublishedAt[1;31m"[0m[31m[0m=>[31m[1;31m"[0m[31m2020-06-29T13:40:36Z[1;31m"[0m[31m[0m,
+      [31m[1;31m"[0m[31mcontent[1;31m"[0m[31m[0m=>
+       [31m[1;31m"[0m[31mThe Rachio R3e 8-zone smart sprinkler controller is down to $129.99 at Amazon. This price matches a low seen at a couple of different retailers, including Best Buy. The R3e normally sells for $150, a… [+2132 chars][1;31m"[0m[31m[0m},
+     {[31m[1;31m"[0m[31msource[1;31m"[0m[31m[0m=>{[31m[1;31m"[0m[31mid[1;31m"[0m[31m[0m=>[1;36mnil[0m, [31m[1;31m"[0m[31mname[1;31m"[0m[31m[0m=>[31m[1;31m"[0m[31mAndroid Central[1;31m"[0m[31m[0m},
+      [31m[1;31m"[0m[31mauthor[1;31m"[0m[31m[0m=>[31m[1;31m"[0m[31mBabu Mohan[1;31m"[0m[31m[0m,
+      [31m[1;31m"[0m[31mtitle[1;31m"[0m[31m[0m=>[31m[1;31m"[0m[31mSamsung’s rumored $900 Galaxy Fold 'Lite' may not arrive this year[1;31m"[0m[31m[0m,
+      [31m[1;31m"[0m[31mdescription[1;31m"[0m[31m[0m=>
+       [31m[1;31m"[0m[31mThe phone was previously rumored to be launched in July this year.[1;35m\n[0m[31m[1;35m\n[0m[31m[1;35m\n[0m[31m[1;35m\n[0m[31mWhat you need to know[1;35m\n[0m[31m[1;35m\n[0m[31m[1;35m\n[0m[31mSamsung has reportedly delayed the launch of the Galaxy Fold Lite to 2021.[1;35m\n[0m[31mThe foldable phone is tipped to be priced around $900. [1;35m\n[0m[31mIt is expected to be powered by a …[1;31m"[0m[31m[0m,
+      [31m[1;31m"[0m[31murl[1;31m"[0m[31m[0m=>[31m[1;31m"[0m[31mhttps://www.androidcentral.com/samsungs-rumored-900-galaxy-fold-lite-may-not-arrive-year[1;31m"[0m[31m[0m,
+      [31m[1;31m"[0m[31murlToImage[1;31m"[0m[31m[0m=>
+       [31m[1;31m"[0m[31mhttps://www.androidcentral.com/sites/androidcentral.com/files/styles/large/public/article_images/2020/01/samsung-galaxy-fold-5g-review-5.jpg[1;31m"[0m[31m[0m,
+      [31m[1;31m"[0m[31mpublishedAt[1;31m"[0m[31m[0m=>[31m[1;31m"[0m[31m2020-06-29T07:09:52Z[1;31m"[0m[31m[0m,
+      [31m[1;31m"[0m[31mcontent[1;31m"[0m[31m[0m=>
+       [31m[1;31m"[0m[31mIt was rumored last month that Samsung would be launching a relatively affordable foldable phone later this year with a Snapdragon 865 chipset and a smaller outer display than the Galaxy Fold. As per… [+2465 chars][1;31m"[0m[31m[0m},
+     {[31m[1;31m"[0m[31msource[1;31m"[0m[31m[0m=>{[31m[1;31m"[0m[31mid[1;31m"[0m[31m[0m=>[1;36mnil[0m, [31m[1;31m"[0m[31mname[1;31m"[0m[31m[0m=>[31m[1;31m"[0m[31mAndroid Central[1;31m"[0m[31m[0m},
+      [31m[1;31m"[0m[31mauthor[1;31m"[0m[31m[0m=>[31m[1;31m"[0m[31mHarish Jonnalagadda[1;31m"[0m[31m[0m,
+      [31m[1;31m"[0m[31mtitle[1;31m"[0m[31m[0m=>[31m[1;31m"[0m[31mAmazfit PowerBuds review: Great $100 TWS earbuds with heart rate monitoring[1;31m"[0m[31m[0m,
+      [31m[1;31m"[0m[31mdescription[1;31m"[0m[31m[0m=>
+       [31m[1;31m"[0m[31mWith an IP55 rating and built-in heart rate monitoring during workouts, the PowerBuds have plenty to offer for $100.[1;35m\n[0m[31m[1;35m\n[0m[31m[1;35m\n[0m[31m[1;35m\n[0m[31mAmazfit carved out a niche for itself in the wearable category with its affordable fitness bands and smartwatches, with its most recent off…[1;31m"[0m[31m[0m,
+      [31m[1;31m"[0m[31murl[1;31m"[0m[31m[0m=>[31m[1;31m"[0m[31mhttps://www.androidcentral.com/amazfit-powerbuds-review[1;31m"[0m[31m[0m,
+      [31m[1;31m"[0m[31murlToImage[1;31m"[0m[31m[0m=>
+       [31m[1;31m"[0m[31mhttps://www.androidcentral.com/sites/androidcentral.com/files/styles/large/public/article_images/2020/06/amazfit-powerbuds-12.jpg[1;31m"[0m[31m[0m,
+      [31m[1;31m"[0m[31mpublishedAt[1;31m"[0m[31m[0m=>[31m[1;31m"[0m[31m2020-06-29T03:24:59Z[1;31m"[0m[31m[0m,
+      [31m[1;31m"[0m[31mcontent[1;31m"[0m[31m[0m=>
+       [31m[1;31m"[0m[31mSource: Apoorva Bhardwaj / Android Central[1;35m\r[0m[31m[1;35m\n[0m[31mAmazfit carved out a niche for itself in the wearable category with its affordable fitness bands and smartwatches, with its most recent offering, the T-Rex… [+11713 chars][1;31m"[0m[31m[0m},
+     {[31m[1;31m"[0m[31msource[1;31m"[0m[31m[0m=>{[31m[1;31m"[0m[31mid[1;31m"[0m[31m[0m=>[1;36mnil[0m, [31m[1;31m"[0m[31mname[1;31m"[0m[31m[0m=>[31m[1;31m"[0m[31mMacRumors[1;31m"[0m[31m[0m},
+      [31m[1;31m"[0m[31mauthor[1;31m"[0m[31m[0m=>[31m[1;31m"[0m[31mJoe Rossignol[1;31m"[0m[31m[0m,
+      [31m[1;31m"[0m[31mtitle[1;31m"[0m[31m[0m=>[31m[1;31m"[0m[31mDevelopers Begin Receiving Mac Mini With A12Z Chip to Prepare Apps for Apple Silicon Macs[1;31m"[0m[31m[0m,
+      [31m[1;31m"[0m[31mdescription[1;31m"[0m[31m[0m=>
+       [31m[1;31m"[0m[31mAs part of WWDC last week, Apple announced that it will be switching to its own custom-designed processors for Macs starting later this year. As part of this transition, the company is allowing developers to apply for a modified Mac mini with an A12Z chip and…[1;31m"[0m[31m[0m,
+      [31m[1;31m"[0m[31murl[1;31m"[0m[31m[0m=>[31m[1;31m"[0m[31mhttps://www.macrumors.com/2020/06/29/mac-mini-developer-transition-kit-arriving/[1;31m"[0m[31m[0m,
+      [31m[1;31m"[0m[31murlToImage[1;31m"[0m[31m[0m=>[31m[1;31m"[0m[31mhttps://images.macrumors.com/article-new/2020/06/mac-mini-developer-transition-kit-photo.jpeg[1;31m"[0m[31m[0m,
+      [31m[1;31m"[0m[31mpublishedAt[1;31m"[0m[31m[0m=>[31m[1;31m"[0m[31m2020-06-29T12:43:44Z[1;31m"[0m[31m[0m,
+      [31m[1;31m"[0m[31mcontent[1;31m"[0m[31m[0m=>[1;36mnil[0m},
+     {[31m[1;31m"[0m[31msource[1;31m"[0m[31m[0m=>{[31m[1;31m"[0m[31mid[1;31m"[0m[31m[0m=>[1;36mnil[0m, [31m[1;31m"[0m[31mname[1;31m"[0m[31m[0m=>[31m[1;31m"[0m[31mMacRumors[1;31m"[0m[31m[0m},
+      [31m[1;31m"[0m[31mauthor[1;31m"[0m[31m[0m=>[31m[1;31m"[0m[31mTim Hardwick[1;31m"[0m[31m[0m,
+      [31m[1;31m"[0m[31mtitle[1;31m"[0m[31m[0m=>[31m[1;31m"[0m[31m'iPhone 12 Pro' Models Could Be Capable of Shooting 4K Video at 120fps and 240fps[1;31m"[0m[31m[0m,
+      [31m[1;31m"[0m[31mdescription[1;31m"[0m[31m[0m=>
+       [31m[1;31m"[0m[31mTwo new camera modes could be coming to some models of Apple's [1;35m\"[0m[31miPhone 12,[1;35m\"[0m[31m according to YouTube channel EverythingApplePro and Max Weinbach.[1;35m\n[0m[31m[1;35m\n[0m[31m[1;35m\n[0m[31m[1;35m\n[0m[31m[1;35m\n[0m[31m[1;35m\n[0m[31mSpecifically, the video modes are said to include the ability to shoot 4K video at 120fps and 240fps. The new mo…[1;31m"[0m[31m[0m,
+      [31m[1;31m"[0m[31murl[1;31m"[0m[31m[0m=>[31m[1;31m"[0m[31mhttps://www.macrumors.com/2020/06/29/iphone-12-pro-max-4k-video-120fps-240fps/[1;31m"[0m[31m[0m,
+      [31m[1;31m"[0m[31murlToImage[1;31m"[0m[31m[0m=>[31m[1;31m"[0m[31mhttps://images.macrumors.com/article-new/2020/03/ESU6IkHU4AAS0KT.jpeg[1;31m"[0m[31m[0m,
+      [31m[1;31m"[0m[31mpublishedAt[1;31m"[0m[31m[0m=>[31m[1;31m"[0m[31m2020-06-29T10:57:37Z[1;31m"[0m[31m[0m,
+      [31m[1;31m"[0m[31mcontent[1;31m"[0m[31m[0m=>
+       [31m[1;31m"[0m[31mTwo new camera modes could be coming to some models of Apple's [1;35m\"[0m[31miPhone 12,[1;35m\"[0m[31m according to YouTube channel EverythingApplePro and Max Weinbach.[1;35m\r[0m[31m[1;35m\n[0m[31mSpecifically, the video modes are said to include the ab… [+1268 chars][1;31m"[0m[31m[0m},
+     {[31m[1;31m"[0m[31msource[1;31m"[0m[31m[0m=>{[31m[1;31m"[0m[31mid[1;31m"[0m[31m[0m=>[1;36mnil[0m, [31m[1;31m"[0m[31mname[1;31m"[0m[31m[0m=>[31m[1;31m"[0m[31mCNET[1;31m"[0m[31m[0m},
+      [31m[1;31m"[0m[31mauthor[1;31m"[0m[31m[0m=>[31m[1;31m"[0m[31mRick Broida[1;31m"[0m[31m[0m,
+      [31m[1;31m"[0m[31mtitle[1;31m"[0m[31m[0m=>[31m[1;31m"[0m[31mSonos refurbished speaker sale: Get a Play:1 for $99 - CNET[1;31m"[0m[31m[0m,
+      [31m[1;31m"[0m[31mdescription[1;31m"[0m[31m[0m=>[31m[1;31m"[0m[31mIt's good as new and backed by a one-year warranty.[1;31m"[0m[31m[0m,
+      [31m[1;31m"[0m[31murl[1;31m"[0m[31m[0m=>[31m[1;31m"[0m[31mhttps://www.cnet.com/news/sonos-refurbished-speaker-sale-get-a-play1-for-99/[1;31m"[0m[31m[0m,
+      [31m[1;31m"[0m[31murlToImage[1;31m"[0m[31m[0m=>
+       [31m[1;31m"[0m[31mhttps://cnet3.cbsistatic.com/img/BLO4h-5MHFTbpdBMwbrAmqr9yUA=/756x567/2020/06/29/8434d58b-7f48-4af5-b966-1e0db4365ae8/sonos-play-1-black.jpg[1;31m"[0m[31m[0m,
+      [31m[1;31m"[0m[31mpublishedAt[1;31m"[0m[31m[0m=>[31m[1;31m"[0m[31m2020-06-29T12:46:59Z[1;31m"[0m[31m[0m,
+      [31m[1;31m"[0m[31mcontent[1;31m"[0m[31m[0m=>
+       [31m[1;31m"[0m[31mAn oldie but goodie, the Sonos Play:1 speaker is on sale for $99.[1;35m\r[0m[31m[1;35m\n[0m[31mSonos[1;35m\r[0m[31m[1;35m\n[0m[31mRefurbished tech gear is old, worn, used, scuffed or just generally junk, right? Not always! Some refurbs are quite literally… [+1633 chars][1;31m"[0m[31m[0m},
+     {[31m[1;31m"[0m[31msource[1;31m"[0m[31m[0m=>{[31m[1;31m"[0m[31mid[1;31m"[0m[31m[0m=>[31m[1;31m"[0m[31mbusiness-insider[1;31m"[0m[31m[0m, [31m[1;31m"[0m[31mname[1;31m"[0m[31m[0m=>[31m[1;31m"[0m[31mBusiness Insider[1;31m"[0m[31m[0m},
+      [31m[1;31m"[0m[31mauthor[1;31m"[0m[31m[0m=>[31m[1;31m"[0m[31mShannen Balogh[1;31m"[0m[31m[0m,
+      [31m[1;31m"[0m[31mtitle[1;31m"[0m[31m[0m=>
+       [31m[1;31m"[0m[31mHere's the pitch deck family savings app UNest used to raise a $9 million Series A from investors like former NBA all-star Baron Davis and Anthos Capital[1;31m"[0m[31m[0m,
+      [31m[1;31m"[0m[31mdescription[1;31m"[0m[31m[0m=>
+       [31m[1;31m"[0m[31m<ul>[1;35m\n[0m[31m<li>UNest, an app that allows parents to set aside savings for their children, just raised a $9 million Series A.</li>[1;35m\n[0m[31m<li>The round was led by Anthos Capital with participation from investors like Northwestern Mutual Future Ventures and former NBA all-s…[1;31m"[0m[31m[0m,
+      [31m[1;31m"[0m[31murl[1;31m"[0m[31m[0m=>[31m[1;31m"[0m[31mhttps://www.businessinsider.com/unest-pitch-deck-series-a-fintech-2020-6[1;31m"[0m[31m[0m,
+      [31m[1;31m"[0m[31murlToImage[1;31m"[0m[31m[0m=>[31m[1;31m"[0m[31mhttps://i.insider.com/5ef617003f737021dd70b6f5?width=1200&format=jpeg[1;31m"[0m[31m[0m,
+      [31m[1;31m"[0m[31mpublishedAt[1;31m"[0m[31m[0m=>[31m[1;31m"[0m[31m2020-06-29T12:00:00Z[1;31m"[0m[31m[0m,
+      [31m[1;31m"[0m[31mcontent[1;31m"[0m[31m[0m=>
+       [31m[1;31m"[0m[31mMillennials aren't kids anymore. In fact, many have kids of their own. And UNest, founded by Ksenia Yudina, is targeting this cohort of new parents with a savings app.[1;35m\r[0m[31m[1;35m\n[0m[31mUNest started as a college sav… [+2999 chars][1;31m"[0m[31m[0m},
+     {[31m[1;31m"[0m[31msource[1;31m"[0m[31m[0m=>{[31m[1;31m"[0m[31mid[1;31m"[0m[31m[0m=>[31m[1;31m"[0m[31mthe-next-web[1;31m"[0m[31m[0m, [31m[1;31m"[0m[31mname[1;31m"[0m[31m[0m=>[31m[1;31m"[0m[31mThe Next Web[1;31m"[0m[31m[0m},
+      [31m[1;31m"[0m[31mauthor[1;31m"[0m[31m[0m=>[31m[1;31m"[0m[31mAbhimanyu Ghoshal[1;31m"[0m[31m[0m,
+      [31m[1;31m"[0m[31mtitle[1;31m"[0m[31m[0m=>[31m[1;31m"[0m[31mApple might skip including a charger with your iPhone 12 to make it cheaper[1;31m"[0m[31m[0m,
+      [31m[1;31m"[0m[31mdescription[1;31m"[0m[31m[0m=>
+       [31m[1;31m"[0m[31mMarket analyst Ming-Chi Kuo noted that Apple might ship the next iPhone without a charger and wired earbuds in the box — which would be a first for the company. 9to5Mac relayed that, according to Kuo, Apple wants to keep the iPhone 12’s price close to that of…[1;31m"[0m[31m[0m,
+      [31m[1;31m"[0m[31murl[1;31m"[0m[31m[0m=>[31m[1;31m"[0m[31mhttps://thenextweb.com/plugged/2020/06/29/apple-might-skip-including-a-charger-with-your-iphone-12-to-make-it-cheaper/[1;31m"[0m[31m[0m,
+      [31m[1;31m"[0m[31murlToImage[1;31m"[0m[31m[0m=>
+       [31m[1;31m"[0m[31mhttps://img-cdn.tnwcdn.com/image/plugged?filter_last=1&fit=1280%2C640&url=https%3A%2F%2Fcdn0.tnwcdn.com%2Fwp-content%2Fblogs.dir%2F1%2Ffiles%2F2020%2F06%2FApple-charger-hed.jpg&signature=3d5644b200e339153032499f6f8b232f[1;31m"[0m[31m[0m,
+      [31m[1;31m"[0m[31mpublishedAt[1;31m"[0m[31m[0m=>[31m[1;31m"[0m[31m2020-06-29T06:36:24Z[1;31m"[0m[31m[0m,
+      [31m[1;31m"[0m[31mcontent[1;31m"[0m[31m[0m=>
+       [31m[1;31m"[0m[31mMarket analyst Ming-Chi Kuo noted that Apple might ship the next iPhone without a charger and wired earbuds in the box which would be a first for the company.[1;35m\r[0m[31m[1;35m\n[0m[31m9to5Mac relayed that, according to Kuo,… [+1584 chars][1;31m"[0m[31m[0m},
+     {[31m[1;31m"[0m[31msource[1;31m"[0m[31m[0m=>{[31m[1;31m"[0m[31mid[1;31m"[0m[31m[0m=>[31m[1;31m"[0m[31mthe-next-web[1;31m"[0m[31m[0m, [31m[1;31m"[0m[31mname[1;31m"[0m[31m[0m=>[31m[1;31m"[0m[31mThe Next Web[1;31m"[0m[31m[0m},
+      [31m[1;31m"[0m[31mauthor[1;31m"[0m[31m[0m=>[31m[1;31m"[0m[31mCallum Booth[1;31m"[0m[31m[0m,
+      [31m[1;31m"[0m[31mtitle[1;31m"[0m[31m[0m=>[31m[1;31m"[0m[31mHey Apple, here’s some other shit not to include with iPhones[1;31m"[0m[31m[0m,
+      [31m[1;31m"[0m[31mdescription[1;31m"[0m[31m[0m=>
+       [31m[1;31m"[0m[31mLooks like the rumors are gathering pace: the iPhone 12 might not come with a charger or earbuds in the box. You might think this is a shameless cash grab, a way of forcing you to shell out another $60 or $70 just to use the product you already paid around a …[1;31m"[0m[31m[0m,
+      [31m[1;31m"[0m[31murl[1;31m"[0m[31m[0m=>[31m[1;31m"[0m[31mhttps://thenextweb.com/plugged/2020/06/29/apple-iphone-12-13-no-charger-earbuds-satire/[1;31m"[0m[31m[0m,
+      [31m[1;31m"[0m[31murlToImage[1;31m"[0m[31m[0m=>
+       [31m[1;31m"[0m[31mhttps://img-cdn.tnwcdn.com/image/plugged?filter_last=1&fit=1280%2C640&url=https%3A%2F%2Fcdn0.tnwcdn.com%2Fwp-content%2Fblogs.dir%2F1%2Ffiles%2F2020%2F06%2Fheader-image-iphone-13-no-charger-earbuds.png&signature=188d5368e30c07ba08d3f70aa9cbee9b[1;31m"[0m[31m[0m,
+      [31m[1;31m"[0m[31mpublishedAt[1;31m"[0m[31m[0m=>[31m[1;31m"[0m[31m2020-06-29T10:15:55Z[1;31m"[0m[31m[0m,
+      [31m[1;31m"[0m[31mcontent[1;31m"[0m[31m[0m=>
+       [31m[1;31m"[0m[31mLooks like the rumors are gathering pace: the iPhone 12 might not come with a charger or earbuds in the box.[1;35m\r[0m[31m[1;35m\n[0m[31mYou might think this is a shameless cash grab, a way of forcing you to shell out another … [+3116 chars][1;31m"[0m[31m[0m},
+     {[31m[1;31m"[0m[31msource[1;31m"[0m[31m[0m=>{[31m[1;31m"[0m[31mid[1;31m"[0m[31m[0m=>[31m[1;31m"[0m[31mthe-next-web[1;31m"[0m[31m[0m, [31m[1;31m"[0m[31mname[1;31m"[0m[31m[0m=>[31m[1;31m"[0m[31mThe Next Web[1;31m"[0m[31m[0m},
+      [31m[1;31m"[0m[31mauthor[1;31m"[0m[31m[0m=>[31m[1;31m"[0m[31mTNW Deals[1;31m"[0m[31m[0m,
+      [31m[1;31m"[0m[31mtitle[1;31m"[0m[31m[0m=>[31m[1;31m"[0m[31mBetterMe Home Workout and Diet can help you bounce back from the Quarantine 15[1;31m"[0m[31m[0m,
+      [31m[1;31m"[0m[31mdescription[1;31m"[0m[31m[0m=>
+       [31m[1;31m"[0m[31mTLDR: The BetterMe Home Workout and Diet app can craft your personalized plan to help lose weight, tone up, eat better and achieve all your fitness goals. All the time spent in the house these past few months probably didn’t do your summer beach body any favo…[1;31m"[0m[31m[0m,
+      [31m[1;31m"[0m[31murl[1;31m"[0m[31m[0m=>[31m[1;31m"[0m[31mhttps://thenextweb.com/offers/2020/06/29/betterme-home-workout-and-diet-can-help-you-bounce-back-from-the-quarantine-15/[1;31m"[0m[31m[0m,
+      [31m[1;31m"[0m[31murlToImage[1;31m"[0m[31m[0m=>
+       [31m[1;31m"[0m[31mhttps://img-cdn.tnwcdn.com/image/tnwDeals?filter_last=1&fit=1280%2C640&url=https%3A%2F%2Fcdn0.tnwcdn.com%2Fwp-content%2Fblogs.dir%2F1%2Ffiles%2F2020%2F06%2FBetterMe.jpeg&signature=451a2083a05cf1035c10d976ea59960b[1;31m"[0m[31m[0m,
+      [31m[1;31m"[0m[31mpublishedAt[1;31m"[0m[31m[0m=>[31m[1;31m"[0m[31m2020-06-29T12:00:07Z[1;31m"[0m[31m[0m,
+      [31m[1;31m"[0m[31mcontent[1;31m"[0m[31m[0m=>
+       [31m[1;31m"[0m[31mTLDR: The BetterMe Home Workout and Diet app can craft your personalized plan to help lose weight, tone up, eat better and achieve all your fitness goals.[1;35m\r[0m[31m[1;35m\n[0m[31mAll the time spent in the house these past … [+2267 chars][1;31m"[0m[31m[0m},
+     {[31m[1;31m"[0m[31msource[1;31m"[0m[31m[0m=>{[31m[1;31m"[0m[31mid[1;31m"[0m[31m[0m=>[1;36mnil[0m, [31m[1;31m"[0m[31mname[1;31m"[0m[31m[0m=>[31m[1;31m"[0m[31mSlate Magazine[1;31m"[0m[31m[0m},
+      [31m[1;31m"[0m[31mauthor[1;31m"[0m[31m[0m=>[31m[1;31m"[0m[31mDaniel Politi[1;31m"[0m[31m[0m,
+      [31m[1;31m"[0m[31mtitle[1;31m"[0m[31m[0m=>[31m[1;31m"[0m[31mMississippi Lawmakers Vote to Remove Confederate Battle Emblem From State Flag[1;31m"[0m[31m[0m,
+      [31m[1;31m"[0m[31mdescription[1;31m"[0m[31m[0m=>[31m[1;31m"[0m[31mGov. Tate Reeves said he would sign the bill if it obtained approval from the state’s legislators.[1;31m"[0m[31m[0m,
+      [31m[1;31m"[0m[31murl[1;31m"[0m[31m[0m=>[31m[1;31m"[0m[31mhttps://slate.com/news-and-politics/2020/06/mississippi-lawmakers-vote-remove-confederate-state-flag.html[1;31m"[0m[31m[0m,
+      [31m[1;31m"[0m[31murlToImage[1;31m"[0m[31m[0m=>
+       [31m[1;31m"[0m[31mhttps://compote.slate.com/images/ded22d03-f939-4598-a916-a832a5bbcf13.jpeg?width=780&height=520&rect=3000x2000&offset=0x0[1;31m"[0m[31m[0m,
+      [31m[1;31m"[0m[31mpublishedAt[1;31m"[0m[31m[0m=>[31m[1;31m"[0m[31m2020-06-29T00:24:10Z[1;31m"[0m[31m[0m,
+      [31m[1;31m"[0m[31mcontent[1;31m"[0m[31m[0m=>
+       [31m[1;31m"[0m[31mThe state flag of Mississippi is displayed with the flags of the other 49 states and territories in the tunnel connecting the senate office building and the U.S. Capitol June 23, 2015 in Washington, … [+3276 chars][1;31m"[0m[31m[0m},
+     {[31m[1;31m"[0m[31msource[1;31m"[0m[31m[0m=>{[31m[1;31m"[0m[31mid[1;31m"[0m[31m[0m=>[1;36mnil[0m, [31m[1;31m"[0m[31mname[1;31m"[0m[31m[0m=>[31m[1;31m"[0m[31mHuffPost[1;31m"[0m[31m[0m},
+      [31m[1;31m"[0m[31mauthor[1;31m"[0m[31m[0m=>[31m[1;31m"[0m[31mChristine Byrne[1;31m"[0m[31m[0m,
+      [31m[1;31m"[0m[31mtitle[1;31m"[0m[31m[0m=>[31m[1;31m"[0m[31m9 Easy Ways To Eat Less Meat This Summer[1;31m"[0m[31m[0m,
+      [31m[1;31m"[0m[31mdescription[1;31m"[0m[31m[0m=>[31m[1;31m"[0m[31mMeat shortages due to the coronavirus. Climate change. Do you need another reason?[1;31m"[0m[31m[0m,
+      [31m[1;31m"[0m[31murl[1;31m"[0m[31m[0m=>[31m[1;31m"[0m[31mhttps://www.huffpost.com/entry/easy-ways-eat-less-meat-summer_l_5eea463ec5b63c93567e8900[1;31m"[0m[31m[0m,
+      [31m[1;31m"[0m[31murlToImage[1;31m"[0m[31m[0m=>[31m[1;31m"[0m[31mhttps://img.huffingtonpost.com/asset/5eea4cdf250000fa2ceb3877.jpeg?ops=1778_1000[1;31m"[0m[31m[0m,
+      [31m[1;31m"[0m[31mpublishedAt[1;31m"[0m[31m[0m=>[31m[1;31m"[0m[31m2020-06-29T09:45:05Z[1;31m"[0m[31m[0m,
+      [31m[1;31m"[0m[31mcontent[1;31m"[0m[31m[0m=>
+       [31m[1;31m"[0m[31mTo say that summer looks different in 2020 is an understatement. As states try to reopen safely, various restrictions will remain in place for months to come. While there are no rules about what we c… [+7516 chars][1;31m"[0m[31m[0m}]},
+ @response[32m=[0m[32m#<Net::HTTPOK 200 OK readbody=true>[0m,
+ @uri[32m=[0m[32m#<URI::HTTP http://newsapi.org/v2/everything?q=Apple&from=2020-06-29&sortBy=popularity&apiKey=5c26c92dff4f467e84644baeb283abeb>[0m[32m>[0m

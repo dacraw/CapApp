@@ -2,12 +2,16 @@ require 'net/http'
 require 'uri'
 require 'json'
 require_relative 'sample_state'
+require_relative 'news_api'
 
 # this uri uses the sandbox & test key
 uri = URI.parse("https://sandbox.iexapis.com/stable/stock/market/batch?types=news,price&symbols=#{@stock.symbol}&token=#{ENV['TEST_IEX_KEY']}")
-#uri = URI.parse("https://sandbox.iexapis.com/stable/stock/market/batch?types=chart&symbols=fb&range=1d&token=#{ENV['TEST_IEX_KEY']}")
+# uri = URI.parse("https://sandbox.iexapis.com/stable/stock/market/batch?types=chart&symbols=fb&range=1d&token=#{ENV['TEST_IEX_KEY']}")
 priceNewsresponse = Net::HTTP.get_response(uri)
 #JSON.parse(response.body)['FB']['chart']
+
+
+
 
 # this pulls about copmany
 aboutUri = URI.parse("https://sandbox.iexapis.com/stable/stock/#{@stock.symbol}/company?token=#{ENV['TEST_IEX_KEY']}")
@@ -31,12 +35,12 @@ json.set! @stock.symbol do
     json.dollarChange (price - chart[0][:average]).round(2)
     json.percentageChange (((price / chart[0][:average]) - 1) * 100).round(2)
 
-    news = JSON.parse(priceNewsresponse.body)[@stock.symbol.upcase]['news'] # pulls 
-    json.news news
+    news = StockNews.new('Apple')
+    company_news = news.fetch # pulls 
+    # debugger
+    json.news company_news['articles']
     
-
     about = JSON.parse(aboutResponse.body) # 
     json.about about
 
-    
 end
