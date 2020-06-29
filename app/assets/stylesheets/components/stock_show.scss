@@ -87,15 +87,22 @@
             color: $gray;
         }
         .news-item {
-            display: flex;
             margin-bottom: 40px;
-            justify-content: space-between;
             line-height: 1.5em;
-            div:first-child {
-                width:60%;
-            }
-            img {
-                width: 30%;
+            a {
+                color: $black;
+                display: flex;
+                justify-content: space-between;
+                padding: 1vw;
+                &:hover {
+                    background-color: $lightblue;
+                }
+                div:first-child {
+                    width:60%;
+                }
+                img {
+                    width: 30%;
+                }
             }
         }
     }
