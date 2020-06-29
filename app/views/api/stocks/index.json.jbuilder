@@ -26,7 +26,6 @@ require_relative '../shared/stock_parser'
         stockParser = StockParser.new(stock.symbol)
         json.extract! stock, :symbol, :company
         chart = stockParser.chart
-        # debugger
         price = stockParser.getDefaultPrice
 
         json.price price
