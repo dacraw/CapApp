@@ -35,10 +35,10 @@ json.set! @stock.symbol do
     json.dollarChange (price - chart[0][:average]).round(2)
     json.percentageChange (((price / chart[0][:average]) - 1) * 100).round(2)
 
-    news = StockNews.new('Apple')
+    news = StockNews.new(@stock.company)
     company_news = news.fetch # pulls 
     # debugger
-    json.news company_news['articles']
+    json.news company_news
     
     about = JSON.parse(aboutResponse.body) # 
     json.about about
