@@ -1,0 +1,14 @@
+.stock-sidebar-container {
+    ul {
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+        li {
+            padding: 1vw 0;
+        }
+    }
+    .owned-stocks {
+        display: flex;
+        justify-content: space-between;
+    }
+}
