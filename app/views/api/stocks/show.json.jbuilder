@@ -2,7 +2,7 @@ require 'net/http'
 require 'uri'
 require 'json'
 require_relative '../shared/sample_state'
-require_relative 'news_api'
+require_relative '../shared/news_api'
 require_relative '../shared/stock_parser'
 
 # this uri uses the sandbox & test key
@@ -36,7 +36,7 @@ json.set! @stock.symbol do
     json.dollarChange dollarChange
     json.percentageChange percentageChange
 
-    news = StockNews.new(@stock.company)
+    news = NewsAPI.new(@stock.company)
     company_news = news.fetch # pulls 
     json.news company_news
     

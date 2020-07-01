@@ -7,6 +7,7 @@
 # }
 
 require_relative '../shared/stock_parser'
+require_relative '../shared/news_api'
 
 json.set! @portfolio.first.user_id do
     json.cashAvailable number_to_currency(@portfolio.first.user.cash_available)
@@ -25,4 +26,8 @@ json.set! @portfolio.first.user_id do
         end
     end
     json.portfolioValue number_to_currency(portfolioValue)
+
+    news_API = NewsAPI.new
+    news = news_API.fetchBusiness
+    json.news news
 end

@@ -17,6 +17,7 @@ require_relative '../shared/sample_state'
 require_relative '../shared/stock_parser'
 
 
+
 # how to access response:
 # response.code
 # response.body
@@ -34,3 +35,4 @@ require_relative '../shared/stock_parser'
         json.percentageChange percentageChange
     end
 end
+
