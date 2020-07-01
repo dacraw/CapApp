@@ -16,7 +16,7 @@ export default (state = {}, action) => {
         case RECEIVE_STOCKS:
             // using stock data 
             
-            return merge(action.stocks)
+            return merge({}, state, action.stocks)
         default:
             return state;
     }
