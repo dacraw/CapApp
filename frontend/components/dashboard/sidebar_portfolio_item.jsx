@@ -7,14 +7,14 @@ export default ({ownedStock, stocks}) => {
 
     return (
         <>
-            <li>
+            <li className="owned-stocks">
                 <div className="symbol-numshares">
-                    <span className="symbol">{ownedStock[1].symbol}</span>
-                    <span className="num-shares">{ownedStock[1].num_shares}</span>
+                    <div className="symbol">{ownedStock[1].symbol}</div>
+                    <div className="num-shares">{ownedStock[1].num_shares}</div>
                 </div>
                 <div className="stock-info">
-                    <span className="dollar-change">{stocks[ownedStock[1].symbol].dollarChange}</span>
-                    <span className="percentage-change">{ownedStock[1].num_shares}</span>
+                    <div className="price">{stocks[ownedStock[1].symbol].price}</div>
+                    <div className="percentage-change">{ownedStock[1].percentageChange}</div>
                 </div>
             </li>
         </>

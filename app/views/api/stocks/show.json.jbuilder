@@ -9,6 +9,8 @@ require_relative '../shared/stock_parser'
 stockParser = StockParser.new(@stock.symbol)
 price = stockParser.getPrice
 chart = stockParser.getDefaultChart
+dollarChange = stockParser.getDollarChange
+percentageChange = stockParser.getPercentageChange
 # uri = URI.parse("https://sandbox.iexapis.com/stable/stock/market/batch?types=news,price&symbols=#{@stock.symbol}&token=#{ENV['TEST_IEX_KEY']}")
 # # uri = URI.parse("https://sandbox.iexapis.com/stable/stock/market/batch?types=chart&symbols=fb&range=1d&token=#{ENV['TEST_IEX_KEY']}")
 # priceNewsresponse = Net::HTTP.get_response(uri)
@@ -28,11 +30,11 @@ json.set! @stock.symbol do
     json.price price
 
     # chart
-    #debugger
+    
     # set the dollar and percentage change for the day based on current price
     # using last price of the chart for current price
-    json.dollarChange (price - chart[0][:average]).round(2)
-    json.percentageChange (((price / chart[0][:average]) - 1) * 100).round(2)
+    json.dollarChange dollarChange
+    json.percentageChange percentageChange
 
     news = StockNews.new(@stock.company)
     company_news = news.fetch # pulls 

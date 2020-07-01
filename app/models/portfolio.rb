@@ -4,7 +4,7 @@ class Portfolio < ApplicationRecord
     validates :num_shares, presence: true
 
     attr_reader :stock_price, :formType
-    #debugger
+    
     def stock_price=(stock_price)
         @stock_price = nil
     end

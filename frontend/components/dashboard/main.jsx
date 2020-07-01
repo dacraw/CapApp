@@ -12,7 +12,6 @@ class Dashboard extends React.Component {
         const { stocks, user: {ownedStocks} } = this.props;
 
         if (!stocks || !ownedStocks) return null;
-//         debugger
         return (
             <></>
         )

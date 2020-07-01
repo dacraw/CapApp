@@ -1,7 +1,7 @@
 class Api::PortfoliosController < ApplicationController
     def index
         @portfolio = Portfolio.where(user_id: params[:user_id])
-        # debugger
+        
         # if @portfolio.length != 0
             render :index
         # else
@@ -11,7 +11,7 @@ class Api::PortfoliosController < ApplicationController
 
     def create
         # this is for when the user buys a stock for the first time
-        #debugger
+        
        
         @portfolio = Portfolio.new(portfolio_params)
         user_id = portfolio_params[:user_id].to_i
@@ -45,7 +45,7 @@ class Api::PortfoliosController < ApplicationController
         @new_shares = num_shares
         @form_type = portfolio_params[:formType]
         stock_price = portfolio_params[:stock_price].to_f.round(2)
-        #debugger
+        
         if @portfolio
             current_shares = @portfolio.num_shares
             updated_shares = current_shares + num_shares
@@ -65,7 +65,7 @@ class Api::PortfoliosController < ApplicationController
                     render json: ['Sorry, something went wrong.'], status: 422
                 end
             elsif portfolio_params[:formType] == 'sell' && @portfolio.num_shares >= num_shares
-                #debugger
+                
                 # user sells stock
                 updated_shares = current_shares - num_shares
                 if @portfolio.update!(num_shares: updated_shares.round(2))
