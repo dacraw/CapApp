@@ -5,7 +5,7 @@
 [logo]: https://github.com/dacrawford89/CapApp/blob/master/app/assets/images/logo.png "Cap App"
 
 # CapApp (https://cap-app1000.herokuapp.com/#/)
-- Monitor and track stocks and see their daily performance via portfolio and graphs. Buy or sell an investment and use it to get an idea of how to daytrade or save.
+- Monitor and track stocks and see their daily performance via portfolio and graphs. Buy or sell an investment and use it to get an idea of how to daytrade or save. Note: this is a project clone of the website [Robinhood](https://robinhood.com/)  
 
 ### Rails version
 - `5.2.4`
