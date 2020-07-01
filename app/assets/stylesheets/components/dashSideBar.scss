@@ -11,8 +11,30 @@
     padding: 1vw 0;
     color: $black;
     position: relative;
+    z-index: 10;
+    .symbol-numshares, .stock-info {
+        > div {
+            padding: 5px 0;
+        }
+    }
+    &:hover {
+        background-color: $lightblue;
+    }
+}
+
+.symbol-numshares, .stock-info {
+    width: 33.33%;
+    font-size: .8em;
+}
+.stock-info {
+    text-align: right;
+}
+.symbol-numshares {
+    .symbol {
+        font-weight: bold;
+    }
 }
 .stock-mini-graph {
     // height: 100%;
-    width: 100%;
+    width: 33.33%;
 }

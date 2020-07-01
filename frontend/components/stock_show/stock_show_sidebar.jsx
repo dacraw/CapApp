@@ -196,58 +196,59 @@ class StockShowSidebar extends Component {
 
         return (
             <>
-            
-                <ul className="buy-sell">
-                    <li onClick={this.setFormType('buy')} id="buy" className={`selected ${dollarChange}`}>Buy {stock.symbol}</li>
-                    <li onClick={this.setFormType('sell')} className={sellClass()}>Sell {stock.symbol}</li>
-                </ul>
-                <hr />
-                <section onSubmit={this.handleSubmit}>
-                    <form className="pst-form">
-                        <section className="line">
-                            {/* <i class="fas fa-arrows-alt-v"></i> */}
-                            <label>Invest In</label>
-                            <ul className="invest-type">
-                                <li onClick={this.showInvestTypes}>{this.state.investType}</li>
-                                <ul>
-                                    {/* <li onClick={this.handleInvestType} className={changeType}>Dollars</li> */}
-                                    <li onClick={this.handleInvestType} className={`selected ${changeType}`}>Shares</li>
+                <div className="stock-show-sidebar">
+                    <ul className="buy-sell">
+                        <li onClick={this.setFormType('buy')} id="buy" className={`selected ${dollarChange}`}>Buy {stock.symbol}</li>
+                        <li onClick={this.setFormType('sell')} className={sellClass()}>Sell {stock.symbol}</li>
+                    </ul>
+                    <hr />
+                    <section onSubmit={this.handleSubmit}>
+                        <form className="pst-form">
+                            <section className="line">
+                                {/* <i class="fas fa-arrows-alt-v"></i> */}
+                                <label>Invest In</label>
+                                <ul className="invest-type">
+                                    <li onClick={this.showInvestTypes}>{this.state.investType}</li>
+                                    <ul>
+                                        {/* <li onClick={this.handleInvestType} className={changeType}>Dollars</li> */}
+                                        <li onClick={this.handleInvestType} className={`selected ${changeType}`}>Shares</li>
+                                    </ul>
                                 </ul>
-                            </ul>
-                        </section>
+                            </section>
 
-                        {renderInvestType(this.state.investType)}
+                            {renderInvestType(this.state.investType)}
 
-                        <section className="success">
-                            {this.props.userInfo.newShares}
-                        </section>
-                        <section className="errors">
-                            {errors[0]}
-                        </section>
-                        <button className={dollarChange}>
-                            {this.state.formType[0].toUpperCase() + this.state.formType.slice(1)} {this.state.symbol}
-                        </button>
-                    </form>
-                </section>
-                <hr />
-                <section className={`buying-power bottom show ${dollarChange}`}>
-                        <a onClick={this.showBox}>{userInfo.cashAvailable} available for trading. </a>
-                        <div className="info-box" id="sidebar-info-dropdown">
-                            <h3>Good luck!</h3>
-                            <div className="line">
-                                <p>Vestibulum convallis ut nulla non tincidunt.  </p>
-                                <p>Praesent congue sed neque in sagittis.  </p>
-                            </div>  
-                            <div className="line">
-                                <p>Praesent in efficitur massa, at feugiat lectus.  </p>
-                                <p>Proin imperdiet, felis nec tristique tempor </p>
-                            </div>  
-                        </div>
-                        <i className="fas fa-question-circle"></i>
-                </section>
-                <section className="num-shares bottom hide">
-                    {numShares} shares available for trading.
-                </section>
+                            <section className="success">
+                                {this.props.userInfo.newShares}
+                            </section>
+                            <section className="errors">
+                                {errors[0]}
+                            </section>
+                            <button className={dollarChange}>
+                                {this.state.formType[0].toUpperCase() + this.state.formType.slice(1)} {this.state.symbol}
+                            </button>
+                        </form>
+                    </section>
+                    <hr />
+                    <section className={`buying-power bottom show ${dollarChange}`}>
+                            <a onClick={this.showBox}>{userInfo.cashAvailable} available for trading. </a>
+                            <div className="info-box" id="sidebar-info-dropdown">
+                                <h3>Good luck!</h3>
+                                <div className="line">
+                                    <p>Vestibulum convallis ut nulla non tincidunt.  </p>
+                                    <p>Praesent congue sed neque in sagittis.  </p>
+                                </div>  
+                                <div className="line">
+                                    <p>Praesent in efficitur massa, at feugiat lectus.  </p>
+                                    <p>Proin imperdiet, felis nec tristique tempor </p>
+                                </div>  
+                            </div>
+                            <i className="fas fa-question-circle"></i>
+                    </section>
+                    <section className="num-shares bottom hide">
+                        {numShares} shares available for trading.
+                    </section>
+                </div>
             </>
         )
     }
