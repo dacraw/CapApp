@@ -148,7 +148,7 @@ class DashNavBar extends React.Component{
                         <section className="stock-list" id="stock-list">
                             <ul onKeyDown={this.navigateResults}>
                                 <li className="category">Stocks</li>
-                                {Object.values(stocks).map( (stock, idx) => <li key={idx}><Link to={`/stocks/${stock.symbol.toLowerCase()}`}><span className="symbol">{stock.symbol}</span><span className="company">{stock.company}</span></Link></li>)}
+                                {Object.values(stocks).map( (stock, idx) => <li key={idx}><Link to={`/stocks/${(stock.symbol) ? stock.symbol.toLowerCase() : ""}`}><span className="symbol">{stock.symbol}</span><span className="company">{stock.company}</span></Link></li>)}
                             </ul>    
                         </section>
 
