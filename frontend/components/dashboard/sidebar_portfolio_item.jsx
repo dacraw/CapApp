@@ -9,7 +9,7 @@ export default ({ownedStock, stocks}) => {
     const dollarChangeStyle = (stocks[ownedStock[1].symbol].percentageChange <= 0) ? "negative" : "";
     const chart = useSelector(state => {
         // debugger
-        state.entities.stocks[ownedStock[1].symbol].chart;
+        return state.entities.stocks[ownedStock[1].symbol].chart;
     });
     
     // debugger
