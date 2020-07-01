@@ -21,9 +21,9 @@ class FunctionalComponent extends Component {
     render() {
         // const { loading } = this.props;
         // if (loading) return <Loading />
-        const { currentUser } = this.props;
+        const { currentUser, stocks } = this.props;
 
-        if (!currentUser) return null;
+        if (!currentUser || !stocks) return null;
 
         return (
             <main className="functional-component-container">
