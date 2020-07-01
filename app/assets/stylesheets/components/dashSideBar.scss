@@ -4,12 +4,15 @@
         flex-direction: column;
         justify-content: space-between;
     }
-    .owned-stocks {
-        .stock-link {
-            display: flex;
-            justify-content: space-between;
-            padding: 1vw 0;
-            color: $black;
-        }
-    }
+}
+.stock-link {
+    display: flex;
+    justify-content: space-between;
+    padding: 1vw 0;
+    color: $black;
+    position: relative;
+}
+.stock-mini-graph {
+    // height: 100%;
+    width: 100%;
 }
