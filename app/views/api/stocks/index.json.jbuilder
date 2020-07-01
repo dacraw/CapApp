@@ -27,9 +27,10 @@ require_relative '../shared/stock_parser'
         json.extract! stock, :symbol, :company
         chart = stockParser.chart
         price = stockParser.getDefaultPrice
+        percentageChange = stockParser.getPercentageChange
 
         json.price price
-
         json.chart chart
+        json.percentageChange percentageChange
     end
 end

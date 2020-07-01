@@ -2,8 +2,7 @@ import React from 'react'
 
 
 export default ({ownedStock, stocks}) => {
-    debugger
-
+    if (!stocks) return null;
 
     return (
         <>
@@ -14,7 +13,7 @@ export default ({ownedStock, stocks}) => {
                 </div>
                 <div className="stock-info">
                     <div className="price">{stocks[ownedStock[1].symbol].price}</div>
-                    <div className="percentage-change">{ownedStock[1].percentageChange}</div>
+                    <div className="percentage-change">{stocks[ownedStock[1].symbol].percentageChange}</div>
                 </div>
             </li>
         </>
