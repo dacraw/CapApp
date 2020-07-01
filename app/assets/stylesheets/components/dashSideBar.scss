@@ -5,10 +5,17 @@
         justify-content: space-between;
     }
 }
+.stocks-title {
+    padding: 1vw 2vw;
+    font-weight: bold;
+}
+.stocks-title, .owned-stocks:last-child {
+    border-bottom: 1px solid $lighter-gray;
+}
 .stock-link {
     display: flex;
     justify-content: space-between;
-    padding: 1vw 0;
+    padding: 1vw 2vw;
     color: $black;
     position: relative;
     z-index: 10;
