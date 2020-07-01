@@ -166,7 +166,7 @@ class DashNavBar extends React.Component{
                                         <h3>{currentUser.username}</h3>
                                         <div className="double-col">
                                             <div>
-                                                <h4>$12.16</h4>{/* REPLACE WITH PORTFOLIO VALUE */}
+                                                <h4>{currentUser.portfolioValue}</h4>{/* REPLACE WITH PORTFOLIO VALUE */}
                                                 <h5>Portfolio Value</h5>
                                             </div>
                                             <div>
