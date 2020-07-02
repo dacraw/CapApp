@@ -17,12 +17,16 @@
     aside {
         position: fixed;
         box-sizing: border-box;
-        background-color: $white;
+        background-color: white;
         margin-left: 50px;
-        width:275px;
-
-        box-shadow: 0 0 20px $lightgray;
-      
+        width: 275px;
+        max-height: 77vh;
+        overflow: auto;
+        box-shadow: 0 0 20px #b8b5b5;
+        &::-webkit-scrollbar{ display: none; }
+        -ms-overflow-style: none;  /* IE and Edge */
+        scrollbar-width: none;  /* Firefox */
+        
         .hide { display: none; }
         
         > *:not(hr, .buy-sell) { // all immediate children, minus lines
