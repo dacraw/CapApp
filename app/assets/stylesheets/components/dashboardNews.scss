@@ -6,10 +6,35 @@
         border-bottom: 1px solid gray;
     }
     .source {
-        margin-left: 1vw;
+        // margin-left: 1vw;
+        font-size: .8em;
+        font-weight:bold;
     }
     .dashboard-news-item {
-    
+        height: 23vh;
     }
-    .row { margin-bottom: 1vw}
+    a {
+        display: block;
+        padding: 1em;
+        box-sizing: border-box;
+        color: $black;
+        &:hover {
+            background-color: $lightblue;
+        }
+    }
+    .row { 
+        margin-bottom: 1vw;
+        justify-content: space-between;
+    }
+    .title {
+        width: 75%;
+    }
+    img {
+        display: block;
+        border-radius: 4px;
+        // clip-path: polygon(50% 0%, 100% 50%, 50% 100%, 0% 50%);
+        width: 20%;
+        height: 100%;
+        justify-content: space-between;
+    }
 }
