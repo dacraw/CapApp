@@ -123,7 +123,7 @@ class DashNavBar extends React.Component{
                 }
             } 
         }
-        // debugger
+        
         if (!$('#stock-list ul li:visible a').length){
             $('.category').hide();
             $('.stock-list ul').append('<li class="no-results">No results match.</li>')

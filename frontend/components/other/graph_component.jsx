@@ -34,7 +34,7 @@ class GraphComponent extends Component {
     }
     
     handleLeave(value){
-        // debugger;
+        
         this.setState({
             price: value,
             dollarChange: this.props.stock.dollarChange,

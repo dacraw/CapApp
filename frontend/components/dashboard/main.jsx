@@ -1,4 +1,6 @@
 import React from 'react';
+import NewsComponent from '../other/NewsComponent'
+
 
 class Dashboard extends React.Component {
     constructor(props) {
@@ -11,10 +13,13 @@ class Dashboard extends React.Component {
     render() {
         const { stocks, user: {ownedStocks} } = this.props;
 
+
+
         if (!stocks || !ownedStocks) return null;
-//         debugger
         return (
-            <></>
+            <>
+                <NewsComponent />
+            </>
         )
     }
 }

@@ -1,0 +1,47 @@
+.stock-sidebar-container {
+    ul {
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+    }
+}
+.stocks-title {
+    padding: 1vw 2vw;
+    font-weight: bold;
+}
+.stocks-title, .owned-stocks:last-child {
+    border-bottom: 1px solid $lighter-gray;
+}
+.stock-link {
+    display: flex;
+    justify-content: space-between;
+    padding: 1vw 2vw;
+    color: $black;
+    position: relative;
+    z-index: 10;
+    .symbol-numshares, .stock-info {
+        > div {
+            padding: 5px 0;
+        }
+    }
+    &:hover {
+        background-color: $lightblue;
+    }
+}
+
+.symbol-numshares, .stock-info {
+    width: 33.33%;
+    font-size: .8em;
+}
+.stock-info {
+    text-align: right;
+}
+.symbol-numshares {
+    .symbol {
+        font-weight: bold;
+    }
+}
+.stock-mini-graph {
+    // height: 100%;
+    width: 33.33%;
+}

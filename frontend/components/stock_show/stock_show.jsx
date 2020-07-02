@@ -26,7 +26,6 @@ class StockShow extends Component {
        
         // check if the hash has changed; if so, fetch single stock info UNLESS already in the state
         // currently only fetching 1d graph
-    //    debugger;
         const { fetchStock, stocks, match: { params: { symbol } } } = this.props;
         const sym = symbol.toUpperCase();
 

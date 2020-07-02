@@ -13,10 +13,10 @@ class DashMainSidebar extends Component {
         const { stocks, user: {ownedStocks} } = this.props;
 
         if (!stocks || !ownedStocks) return null;
-        debugger
         return (
             <>
                 <ul>
+                    <li className="stocks-title">Stocks</li>
                     {Object.entries(ownedStocks).map((stock, i) => <SidebarPortfolioItem key={i} ownedStock={stock} stocks={stocks} />)}
                 </ul>
             </>
