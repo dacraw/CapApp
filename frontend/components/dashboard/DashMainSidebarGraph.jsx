@@ -7,7 +7,6 @@ const DashMainSidebarGraph = ({data, symbol}) => {
         return state.entities.stocks[symbol].percentageChange;
     });
     const strokeColor = (percentageChange >= 0) ? "rgb(16, 197, 40)" : "#ff4f0b";
-    // debugger
         return (
             <>
                 <ResponsiveContainer>
