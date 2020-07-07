@@ -3,15 +3,17 @@
         display: flex;
         flex-direction: column;
         justify-content: space-between;
+
+    }
+    .title {
+        padding: 1vw 2vw;
+        font-weight: bold;
+    }
+    .title, .owned-stocks:last-child {
+        border-bottom: 1px solid $lighter-gray;
     }
 }
-.stocks-title {
-    padding: 1vw 2vw;
-    font-weight: bold;
-}
-.stocks-title, .owned-stocks:last-child {
-    border-bottom: 1px solid $lighter-gray;
-}
+
 .stock-link {
     display: flex;
     justify-content: space-between;

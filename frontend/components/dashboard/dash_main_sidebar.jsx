@@ -17,7 +17,7 @@ class DashMainSidebar extends Component {
         return (
             <>
                 <ul>
-                    <li className="stocks-title">Stocks</li>
+                    <li className="stocks-title title">Stocks</li>
                     {Object.entries(ownedStocks).map((stock, i) => <SidebarPortfolioItem key={i} ownedStock={stock} stocks={stocks} />)}
                 </ul>
                 <SidebarWatchedStocks />

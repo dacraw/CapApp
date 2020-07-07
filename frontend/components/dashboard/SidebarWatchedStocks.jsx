@@ -5,7 +5,7 @@ export default class SidebarWatchedStocks extends Component {
     render() {
         return (
             <div>
-                <h1>Watchlists:</h1>
+                <h1 className="title">Watchlists:</h1>
                 <SideBarNewWatchlistComponent />
             </div>
         )
