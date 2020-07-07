@@ -1,0 +1,36 @@
+.add-new-watchlist {
+    padding: 1vh;
+    .top {
+        display: flex;
+        justify-content: space-between;
+        text-align: center;
+        align-items: center;
+    }
+    .bottom {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+    }
+    i {
+        width: 50%;
+    }
+    input {
+        border: 1px solid gray;
+        width: 80%;
+        padding: 1vw;
+        box-sizing: border-box;
+    }
+
+    .cancel {
+        /* margin-top: 50px; */
+        color: #10c528;
+        border: 1px solid #10c528;
+        background-color: white;
+    }
+    .generic {
+        color: white;
+        margin: 0;
+        width: inherit;
+        background-color: #10c528;
+    }
+}

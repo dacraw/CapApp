@@ -25,13 +25,13 @@ export default class SidebarNewWatchlistComponent extends Component {
         return (
             <div className="add-new-watchlist">
                 <form onSubmit={this.handleSubmit}>
-                    <div classname="two-col top">
+                    <div className="two-col top">
                         <i class="fas fa-lightbulb"></i>
                         <input onChange={this.handleChange} value={this.state.watchlistName} type="text" name="watchlistName" placeholder="Watchlist Name" />
                     </div>
                     <div className="two-col bottom">
-                        <button>CANCEL</button>
-                        <button type="submit">CREATE WATCHLIST</button>
+                        <button className="cancel">CANCEL</button>
+                        <button className="create-watchlist generic" type="submit">CREATE WATCHLIST</button>
                     </div>
                 </form>
             </div>

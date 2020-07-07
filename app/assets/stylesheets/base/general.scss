@@ -6,3 +6,20 @@ html{
 body, #root {
     min-height: 100vh;
 }
+
+button.generic {
+    margin-top: 50px;
+    color: $white;
+    height: 50px;
+    display: block;
+    width: 100%;
+    border-radius: 5px;
+    background-color: $lightgreen;
+    &:hover {
+        background-color: $darkgreen;
+    }
+    &.negative-change {
+        background-color: $red;
+        &:hover { background-color: $darkred;}
+    }
+}
