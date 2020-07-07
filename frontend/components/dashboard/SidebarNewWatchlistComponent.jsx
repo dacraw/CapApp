@@ -30,8 +30,8 @@ export default class SidebarNewWatchlistComponent extends Component {
                         <input onChange={this.handleChange} value={this.state.watchlistName} type="text" name="watchlistName" placeholder="Watchlist Name" />
                     </div>
                     <div className="two-col bottom">
-                        <button className="cancel">CANCEL</button>
-                        <button className="create-watchlist generic" type="submit">CREATE WATCHLIST</button>
+                        <button className="cancel">Cancel</button>
+                        <button className="create-watchlist generic" type="submit">Create Watchlist</button>
                     </div>
                 </form>
             </div>
