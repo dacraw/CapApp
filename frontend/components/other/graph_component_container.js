@@ -3,7 +3,6 @@ import GraphComponent from './graph_component'
 import {withRouter} from 'react-router-dom'
 
 const mapStateToProps = ({ entities: { stocks } }, ownProps) => {
-    debugger
     return ({
         // stock: stocks[ownProps.match.params.symbol.toUpperCase()],
     })

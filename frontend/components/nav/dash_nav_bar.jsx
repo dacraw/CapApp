@@ -71,7 +71,6 @@ class DashNavBar extends React.Component{
     }
     
     filterResults(e){
-        debugger
         e.preventDefault();
         const props = this.props; 
         $('.category').show();
@@ -105,7 +104,6 @@ class DashNavBar extends React.Component{
                 const company = info[1].textContent;
                 if (symbol.includes(currentValue.toUpperCase()) || company.includes(currentValue[0].toUpperCase() + currentValue.slice(1))){
                     li[i].style.display = "block";
-                    debugger
                     // change has this ternary for when it's on the stock show page, or dashboard page. for the search results
                     const change = (props.match.params.symbol) ? (props.stocks[props.match.params.symbol.toUpperCase()]).dollarChange : "";
                     const color = (change <= 0) ? "negative-change" : "";
