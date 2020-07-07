@@ -1,6 +1,8 @@
 import {useSelector} from 'react-redux'
-import React from 'react'
+import React, {useEffect} from 'react'
 import NewsComponentItem from './NewsComponentItem'
+import {useDispatch} from 'react-redux'
+import {fetchBusinessNews} from '../../actions/newsActions'
 
 
 export default (props) => {

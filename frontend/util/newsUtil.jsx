@@ -1,5 +1,5 @@
 export const fetchBusinessNews = () => (
     $.ajax({
-        url: '/news/business'
+        url: '/api/news'
     })
 )

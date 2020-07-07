@@ -1,5 +1,6 @@
-class News < ApplicationController
-    def business
-        render :business
+class Api::NewsController < ApplicationController
+    # business news
+    def index
+        render :index
     end
 end
