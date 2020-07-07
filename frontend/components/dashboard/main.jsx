@@ -1,6 +1,7 @@
 import React from 'react';
 import NewsComponent from '../other/NewsComponent'
-import GraphContainer from '../other/graph_component_container'
+import GraphComponent from '../other/graph_component_container'
+import _ from 'lodash'
 
 
 class Dashboard extends React.Component {
@@ -10,9 +11,10 @@ class Dashboard extends React.Component {
             
         }
     }
+
+
     render() {
         const { stocks, user, user: {ownedStocks} } = this.props;
-        debugger
 
         if (!stocks || !ownedStocks || !user) return null;
 
@@ -29,7 +31,8 @@ class Dashboard extends React.Component {
         combinedStats['dollarChange'];
         symbols.forEach( (symbol, idx) => {
             if (idx == 0) {
-                combinedStats['chart'] = stocks[symbol].chart
+                combinedStats['chart'] = _.cloneDeep(stocks[symbol].chart);
+                // debugger
             }
             stocks[symbol].chart.forEach( (dataPoint, chartIdx) => {
                 if (idx !== 0){
@@ -49,13 +52,12 @@ class Dashboard extends React.Component {
         let combinedChart = combinedStats['chart'];
         let last = combinedChart[combinedChart.length - 1];
         let first = combinedChart[0];
-        debugger
         combinedStats['percentageChange'] = ((last.average / first.average - 1 ) * 100).toFixed(2);
         combinedStats['dollarChange'] = (last.average - first.average).toFixed(2);
 
         return (
             <>
-                {/* <GraphContainer /> */}
+                <GraphComponent stock={combinedStats} />
                 <NewsComponent />
             </>
         )
