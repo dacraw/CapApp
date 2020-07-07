@@ -69,7 +69,7 @@ class GraphComponent extends Component {
         return (
             <section className="stock-graph">
                 <h2 className="company-name">
-                {stock.company}
+                {(stock.company) ? stock.company : ""}
                 </h2>
                 <h2 className="current-price">
                     ${this.state.price}

@@ -1,4 +1,5 @@
 import {START_LOADING_STOCK, RECEIVE_STOCK} from '../actions/stock_actions'
+import {START_LOADING_NEWS, RECEIVE_NEWS} from '../actions/newsActions'
 
 export default (state = {}, action) => {
     Object.freeze(state);
@@ -7,6 +8,10 @@ export default (state = {}, action) => {
             return true     
         case RECEIVE_STOCK:
             return false  
+        case START_LOADING_NEWS:
+            return true
+        case RECEIVE_NEWS:
+            return false
         default:
             return state
     }

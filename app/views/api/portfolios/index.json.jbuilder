@@ -12,6 +12,8 @@ require_relative '../shared/news_api'
 json.set! @portfolio.first.user_id do
     json.cashAvailable number_to_currency(@portfolio.first.user.cash_available)
 
+    # json.chart
+
     portfolioValue = 0
     json.ownedStocks do
         @portfolio.each do |item|

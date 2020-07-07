@@ -51,7 +51,7 @@ class StockShow extends Component {
         return (
             <main className="stock-show-container">
 
-                <GraphComponent />
+                <GraphComponent stock={stockSym} />
                 <AboutComponent about={stockSym.about} />
                 <NewsComponent news={stockSym.news} />
 
