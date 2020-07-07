@@ -4,9 +4,16 @@ class Api::WatchlistsController < ApplicationController
         @watchlists = Watchlist.where(user_id: 1)
         render :index
     end
-    def create
 
+    def create
+        @watchlist = Watchlist.new(watchlist_params)
+        if @watchlist.save!
+            render :create
+        else
+            render json: @watchlist.errors.full_messages, status: 422
+        end
     end
+
     def watchlist_params
         params.require(:watchlist).permit(:user_id, :title)
     end
