@@ -42,18 +42,22 @@ class Dashboard extends React.Component {
                     if (value === null){
                         value = stocks[symbol].chart[stocks[symbol].chart.length - 1].average;
                     }
-                    combinedStats.chart[chartIdx].average += value;
+                    combinedStats.chart[chartIdx].average += value * ownedStocks[symbol].num_shares;
                 }
             });
 
         });
         console.log(combinedStats);
-        combinedStats['price'] = user.portfolioValue;
+    
+        combinedStats['price'] = parseFloat(user.portfolioValue.replace(/\$|,/g, ''));
+    
         let combinedChart = combinedStats['chart'];
         let last = combinedChart[combinedChart.length - 1];
         let first = combinedChart[0];
+        combinedStats['chart'][combinedStats['chart'].length-1].average = combinedStats['price'];
         combinedStats['percentageChange'] = ((last.average / first.average - 1 ) * 100).toFixed(2);
         combinedStats['dollarChange'] = (last.average - first.average).toFixed(2);
+        debugger
 
         return (
             <>
