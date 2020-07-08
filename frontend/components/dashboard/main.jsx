@@ -31,7 +31,6 @@ class Dashboard extends React.Component {
         symbols.forEach( (symbol, idx) => {
             if (idx == 0) {
                 combinedStats['chart'] = _.cloneDeep(stocks[symbol].chart);
-                // debugger
             }
             stocks[symbol].chart.forEach( (dataPoint, chartIdx) => {
                 if (idx !== 0){

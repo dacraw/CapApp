@@ -27,15 +27,16 @@ export const fetchAllWatchlists = () => dispatch => {
         )
 }
 
-export const fetchSingleWatchlist = (watchlistID) => dispatch => {
-    return WatchlistUtil.fetchSingleWatchlist(watchlistID)
-        .then(
-            response => dispatch(receiveSingleWatchList(response)),
-            errors => dispatch(receiveWatchlistErrors(errors.json))
-        )
-}
+// export const fetchSingleWatchlist = (watchlistID) => dispatch => {
+//     return WatchlistUtil.fetchSingleWatchlist(watchlistID)
+//         .then(
+//             response => dispatch(receiveSingleWatchList(response)),
+//             errors => dispatch(receiveWatchlistErrors(errors.json))
+//         )
+// }
 
 export const createWatchlist = watchlist => dispatch => {
+    debugger
     return WatchlistUtil.createWatchlist(watchlist)
     .then(
         response => dispatch(receiveSingleWatchList(response)),

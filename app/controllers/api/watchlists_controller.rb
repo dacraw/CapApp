@@ -7,7 +7,8 @@ class Api::WatchlistsController < ApplicationController
 
     def create
         @watchlist = Watchlist.new(watchlist_params)
-        @watchlist.user_id = current_user
+        @watchlist.user_id = current_user.id
+        # debugger
         if @watchlist.save!
             render :create
         else

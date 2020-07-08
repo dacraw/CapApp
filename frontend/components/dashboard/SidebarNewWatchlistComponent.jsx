@@ -1,11 +1,8 @@
 import React, { Component } from 'react'
-import {useDispatch} from 'react-redux'
-import {createWatchlist} from '../../actions/watchlistActions'
 
 export default class SidebarNewWatchlistComponent extends Component {
     constructor(props){
         super(props)
-        // debugger
         this.state = {
             title: "",
         }
@@ -20,7 +17,8 @@ export default class SidebarNewWatchlistComponent extends Component {
     }
     handleSubmit(e){
         e.preventDefault();
-        createWatchlist(this.state);
+        debugger
+        this.props.createWatchlist(this.state);
     }
     render() {
         return (
@@ -28,7 +26,7 @@ export default class SidebarNewWatchlistComponent extends Component {
                 <form onSubmit={this.handleSubmit}>
                     <div className="two-col top">
                         <i class="fas fa-lightbulb"></i>
-                        <input onChange={this.handleChange} value={this.state.watchlistTitle} type="text" name="watchlistTitle" placeholder="Watchlist Title" />
+                        <input onChange={this.handleChange} value={this.state.title} type="text" name="title" placeholder="Watchlist Title" />
                     </div>
                     <div className="two-col bottom">
                         <button className="cancel">Cancel</button>
