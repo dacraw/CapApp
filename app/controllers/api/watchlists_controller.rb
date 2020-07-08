@@ -1,7 +1,8 @@
 class Api::WatchlistsController < ApplicationController
     # business news
     def index
-        @watchlists = Watchlist.where(user_id: current_user)
+        @watchlists = Watchlist.where(user_id: current_user).order(updated_at: :desc)
+        # debugger
         render :index
     end
 
