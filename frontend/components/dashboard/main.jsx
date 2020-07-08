@@ -16,10 +16,9 @@ class Dashboard extends React.Component {
     render() {
         const { stocks, user, user: {ownedStocks} } = this.props;
 
-        if (!stocks || !ownedStocks || !user) return null;
+        if (!Object.keys(stocks).length || !ownedStocks || !user || !user.portfolioValue) return null;
 
         const symbols = Object.keys(ownedStocks);
-        
         // this block combines the averages for all of the user's portfolios; 
         // please note that for demo purposes, the data is pulled from a sample chart that does not use up-to-date info
 
@@ -32,7 +31,6 @@ class Dashboard extends React.Component {
         symbols.forEach( (symbol, idx) => {
             if (idx == 0) {
                 combinedStats['chart'] = _.cloneDeep(stocks[symbol].chart);
-                // debugger
             }
             stocks[symbol].chart.forEach( (dataPoint, chartIdx) => {
                 if (idx !== 0){
@@ -48,7 +46,6 @@ class Dashboard extends React.Component {
 
         });
         console.log(combinedStats);
-    
         combinedStats['price'] = parseFloat(user.portfolioValue.replace(/\$|,/g, ''));
     
         let combinedChart = combinedStats['chart'];
@@ -57,7 +54,6 @@ class Dashboard extends React.Component {
         combinedStats['chart'][combinedStats['chart'].length-1].average = combinedStats['price'];
         combinedStats['percentageChange'] = ((last.average / first.average - 1 ) * 100).toFixed(2);
         combinedStats['dollarChange'] = (last.average - first.average).toFixed(2);
-        debugger
 
         return (
             <>

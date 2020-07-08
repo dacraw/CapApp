@@ -1,5 +1,5 @@
 import React, {Component} from 'react'
-import { LineChart, Line, XAxis, YAxis, Tooltip } from 'recharts';
+import { LineChart, Line, XAxis, YAxis, Tooltip, ReferenceLine } from 'recharts';
 
 class GraphComponent extends Component {
     constructor(props) {
@@ -27,7 +27,7 @@ class GraphComponent extends Component {
        
         if (!e.activePayload || !e.activePayload[0].value) return null;
         this.setState({
-            price: e.activePayload[0].value,
+            price: e.activePayload[0].value.toFixed(2),
             dollarChange: (e.activePayload[0].value - this.props.stock.chart[0].average).toFixed(2),      
             percentageChange: (((e.activePayload[0].value / this.props.stock.chart[0].average) - 1 ) * 100).toFixed(2),      
         });
@@ -65,7 +65,6 @@ class GraphComponent extends Component {
 
         const strokeColor = (stock.dollarChange >= 0) ? "rgb(16, 197, 40)" : "#ff4f0b";
         const dollarChange = (stock.dollarChange >= 0) ? "" : "negative-change";
-        
         return (
             <section className="stock-graph">
                 <h2 className="company-name">
@@ -82,6 +81,7 @@ class GraphComponent extends Component {
 
                 <LineChart onMouseMove={this.handleEnter} onMouseLeave={() => this.handleLeave(stock.price)} width={710} height={200} data={data}>
                     <Line isAnimationActive={false} connectNulls={true} type="linear" dataKey={"average"} stroke={strokeColor} dot={false} strokeWidth="2" />
+                    <ReferenceLine y={data[0].open} stroke="rgb(184, 181, 181)" strokeDasharray="3 3" />
                     <XAxis hide={true} dataKey="label" />
                     <YAxis domain={['auto', 'auto']} hide={true} />
                     <Tooltip wrapperStyle={{left: -30, fontSize: '.8em'}}isAnimationActive={false} filterNull={true} position={{y: -20}} content={<CustomTooltip />} payload={[{ name: "label", value: "average" }]} />

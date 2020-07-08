@@ -1,0 +1,74 @@
+.add-new-watchlist {
+    padding: 2vh;
+    display: none;
+    justify-content: center;
+    form {
+        width: 100%;
+    }
+    .top {
+        display: flex;
+        justify-content: space-evenly;
+        text-align: center;
+        align-items: center;
+        margin-bottom: 1.2vh;
+    }
+    .bottom {
+        display: flex;
+        justify-content: space-evenly;
+        align-items: center;
+    }
+    i {
+        border: 1px solid gray;
+        padding: 1vw;
+        box-sizing: content-box;
+        border-radius: 5px;
+    }
+    input {
+        border: 1px solid gray;
+        /* width: inherit; */
+        padding: 1vw;
+        box-sizing: border-box;
+        border-radius: 5px;
+    }
+
+    .cancel {
+        /* margin-top: 50px; */
+        color: #10c528;
+        border: 1px solid #10c528;
+        background-color: white;
+        border-radius: 5px;
+        height: inherit;
+        padding: 1vw;
+    }
+    .generic {
+        color: white;
+        margin: 0;
+        width: inherit;
+        background-color: #10c528;
+        padding: 1vw;
+        height: inherit;
+    }
+}
+
+.watchlist {
+    display: flex;
+    justify-content: space-evenly;
+    padding: 1vh 0;
+}
+.watchlist-title {
+    width: 70%;
+}
+.fa-plus-square {
+    cursor: pointer;
+}
+.fa-plus-square:hover {
+    color: $lightgreen;
+}
+.new-watchlist-errors {
+    margin-top: 2vh;
+    text-align: center;
+    li {
+        font-size: .8em;
+        color: $red;
+    }
+}
