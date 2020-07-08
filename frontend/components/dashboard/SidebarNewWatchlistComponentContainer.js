@@ -4,7 +4,7 @@ import SidebarNewWatchlistComponent from './SidebarNewWatchlistComponent'
 
 const mapStateToProps = state => {
     return ({
-        
+        errors: state.errors
     })
 }
 

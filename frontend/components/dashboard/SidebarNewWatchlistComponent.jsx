@@ -37,6 +37,9 @@ export default class SidebarNewWatchlistComponent extends Component {
                         <button className="create-watchlist generic" type="submit">Create Watchlist</button>
                     </div>
                 </form>
+                <ul className="new-watchlist-errors">
+
+                </ul>
             </div>
         )
     }
