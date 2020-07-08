@@ -16,10 +16,12 @@ class DashMainSidebar extends Component {
         if (!stocks || !ownedStocks) return null;
         return (
             <>
-                <ul>
-                    <li className="stocks-title title">Stocks</li>
+                <div className="sidebar-header">
+                    <h1 className="stocks-title title">Stocks</h1>
+                </div>
+                <div>
                     {Object.entries(ownedStocks).map((stock, i) => <SidebarPortfolioItem key={i} ownedStock={stock} stocks={stocks} />)}
-                </ul>
+                </div>
                 <SidebarWatchlists />
             </>
         )

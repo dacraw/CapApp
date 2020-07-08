@@ -6,10 +6,10 @@
 
     }
     .title {
-        padding: 1vw 2vw;
+        // padding: 1vw 2vw;
         font-weight: bold;
     }
-    .title, .owned-stocks:last-child {
+    .sidebar-header, .owned-stocks:last-child {
         border-bottom: 1px solid $lighter-gray;
     }
 }
@@ -46,4 +46,11 @@
 .stock-mini-graph {
     // height: 100%;
     width: 33.33%;
+}
+
+.sidebar-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1vw 2vw;
 }

@@ -17,12 +17,11 @@ export default class SidebarNewWatchlistComponent extends Component {
     }
     handleSubmit(e){
         e.preventDefault();
-        debugger
         this.props.createWatchlist(this.state);
     }
     render() {
         return (
-            <div className="add-new-watchlist">
+            <div className="add-new-watchlist" id="add-new-watchlist">
                 <form onSubmit={this.handleSubmit}>
                     <div className="two-col top">
                         <i class="fas fa-lightbulb"></i>

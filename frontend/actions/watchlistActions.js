@@ -36,7 +36,6 @@ export const fetchAllWatchlists = () => dispatch => {
 // }
 
 export const createWatchlist = watchlist => dispatch => {
-    debugger
     return WatchlistUtil.createWatchlist(watchlist)
     .then(
         response => dispatch(receiveSingleWatchlist(response)),
