@@ -15,18 +15,8 @@ export default (props) => {
 
     if (!Object.keys(watchlists).length) return null
 
-    const newWatchlist = () => {
-        debugger
-        document.querySelector('#add-new-watchlist').style.display = "flex";
-    }
-
     return (
         <div>
-            <div className="sidebar-header">
-                <h1 className="title">Watchlists:</h1>
-                <i onClick={newWatchlist} className="far fa-plus-square"></i>
-            </div>
-            <SideBarNewWatchlistComponent watchlists={watchlists} />
             {Object.values(watchlists).map( watchlist => <SidebarWatchlist watchlist={watchlist} />)}
         </div>
     )
