@@ -6,7 +6,7 @@ export default class SidebarNewWatchlistComponent extends Component {
         super(props)
         // debugger
         this.state = {
-            watchlistName: "",
+            watchlistTitle: "",
         }
         this.handleChange = this.handleChange.bind(this);
         this.handleSubmit = this.handleSubmit.bind(this);
@@ -27,7 +27,7 @@ export default class SidebarNewWatchlistComponent extends Component {
                 <form onSubmit={this.handleSubmit}>
                     <div className="two-col top">
                         <i class="fas fa-lightbulb"></i>
-                        <input onChange={this.handleChange} value={this.state.watchlistName} type="text" name="watchlistName" placeholder="Watchlist Name" />
+                        <input onChange={this.handleChange} value={this.state.watchlistTitle} type="text" name="watchlistTitle" placeholder="Watchlist Title" />
                     </div>
                     <div className="two-col bottom">
                         <button className="cancel">Cancel</button>
