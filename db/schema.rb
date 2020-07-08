@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_07_07_212616) do
+ActiveRecord::Schema.define(version: 2020_07_08_145539) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -41,6 +41,14 @@ ActiveRecord::Schema.define(version: 2020_07_07_212616) do
     t.float "cash_available"
     t.index ["session_token"], name: "index_users_on_session_token", unique: true
     t.index ["username"], name: "index_users_on_username", unique: true
+  end
+
+  create_table "watched_stocks", force: :cascade do |t|
+    t.integer "watchlist_id", null: false
+    t.integer "stock_id", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["watchlist_id", "stock_id"], name: "index_watched_stocks_on_watchlist_id_and_stock_id", unique: true
   end
 
   create_table "watchlists", force: :cascade do |t|

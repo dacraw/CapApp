@@ -16,10 +16,9 @@ class Dashboard extends React.Component {
     render() {
         const { stocks, user, user: {ownedStocks} } = this.props;
 
-        if (!stocks || !ownedStocks || !user) return null;
+        if (!Object.keys(stocks).length || !ownedStocks || !user || !user.portfolioValue) return null;
 
         const symbols = Object.keys(ownedStocks);
-        
         // this block combines the averages for all of the user's portfolios; 
         // please note that for demo purposes, the data is pulled from a sample chart that does not use up-to-date info
 
@@ -48,7 +47,7 @@ class Dashboard extends React.Component {
 
         });
         console.log(combinedStats);
-    
+        debugger
         combinedStats['price'] = parseFloat(user.portfolioValue.replace(/\$|,/g, ''));
     
         let combinedChart = combinedStats['chart'];
