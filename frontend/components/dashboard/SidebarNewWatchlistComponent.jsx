@@ -10,9 +10,17 @@ export default class SidebarNewWatchlistComponent extends Component {
         this.handleChange = this.handleChange.bind(this);
         this.handleSubmit = this.handleSubmit.bind(this);
     }
+
     componentDidUpdate(prevProps, prevState){
-        // if (prevP)
+        debugger
+        if (Object.keys(prevProps.watchlists).length !== Object.keys(this.props.watchlists).length){
+            document.querySelector('#add-new-watchlist').style.display = "none";
+            this.setState({
+                title: "",
+            });        
+        }
     }
+
     handleChange(e){
         e.preventDefault();
         this.setState({

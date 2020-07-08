@@ -5,17 +5,13 @@ import {useDispatch, useSelector} from 'react-redux'
 import {fetchAllWatchlists} from '../../actions/watchlistActions'
 
 export default (props) => {
+
     const dispatch = useDispatch();
     useEffect( ()=> {
         dispatch(fetchAllWatchlists());
     }, []);
 
     const watchlists = useSelector(state => state.entities.watchlists);
-
-    useEffect( ()=> {
-        debugger
-        if (document.querySelector('#add-new-watchlist')) document.querySelector('#add-new-watchlist').style.display = "none";        
-    }, [watchlists])
 
     if (!Object.keys(watchlists).length) return null
 
@@ -30,7 +26,7 @@ export default (props) => {
                 <h1 className="title">Watchlists:</h1>
                 <i onClick={newWatchlist} className="far fa-plus-square"></i>
             </div>
-            <SideBarNewWatchlistComponent />
+            <SideBarNewWatchlistComponent watchlists={watchlists} />
             {Object.values(watchlists).map( watchlist => <SidebarWatchlist watchlist={watchlist} />)}
         </div>
     )
