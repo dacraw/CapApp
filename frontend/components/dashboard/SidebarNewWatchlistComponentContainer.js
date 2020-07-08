@@ -1,5 +1,5 @@
 import {connect} from 'react-redux'
-import {createWatchlist} from '../../actions/watchlistActions'
+import {createWatchlist, CLEAR_WATCHLIST_ERRORS} from '../../actions/watchlistActions'
 import SidebarNewWatchlistComponent from './SidebarNewWatchlistComponent'
 
 const mapStateToProps = state => {
@@ -13,6 +13,7 @@ const mapStateToProps = state => {
 const mapDispatchToProps = dispatch => {
     return ({
         createWatchlist: watchlist => dispatch(createWatchlist(watchlist)),
+        clearWatchlistErrors: () => dispatch({type: CLEAR_WATCHLIST_ERRORS})
     })
 }
 

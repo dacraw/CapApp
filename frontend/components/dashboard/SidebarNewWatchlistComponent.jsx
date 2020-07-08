@@ -9,6 +9,7 @@ export default class SidebarNewWatchlistComponent extends Component {
         }
         this.handleChange = this.handleChange.bind(this);
         this.handleSubmit = this.handleSubmit.bind(this);
+        this.hide = this.hide.bind(this);
     }
 
     componentDidUpdate(prevProps, prevState){
@@ -34,6 +35,8 @@ export default class SidebarNewWatchlistComponent extends Component {
     }
     hide(){
         document.querySelector('#add-new-watchlist').style.display = "none";
+        debugger
+        this.props.clearWatchlistErrors();
     }
     render() {
         const {errors, watchlistLoading} = this.props;
@@ -54,8 +57,8 @@ export default class SidebarNewWatchlistComponent extends Component {
                         <input onChange={this.handleChange} value={this.state.title} type="text" name="title" placeholder="Watchlist Title" />
                     </div>
                     <div className="two-col bottom">
-                        <button onClick={this.hide} className="cancel">Cancel</button>
-                        {submitButton}
+                        <button type="button" onClick={this.hide} className="cancel">Cancel</button>
+                        <button className="create-watchlist generic" type="submit">Create Watchlist</button>
                     </div>
                     <ul className="new-watchlist-errors">
                         {(Object.values(errors).length) ? Object.values(errors).map(error => <li>{error}</li>) : ""}

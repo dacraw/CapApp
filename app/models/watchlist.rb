@@ -1,4 +1,6 @@
 class Watchlist < ApplicationRecord
-    validates :title, presence: true, uniqueness: { scope: :user_id, message: "%{attribute} must be unique"}
-    validates :title, presence: true, length: {minimum: 1}
+    validates :title, 
+    presence: {message: "%{attribute} must be present"}, 
+    uniqueness: { scope: :user_id, message: "%{attribute} must be unique"},
+    length: {minimum: 1, message: "%{attribute} must be at least 1 character long"}
 end
