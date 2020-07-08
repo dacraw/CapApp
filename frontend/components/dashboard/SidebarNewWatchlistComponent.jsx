@@ -25,6 +25,10 @@ export default class SidebarNewWatchlistComponent extends Component {
         document.querySelector('#add-new-watchlist').style.display = "none";
     }
     render() {
+        const {errors} = this.props;
+
+        
+
         return (
             <div className="add-new-watchlist" id="add-new-watchlist">
                 <form onSubmit={this.handleSubmit}>
@@ -36,10 +40,10 @@ export default class SidebarNewWatchlistComponent extends Component {
                         <button onClick={this.hide} className="cancel">Cancel</button>
                         <button className="create-watchlist generic" type="submit">Create Watchlist</button>
                     </div>
+                    <ul className="new-watchlist-errors">
+                        {(Object.values(errors).length) ? Object.values(errors).map(error => <li>{error}</li>) : ""}
+                    </ul>
                 </form>
-                <ul className="new-watchlist-errors">
-
-                </ul>
             </div>
         )
     }

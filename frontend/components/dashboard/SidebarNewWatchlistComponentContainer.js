@@ -4,7 +4,7 @@ import SidebarNewWatchlistComponent from './SidebarNewWatchlistComponent'
 
 const mapStateToProps = state => {
     return ({
-        errors: state.errors
+        errors: state.errors.watchlists,
     })
 }
 
@@ -14,4 +14,4 @@ const mapDispatchToProps = dispatch => {
     })
 }
 
-export default connect(null, mapDispatchToProps)(SidebarNewWatchlistComponent)
+export default connect(mapStateToProps, mapDispatchToProps)(SidebarNewWatchlistComponent)
