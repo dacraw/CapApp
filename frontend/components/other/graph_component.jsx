@@ -27,7 +27,7 @@ class GraphComponent extends Component {
        
         if (!e.activePayload || !e.activePayload[0].value) return null;
         this.setState({
-            price: e.activePayload[0].value,
+            price: e.activePayload[0].value.toFixed(2),
             dollarChange: (e.activePayload[0].value - this.props.stock.chart[0].average).toFixed(2),      
             percentageChange: (((e.activePayload[0].value / this.props.stock.chart[0].average) - 1 ) * 100).toFixed(2),      
         });
