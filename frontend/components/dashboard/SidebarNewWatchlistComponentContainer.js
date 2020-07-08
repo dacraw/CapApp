@@ -5,6 +5,8 @@ import SidebarNewWatchlistComponent from './SidebarNewWatchlistComponent'
 const mapStateToProps = state => {
     return ({
         errors: state.errors.watchlists,
+        watchlistLoading: state.loading,
+        watchlists: state.entities.watchlists,
     })
 }
 

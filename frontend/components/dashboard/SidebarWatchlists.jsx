@@ -11,6 +11,12 @@ export default (props) => {
     }, []);
 
     const watchlists = useSelector(state => state.entities.watchlists);
+
+    useEffect( ()=> {
+        debugger
+        if (document.querySelector('#add-new-watchlist')) document.querySelector('#add-new-watchlist').style.display = "none";        
+    }, [watchlists])
+
     if (!Object.keys(watchlists).length) return null
 
     const newWatchlist = () => {

@@ -1,4 +1,5 @@
 import React, { Component } from 'react'
+import Loader2 from '../other/loader2'
 
 export default class SidebarNewWatchlistComponent extends Component {
     constructor(props){
@@ -27,8 +28,14 @@ export default class SidebarNewWatchlistComponent extends Component {
         document.querySelector('#add-new-watchlist').style.display = "none";
     }
     render() {
-        const {errors} = this.props;
+        const {errors, watchlistLoading} = this.props;
 
+        let submitButton;
+        if (watchlistLoading === true){
+            submitButton = ( <Loader2 /> )
+        } else {
+            submitButton = ( <button className="create-watchlist generic" type="submit">Create Watchlist</button> )
+        }
         
 
         return (
@@ -40,7 +47,7 @@ export default class SidebarNewWatchlistComponent extends Component {
                     </div>
                     <div className="two-col bottom">
                         <button onClick={this.hide} className="cancel">Cancel</button>
-                        <button className="create-watchlist generic" type="submit">Create Watchlist</button>
+                        {submitButton}
                     </div>
                     <ul className="new-watchlist-errors">
                         {(Object.values(errors).length) ? Object.values(errors).map(error => <li>{error}</li>) : ""}
