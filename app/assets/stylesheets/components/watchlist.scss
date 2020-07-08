@@ -65,8 +65,10 @@
     color: $lightgreen;
 }
 .new-watchlist-errors {
-    display: flex;
-    justify-content: space-evenly;
-    align-items: center;
     margin-top: 2vh;
+    text-align: center;
+    li {
+        font-size: .8em;
+        color: $red;
+    }
 }
