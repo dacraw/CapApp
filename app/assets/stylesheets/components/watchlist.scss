@@ -49,3 +49,12 @@
         height: inherit;
     }
 }
+
+.watchlist {
+    display: flex;
+    justify-content: space-evenly;
+    padding: 1vh 0;
+}
+.watchlist-title {
+    width: 70%;
+}

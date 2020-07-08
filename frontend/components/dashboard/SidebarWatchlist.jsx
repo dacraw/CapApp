@@ -8,10 +8,10 @@ export default ({watchlist}) => {
     
     return (
         <>
-            <li className="watchlist">
-                <div className="icon">X</div>
-                <div className="title">{watchlist.title}</div>
-            </li>
+            <a className="watchlist">
+                <i class="fas fa-lightbulb"></i>
+                <h2 className="watchlist-title">{watchlist.title}</h2>
+            </a>
         </>
     )
 };
