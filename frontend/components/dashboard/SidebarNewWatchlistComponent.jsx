@@ -19,6 +19,9 @@ export default class SidebarNewWatchlistComponent extends Component {
         e.preventDefault();
         this.props.createWatchlist(this.state);
     }
+    hide(){
+        document.querySelector('#add-new-watchlist').style.display = "none";
+    }
     render() {
         return (
             <div className="add-new-watchlist" id="add-new-watchlist">
@@ -28,7 +31,7 @@ export default class SidebarNewWatchlistComponent extends Component {
                         <input onChange={this.handleChange} value={this.state.title} type="text" name="title" placeholder="Watchlist Title" />
                     </div>
                     <div className="two-col bottom">
-                        <button className="cancel">Cancel</button>
+                        <button onClick={this.hide} className="cancel">Cancel</button>
                         <button className="create-watchlist generic" type="submit">Create Watchlist</button>
                     </div>
                 </form>
