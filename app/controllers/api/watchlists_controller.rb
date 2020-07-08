@@ -1,12 +1,13 @@
 class Api::WatchlistsController < ApplicationController
     # business news
     def index
-        @watchlists = Watchlist.where(user_id: 1)
+        @watchlists = Watchlist.where(user_id: current_user)
         render :index
     end
 
     def create
         @watchlist = Watchlist.new(watchlist_params)
+        @watchlist.user_id = current_user
         if @watchlist.save!
             render :create
         else

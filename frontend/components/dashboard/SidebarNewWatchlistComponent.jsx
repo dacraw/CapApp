@@ -1,12 +1,13 @@
 import React, { Component } from 'react'
-import {} from '../../actions/watchlistActions'
+import {useDispatch} from 'react-redux'
+import {createWatchlist} from '../../actions/watchlistActions'
 
 export default class SidebarNewWatchlistComponent extends Component {
     constructor(props){
         super(props)
         // debugger
         this.state = {
-            watchlistTitle: "",
+            title: "",
         }
         this.handleChange = this.handleChange.bind(this);
         this.handleSubmit = this.handleSubmit.bind(this);
@@ -19,7 +20,7 @@ export default class SidebarNewWatchlistComponent extends Component {
     }
     handleSubmit(e){
         e.preventDefault();
-        // need to create api to add watchlsit, then call it here
+        createWatchlist(this.state);
     }
     render() {
         return (

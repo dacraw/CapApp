@@ -8,5 +8,6 @@ export const createWatchlist = watchlist => {
     return $.ajax({
         url: '/api/watchlists',
         method: 'POST',
+        data: { watchlist },
     })
 }
