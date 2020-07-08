@@ -39,7 +39,7 @@ export const createWatchlist = watchlist => dispatch => {
     debugger
     return WatchlistUtil.createWatchlist(watchlist)
     .then(
-        response => dispatch(receiveSingleWatchList(response)),
+        response => dispatch(receiveSingleWatchlist(response)),
         errors => dispatch(receiveWatchlistErrors(errors.json))
     )    
 }
