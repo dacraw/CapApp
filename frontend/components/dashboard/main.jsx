@@ -47,7 +47,6 @@ class Dashboard extends React.Component {
 
         });
         console.log(combinedStats);
-        debugger
         combinedStats['price'] = parseFloat(user.portfolioValue.replace(/\$|,/g, ''));
     
         let combinedChart = combinedStats['chart'];

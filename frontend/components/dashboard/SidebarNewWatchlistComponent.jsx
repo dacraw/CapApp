@@ -12,7 +12,6 @@ export default class SidebarNewWatchlistComponent extends Component {
     }
     handleChange(e){
         e.preventDefault();
-        debugger
         this.setState({
             [e.currentTarget.getAttribute('name')]: e.currentTarget.value,
         })
