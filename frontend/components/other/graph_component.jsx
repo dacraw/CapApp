@@ -65,7 +65,6 @@ class GraphComponent extends Component {
 
         const strokeColor = (stock.dollarChange >= 0) ? "rgb(16, 197, 40)" : "#ff4f0b";
         const dollarChange = (stock.dollarChange >= 0) ? "" : "negative-change";
-        debugger
         return (
             <section className="stock-graph">
                 <h2 className="company-name">

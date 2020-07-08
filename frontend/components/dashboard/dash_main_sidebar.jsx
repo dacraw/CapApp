@@ -1,6 +1,6 @@
 import React, {Component} from 'react'
 import SidebarPortfolioItem from './sidebar_portfolio_item'
-import SidebarWatchedStocks from './SidebarWatchedStocks'
+import SidebarWatchedStocks from './SidebarWatchlists'
 
 class DashMainSidebar extends Component {
     constructor(props) {

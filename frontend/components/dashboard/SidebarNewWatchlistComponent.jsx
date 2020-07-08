@@ -1,4 +1,5 @@
 import React, { Component } from 'react'
+import {} from '../../actions/watchlistActions'
 
 export default class SidebarNewWatchlistComponent extends Component {
     constructor(props){
