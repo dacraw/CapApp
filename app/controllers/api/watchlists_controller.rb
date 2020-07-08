@@ -9,7 +9,7 @@ class Api::WatchlistsController < ApplicationController
         @watchlist = Watchlist.new(watchlist_params)
         @watchlist.user_id = current_user.id
         # debugger
-        if @watchlist.save!
+        if @watchlist.save
             render :create
         else
             render json: @watchlist.errors.full_messages, status: 422

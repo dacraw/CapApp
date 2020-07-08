@@ -17,7 +17,9 @@ export default class SidebarNewWatchlistComponent extends Component {
     }
     handleSubmit(e){
         e.preventDefault();
-        this.props.createWatchlist(this.state);
+        
+        this.props.createWatchlist(this.state)
+            .then(document.querySelector('#add-new-watchlist').style.display = "none");
     }
     hide(){
         document.querySelector('#add-new-watchlist').style.display = "none";

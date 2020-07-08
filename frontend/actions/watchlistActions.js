@@ -37,10 +37,10 @@ export const fetchAllWatchlists = () => dispatch => {
 
 export const createWatchlist = watchlist => dispatch => {
     return WatchlistUtil.createWatchlist(watchlist)
-    .then(
-        response => dispatch(receiveSingleWatchlist(response)),
-        errors => dispatch(receiveWatchlistErrors(errors.json))
-    )    
+        .then(
+            response => dispatch(receiveSingleWatchlist(response)),
+            errors => dispatch(receiveWatchlistErrors(errors.responseJSON))
+        )    
 }
 
 
