@@ -38,7 +38,10 @@ export const fetchAllWatchlists = () => dispatch => {
 export const createWatchlist = watchlist => dispatch => {
     return WatchlistUtil.createWatchlist(watchlist)
         .then(
-            response => dispatch(receiveSingleWatchlist(response)),
+            response => {
+                dispatch(receiveSingleWatchlist(response));
+                document.querySelector('#add-new-watchlist').style.display = "none";
+            },
             errors => dispatch(receiveWatchlistErrors(errors.responseJSON))
         )    
 }

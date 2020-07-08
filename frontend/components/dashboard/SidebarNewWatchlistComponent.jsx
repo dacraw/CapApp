@@ -9,6 +9,9 @@ export default class SidebarNewWatchlistComponent extends Component {
         this.handleChange = this.handleChange.bind(this);
         this.handleSubmit = this.handleSubmit.bind(this);
     }
+    componentDidUpdate(prevProps, prevState){
+        // if (prevP)
+    }
     handleChange(e){
         e.preventDefault();
         this.setState({
