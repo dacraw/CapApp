@@ -2,6 +2,6 @@
     # debugger
     json.set! watchlist.id do
         json.partial! 'watchlist', watchlist: watchlist
-        json.watchedStocks watchlist.watched_stocks
+        json.watchedStocks watchlist.stocks
     end
 end
