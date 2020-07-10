@@ -25,7 +25,7 @@ require_relative '../shared/stock_parser'
 @stocks.each do |stock|
     json.set! stock.symbol do
         stockParser = StockParser.new(stock.symbol)
-        json.extract! stock, :symbol, :company
+        json.extract! stock, :symbol, :company, :id
         chart = stockParser.chart
         price = stockParser.getDefaultPrice
         percentageChange = stockParser.getPercentageChange
