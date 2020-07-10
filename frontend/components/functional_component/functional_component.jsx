@@ -31,12 +31,12 @@ class FunctionalComponent extends Component {
                 <section className="main">
                     <Route path='/stocks/:symbol' component={StockShowContainer} />
                     <Route path='/dashboard' component={Dashboard} />
-                    <Route path='/watchlist' component={WatchlistShow} />
+                    <Route path='/watchlist/:id' component={WatchlistShow} />
                 </section>
                 <div className="stock-sidebar-container">
                     <aside>
                         <Route path='/stocks/:symbol' component={StockShowSidebarContainer} />
-                        <Route path={['/dashboard', '/watchlist']} component={DashMainSidebar} />
+                        <Route path={['/dashboard', '/watchlist/:id']} component={DashMainSidebar} />
                     </aside>
                 </div>
             </main>

@@ -5,7 +5,7 @@ import { useSelector } from 'react-redux'
 
 
 export default ({watchlist}) => {
-    
+    debugger
     return (
         <>
             <a className="watchlist">
