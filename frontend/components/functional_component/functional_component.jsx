@@ -7,6 +7,7 @@ import Dashboard from '../dashboard/main_container'
 import Loading from '../other/loader'
 import WatchlistShow from '../watchlist/watchlistShow'
 
+
 class FunctionalComponent extends Component {
     constructor(props) {
         super(props);

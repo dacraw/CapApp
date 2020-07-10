@@ -1,16 +1,21 @@
 import React, {useState} from 'react'
-import {useSelector} from 'react-redux'
-import {createWatchedStock} from '../../actions/watchlistActions'
+import {useSelector, useDispatch} from 'react-redux'
+import {createWatchedStock} from '../../actions/watchedStockActions'
+import {useParams} from 'react-router-dom'
 
 export default (props) => {
+    // debugger
     const [symbol, setSymbol] = useState("");
     const stocks = useSelector(state => state.entities.stocks)
+
+    const dispatch = useDispatch();
     const handleSubmit = (e) => {
         e.preventDefault()
         if (stocks[symbol]){
-            console.log('hi')
+            debugger
+            dispatch(createWatchedStock({stock_id: stocks[symbol].id, watchlist_id: props.params.id}))
         }
-        debugger
+        // debugger
         // createWatchedStock(stockID)
     }
     return (

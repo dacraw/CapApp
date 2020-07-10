@@ -7,8 +7,9 @@ const receiveWatchedStock = stock => ({
     stock
 });
 
-export const createWatchedStock = stockID => dispatch => {
-    return WSU.createWatchedStock(stockID)
+export const createWatchedStock = watched_stock => dispatch => {
+    debugger
+    return WSU.createWatchedStock(watched_stock)
         .then(
             res => dispatch(receiveWatchedStock(res))
         )

@@ -13,7 +13,7 @@ export default (props) => {
         <>
         <table>
             <tbody>
-                <AddWatchedStock />
+                <AddWatchedStock params={props.match.params} />
                 <tr>
                     <th>Symbol</th>
                     <th>Company</th>

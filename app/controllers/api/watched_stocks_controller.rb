@@ -1,8 +1,9 @@
-class WatchedStocksController < ApplicationController
+class Api::WatchedStocksController < ApplicationController
     def create
+        debugger
         @watched_stock = WatchedStock.new(watched_stock_params)
-        @watched_stock.watchlist_id = params[:id]
         if @watched_stock.save
+            debugger
             render :default
         else
             render json: @watched_stock.errors.full_messages, status: 422

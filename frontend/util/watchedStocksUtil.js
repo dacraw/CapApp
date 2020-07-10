@@ -1,7 +1,7 @@
-export const createWatchedStock = stockID => {
+export const createWatchedStock = watched_stock => {
     return $.ajax({
         type: 'POST',
         url: `/api/watched_stocks`,
-        data: { stockID }
+        data: { watched_stock }
     })
 }
