@@ -15,14 +15,13 @@ const App = (props) => {
         <>
             <header>
                 <Route exact path="/" component={SplashNavBarContainer} />
-                <ProtRoute exact path={["/dashboard","/stocks","/stocks/:symbol"]} component={DashNavBarContainer} />
+                <ProtRoute exact path={["/dashboard","/stocks","/stocks/:symbol", "/watchlist"]} component={DashNavBarContainer} />
             </header>
 
             <Switch>
                 <AuthRoute exact path="/signup" component={SignupContainer} />
                 <AuthRoute exact path="/login" component={LoginContainer} />
-                <ProtRoute exact path="/stocks/:symbol" component={FunctionalComponent} /> {/* dash */}
-                <ProtRoute exact path="/dashboard" component={FunctionalComponent} /> {/* dash */}
+                <ProtRoute exact path={["/stocks/:symbol", "/dashboard", "/watchlist"]} component={FunctionalComponent} /> {/* dash */}
                 <Route exact path="/" component={Splash} /> {/* splash*/}
             </Switch>
         </>

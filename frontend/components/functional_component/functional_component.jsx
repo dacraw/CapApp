@@ -5,6 +5,7 @@ import DashMainSidebar from '../dashboard/dash_main_sidebar_container'
 import StockShowContainer from '../stock_show/stock_show_container'
 import Dashboard from '../dashboard/main_container'
 import Loading from '../other/loader'
+import WatchlistShow from '../watchlist/watchlistShow'
 
 class FunctionalComponent extends Component {
     constructor(props) {
@@ -30,11 +31,12 @@ class FunctionalComponent extends Component {
                 <section className="main">
                     <Route path='/stocks/:symbol' component={StockShowContainer} />
                     <Route path='/dashboard' component={Dashboard} />
+                    <Route path='/watchlist' component={WatchlistShow} />
                 </section>
                 <div className="stock-sidebar-container">
                     <aside>
                         <Route path='/stocks/:symbol' component={StockShowSidebarContainer} />
-                        <Route path='/dashboard' component={DashMainSidebar} />
+                        <Route path={['/dashboard', '/watchlist']} component={DashMainSidebar} />
                     </aside>
                 </div>
             </main>

@@ -1,4 +1,7 @@
-json.array! @watchlists do |watchlist|
+@watchlists.each do |watchlist|
     # debugger
-    json.partial! 'watchlist', watchlist: watchlist
+    json.set! watchlist.id do
+        json.partial! 'watchlist', watchlist: watchlist
+        json.watchedStocks watchlist.watched_stocks
+    end
 end
