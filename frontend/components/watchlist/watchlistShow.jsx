@@ -2,9 +2,17 @@ import React, {useState} from 'react'
 import {useSelector, useDispatch} from 'react-redux'
 
 export default (props) => {
+    const watchlists = useSelector(state => state.entities.watchlists)
+    if (!Object.values(watchlists).length) return null
+
     debugger
-    // const watchedStocks = useSelector(state => state.entities.watchlists[props.match.params.watchlist_id])
+    const watchedStocks = watchlists[props.match.params.id].watchedStocks
+    console.log(watchedStocks)
     return (
-        <h1>It works!</h1>
+        <>
+        <ul>
+            {Object.values(watchedStocks).map(stock=><li>{stock.symbol}</li>)}
+        </ul>
+        </>
     )
 }
