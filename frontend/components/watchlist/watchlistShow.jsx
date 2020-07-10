@@ -1,5 +1,6 @@
 import React, {useState} from 'react'
 import {useSelector, useDispatch} from 'react-redux'
+import WatchlistStock from './WatchlistStock'
 
 export default (props) => {
     const watchlists = useSelector(state => state.entities.watchlists)
@@ -10,9 +11,15 @@ export default (props) => {
     console.log(watchedStocks)
     return (
         <>
-        <ul>
-            {Object.values(watchedStocks).map(stock=><li>{stock.symbol}</li>)}
-        </ul>
+        <table>
+            <tbody>
+                <th>Symbol</th>
+                <th>Company</th>
+                <th>Current Price</th>
+                <th>Daily % Change</th>
+                {Object.values(watchedStocks).map(stock=><WatchlistStock key={stock.symbol} watchedStock={stock} />)}
+            </tbody>
+        </table>
         </>
     )
 }
