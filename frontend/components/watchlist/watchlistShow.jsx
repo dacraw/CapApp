@@ -7,16 +7,13 @@ export default (props) => {
     const watchlists = useSelector(state => state.entities.watchlists)
     if (!Object.values(watchlists).length) return null
 
-    debugger
     const watchedStocks = watchlists[props.match.params.id].watchedStocks
     console.log(watchedStocks)
     return (
         <>
         <table>
             <tbody>
-                <tr>
-                    <AddWatchedStock />
-                </tr>
+                <AddWatchedStock />
                 <tr>
                     <th>Symbol</th>
                     <th>Company</th>

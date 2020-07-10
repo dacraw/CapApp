@@ -1,6 +1,7 @@
 class WatchedStocksController < ApplicationController
     def create
         @watched_stock = WatchedStock.new(watched_stock_params)
+        @watched_stock.watchlist_id = params[:id]
         if @watched_stock.save
             render :default
         else
