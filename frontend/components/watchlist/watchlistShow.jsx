@@ -6,12 +6,12 @@ import AddWatchedStock from './AddWatchedStock'
 export default (props) => {
     const watchlists = useSelector(state => state.entities.watchlists)
     if (!Object.values(watchlists).length) return null
-
+    debugger
     let watchedStocks;
-    if (Object.keys(watchlists[props.match.params.id]).length){
+    if (watchlists[props.match.params.id].watchedStocks){
         watchedStocks = watchlists[props.match.params.id].watchedStocks
     } else {
-        watchedStocks = []
+        watchedStocks = {}
     }
     console.log(watchedStocks)
     return (
@@ -25,7 +25,7 @@ export default (props) => {
                     <th>Current Price</th>
                     <th>Daily % Change</th>
                 </tr>
-                {Object.values(watchedStocks).map(stock=><WatchlistStock key={stock.symbol} watchedStock={stock} />)}
+                {(Object.keys(watchedStocks).length) ? Object.values(watchedStocks).map(stock=><WatchlistStock key={stock.symbol} watchedStock={stock}/>) : ""}
             </tbody>
         </table>
         </>
