@@ -7,10 +7,10 @@ import { useSelector } from 'react-redux'
 export default ({watchlist}) => {
     return (
         <>
-            <a className="watchlist">
+            <Link className="watchlist" to={`watchlist/${watchlist.id}`}>
                 <i class="fas fa-lightbulb"></i>
                 <h2 className="watchlist-title">{watchlist.title}</h2>
-            </a>
+            </Link>
         </>
     )
 };
