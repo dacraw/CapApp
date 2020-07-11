@@ -9,15 +9,18 @@ export default (props) => {
     if (!Object.values(watchlists).length) return null
     debugger
     if (!(props.match.params.id in watchlists)) return <Redirect to="/dashboard" />
+    const watchlistID = props.match.params.id;
+    const watchlist = watchlists[watchlistID];
     let watchedStocks;
     // debugger
-    if (props.match.params.id in watchlists && !!watchlists[props.match.params.id].watchedStocks){
-        watchedStocks = watchlists[props.match.params.id].watchedStocks
+    if (watchlistID in watchlists && !!watchlist.watchedStocks){
+        watchedStocks = watchlist.watchedStocks
     } else {
         watchedStocks = {}
     }
     return (
         <>
+        <h1></h1>
         <table className="watchlist-show">
             <tbody>
                 <AddWatchedStock params={props.match.params} />
