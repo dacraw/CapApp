@@ -3,9 +3,10 @@ import SideBarNewWatchlistComponent from './SidebarNewWatchlistComponentContaine
 import SidebarWatchlist from './SidebarWatchlist'
 import {useDispatch, useSelector} from 'react-redux'
 import {fetchAllWatchlists} from '../../actions/watchlistActions'
+import {Route} from 'react-router-dom'
 
 export default (props) => {
-
+// debugger
     const dispatch = useDispatch();
     useEffect( ()=> {
         dispatch(fetchAllWatchlists());
