@@ -1,6 +1,6 @@
 @watchlists.each do |watchlist|
     # debugger
-    json.set! watchlist.id do
+
         json.partial! 'watchlist', watchlist: watchlist
         json.watchedStocks do
             if (!watchlist.watched_stocks.length)             
@@ -16,5 +16,5 @@
                 end
             end
         end
-    end
+
 end

@@ -2,7 +2,7 @@ Rails.application.routes.draw do
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
   namespace :api, defaults: {format: :json} do
     resources :news, only: [:index, :show]
-    resources :watchlists, only: [:index, :create]
+    resources :watchlists, only: [:index, :create, :destroy]
     resources :watched_stocks, only: [:create, :destroy]
     resources :users, only: [:create] do
       resources :portfolios, param: :symbol, only: [:index, :update]

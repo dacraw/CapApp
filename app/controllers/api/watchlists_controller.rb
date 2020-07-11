@@ -17,6 +17,15 @@ class Api::WatchlistsController < ApplicationController
         end
     end
 
+    def destroy
+        @watchlist = Watchlist.find(params[:id])
+        if @watchlist.destroy
+            render :destroy
+        else
+            render json: @watchlist.errors.full_messages, status: 422
+        end
+    end
+
     def watchlist_params
         params.require(:watchlist).permit(:user_id, :title)
     end
