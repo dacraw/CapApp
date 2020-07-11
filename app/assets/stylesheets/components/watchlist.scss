@@ -55,6 +55,22 @@
     justify-content: space-evenly;
     padding: 1vh 0;
 }
+
+.fa-ellipsis-h {
+    position: relative;
+}
+
+.watchlist-sidebar-options {
+    display: none;
+    position: fixed;
+    width: 10vw;
+    background: black;
+    height: 10vh;
+    /* right: 138px; */
+    margin-left: -8vw;
+    z-index: 10;
+}
+
 .watchlist-title {
     width: 70%;
 }

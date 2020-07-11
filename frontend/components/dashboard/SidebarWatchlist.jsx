@@ -13,7 +13,7 @@ export default (props) => {
         e.stopPropagation();
         e.preventDefault();
         const watchlistID = e.currentTarget.getAttribute('data-key')
-        $(`.watchlist-options-${watchlistID}`).show();
+        $(`.watchlist-options-${watchlistID}`).toggle();
     }
 
     return (
@@ -23,10 +23,12 @@ export default (props) => {
                 <Link className="watchlist" to={`${watchlist.id}`}>
                     <i className="fas fa-lightbulb"></i>
                     <h2 className="watchlist-title">{watchlist.title}</h2>
-                    <i onClick={showOptions} key={watchlist.id} data-key={watchlist.id} className="fas fa-ellipsis-h"></i>
-                    <div className={`watchlist-sidebar-options watchlist-options-${watchlist.id}`}>
-                        <h1>i here</h1>
-                    </div>
+                    <i onClick={showOptions} key={watchlist.id} data-key={watchlist.id} className="fas fa-ellipsis-h">
+                        <div className={`watchlist-sidebar-options watchlist-options-${watchlist.id}`}>
+                            <Link to={`${watchlist.id}`}>Edit List</Link>
+                            <button type="button">Delete List</button>
+                        </div>
+                    </i>
                 </Link>
             </>
             </Route>
