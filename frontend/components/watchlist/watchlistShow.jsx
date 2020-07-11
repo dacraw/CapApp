@@ -18,7 +18,7 @@ export default (props) => {
     }
     return (
         <>
-        <table>
+        <table className="watchlist-show">
             <tbody>
                 <AddWatchedStock params={props.match.params} />
                 <tr>

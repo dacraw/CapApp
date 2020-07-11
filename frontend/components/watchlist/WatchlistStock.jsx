@@ -7,7 +7,7 @@ export default ({watchedStock}) => {
     if (!stockInfo) return null
 
     const dispatch = useDispatch();
-
+    debugger
     return (
         <tr className="watchlist-stock">
             <td>{stockInfo.symbol}</td>

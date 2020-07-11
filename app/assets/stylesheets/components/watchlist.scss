@@ -60,6 +60,14 @@
     position: relative;
 }
 
+.watchlist-show {
+    th,td {
+        padding: 1vw;
+        padding: 1vw;
+        border-bottom: 1px solid $lightgray;
+    }
+}
+
 .watchlist-sidebar-options {
     display: none;
     position: fixed;
