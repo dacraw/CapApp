@@ -14,7 +14,6 @@ export default (state = _null, action) => {
             // nextState.unshift(action.watchlist);
             // return nextState
         case RECEIVE_WATCHED_STOCK:
-            debugger
             return _.merge({}, state, action.stock)
         default:
             return state
