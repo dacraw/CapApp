@@ -8,7 +8,6 @@ export default (props) => {
     if (!Object.values(watchlists).length) return null
 
     let watchedStocks;
-    debugger
     if (Object.keys(watchlists[props.match.params.id]).length){
         watchedStocks = watchlists[props.match.params.id].watchedStocks
     } else {

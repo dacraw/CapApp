@@ -15,12 +15,9 @@ export default (state = _null, action) => {
             // return nextState
         case RECEIVE_WATCHED_STOCK:
             debugger
-            return _.merge(
-                {},
-                state,
-                action.stock
-            )
-            break;
+            const nextState = _.merge({}, state);
+            nextState[Object.keys(action.stock)[0]].watchedStocks.push(Object.values(action.stock)[0].watchedStocks);
+            return nextState
         default:
             return state
     }

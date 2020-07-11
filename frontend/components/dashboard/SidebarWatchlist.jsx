@@ -6,7 +6,6 @@ import {Switch, Route, useLocation} from 'react-router-dom'
 
 
 export default (props) => {
-    debugger
     const {watchlist} = props;
     const location = useLocation();
     // const linkPath = ()

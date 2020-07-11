@@ -12,7 +12,6 @@ export default (props) => {
     const handleSubmit = (e) => {
         e.preventDefault()
         if (stocks[symbol]){
-            debugger
             dispatch(createWatchedStock({stock_id: stocks[symbol].id, watchlist_id: props.params.id}))
         }
         // debugger
