@@ -1,4 +1,5 @@
 import {RECEIVE_ALL_WATCHLISTS, RECEIVE_SINGLE_WATCHLIST} from '../actions/watchlistActions'
+import {RECEIVE_WATCHED_STOCK} from '../actions/watchedStockActions'
 import _ from 'lodash'
 
 const _null = {};
@@ -12,6 +13,14 @@ export default (state = _null, action) => {
             // let nextState = _.cloneDeep(state);
             // nextState.unshift(action.watchlist);
             // return nextState
+        case RECEIVE_WATCHED_STOCK:
+            debugger
+            return _.merge(
+                {},
+                state,
+                action.stock
+            )
+            break;
         default:
             return state
     }
