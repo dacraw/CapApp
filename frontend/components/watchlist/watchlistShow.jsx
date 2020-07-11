@@ -2,12 +2,15 @@ import React, {useState} from 'react'
 import {useSelector, useDispatch} from 'react-redux'
 import WatchlistStock from './WatchlistStock'
 import AddWatchedStock from './AddWatchedStock'
+import {Redirect} from 'react-router-dom'
 
 export default (props) => {
     const watchlists = useSelector(state => state.entities.watchlists)
     if (!Object.values(watchlists).length) return null
-    let watchedStocks;
     debugger
+    if (!(props.match.params.id in watchlists)) return <Redirect to="/dashboard" />
+    let watchedStocks;
+    // debugger
     if (props.match.params.id in watchlists && !!watchlists[props.match.params.id].watchedStocks){
         watchedStocks = watchlists[props.match.params.id].watchedStocks
     } else {
