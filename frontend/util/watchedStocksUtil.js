@@ -7,7 +7,7 @@ export const createWatchedStock = watched_stock => {
 };
 
 export const deleteWatchedStock = watchedStockID => {
-    debugger
+
     return $.ajax({
         type: 'DELETE',
         url: `/api/watched_stocks/${watchedStockID}`,

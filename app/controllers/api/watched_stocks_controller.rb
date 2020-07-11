@@ -11,7 +11,7 @@ class Api::WatchedStocksController < ApplicationController
     def destroy
         @watched_stock = WatchedStock.find(params[:id])
         if @watched_stock.destroy
-            render json: ["success"]
+            render :default
         else
             render json: @watched_stock.errors.full_messages, status: 422
         end

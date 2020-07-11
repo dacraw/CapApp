@@ -6,7 +6,6 @@ import AddWatchedStock from './AddWatchedStock'
 export default (props) => {
     const watchlists = useSelector(state => state.entities.watchlists)
     if (!Object.values(watchlists).length) return null
-    debugger
     let watchedStocks;
     if (watchlists[props.match.params.id].watchedStocks){
         watchedStocks = watchlists[props.match.params.id].watchedStocks

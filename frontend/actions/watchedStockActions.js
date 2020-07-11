@@ -8,9 +8,9 @@ const receiveWatchedStock = stock => ({
     stock
 });
 
-const removeWatchedStock = watchedStockID => ({
+const removeWatchedStock = watchedStock => ({
     type: REMOVE_WATCHED_STOCK,
-    watchedStockID
+    watchedStock
 });
 
 export const createWatchedStock = watched_stock => dispatch => {
@@ -23,6 +23,6 @@ export const createWatchedStock = watched_stock => dispatch => {
 export const deleteWatchedStock = watchedStockID => dispatch => {
     return WSU.deleteWatchedStock(watchedStockID)
         .then(
-            () => dispatch(receiveWatchedStock(watchedStockID))
+            (res) => dispatch(removeWatchedStock(res))
         )
 };
