@@ -26,8 +26,8 @@ export default (props) => {
                     <h2 className="watchlist-title">{watchlist.title}</h2>
                     <i onClick={showOptions} key={watchlist.id} data-key={watchlist.id} className="fas fa-ellipsis-h">
                         <div className={`watchlist-sidebar-options watchlist-options-${watchlist.id}`}>
-                            <Link to={`${watchlist.id}`}>Edit List</Link>
-                            <button onClick={() => dispatch(deleteWatchlist(watchlist.id))} type="button">Delete List</button>
+                            <Link to={`${watchlist.id}`}><i className="fas fa-cog"></i>Edit List</Link>
+                            <button onClick={() => dispatch(deleteWatchlist(watchlist.id))} type="button"><i className="far fa-times-circle"></i>Delete List</button>
                         </div>
                     </i>
                 </Link>
