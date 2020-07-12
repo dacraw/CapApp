@@ -11,8 +11,8 @@ export default (props) => {
     const dispatch = useDispatch();
     const handleSubmit = (e) => {
         e.preventDefault()
-        if (stocks[symbol]){
-            dispatch(createWatchedStock({stock_id: stocks[symbol].id, watchlist_id: props.params.id}))
+        if (stocks[symbol.toUpperCase()]){
+            dispatch(createWatchedStock({stock_id: stocks[symbol.toUpperCase()].id, watchlist_id: props.params.id}))
         }
         // debugger
         // createWatchedStock(stockID)
@@ -20,10 +20,9 @@ export default (props) => {
     return (
         <tr>
             <td colSpan="5">
-            <form onSubmit={handleSubmit}>
-                    <label>Stock Symbol:
-                        <input type="text" value={symbol} onChange={(e) => setSymbol(e.currentTarget.value)}/>
-                    </label>
+            <form className="add-watched-stock" onSubmit={handleSubmit}>
+                    <label htmlFor="add-watched-stock-symbol">Stock Symbol:</label>
+                    <input id="add-watched-stock-symbol" type="text" value={symbol} onChange={(e) => setSymbol(e.currentTarget.value)}/>
                     <input type="submit" value="Add Stock to List" />
             </form>
             </td>

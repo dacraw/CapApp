@@ -11,8 +11,8 @@ export default ({watchedStock}) => {
         <tr className="watchlist-stock">
             <td>{stockInfo.symbol}</td>
             <td>{stockInfo.company}</td>
-            <td>{stockInfo.price}</td>
-            <td>{stockInfo.percentageChange}</td>
+            <td>${stockInfo.price}</td>
+            <td>{stockInfo.percentageChange}%</td>
             <td><button onClick={() => dispatch(deleteWatchedStock(watchedStock.id))} type="button">X</button></td>
         </tr>
     )

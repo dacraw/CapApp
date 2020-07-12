@@ -19,7 +19,8 @@ export default (props) => {
     }
     return (
         <>
-        <h1></h1>
+        <h1 className="watchlist-show-title">{watchlists[props.match.params.id].title}</h1>
+        <h5 className="watchlist-show-num-items">{Object.keys(watchedStocks).length} items</h5>
         <table className="watchlist-show">
             <tbody>
                 <AddWatchedStock params={props.match.params} />
@@ -28,6 +29,7 @@ export default (props) => {
                     <th>Company</th>
                     <th>Current Price</th>
                     <th>Daily % Change</th>
+                    <th></th>
                 </tr>
                 {(Object.keys(watchedStocks).length) ? Object.values(watchedStocks).map(stock=><WatchlistStock key={stock.symbol} watchedStock={stock}/>) : ""}
             </tbody>

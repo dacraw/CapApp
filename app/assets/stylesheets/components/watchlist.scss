@@ -77,11 +77,21 @@
 }
 
 .watchlist-show {
+    width: 100%;
     th,td {
-        padding: 1vw;
-        padding: 1vw;
+        padding: 1vw 0;
         border-bottom: 1px solid $lightgray;
     }
+    th {
+        text-align: left;
+        font-weight: bold;
+    }
+}
+
+.watchlist-show-num-items {
+    color: $gray;
+    font-size: .9em;
+    margin-bottom: 5vh;
 }
 
 .watchlist-sidebar-options {
@@ -122,9 +132,14 @@
     }
 }
 
+.watchlist-show-title {
+    font-size: 2em;
+}
+
 .watchlist-title {
     width: 70%;
 }
+
 .fa-plus-square {
     cursor: pointer;
 }
@@ -137,5 +152,30 @@
     li {
         font-size: .8em;
         color: $red;
+    }
+}
+
+form.add-watched-stock {
+    display: flex;
+    align-items: center;
+    > * {
+        margin-right: 1vw;
+    }
+    input[type=text] {
+        border: 1px solid $lightgray;
+        padding: 1vw;
+    }
+    input[type=submit] {
+        padding: 1vw;
+        background-color: $lightgreen;
+        cursor: pointer;
+        color: $white;
+        border: 1px solid $lightgreen;
+        font-weight: bold;
+        &:hover {
+            color: $black;
+            background: none;
+            box-sizing: border-box;
+        }
     }
 }
