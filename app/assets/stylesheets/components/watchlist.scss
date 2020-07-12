@@ -69,6 +69,7 @@
 
 .fa-ellipsis-h {
     position: relative;
+    z-index: 10;
     visibility: hidden;
     padding: .3vw;
     &:hover {
