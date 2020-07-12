@@ -69,7 +69,6 @@
 
 .fa-ellipsis-h {
     position: relative;
-    z-index: 10;
     visibility: hidden;
     padding: .3vw;
     &:hover {
@@ -97,7 +96,8 @@
 
 .watchlist-sidebar-options {
     display: none;
-    position: fixed;
+    position: absolute;
+    bottom: 6vh;
     width: 10vw;
     background: white;
     /* height: 10vh; */
