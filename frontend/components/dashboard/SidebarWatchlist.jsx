@@ -18,7 +18,6 @@ export default (props) => {
     const dispatch = useDispatch();
 
     const hideOptions = () => {
-        debugger
         $('.watchlist-sidebar-options').hide()
     }
 
