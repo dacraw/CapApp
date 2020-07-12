@@ -7,7 +7,6 @@ import {Redirect} from 'react-router-dom'
 export default (props) => {
     const watchlists = useSelector(state => state.entities.watchlists)
     if (!Object.values(watchlists).length) return null
-    debugger
     if (!(props.match.params.id in watchlists)) return <Redirect to="/dashboard" />
     const watchlistID = props.match.params.id;
     const watchlist = watchlists[watchlistID];

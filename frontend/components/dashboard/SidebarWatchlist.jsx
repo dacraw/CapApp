@@ -17,11 +17,16 @@ export default (props) => {
 
     const dispatch = useDispatch();
 
+    const hideOptions = () => {
+        debugger
+        $('.watchlist-sidebar-options').hide()
+    }
+
     return (
         <Switch>
             <Route path="/watchlist/:id">
             <>
-                <Link className="watchlist" to={`${watchlist.id}`}>
+                <Link onMouseEnter={() => hideOptions()} className="watchlist" to={`${watchlist.id}`}>
                     <i className="fas fa-lightbulb"></i>
                     <h2 className="watchlist-title">{watchlist.title}</h2>
                     <i onClick={showOptions} key={watchlist.id} data-key={watchlist.id} className="fas fa-ellipsis-h">
