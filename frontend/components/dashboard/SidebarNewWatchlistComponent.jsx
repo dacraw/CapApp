@@ -13,7 +13,6 @@ export default class SidebarNewWatchlistComponent extends Component {
     }
 
     componentDidUpdate(prevProps, prevState){
-        debugger
         if (Object.keys(prevProps.watchlists).length !== Object.keys(this.props.watchlists).length){
             document.querySelector('#add-new-watchlist').style.display = "none";
             this.setState({
@@ -35,7 +34,6 @@ export default class SidebarNewWatchlistComponent extends Component {
     }
     hide(){
         document.querySelector('#add-new-watchlist').style.display = "none";
-        debugger
         this.props.clearWatchlistErrors();
     }
     render() {

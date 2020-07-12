@@ -11,14 +11,13 @@ class DashMainSidebar extends Component {
         }
     }
     newWatchlist() {
-        debugger
         document.querySelector('#add-new-watchlist').style.display = "flex";
     }
     
     render() {
         const { stocks, user: {ownedStocks}, watchlists } = this.props;
 
-        if (!stocks || !ownedStocks) return null;
+        if (!stocks || !ownedStocks || !watchlists) return null;
         return (
             <>
                 <div className="sidebar-header">

@@ -2,6 +2,7 @@ import * as WatchlistUtil from '../util/watchlistUtil'
 
 export const RECEIVE_ALL_WATCHLISTS = "RECEIVE_ALL_WATCHLISTS";
 export const RECEIVE_SINGLE_WATCHLIST = "RECEIVE_SINGLE_WATCHLIST";
+export const REMOVE_SINGLE_WATCHLIST = "REMOVE_SINGLE_WATCHLIST";
 export const RECEIVE_WATCHLIST_ERRORS = "RECEIVE_WATCHLIST_ERRORS";
 export const START_LOADING_WATCHLIST = "START_LOADING_WATCHLIST";
 export const CLEAR_WATCHLIST_ERRORS = "CLEAR_WATCHLIST_ERRORS";
@@ -14,6 +15,11 @@ const receiveAllWatchLists = watchlists => ({
 const receiveSingleWatchlist = watchlist => ({
     type: RECEIVE_SINGLE_WATCHLIST,
     watchlist,
+});
+
+const removeSingleWatchlist = watchlistID => ({
+    type: REMOVE_SINGLE_WATCHLIST,
+    watchlistID,
 });
 
 const receiveWatchlistErrors = errors => ({
@@ -47,6 +53,18 @@ export const createWatchlist = watchlist => dispatch => {
         .then(
             response => {
                 dispatch(receiveSingleWatchlist(response));
+                // document.querySelector('#add-new-watchlist').style.display = "none";
+            },
+            errors => dispatch(receiveWatchlistErrors(errors.responseJSON))
+        )    
+}
+
+export const deleteWatchlist = watchlistID => dispatch => {
+    dispatch(startLoadingWatchlist());
+    return WatchlistUtil.deleteWatchlist(watchlistID)
+        .then(
+            () => {
+                dispatch(removeSingleWatchlist(watchlistID));
                 // document.querySelector('#add-new-watchlist').style.display = "none";
             },
             errors => dispatch(receiveWatchlistErrors(errors.responseJSON))

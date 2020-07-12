@@ -26,6 +26,7 @@ document.addEventListener('DOMContentLoaded', () => {
         $('#sidebar-info-dropdown').fadeOut(200);
         $('#dash-nav-account-options').fadeOut(200);
         $('#stock-list ul').fadeOut(50);
+        $('.watchlist-sidebar-options').fadeOut(50);
     }
 
     const root = document.getElementById('root');

@@ -52,12 +52,94 @@
 
 .watchlist {
     display: flex;
-    justify-content: space-evenly;
-    padding: 1vh 0;
+    justify-content: space-between;
+    /* padding: 1vh 0; */
+    padding: 1vw 2vw;
+    align-items: center;
+    color: $black;
+    font-size: .9em;
+    &:hover {
+        background-color: $lightblue;
+        .fa-ellipsis-h {
+            visibility: visible;
+        }
+    }
 }
+
+
+.fa-ellipsis-h {
+    position: relative;
+    visibility: hidden;
+    padding: .3vw;
+    &:hover {
+        color: $lightgreen;
+    }
+}
+
+.watchlist-show {
+    width: 100%;
+    th,td {
+        padding: 1vw 0;
+        border-bottom: 1px solid $lightgray;
+    }
+    th {
+        text-align: left;
+        font-weight: bold;
+    }
+}
+
+.watchlist-show-num-items {
+    color: $gray;
+    font-size: .9em;
+    margin-bottom: 5vh;
+}
+
+.watchlist-sidebar-options {
+    display: none;
+    position: fixed;
+    width: 10vw;
+    background: white;
+    /* height: 10vh; */
+    /* right: 138px; */
+    margin-left: -8vw;
+    z-index: 10;
+    box-shadow: 0 0 10px grey;
+    border-radius: 3px;
+    /* padding: 1vw; */
+    box-sizing: border-box;
+    font-family: "Roboto", sans-serif;
+    font-size: .9em;
+    > * {
+        text-decoration: none;
+        cursor: pointer;
+        padding: 1vh 0;
+        color: black;
+        background: none;
+        display: flex;
+        justify-content: flex-start;
+        align-items: center;
+        padding: 1vw;
+        width: 100%;
+        i {
+            margin-right: 1vw;
+        }
+        &:hover {
+            background-color: $lightblue;
+        }
+    }
+    button {
+        font-weight: bold;
+    }
+}
+
+.watchlist-show-title {
+    font-size: 2em;
+}
+
 .watchlist-title {
     width: 70%;
 }
+
 .fa-plus-square {
     cursor: pointer;
 }
@@ -70,5 +152,30 @@
     li {
         font-size: .8em;
         color: $red;
+    }
+}
+
+form.add-watched-stock {
+    display: flex;
+    align-items: center;
+    > * {
+        margin-right: 1vw;
+    }
+    input[type=text] {
+        border: 1px solid $lightgray;
+        padding: 1vw;
+    }
+    input[type=submit] {
+        padding: 1vw;
+        background-color: $lightgreen;
+        cursor: pointer;
+        color: $white;
+        border: 1px solid $lightgreen;
+        font-weight: bold;
+        &:hover {
+            color: $black;
+            background: none;
+            box-sizing: border-box;
+        }
     }
 }
