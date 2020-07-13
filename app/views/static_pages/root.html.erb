@@ -8,6 +8,7 @@
     </script>
 <% end %>
 <script type="text/javascript">
+    // images
     window.gradient = "<%= image_url('gradient1.jpg') %>"
     window.stockTwo = "<%= image_url('stock2.jpg') %>"
     window.logo = "<%= image_url('logo.png') %>"
@@ -21,6 +22,9 @@
     window.dollars = "<%= image_url('dollars.jpg') %>"
     window.logoNoText = "<%= image_url('logonotext.png') %>";
     window.stockThree = "<%= image_url('stock3.jpg') %>";
+
+    // server environment
+    window.environment = "<%= Rails.env %>"
 </script>
 
 <div id="root"></div>
