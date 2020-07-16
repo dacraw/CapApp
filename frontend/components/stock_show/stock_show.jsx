@@ -16,7 +16,6 @@ class StockShow extends Component {
     }
     
     componentDidMount() {
-        
         if (!this.props.stockSym.about){
             this.props.fetchStock(this.props.match.params.symbol.toUpperCase());
         }
@@ -39,7 +38,6 @@ class StockShow extends Component {
 
 
     render() {
-
         // this.props.fetchStock(sym.toUpperCase())
         const { stockSym, loading, stocks } = this.props;
         if (!Object.keys(stocks).length) return null

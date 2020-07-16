@@ -14,13 +14,13 @@ require_relative '../shared/news_api'
 json.cashAvailable number_to_currency(current_user.cash_available)
 
         # json.chart
-
+#debugger
+json.stocks @portfolio.group(:symbol).select('symbol, SUM(num_shares)')
 portfolioValue = 0
-json.ownedStocks do
+json.history do
     @portfolio.each do |item|
-        json.set! item.symbol do
-            json.symbol item.symbol
-            json.num_shares item.num_shares 
+        json.set! item.id do
+            json.extract! item, :id, :user_id, :symbol, :num_shares, :created_at
         end
         stockParser = StockParser.new(item.symbol)
         stockPrice = stockParser.getDefaultPrice

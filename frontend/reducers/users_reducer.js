@@ -17,9 +17,6 @@ export default (state = {}, action) => {
                 {}, 
                 state, 
                 { [action.user.id]: action.user })
-        case RECEIVE_PORTFOLIO:
-                        
-            return merge({}, state, action.portfolio);
 
         case LOGOUT_CURRENT_USER:
             return _nullState;

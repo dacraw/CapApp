@@ -19,9 +19,9 @@ class Dashboard extends React.Component {
 
 
     render() {
-        const { stocks, user, user: {ownedStocks}, stockLoader } = this.props;
+        const { stocks, user, portfolios, stockLoader } = this.props;
 
-        if (!Object.keys(stocks).length || !ownedStocks || !user || !user.portfolioValue) return null;
+        if (!Object.keys(stocks).length || !portfolios || !user) return null;
 
         const symbols = Object.keys(ownedStocks);
         if (!stocks) return null
