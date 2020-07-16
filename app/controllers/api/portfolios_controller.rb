@@ -15,7 +15,7 @@ class Api::PortfoliosController < ApplicationController
         
         cash_available = User.find(portfolio_params[:user_id]).cash_available
         stock_price = portfolio_params[:stock_price].to_f.round(2)
-        @num_shares = portfolio_params[:num_shares].to_f
+        @num_shares = (portfolio_params[:formType] == 'sell') ? portfolio_params[:num_shares].to_f * -1 : portfolio_params[:num_shares].to_f
         total_cost = @num_shares * stock_price
         @form_type = portfolio_params[:formType]
         
