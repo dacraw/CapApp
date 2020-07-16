@@ -9,7 +9,6 @@ export default (state = {}, action) => {
     Object.freeze(state);
     switch (action.type) {
         case RECEIVE_STOCK:
-            debugger
             nextState = merge({}, state, action.stock)
             let symbol;
             if (Object.keys(action.stock).length){

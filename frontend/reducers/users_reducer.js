@@ -20,12 +20,7 @@ export default (state = {}, action) => {
         case RECEIVE_PORTFOLIO:
                         
             return merge({}, state, action.portfolio);
-        case RECEIVE_PORTFOLIOS:
-            return _.merge(
-                {},
-                state,
-                action.portfolios
-            )   
+
         case LOGOUT_CURRENT_USER:
             return _nullState;
         default:

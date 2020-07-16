@@ -1,12 +1,12 @@
 class Api::PortfoliosController < ApplicationController
     def index
         @portfolio = Portfolio.where(user_id: params[:user_id])
-        
+        #debugger
         # if @portfolio.length != 0
             render :index
-        # else
-        #     render json: ["User currently has no portfolios"]
-        # end
+        #else
+            # render json: ["User currently has no portfolios"]
+        #end
     end
 
     def create
@@ -17,6 +17,7 @@ class Api::PortfoliosController < ApplicationController
         stock_price = portfolio_params[:stock_price].to_f.round(2)
         @num_shares = portfolio_params[:num_shares].to_f
         total_cost = @num_shares * stock_price
+        @form_type = portfolio_params[:formType]
         
         if cash_available >= total_cost
             if @portfolio.save

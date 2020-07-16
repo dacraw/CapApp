@@ -13,6 +13,9 @@ class Dashboard extends React.Component {
             
         }
     }
+    componentDidMount(){
+        this.props.fetchBusinessNews();
+    }
 
 
     render() {
