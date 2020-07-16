@@ -17,7 +17,9 @@ class StockShow extends Component {
     
     componentDidMount() {
         
-        this.props.fetchStock(this.props.match.params.symbol.toUpperCase());
+        if (!this.props.stockSym.about){
+            this.props.fetchStock(this.props.match.params.symbol.toUpperCase());
+        }
         
 
     }
