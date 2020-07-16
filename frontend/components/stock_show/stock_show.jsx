@@ -27,8 +27,8 @@ class StockShow extends Component {
         // check if the hash has changed; if so, fetch single stock info UNLESS already in the state
         // currently only fetching 1d graph
         const { fetchStock, stocks, match: { params: { symbol } } } = this.props;
-        const sym = symbol.toUpperCase();
 
+        const sym = symbol.toUpperCase();
         if (sym !== prevProps.match.params.symbol.toUpperCase() && !!stocks[sym.toUpperCase()] && !stocks[sym].about){ 
             fetchStock(sym);
         }
@@ -39,8 +39,8 @@ class StockShow extends Component {
     render() {
 
         // this.props.fetchStock(sym.toUpperCase())
-        const { stockSym, loading } = this.props;
-        
+        const { stockSym, loading, stocks } = this.props;
+        if (!Object.keys(stocks).length) return null
         // if (loading) return <Loading />
         if (!stockSym || !stockSym.about) return null
         

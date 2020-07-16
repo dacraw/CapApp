@@ -16,7 +16,7 @@ require 'json'
 require_relative '../shared/sample_state'
 require_relative '../shared/stock_parser'
 
-
+ownedStocks = current_user.stocks.pluck(:symbol)
 
 # how to access response:
 # response.code
@@ -26,7 +26,8 @@ require_relative '../shared/stock_parser'
     json.set! stock.symbol do
         stockParser = StockParser.new(stock.symbol)
         json.extract! stock, :symbol, :company, :id
-        chart = stockParser.getChart
+        #debugger
+        chart = (ownedStocks.include?(stock.symbol)) ? stockParser.getChart : stockParser.getDefaultChart
         price = stockParser.getDefaultPrice
         percentageChange = stockParser.getPercentageChange
 

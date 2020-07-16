@@ -21,6 +21,7 @@ class Dashboard extends React.Component {
         if (!Object.keys(stocks).length || !ownedStocks || !user || !user.portfolioValue) return null;
 
         const symbols = Object.keys(ownedStocks);
+        if (!stocks) return null
         // this block combines the averages for all of the user's portfolios; 
         // please note that for demo purposes, the data is pulled from a sample chart that does not use up-to-date info
 
