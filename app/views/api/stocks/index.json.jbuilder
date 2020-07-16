@@ -24,6 +24,7 @@ ownedStocks = current_user.stocks.pluck(:symbol)
 
 @stocks.each do |stock|
     json.set! stock.symbol do
+        json.symbol stock.symbol
         stockParser = StockParser.new(stock.symbol)
         json.extract! stock, :symbol, :company, :id
         #debugger

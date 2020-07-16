@@ -27,6 +27,7 @@ aboutUri = URI.parse("https://cloud.iexapis.com/stable/stock/#{@stock.symbol}/co
 aboutResponse = Net::HTTP.get_response(aboutUri)
 
 json.set! @stock.symbol do
+    json.symbol @stock.symbol
 
     json.price price
 

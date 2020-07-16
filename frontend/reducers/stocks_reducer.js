@@ -5,16 +5,20 @@ import {merge} from 'lodash'
 const _nullState = {}
 
 export default (state = {}, action) => {
-    
+    let nextState = {};
     Object.freeze(state);
     switch (action.type) {
         case RECEIVE_STOCK:
+            debugger
+            nextState = merge({}, state, action.stock)
+            let symbol;
+            if (Object.keys(action.stock).length){
+                symbol = Object.keys(action.stock)[0]
+                nextState[symbol].chart = action.stock[symbol].chart
+
+            }
             
-            return merge(
-                {},
-                state,
-                action.stock
-            ) 
+            return nextState
         case RECEIVE_STOCKS:
             // using stock data 
             
