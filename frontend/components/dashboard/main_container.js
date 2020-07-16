@@ -1,10 +1,11 @@
 import {connect} from 'react-redux';
 import Dashboard from './main'
 
-const mapStateToProps = ({session, entities: {stocks, users}, }) => {
+const mapStateToProps = ({session, entities: {stocks, users}, loading: {stockLoader}}) => {
     return ({
         stocks,
-        user: users[session.id]
+        user: users[session.id],
+        stockLoader
     })
 }
 

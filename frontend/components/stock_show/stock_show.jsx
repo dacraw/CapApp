@@ -41,7 +41,7 @@ class StockShow extends Component {
         // this.props.fetchStock(sym.toUpperCase())
         const { stockSym, loading } = this.props;
         
-        if (loading) return <Loading />
+        // if (loading) return <Loading />
         if (!stockSym || !stockSym.about) return null
         
 

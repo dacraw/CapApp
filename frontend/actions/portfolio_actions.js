@@ -6,6 +6,8 @@ export const REMOVE_PORTFOLIO = "REMOVE_PORTFOLIO"
 export const RECEIVE_PORTFOLIOS = 'RECEIVE_PORTFOLIOS';
 export const RECEIVE_PORTFOLIO = 'RECEIVE_PORTFOLIO';
 
+export const START_LOADING_PORTFOLIOS = "START_LOADING_PORTFOLIOS"
+
 export const CLEAR_SUCCESS = 'CLEAR_SUCCESS';
 export const CLEAR_MESSAGES = 'CLEAR_MESSAGES';
 
@@ -22,6 +24,10 @@ const receivePortfolios= portfolios => ({
 const receivePortfolio = portfolio => ({
     type: RECEIVE_PORTFOLIO,
     portfolio
+})
+
+const startLoadingPortfolios = () => ({
+    type: START_LOADING_PORTFOLIOS
 })
 
 export const createPortfolio = portfolio => dispatch => (
@@ -43,10 +49,11 @@ export const updatePortfolio = portfolio => dispatch => {
     )    
 }
 
-export const fetchPortfolios = currentUser => dispatch => (
-    PortfolioUtil.fetchPortfolios(currentUser)
+export const fetchPortfolios = currentUser => dispatch => {
+    dispatch(startLoadingPortfolios());
+    return PortfolioUtil.fetchPortfolios(currentUser)
         .then(
             portfolios => dispatch(receivePortfolios(portfolios)),
             errs => dispatch(receivePortfolioErrors(errs.responseJSON))
         )
-)
+}

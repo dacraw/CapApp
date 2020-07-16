@@ -2,6 +2,8 @@ import React from 'react';
 import NewsComponent from '../other/NewsComponent'
 import GraphComponent from '../other/graph_component_container'
 import _ from 'lodash'
+import Loader from '../other/loader'
+import {useSelector} from 'react-redux'
 
 
 class Dashboard extends React.Component {
@@ -14,7 +16,7 @@ class Dashboard extends React.Component {
 
 
     render() {
-        const { stocks, user, user: {ownedStocks} } = this.props;
+        const { stocks, user, user: {ownedStocks}, stockLoader } = this.props;
 
         if (!Object.keys(stocks).length || !ownedStocks || !user || !user.portfolioValue) return null;
 
@@ -54,6 +56,7 @@ class Dashboard extends React.Component {
         combinedStats['percentageChange'] = ((last.average / first.average - 1 ) * 100).toFixed(2);
         combinedStats['dollarChange'] = (last.average - first.average).toFixed(2);
 
+        // if (stockLoader) return <Loader />
         return (
             <>
                 <GraphComponent stock={combinedStats} />

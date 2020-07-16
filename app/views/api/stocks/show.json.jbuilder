@@ -8,7 +8,8 @@ require_relative '../shared/stock_parser'
 # this uri uses the sandbox & test key
 stockParser = StockParser.new(@stock.symbol)
 price = stockParser.getPrice
-chart = stockParser.getDefaultChart
+# chart = stockParser.getDefaultChart
+chart = stockParser.getChart
 dollarChange = stockParser.getDollarChange
 percentageChange = stockParser.getPercentageChange
 # uri = URI.parse("https://sandbox.iexapis.com/stable/stock/market/batch?types=news,price&symbols=#{@stock.symbol}&token=#{ENV['TEST_IEX_KEY']}")
@@ -28,6 +29,8 @@ aboutResponse = Net::HTTP.get_response(aboutUri)
 json.set! @stock.symbol do
 
     json.price price
+
+    json.chart chart
 
     # chart
     
