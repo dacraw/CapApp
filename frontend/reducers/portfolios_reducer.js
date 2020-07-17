@@ -9,8 +9,9 @@ export default (state = {}, action) => {
     let nextState;
     switch (action.type) {
         case RECEIVE_PORTFOLIO:
-            nextState = merge({}, state)
-            nextState['portfolioValue'] += action.portfolio.portfolioValue
+            nextState = merge({}, state);
+            nextState['cashAvailable'] = action.portfolio.cashAvailable;
+            nextState['portfolioValue'] += action.portfolio.portfolioValue;
             return merge({}, state, nextState)
         case REMOVE_PORTFOLIO:
             return _nullState;

@@ -126,7 +126,7 @@ class StockShowSidebar extends Component {
     
     
     render() {
-        const { userInfo, stock, errors } = this.props;
+        const { userInfo, stock, errors, portfolios } = this.props;
 
 
         const renderInvestType = (investType) => {
@@ -231,7 +231,7 @@ class StockShowSidebar extends Component {
                     </section>
                     <hr />
                     <section className={`buying-power bottom show ${dollarChange}`}>
-                            <a onClick={this.showBox}>{userInfo.cashAvailable} available for trading. </a>
+                            <a onClick={this.showBox}>{portfolios.cashAvailable} available for trading. </a>
                             <div className="info-box" id="sidebar-info-dropdown">
                                 <h3>Good luck!</h3>
                                 <div className="line">
