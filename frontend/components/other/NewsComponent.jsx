@@ -18,7 +18,7 @@ export default (props) => {
         <>
             <div className="dashboard-news">
                 <h1>Today's Top Business News</h1>
-                {news.map(newsItem => <NewsComponentItem newsItem={newsItem} />)}
+                {Object.values(news).map(newsItem => <NewsComponentItem newsItem={newsItem} />)}
             </div>
         </>
     )

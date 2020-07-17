@@ -17,7 +17,7 @@ export default ({ownedStock, stocks}) => {
                 <Link className="stock-link" to={`/stocks/${ownedStock.symbol}`}> 
                     <div className="symbol-numshares">
                         <div className="symbol">{ownedStock.symbol}</div>
-                        <div className="num-shares">{ownedStock.num_shares} shares</div>
+                        <div className="num-shares">{ownedStock.sum} shares</div>
                     </div>
                     <div className="stock-mini-graph">
                         <DashMainSidebarGraph data={chart} symbol={ownedStock.symbol} />

@@ -16,9 +16,9 @@ export default (state = {}, action) => {
         case RECEIVE_STOCKS:
             return merge({}, state, {stockLoader: false})   
         case START_LOADING_NEWS:
-            return true
-        case RECEIVE_NEWS:
-            return false
+            return merge({}, state, {newsLoader: true})  
+            case RECEIVE_NEWS:
+            return merge({}, state, {newsLoader: false})  
         case START_LOADING_WATCHLIST:
             return merge({}, state, {watchlistLoader: true})   
         case RECEIVE_SINGLE_WATCHLIST:
