@@ -175,10 +175,10 @@ class StockShowSidebar extends Component {
         let numShares = 0;
         
         if (!!userInfo.ownedStocks && !!userInfo.ownedStocks[this.props.match.params.symbol.toUpperCase()]){
-            numShares = userInfo.ownedStocks[this.props.match.params.symbol.toUpperCase()]['num_shares'] 
+            numShares = portfolios.stocks[this.props.match.params.symbol.toUpperCase()]['sum'] 
         }
         
-        // give selected class to buy and change formType to buy and show buying power box
+        // remove selling stock as an option when count reaches 0
         if (numShares == 0 && this.state.formType === 'sell'){
             $('#buy').addClass('selected');
             this.setState({formType:'buy', num_shares: ""});
