@@ -6,9 +6,14 @@ import {fetchBusinessNews} from '../../actions/newsActions'
 
 
 export default (props) => {
+    const dispatch = useDispatch();
     const currentUser = useSelector(state => state.session.id);
-    const news = useSelector(state => state.entities.users[currentUser].news);
-    if (!currentUser || !news) return null
+    useEffect( () => {
+        dispatch(fetchBusinessNews())
+    }, []);
+    const news = useSelector(state => state.entities.news);
+    if (!currentUser || !Object.keys(news).length) return null
+    debugger
     return (
         <>
             <div className="dashboard-news">
