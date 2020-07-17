@@ -43,7 +43,7 @@ class Dashboard extends React.Component {
                     let date = new Date(year,month,day,hour,minute);
                     
                     let stocklist = Object.values(history).filter(historyItem => new Date(historyItem.created_at) <= date)
-                    debugger
+                    
                     combinedStats.chart[chartIdx].average = 0;
                     stocklist.forEach(stock => {
                         combinedStats.chart[chartIdx].average += dataPoint.average * stock.num_shares
