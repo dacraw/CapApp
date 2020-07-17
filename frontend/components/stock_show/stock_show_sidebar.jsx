@@ -174,8 +174,9 @@ class StockShowSidebar extends Component {
         // NUMSHARES check if user owns shares before displaying num_shares
         let numShares = 0;
         
-        if (!!userInfo.ownedStocks && !!userInfo.ownedStocks[this.props.match.params.symbol.toUpperCase()]){
+        if (!!portfolios.stocks && !!portfolios.stocks[this.props.match.params.symbol.toUpperCase()]){
             numShares = portfolios.stocks[this.props.match.params.symbol.toUpperCase()]['sum'] 
+            // debugger
         }
         
         // remove selling stock as an option when count reaches 0
