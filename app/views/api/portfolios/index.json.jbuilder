@@ -20,7 +20,7 @@ portfolioValue = 0
 json.history do
     @portfolio.each do |item|
         #debugger
-        created_at = item.created_at.to_s[0,16]
+        created_at = item.created_at
         json.set! created_at do
             json.extract! item, :id, :user_id, :symbol, :num_shares, :created_at
         end
