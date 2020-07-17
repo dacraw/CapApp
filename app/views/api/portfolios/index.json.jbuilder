@@ -30,7 +30,7 @@ json.history do
         portfolioValue += stockValue
     end
 end
-json.portfolioValue number_to_currency(portfolioValue)
+json.portfolioValue portfolioValue
 
 # news_API = NewsAPI.new
 # news = news_API.fetchBusiness

@@ -46,7 +46,6 @@ class Dashboard extends React.Component {
                     stocklist.forEach(stock => {
                         combinedStats.chart[chartIdx].average += dataPoint.average * stock.num_shares
                     })
-                    debugger
 
                     // if (combinedStats.chart[chartIdx].average === undefined) combinedStats.chart[chartIdx].average = 0;
 
@@ -67,6 +66,7 @@ class Dashboard extends React.Component {
         combinedStats['chart'][combinedStats['chart'].length-1].average = combinedStats['price'];
         combinedStats['percentageChange'] = ((last.average / first.average - 1 ) * 100).toFixed(2);
         combinedStats['dollarChange'] = (last.average - first.average).toFixed(2);
+        console.log(combinedChart)
 
 
         // this block combines the averages for all of the user's portfolios; 

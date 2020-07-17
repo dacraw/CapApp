@@ -24,7 +24,7 @@ class Api::PortfoliosController < ApplicationController
                 current_cash = User.find(@portfolio.user_id).cash_available
                 updated_cash = current_cash - total_cost
                 User.find(@portfolio.user_id).update(cash_available: updated_cash.round(2))
-                render :update
+                render :create
             else
                 render json: @portfolio.errors.full_messages, status: 422
             end
