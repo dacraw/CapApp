@@ -22,8 +22,8 @@ class Dashboard extends React.Component {
         const { stocks, user, portfolios, stockLoader } = this.props;
 
         if (!Object.keys(stocks).length || !portfolios || !user) return null;
-        debugger
-        const history = Object.values(portfolios.history);
+        // debugger
+        const history = portfolios.history;
         const structureStock = _.cloneDeep(stocks[history[0].symbol].chart) // this is the key of the first portfolio, used to structure the graph by time
         const combinedStats = structureStock;
         

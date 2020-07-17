@@ -19,7 +19,9 @@ json.stocks @portfolio.group(:symbol).select('symbol, SUM(num_shares)')
 portfolioValue = 0
 json.history do
     @portfolio.each do |item|
-        json.set! item.id do
+        #debugger
+        created_at = item.created_at.to_s[0,16]
+        json.set! created_at do
             json.extract! item, :id, :user_id, :symbol, :num_shares, :created_at
         end
         stockParser = StockParser.new(item.symbol)
