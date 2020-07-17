@@ -11,6 +11,7 @@ export default (state = {}, action) => {
         case RECEIVE_PORTFOLIO:
             nextState = merge({}, state);
             nextState['cashAvailable'] = action.portfolio.cashAvailable;
+            nextState.stocks = action.portfolio.stocks;
             nextState['portfolioValue'] += action.portfolio.portfolioValue;
             return merge({}, state, nextState)
         case REMOVE_PORTFOLIO:
