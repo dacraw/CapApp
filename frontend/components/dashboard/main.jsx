@@ -25,24 +25,26 @@ class Dashboard extends React.Component {
 
         const history = portfolios.history;
         if (stockLoader) return <Loader />
-        if (!stocks) return null
-        
-        const ownedStocks = portfolios.stocks.map(stock => stock.symbol)
+        if (!stocks || !portfolios.stocks) return null
+
+        const ownedStockSymbols = Object.values(portfolios.stocks).map(stock => stock.symbol)
         const combinedStats = {};
-        ownedStocks.forEach( (symbol, idx) => {
+        ownedStockSymbols.forEach( (symbol, idx) => {
             if (idx == 0) {
                 combinedStats['chart'] = _.cloneDeep(stocks[symbol].chart);
             }
             stocks[symbol].chart.forEach( (dataPoint, chartIdx) => {
-                if (idx !== 0){
+                // if (idx !== 0){
                     let year = dataPoint.date.slice(0,4);
                     let month = parseInt(dataPoint.date.slice(5,7)) - 1;
                     let day = dataPoint.date.slice(8,10);
                     let hour = dataPoint.minute.slice(0,2);
                     let minute = dataPoint.minute.slice(3,5);
                     let date = new Date(year,month,day,hour,minute);
-
+                    
                     let stocklist = Object.values(history).filter(historyItem => new Date(historyItem.created_at) <= date)
+                    debugger
+                    combinedStats.chart[chartIdx].average = 0;
                     stocklist.forEach(stock => {
                         combinedStats.chart[chartIdx].average += dataPoint.average * stock.num_shares
                     })
@@ -53,12 +55,13 @@ class Dashboard extends React.Component {
                     // if (value === null){
                     //     value = stocks[symbol].chart[stocks[symbol].chart.length - 1].average;
                     // }
-
-                }
+                    
+                // }
             });
 
         });
-        combinedStats['price'] = parseFloat(portfolios.portfolioValue.replace(/\$|,/g, ''));
+        combinedStats['price'] = parseFloat(portfolios.portfolioValue.toFixed(2));
+        // combinedStats['price'] = parseFloat(portfolios.portfolioValue.replace(/\$|,/g, ''));
     
         let combinedChart = combinedStats['chart'];
         let last = combinedChart[combinedChart.length - 1];

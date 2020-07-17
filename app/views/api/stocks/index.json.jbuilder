@@ -28,8 +28,8 @@ ownedStocks = current_user.stocks.pluck(:symbol)
         stockParser = StockParser.new(stock.symbol)
         json.extract! stock, :symbol, :company, :id
         #debugger
-        # chart = (ownedStocks.include?(stock.symbol)) ? stockParser.getChart : stockParser.getDefaultChart
-        chart = stockParser.getDefaultChart
+        chart = (ownedStocks.include?(stock.symbol)) ? stockParser.getChart : stockParser.getDefaultChart
+        # chart = stockParser.getDefaultChart
         price = stockParser.getDefaultPrice
         percentageChange = stockParser.getPercentageChange
 
