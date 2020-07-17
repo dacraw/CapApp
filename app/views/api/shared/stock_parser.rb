@@ -36,8 +36,8 @@ class StockParser
         StockDefaults::SAMPLE_STATE_GRAPH[self.symbol.to_sym][:chart]
     end
     def getChart
-        # uri = URI.parse("https://cloud.iexapis.com/stable/stock/#{self.symbol}/intraday-prices?token=#{ENV['REAL_IEX_KEY']}")
-        uri = URI.parse("https://sandbox.iexapis.com/stable/stock/#{self.symbol}/intraday-prices?chartInterval=5&token=#{ENV['TEST_IEX_KEY']}")
+        uri = URI.parse("https://cloud.iexapis.com/stable/stock/#{self.symbol}/intraday-prices?chartInterval=5&token=#{ENV['REAL_IEX_KEY']}")
+        # uri = URI.parse("https://sandbox.iexapis.com/stable/stock/#{self.symbol}/intraday-prices?chartInterval=5&token=#{ENV['TEST_IEX_KEY']}")
         response = Net::HTTP.get_response(uri)
         chart = JSON.parse(response.body)
         chart

@@ -29,11 +29,11 @@ class Dashboard extends React.Component {
 
         const ownedStockSymbols = Object.values(portfolios.stocks).map(stock => stock.symbol)
         const combinedStats = {};
+        combinedStats['chart'] = _.cloneDeep(stocks[ownedStockSymbols[0]].chart);
+        combinedStats['chart'].forEach(chartItem => chartItem.average = 0)
+
         ownedStockSymbols.forEach( (symbol, idx) => {
-            if (idx == 0) {
-                combinedStats['chart'] = _.cloneDeep(stocks[symbol].chart);
-                combinedStats['chart'].forEach(chartItem => chartItem.average = 0)
-            }
+
             stocks[symbol].chart.forEach( (dataPoint, chartIdx) => {
                 // if (chartIdx == 0) stocks[symbol].chart.average = 0
                 // if (idx !== 0){
