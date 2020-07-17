@@ -51,7 +51,7 @@ export default class SidebarNewWatchlistComponent extends Component {
             <div className="add-new-watchlist" id="add-new-watchlist">
                 <form onSubmit={this.handleSubmit}>
                     <div className="two-col top">
-                        <i class="fas fa-lightbulb"></i>
+                        <i className="fas fa-lightbulb"></i>
                         <input onChange={this.handleChange} value={this.state.title} type="text" name="title" placeholder="Watchlist Title" />
                     </div>
                     <div className="two-col bottom">

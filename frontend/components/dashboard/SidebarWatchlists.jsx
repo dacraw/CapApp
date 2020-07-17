@@ -18,7 +18,7 @@ export default (props) => {
 
     return (
         <div>
-            {Object.values(watchlists).map( watchlist => <SidebarWatchlist watchlist={watchlist} />)}
+            {Object.values(watchlists).map( (watchlist, idx) => <SidebarWatchlist key={idx} watchlist={watchlist} />)}
         </div>
     )
 }
