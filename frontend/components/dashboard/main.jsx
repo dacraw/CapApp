@@ -51,7 +51,6 @@ class Dashboard extends React.Component {
                         combinedStats.chart[idx].average += stocks[historyItem.symbol].chart[idx].average * historyItem.num_shares
                     }
                 });
-                console.log(combinedStats)
 
                 combinedStats['price'] = parseFloat(portfolios.portfolioValue.toFixed(2));
                 // combinedStats['price'] = parseFloat(portfolios.portfolioValue.replace(/\$|,/g, ''));

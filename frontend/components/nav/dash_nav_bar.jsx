@@ -129,7 +129,6 @@ class DashNavBar extends React.Component{
         if (!currentUser || !stocks) return null
         if (!cashAvailable) return null
          
-        // $('#stock-list .selected').keypress( e => console.log(e));
         
         return (
             <div className="dashboard-nav-container">
