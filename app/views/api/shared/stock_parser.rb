@@ -18,7 +18,9 @@ class StockParser
         # response = Net::HTTP.get_response(uri)
         # @price = JSON.parse(response.body)[symbol.upcase]['price'].round(2)
         # @price
-        @price = self.chart[-1]['average'].round(2)      
+        #debugger
+        @price = self.chart[-1]['average'] || self.chart[-1][:average]     
+        @price.round(2)
         # currentPrice = 10
         # avg = self.chart[-1][:average] || self.chart[-2][:average]
         # @price = avg || currentPrice
