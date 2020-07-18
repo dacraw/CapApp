@@ -136,7 +136,7 @@ class DashNavBar extends React.Component{
                 <section className="content">
                     <Link to="/"><img className="logo-notext" src={window.logoNoText} /></Link>
                     <div className="search-wrapper"  >
-                        <input id="stock-search" onChange={this.filterResults} onKeyUp={this.enterSearchList} value={this.state.searchValue} className="search" placeholder="Search" type="text" autoComplete="off" name="stock-search" id=""/>
+                        <input id="stock-search" onChange={this.filterResults} onKeyUp={this.enterSearchList} value={this.state.searchValue} className="search" placeholder="Enter stock symbol" type="text" autoComplete="off" name="stock-search" id=""/>
 
                         <section className="stock-list" id="stock-list">
                             <ul onKeyDown={this.navigateResults}>
