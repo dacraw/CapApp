@@ -11,9 +11,11 @@ export default (state = {}, action) => {
         case RECEIVE_PORTFOLIO:
             nextState = merge({}, state);
             nextState['cashAvailable'] = action.portfolio.cashAvailable;
-            nextState.stocks = action.portfolio.stocks;
+            nextState.stocks = merge({}, action.portfolio.stocks);
+            debugger
+            Object.values(nextState.stocks).forEach(stock => !(stock.symbol in action.portfolio.stocks) ? delete nextState.stocks[stock.symbol] : null )
             nextState['portfolioValue'] += action.portfolio.portfolioValue;
-            return merge({}, state, nextState)
+            return nextState
         case REMOVE_PORTFOLIO:
             return _nullState;
         case RECEIVE_PORTFOLIOS:

@@ -3,13 +3,15 @@ json.cashAvailable number_to_currency(current_user.cash_available)
         # json.chart
 
 json.stocks do
-     stock_share_summary = current_user.portfolios.group(:symbol).select('symbol, SUM(num_shares)')
-     stock_share_summary.each do |stock|
-         json.set! stock.symbol do
-            next if !stock.sum <= 0
+    stock_share_summary = current_user.portfolios.group(:symbol).select('symbol, SUM(num_shares)')
+    stock_share_summary.each do |stock|
+        if stock.sum <= 0 
+            next
+        end
+        json.set! stock.symbol do
             json.extract! stock, :symbol, :sum
-         end
-     end
+        end
+    end
 end
 portfolioValue = 0
 json.history do
