@@ -14,6 +14,7 @@ export default (state = {}, action) => {
             nextState.stocks = merge({}, action.portfolio.stocks);
             Object.values(nextState.stocks).forEach(stock => !(stock.symbol in action.portfolio.stocks) ? delete nextState.stocks[stock.symbol] : null )
             nextState['portfolioValue'] += action.portfolio.portfolioValue;
+            if (!Object.keys(nextState['history']).length) nextState['history'] = merge({}, action.portfolio.history)
             return nextState
         case REMOVE_PORTFOLIO:
             return _nullState;
