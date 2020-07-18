@@ -16,6 +16,8 @@ chart.each_with_index do |chartItem, idx|
     end
 end
 price = stockParser.getPrice
+#debugger
+# price = stockParser.getPrice
 # chart = stockParser.getDefaultChart
 dollarChange = stockParser.getDollarChange
 percentageChange = stockParser.getPercentageChange

@@ -14,10 +14,11 @@ class StockParser
     end
 
     def getPrice
-        uri = URI.parse("https://sandbox.iexapis.com/stable/stock/market/batch?types=price&symbols=#{symbol}&token=#{ENV['TEST_IEX_KEY']}")
-        response = Net::HTTP.get_response(uri)
-        @price = JSON.parse(response.body)[symbol.upcase]['price'].round(2)
-        @price       
+        # uri = URI.parse("https://sandbox.iexapis.com/stable/stock/market/batch?types=price&symbols=#{symbol}&token=#{ENV['TEST_IEX_KEY']}")
+        # response = Net::HTTP.get_response(uri)
+        # @price = JSON.parse(response.body)[symbol.upcase]['price'].round(2)
+        # @price
+        @price = self.chart[-1]['average'].round(2)      
         # currentPrice = 10
         # avg = self.chart[-1][:average] || self.chart[-2][:average]
         # @price = avg || currentPrice
