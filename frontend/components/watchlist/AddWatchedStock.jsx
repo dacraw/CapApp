@@ -4,7 +4,7 @@ import {createWatchedStock} from '../../actions/watchedStockActions'
 import {useParams} from 'react-router-dom'
 
 export default (props) => {
-    // debugger
+    
     const [symbol, setSymbol] = useState("");
     const stocks = useSelector(state => state.entities.stocks)
 
@@ -14,7 +14,7 @@ export default (props) => {
         if (stocks[symbol.toUpperCase()]){
             dispatch(createWatchedStock({stock_id: stocks[symbol.toUpperCase()].id, watchlist_id: props.params.id}))
         }
-        // debugger
+        
         // createWatchedStock(stockID)
     }
     return (

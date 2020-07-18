@@ -15,16 +15,17 @@ class DashMainSidebar extends Component {
     }
     
     render() {
-        const { stocks, user: {ownedStocks}, watchlists } = this.props;
+        const { stocks, portfolios, watchlists } = this.props;
 
-        if (!stocks || !ownedStocks || !watchlists) return null;
+        if (!stocks || !portfolios.stocks || !watchlists) return null;
+        const portfolioStocks = portfolios.stocks;
         return (
             <>
                 <div className="sidebar-header">
                     <h1 className="stocks-title title">Stocks</h1>
                 </div>
                 <div>
-                    {Object.entries(ownedStocks).map((stock, i) => <SidebarPortfolioItem key={i} ownedStock={stock} stocks={stocks} />)}
+                    {Object.values(portfolioStocks).map((stock, i) => <SidebarPortfolioItem key={i} ownedStock={stock} stocks={stocks} />)}
                 </div>
                 <div className="sidebar-header">
                     <h1 className="title">Watchlists:</h1>

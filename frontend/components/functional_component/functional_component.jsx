@@ -6,6 +6,7 @@ import StockShowContainer from '../stock_show/stock_show_container'
 import Dashboard from '../dashboard/main_container'
 import Loading from '../other/loader'
 import WatchlistShow from '../watchlist/watchlistShow'
+import Loader from '../other/loader'
 
 
 class FunctionalComponent extends Component {
@@ -23,13 +24,14 @@ class FunctionalComponent extends Component {
     render() {
         // const { loading } = this.props;
         // if (loading) return <Loading />
-        const { currentUser, stocks } = this.props;
+        const { currentUser, stocks, stockLoader } = this.props;
 
-        if (!currentUser || !stocks) return null;
+        if (!currentUser || Object.keys(stocks).length == 0) return null;
 
         return (
             <main className="functional-component-container">
                 <section className="main">
+                {(stockLoader) ? <Loader /> : ""}
                     <Route path='/stocks/:symbol' component={StockShowContainer} />
                     <Route path='/dashboard' component={Dashboard} />
                     <Route path='/watchlist/:id' component={WatchlistShow} />

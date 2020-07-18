@@ -11,7 +11,7 @@ export default (props) => {
     const watchlistID = props.match.params.id;
     const watchlist = watchlists[watchlistID];
     let watchedStocks;
-    // debugger
+    
     if (watchlistID in watchlists && !!watchlist.watchedStocks){
         watchedStocks = watchlist.watchedStocks
     } else {

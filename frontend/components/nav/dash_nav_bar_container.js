@@ -4,11 +4,11 @@ import {withRouter} from 'react-router-dom'
 import {logout} from '../../actions/session_actions.js';
 import {fetchPortfolios} from '../../actions/portfolio_actions'
 
-const mapStateToProps = ({session, entities: { users, stocks }}, ownProps) => {
+const mapStateToProps = ({session, entities: { users, stocks, portfolios }}, ownProps) => {
   
     return {
         currentUser: users[session.id],
-        cashAvailable: users[session.id].cashAvailable,
+        cashAvailable: portfolios.cashAvailable,
         stocks,
         
     };

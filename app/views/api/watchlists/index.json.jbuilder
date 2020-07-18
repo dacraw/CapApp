@@ -1,5 +1,5 @@
 @watchlists.each do |watchlist|
-    # debugger
+    
 
         json.partial! 'watchlist', watchlist: watchlist
         json.set! watchlist.id do

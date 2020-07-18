@@ -4,10 +4,10 @@ import {fetchStocks} from '../../actions/stock_actions'
 import {fetchPortfolios} from '../../actions/portfolio_actions'
 
 
-const mapStateToProps = ({session, loading, entities: { stocks }}) => {
+const mapStateToProps = ({session, loading: {stockLoader}, entities: { stocks }}) => {
     return ({
         currentUser: session.id,
-        loading,
+        stockLoader,
         stocks
     })
 }

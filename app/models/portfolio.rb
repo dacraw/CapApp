@@ -1,5 +1,5 @@
 class Portfolio < ApplicationRecord
-    validates :user_id, presence: true, uniqueness: { scope: :symbol }
+    validates :user_id, presence: true
     validates :stock_price, :formType, length: {minimum: 0}, allow_nil: true
     validates :num_shares, presence: true
 

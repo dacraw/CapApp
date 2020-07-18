@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_07_08_145539) do
+ActiveRecord::Schema.define(version: 2020_07_16_193903) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -19,7 +19,12 @@ ActiveRecord::Schema.define(version: 2020_07_08_145539) do
     t.integer "user_id", null: false
     t.string "symbol", null: false
     t.float "num_shares", null: false
-    t.index ["user_id", "symbol"], name: "index_portfolios_on_user_id_and_symbol", unique: true
+    t.datetime "created_at", default: -> { "now()" }, null: false
+    t.datetime "updated_at", default: -> { "now()" }, null: false
+    t.index ["created_at"], name: "index_portfolios_on_created_at"
+    t.index ["num_shares"], name: "index_portfolios_on_num_shares"
+    t.index ["symbol"], name: "index_portfolios_on_symbol"
+    t.index ["user_id"], name: "index_portfolios_on_user_id"
   end
 
   create_table "stocks", force: :cascade do |t|

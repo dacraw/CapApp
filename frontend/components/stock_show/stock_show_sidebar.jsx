@@ -80,12 +80,12 @@ class StockShowSidebar extends Component {
         $('.errors').stop(true, true).show().fadeOut(7000);
         // if user doenst own the stock, then create it
        
-        if (this.props.userInfo.ownedStocks && !this.props.userInfo.ownedStocks[this.state.symbol.toUpperCase()]) {
+        // if (this.props.userInfo.ownedStocks /* && !this.props.userInfo.ownedStocks[this.state.symbol.toUpperCase()] */) {
             this.props.createPortfolio(this.state);
-        } else {
-            // otherwise, update it
-            this.props.updatePortfolio(this.state)
-        }
+        // } else {
+        //     // otherwise, update it
+        //     this.props.updatePortfolio(this.state)
+        // } 
     }
 
     setFormType(type){
@@ -126,7 +126,7 @@ class StockShowSidebar extends Component {
     
     
     render() {
-        const { userInfo, stock, errors } = this.props;
+        const { userInfo, stock, errors, portfolios } = this.props;
 
 
         const renderInvestType = (investType) => {
@@ -174,11 +174,12 @@ class StockShowSidebar extends Component {
         // NUMSHARES check if user owns shares before displaying num_shares
         let numShares = 0;
         
-        if (!!userInfo.ownedStocks && !!userInfo.ownedStocks[this.props.match.params.symbol.toUpperCase()]){
-            numShares = userInfo.ownedStocks[this.props.match.params.symbol.toUpperCase()]['num_shares'] 
+        if (!!portfolios.stocks && !!portfolios.stocks[this.props.match.params.symbol.toUpperCase()]){
+            numShares = portfolios.stocks[this.props.match.params.symbol.toUpperCase()]['sum'] 
+            
         }
         
-        // give selected class to buy and change formType to buy and show buying power box
+        // remove selling stock as an option when count reaches 0
         if (numShares == 0 && this.state.formType === 'sell'){
             $('#buy').addClass('selected');
             this.setState({formType:'buy', num_shares: ""});
@@ -231,7 +232,7 @@ class StockShowSidebar extends Component {
                     </section>
                     <hr />
                     <section className={`buying-power bottom show ${dollarChange}`}>
-                            <a onClick={this.showBox}>{userInfo.cashAvailable} available for trading. </a>
+                            <a onClick={this.showBox}>{portfolios.cashAvailable} available for trading. </a>
                             <div className="info-box" id="sidebar-info-dropdown">
                                 <h3>Good luck!</h3>
                                 <div className="line">

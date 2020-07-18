@@ -1,11 +1,12 @@
 import {connect} from 'react-redux'
 import DashMainSidebar from './dash_main_sidebar'
 
-const mapStateToProps = ({session, entities: {stocks, users, watchlists}, }) => {
+const mapStateToProps = ({session, entities: {stocks, users, watchlists, portfolios}, }) => {
     return ({
         stocks,
         user: users[session.id],
-        watchlists
+        watchlists,
+        portfolios,
     })
 }
 

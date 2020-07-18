@@ -9,27 +9,41 @@
 require_relative '../shared/stock_parser'
 require_relative '../shared/news_api'
 
-json.set! @portfolio.first.user_id do
-    json.cashAvailable number_to_currency(@portfolio.first.user.cash_available)
 
-    # json.chart
 
-    portfolioValue = 0
-    json.ownedStocks do
-        @portfolio.each do |item|
-            json.set! item.symbol do
-                json.symbol item.symbol
-                json.num_shares item.num_shares 
+json.cashAvailable number_to_currency(current_user.cash_available)
+
+        # json.chart
+
+json.stocks do
+    
+    stock_share_summary = @portfolio.group(:symbol).select('symbol, SUM(num_shares)')
+    stock_share_summary.each do |stock|
+        json.set! stock.symbol do
+            if stock.sum <= 0 
+                next
             end
-            stockParser = StockParser.new(item.symbol)
-            stockPrice = stockParser.getDefaultPrice
-            stockValue = item.num_shares * stockPrice
-            portfolioValue += stockValue
+            json.extract! stock, :symbol, :sum
         end
     end
-    json.portfolioValue number_to_currency(portfolioValue)
-
-    news_API = NewsAPI.new
-    news = news_API.fetchBusiness
-    json.news news
 end
+portfolioValue = 0
+json.history do
+    @portfolio.each do |item|
+        
+        created_at = item.created_at
+        json.set! created_at do
+            json.extract! item, :id, :user_id, :symbol, :num_shares, :created_at
+        end
+        stockParser = StockParser.new(item.symbol)
+        stockPrice = stockParser.getDefaultPrice
+        stockValue = item.num_shares * stockPrice
+        portfolioValue += stockValue
+    end
+end
+json.portfolioValue portfolioValue
+
+# news_API = NewsAPI.new
+# news = news_API.fetchBusiness
+# json.news news
+
