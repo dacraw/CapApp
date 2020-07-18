@@ -19,7 +19,9 @@ portfolioValue = 0
 json.history do
   
     json.set! @portfolio.created_at do
+        #debugger
         json.extract! @portfolio, :id, :user_id, :symbol, :num_shares, :created_at
+        json.stock_price @portfolio[:stock_price]
     end
     stockParser = StockParser.new(@portfolio.symbol)
     stockChart = stockParser.getChart

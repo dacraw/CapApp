@@ -33,7 +33,8 @@ json.history do
         
         created_at = item.created_at
         json.set! created_at do
-            json.extract! item, :id, :user_id, :symbol, :num_shares, :created_at
+            #debugger
+            json.extract! item, :id, :user_id, :symbol, :num_shares, :stock_price, :created_at
         end
         stockParser = StockParser.new(item.symbol)
         stockPrice = stockParser.getDefaultPrice
