@@ -25,8 +25,8 @@ json.history do
     end
     stockParser = StockParser.new(@portfolio.symbol)
     stockChart = stockParser.getChart
-    stockPrice = stockParser.getPrice
-    stockValue = @portfolio.num_shares * stockPrice
+    #stockPrice = stockParser.getPrice
+    stockValue = @portfolio.num_shares * @portfolio['stock_price']
     portfolioValue += stockValue
 
 end

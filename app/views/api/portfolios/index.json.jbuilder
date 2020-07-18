@@ -39,7 +39,7 @@ json.history do
             json.stock_price item[:stock_price]
         end
         stockParser = StockParser.new(item.symbol)
-        stockPrice = stockParser.getDefaultPrice
+        stockPrice = item['stock_price']
         stockValue = item.num_shares * stockPrice
         portfolioValue += stockValue
     end
