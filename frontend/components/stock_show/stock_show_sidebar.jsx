@@ -1,5 +1,5 @@
 import React, {Component} from 'react'
-import Loader from '../other/loader'
+import LoaderTwo from '../other/loader2'
 
 class StockShowSidebar extends Component {
     constructor(props) {
@@ -220,7 +220,7 @@ class StockShowSidebar extends Component {
                             <section className="errors">
                                 {errors[0]}
                             </section>
-                            {(portfolioLoader) ? <Loader /> : <button className={dollarChange}>{this.state.formType[0].toUpperCase() + this.state.formType.slice(1)} {this.state.symbol}</button>}
+                            {(portfolioLoader) ? <LoaderTwo /> : <button className={dollarChange}>{this.state.formType[0].toUpperCase() + this.state.formType.slice(1)} {this.state.symbol}</button>}
                         </form>
                     </section>
                     <hr />
