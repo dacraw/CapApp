@@ -16,8 +16,8 @@ class StockParser
     def getPrice
         uri = URI.parse("https://sandbox.iexapis.com/stable/stock/market/batch?types=price&symbols=#{symbol}&token=#{ENV['TEST_IEX_KEY']}")
         response = Net::HTTP.get_response(uri)
-        currentPrice = JSON.parse(response.body)[symbol.upcase]['price'].round(2)
-        currentPrice.round(2)        
+        @price = JSON.parse(response.body)[symbol.upcase]['price'].round(2)
+        @price       
         # currentPrice = 10
         # avg = self.chart[-1][:average] || self.chart[-2][:average]
         # @price = avg || currentPrice
@@ -44,16 +44,20 @@ class StockParser
     end
 
     def getDollarChange
+        debugger
         # set the dollar and percentage change for the day based on current price
         # using last price of the chart for current price
-        @dollarChange = (self.price - self.chart[0][:average]).round(2)
+        average = self.chart[0][:average] || self.chart[0]['average']
+        @dollarChange = (self.price - average).round(2)
         @dollarChange
     end
     def getPercentageChange
         # set the dollar and percentage change for the day based on current price
         # using last price of the chart for current price
         #debugger
-        @percentageChange = (((self.price / self.chart[0][:average]) - 1) * 100).round(2)
+        # using last price of the chart for current price
+        average = self.chart[0][:average] || self.chart[0]['average']
+        @percentageChange = ((self.price / average - 1) * 100).round(2)
         @percentageChange
     end
 end

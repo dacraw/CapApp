@@ -5,12 +5,12 @@ import { useSelector } from 'react-redux'
 
 
 export default ({ownedStock, stocks}) => {
+
     if (!(ownedStock.symbol in stocks)) return null;
     const dollarChangeStyle = (stocks[ownedStock.symbol].percentageChange <= 0) ? "negative" : "";
     const chart = useSelector(state => {
         return state.entities.stocks[ownedStock.symbol].chart;
     });
-    
     return (
         <>
             <li className="owned-stocks">
