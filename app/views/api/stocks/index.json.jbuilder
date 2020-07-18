@@ -27,10 +27,10 @@ ownedStocks = current_user.stocks.pluck(:symbol)
         json.symbol stock.symbol
         stockParser = StockParser.new(stock.symbol)
         json.extract! stock, :symbol, :company, :id
-        #debugger
+        
         chart = (ownedStocks.include?(stock.symbol)) ? stockParser.getChart : stockParser.getDefaultChart
         chart.each_with_index do |point, idx| 
-            #debugger
+            
             point['average'] = chart[idx-1]['average'] if point['average'] == nil
         end
         # chart = stockParser.getDefaultChart

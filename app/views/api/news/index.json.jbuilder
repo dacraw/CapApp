@@ -4,7 +4,7 @@ news_API = NewsAPI.new
 business_news = news_API.fetchBusiness
 
 json.array! business_news do |business_news_item|
-    #debugger
+    
     json.source business_news_item['source']
     json.content business_news_item['content']
     json.description business_news_item['description']

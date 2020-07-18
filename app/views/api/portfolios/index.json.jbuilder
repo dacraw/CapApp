@@ -9,17 +9,20 @@
 require_relative '../shared/stock_parser'
 require_relative '../shared/news_api'
 
-#debugger
+
 
 json.cashAvailable number_to_currency(current_user.cash_available)
 
         # json.chart
-#debugger
+
 json.stocks do
     
     stock_share_summary = @portfolio.group(:symbol).select('symbol, SUM(num_shares)')
     stock_share_summary.each do |stock|
         json.set! stock.symbol do
+            if stock.sum <= 0 
+                next
+            end
             json.extract! stock, :symbol, :sum
         end
     end
@@ -27,7 +30,7 @@ end
 portfolioValue = 0
 json.history do
     @portfolio.each do |item|
-        #debugger
+        
         created_at = item.created_at
         json.set! created_at do
             json.extract! item, :id, :user_id, :symbol, :num_shares, :created_at

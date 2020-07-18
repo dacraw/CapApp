@@ -6,7 +6,7 @@ import {fetchAllWatchlists} from '../../actions/watchlistActions'
 import {Route} from 'react-router-dom'
 
 export default (props) => {
-// debugger
+
     const dispatch = useDispatch();
     useEffect( ()=> {
         dispatch(fetchAllWatchlists());

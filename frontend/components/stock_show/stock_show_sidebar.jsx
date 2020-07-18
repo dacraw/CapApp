@@ -176,7 +176,7 @@ class StockShowSidebar extends Component {
         
         if (!!portfolios.stocks && !!portfolios.stocks[this.props.match.params.symbol.toUpperCase()]){
             numShares = portfolios.stocks[this.props.match.params.symbol.toUpperCase()]['sum'] 
-            // debugger
+            
         }
         
         // remove selling stock as an option when count reaches 0
