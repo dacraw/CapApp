@@ -30,7 +30,7 @@ class StockParser
     def getDefaultPrice
         # using a default state for pricing to keep pressure off API key during demo
         #debugger
-        average = self.chart[0][:average] || self.chart[0]['average']
+        average = self.chart[-1][:average] || self.chart[-1]['average']
         @price = average
         @price.round(2)
     end
@@ -67,6 +67,7 @@ class StockParser
         # using last price of the chart for current price
         #debugger
         # using last price of the chart for current price
+        #debugger
         average = self.chart[0][:average] || self.chart[0]['average']
         @percentageChange = ((self.price / average - 1) * 100).round(2)
         @percentageChange
