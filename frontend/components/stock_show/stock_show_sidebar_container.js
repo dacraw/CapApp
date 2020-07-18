@@ -3,7 +3,7 @@ import StockShowSidebar from './stock_show_sidebar';
 import {fetchStocks} from '../../actions/stock_actions'
 import {createPortfolio, updatePortfolio} from '../../actions/portfolio_actions'
 
-const mapStateToProps = ( { entities: { users, stocks, portfolios}, session, errors }, ownProps) => {
+const mapStateToProps = ( { loading: {portfolioLoader }, entities: { users, stocks, portfolios}, session, errors }, ownProps) => {
     return ({
         userInfo: users[session.id],
         stock: stocks[ownProps.match.params.symbol.toUpperCase()],
@@ -11,6 +11,7 @@ const mapStateToProps = ( { entities: { users, stocks, portfolios}, session, err
         stocks: stocks,
         errors: errors.session,
         portfolios,
+        portfolioLoader,
     })
 }
 

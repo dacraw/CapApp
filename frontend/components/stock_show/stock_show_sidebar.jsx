@@ -1,4 +1,5 @@
 import React, {Component} from 'react'
+import Loader from '../other/loader'
 
 class StockShowSidebar extends Component {
     constructor(props) {
@@ -120,7 +121,7 @@ class StockShowSidebar extends Component {
     
     
     render() {
-        const { userInfo, stock, errors, portfolios } = this.props;
+        const { userInfo, stock, errors, portfolios, portfolioLoader } = this.props;
 
 
         const renderInvestType = (investType) => {
@@ -219,9 +220,7 @@ class StockShowSidebar extends Component {
                             <section className="errors">
                                 {errors[0]}
                             </section>
-                            <button className={dollarChange}>
-                                {this.state.formType[0].toUpperCase() + this.state.formType.slice(1)} {this.state.symbol}
-                            </button>
+                            {(portfolioLoader) ? <Loader /> : <button className={dollarChange}>{this.state.formType[0].toUpperCase() + this.state.formType.slice(1)} {this.state.symbol}</button>}
                         </form>
                     </section>
                     <hr />

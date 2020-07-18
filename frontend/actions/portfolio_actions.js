@@ -35,7 +35,7 @@ const startCreatingPortfolio = () => ({
 });
 
 export const createPortfolio = portfolio => dispatch => {
-    dispatch(startLoadingPortfolios);
+    dispatch(startCreatingPortfolio());
     return PortfolioUtil.createPortfolio(portfolio)
         .then(
             portfolio => dispatch(receivePortfolio(portfolio)),
