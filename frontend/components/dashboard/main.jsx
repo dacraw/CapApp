@@ -25,7 +25,7 @@ class Dashboard extends React.Component {
 
         const history = portfolios.history;
         if (stockLoader) return <Loader />
-        if (!stocks || !portfolios.history) return null
+        if (!stocks || !portfolios) return null
 
         // the below variables and blocks set the chart used for DAILY portfolio values
         let ownedStockSymbols;

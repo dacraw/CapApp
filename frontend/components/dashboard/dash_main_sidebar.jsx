@@ -17,8 +17,8 @@ class DashMainSidebar extends Component {
     render() {
         const { stocks, portfolios, watchlists } = this.props;
 
-        if (!stocks || !portfolios.stocks || !watchlists) return null;
-        const portfolioStocks = portfolios.stocks;
+        if (!stocks || !portfolios || !watchlists) return null;
+        const portfolioStocks = portfolios.stocks || [];
         return (
             <>
                 <div className="sidebar-header">
