@@ -12,7 +12,6 @@ export default (state = {}, action) => {
             nextState = merge({}, state);
             nextState['cashAvailable'] = action.portfolio.cashAvailable;
             nextState.stocks = merge({}, action.portfolio.stocks);
-            debugger
             Object.values(nextState.stocks).forEach(stock => !(stock.symbol in action.portfolio.stocks) ? delete nextState.stocks[stock.symbol] : null )
             nextState['portfolioValue'] += action.portfolio.portfolioValue;
             return nextState

@@ -29,17 +29,19 @@ ownedStocks = current_user.stocks.pluck(:symbol)
         json.extract! stock, :symbol, :company, :id
         
         #debugger
-        # chart = (ownedStocks.include?(stock.symbol)) ? stockParser.getChart : stockParser.chart
+        chart = (ownedStocks.include?(stock.symbol)) ? stockParser.getChart : stockParser.chart
+        # chart.each_with_index do |point, idx| 
+        #     #debugger
+        #     if point['average'] == nil
+        #         chart[idx]['average'] = chart[idx-1]['average'] || chart[idx-2]['average'] 
+        #     end
+        # end
+        #debugger
+        # chart = stockParser.chart
         # chart.each_with_index do |point, idx| 
         #     #debugger
         #     chart[idx][:average] = chart[idx-1][:average] || chart[idx-2][:average] if point[:average] == nil
         # end
-        #debugger
-        chart = stockParser.chart
-        chart.each_with_index do |point, idx| 
-            #debugger
-            chart[idx][:average] = chart[idx-1][:average] || chart[idx-2][:average] if point[:average] == nil
-        end
         price = stockParser.getDefaultPrice
         percentageChange = stockParser.getPercentageChange
         

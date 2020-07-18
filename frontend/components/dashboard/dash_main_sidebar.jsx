@@ -19,7 +19,6 @@ class DashMainSidebar extends Component {
 
         if (!stocks || !portfolios.stocks || !watchlists) return null;
         const portfolioStocks = portfolios.stocks;
-        debugger
         return (
             <>
                 <div className="sidebar-header">
