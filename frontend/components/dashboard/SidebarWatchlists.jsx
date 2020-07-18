@@ -13,12 +13,14 @@ export default (props) => {
     }, []);
 
     const watchlists = useSelector(state => state.entities.watchlists);
-
-    if (!Object.keys(watchlists).length) return null
-
+    const noWatchlists = (
+        <h5 className="no-watchlists-message">
+            You currently have no watchlists. Click on the "+" above to add watchlists.
+        </h5>
+    )
     return (
         <div>
-            {Object.values(watchlists).map( (watchlist, idx) => <SidebarWatchlist key={idx} watchlist={watchlist} />)}
+            {(Object.values(watchlists).length > 0) ? Object.values(watchlists).map( (watchlist, idx) => <SidebarWatchlist key={idx} watchlist={watchlist} />) : noWatchlists}
         </div>
     )
 }
