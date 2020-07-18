@@ -48,6 +48,7 @@ class GraphComponent extends Component {
         
         if (!stock) return null;
         const data = stock.chart;
+        if (!data) return <div height={200} style={{width: '710px', height:'200px'}}>You currently have no invested stocks!</div>
         const expectedLength = 78;
         const dataLength = data.length
         if (dataLength < expectedLength){
