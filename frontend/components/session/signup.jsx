@@ -26,42 +26,7 @@ class Signup extends React.Component {
         }
     }
 
-    validateEmail(){
-        const inputValue = document.getElementById('email').value;
-        // convert to array to use .includes method
-        const inputValueArr = inputValue.split("");
-        // return a string if validation fails; first return stops the rest from happening; if no msg is returned and it's undefined, then validation succeeded
-        // check if '@' is in email '           Please include an '@' in the email address. `${inputValue}` is missing an '@'.
-        if (!inputValueArr.includes('@')) return `Please include an '@' in the email address. '${inputValue}' is missing an '@'.`
-        // check if there's multiple '@'     A part following '@' should not contain the symbol '@'
-        if (inputValue.split('@').length > 2) return `A part following '@' should not contain the symbol '@'.`
-        // check if something is after '@'      Please enter a part following '@'. `${inputValue}` is incomplete.
-        if (inputValueArr[0] === '@' || !inputValue.split('@')[1].length) return `Please enter a part following '@'. ${inputValue} is incomplete.`
-        // check if there's a '.' after '@'     Please match the requested format.
-        if (!inputValue.split('@')[1].includes('.')) return `Please match the requested format.`
-        // check if there's something after '.' '.' is used at a wrong position in ${inputValue}.
-        if (inputValue.split('@')[1].includes('.') && !inputValue.split('.')[1].length) return `'.' is used at a wrong position in '${inputValue.slice(inputValue.indexOf('@')+1)}'.`
-  
-        return null;
-    }
 
-    showErrorBox(message){
-        const errorBox = document.querySelector('.session-error-box');
-        // if message is null, hide the box and return
-        
-        if (message === null) {
-            errorBox.classList.remove('show');
-            return
-        }
-        // select the span inside the errorBox and set its messge to the error message
-        errorBox.querySelector('span').innerText = message;
-        errorBox.classList.add('show');
-    }
-
-    hideError() {
-        const errorBox = document.querySelector('.session-error-box');
-        errorBox.classList.remove('show')
-    }
 
     handleEmpty(){
         const $sessionForm = $('.session-form');
@@ -76,19 +41,7 @@ class Signup extends React.Component {
     
     handleSubmit(e){
         e.preventDefault();
-        
-        // only validate email if the field has a value
-        const emailErrorMessage = this.validateEmail();
-        if (document.getElementById('email').value && emailErrorMessage !== null){
-            $('#email').focus();
-            this.showErrorBox(emailErrorMessage);
-        } else {
-            this.handleEmpty();
-        }
-
-        // add styles to empty inputs
-       
-        // submit infomation for error handling
+        if ($('input[value=""]')) this.handleEmpty()
         this.props.submit(this.state)
     }
 
@@ -114,7 +67,7 @@ class Signup extends React.Component {
                         </div>
                         <div className="rows">
                             <div className="input-block">
-                                <input placeholder="Email" id="email" onBlur={this.hideError} onChange={this.handleInput('username')} type="text" value={this.state.username} />
+                                <input placeholder="Email" id="email" onChange={this.handleInput('username')} type="email" value={this.state.username} />
                                 <div className="session-error-box signup"><div className="arrow-up-outer"></div><div className="arrow-up-inner"></div><i className="fas fa-exclamation-triangle"></i><span>Please fill out this field.</span></div>
                             </div>
                             <input placeholder="Password (min. 6 characters)" id="password" onChange={this.handleInput('password')} type="password" value={this.state.password} />
