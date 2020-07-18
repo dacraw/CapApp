@@ -27,6 +27,7 @@ class Dashboard extends React.Component {
         if (stockLoader) return <Loader />
         if (!stocks || !portfolios.stocks) return null
 
+        // the below variables and blocks set the chart used for DAILY portfolio values
         const ownedStockSymbols = Object.values(portfolios.stocks).map(stock => stock.symbol)
         const combinedStats = {};
         combinedStats['chart'] = _.cloneDeep(stocks[ownedStockSymbols[0]].chart);

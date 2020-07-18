@@ -13,7 +13,6 @@ export default (props) => {
     }, []);
     const news = useSelector(state => state.entities.news);
     if (!currentUser || !Object.keys(news).length) return null
-    debugger
     return (
         <>
             <div className="dashboard-news">
