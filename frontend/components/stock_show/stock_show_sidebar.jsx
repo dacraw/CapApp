@@ -74,18 +74,12 @@ class StockShowSidebar extends Component {
 
     handleSubmit(e){
         e.preventDefault();
-        // $('.success').css('display','block');
-        // $('.success').css('opacity',1.0);
+
         $('.success').stop(true, true).show().fadeOut(7000);
         $('.errors').stop(true, true).show().fadeOut(7000);
-        // if user doenst own the stock, then create it
-       
-        // if (this.props.userInfo.ownedStocks /* && !this.props.userInfo.ownedStocks[this.state.symbol.toUpperCase()] */) {
-            this.props.createPortfolio(this.state);
-        // } else {
-        //     // otherwise, update it
-        //     this.props.updatePortfolio(this.state)
-        // } 
+
+        this.props.createPortfolio(this.state);
+
     }
 
     setFormType(type){
