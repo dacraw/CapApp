@@ -47,8 +47,17 @@ class GraphComponent extends Component {
         const { stock } = this.props;
         
         if (!stock) return null;
-
         const data = stock.chart;
+        const expectedLength = 78;
+        const dataLength = data.length
+        if (dataLength < expectedLength){
+            // SO THAT CHART LOOKS PRETTY
+            // use the numIterations to push elements average in it (might need close and open)
+            // this is so before the end of the day, the data points dont take up the whole width but look like ROBINHOOD
+            // const numIterations = expectedLength - dataLength
+        }
+
+        
 
 
         function CustomTooltip({ payload, label, active }) {
