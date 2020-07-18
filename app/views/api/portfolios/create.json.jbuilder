@@ -1,3 +1,5 @@
+require_relative '../shared/stock_parser'
+
 json.cashAvailable number_to_currency(current_user.cash_available)
 
         # json.chart
@@ -17,11 +19,14 @@ portfolioValue = 0
 json.history do
   
     json.set! @portfolio.created_at do
+        #debugger
         json.extract! @portfolio, :id, :user_id, :symbol, :num_shares, :created_at
+        json.stock_price @portfolio[:stock_price]
     end
     stockParser = StockParser.new(@portfolio.symbol)
-    stockPrice = stockParser.getDefaultPrice
-    stockValue = @portfolio.num_shares * stockPrice
+    stockChart = stockParser.getChart
+    #stockPrice = stockParser.getPrice
+    stockValue = @portfolio.num_shares * @portfolio['stock_price']
     portfolioValue += stockValue
 
 end

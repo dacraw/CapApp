@@ -15,6 +15,7 @@ chart.each_with_index do |chartItem, idx|
         chart[idx]['average'] = chart[idx-1]['average'] || chart[idx-2]['average'] 
     end
 end
+#debugger
 price = stockParser.getPrice
 #debugger
 # price = stockParser.getPrice

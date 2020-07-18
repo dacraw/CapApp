@@ -18,7 +18,9 @@ class StockParser
         # response = Net::HTTP.get_response(uri)
         # @price = JSON.parse(response.body)[symbol.upcase]['price'].round(2)
         # @price
-        @price = self.chart[-1]['average'].round(2)      
+        #debugger
+        @price = self.chart[-1]['average'] || self.chart[-1][:average]     
+        @price.round(2)
         # currentPrice = 10
         # avg = self.chart[-1][:average] || self.chart[-2][:average]
         # @price = avg || currentPrice
@@ -28,7 +30,7 @@ class StockParser
     def getDefaultPrice
         # using a default state for pricing to keep pressure off API key during demo
         #debugger
-        average = self.chart[0][:average] || self.chart[0]['average']
+        average = self.chart[-1][:average] || self.chart[-1]['average']
         @price = average
         @price.round(2)
     end
@@ -65,6 +67,7 @@ class StockParser
         # using last price of the chart for current price
         #debugger
         # using last price of the chart for current price
+        #debugger
         average = self.chart[0][:average] || self.chart[0]['average']
         @percentageChange = ((self.price / average - 1) * 100).round(2)
         @percentageChange

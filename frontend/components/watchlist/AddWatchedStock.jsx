@@ -20,6 +20,7 @@ export default (props) => {
     return (
         <tr>
             <td colSpan="5">
+                
             <form className="add-watched-stock" onSubmit={handleSubmit}>
                     <label htmlFor="add-watched-stock-symbol">Stock Symbol:</label>
                     <input id="add-watched-stock-symbol" type="text" value={symbol} onChange={(e) => setSymbol(e.currentTarget.value)}/>

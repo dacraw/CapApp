@@ -12,7 +12,6 @@ class Api::PortfoliosController < ApplicationController
     def create
         # this is for when the user buys a stock for the first time
         @portfolio = Portfolio.new(portfolio_params)
-        
         cash_available = User.find(portfolio_params[:user_id]).cash_available
         stock_price = portfolio_params[:stock_price].to_f.round(2)
         @portfolio.num_shares = (portfolio_params[:formType] == 'sell') ? portfolio_params[:num_shares].to_f * -1 : portfolio_params[:num_shares].to_f

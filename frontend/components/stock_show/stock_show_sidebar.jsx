@@ -1,4 +1,5 @@
 import React, {Component} from 'react'
+import LoaderTwo from '../other/loader2'
 
 class StockShowSidebar extends Component {
     constructor(props) {
@@ -74,18 +75,12 @@ class StockShowSidebar extends Component {
 
     handleSubmit(e){
         e.preventDefault();
-        // $('.success').css('display','block');
-        // $('.success').css('opacity',1.0);
+
         $('.success').stop(true, true).show().fadeOut(7000);
         $('.errors').stop(true, true).show().fadeOut(7000);
-        // if user doenst own the stock, then create it
-       
-        // if (this.props.userInfo.ownedStocks /* && !this.props.userInfo.ownedStocks[this.state.symbol.toUpperCase()] */) {
-            this.props.createPortfolio(this.state);
-        // } else {
-        //     // otherwise, update it
-        //     this.props.updatePortfolio(this.state)
-        // } 
+
+        this.props.createPortfolio(this.state);
+
     }
 
     setFormType(type){
@@ -126,7 +121,7 @@ class StockShowSidebar extends Component {
     
     
     render() {
-        const { userInfo, stock, errors, portfolios } = this.props;
+        const { userInfo, stock, errors, portfolios, portfolioLoader } = this.props;
 
 
         const renderInvestType = (investType) => {
@@ -225,9 +220,7 @@ class StockShowSidebar extends Component {
                             <section className="errors">
                                 {errors[0]}
                             </section>
-                            <button className={dollarChange}>
-                                {this.state.formType[0].toUpperCase() + this.state.formType.slice(1)} {this.state.symbol}
-                            </button>
+                            {(portfolioLoader) ? <LoaderTwo /> : <button className={dollarChange}>{this.state.formType[0].toUpperCase() + this.state.formType.slice(1)} {this.state.symbol}</button>}
                         </form>
                     </section>
                     <hr />

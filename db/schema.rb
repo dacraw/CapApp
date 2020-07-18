@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_07_16_193903) do
+ActiveRecord::Schema.define(version: 2020_07_18_171314) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -21,6 +21,7 @@ ActiveRecord::Schema.define(version: 2020_07_16_193903) do
     t.float "num_shares", null: false
     t.datetime "created_at", default: -> { "now()" }, null: false
     t.datetime "updated_at", default: -> { "now()" }, null: false
+    t.float "stock_price"
     t.index ["created_at"], name: "index_portfolios_on_created_at"
     t.index ["num_shares"], name: "index_portfolios_on_num_shares"
     t.index ["symbol"], name: "index_portfolios_on_symbol"
