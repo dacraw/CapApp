@@ -1,0 +1,22 @@
+.contact-links {
+    img {
+        width:2vw;
+        height:2vw;
+    }
+}
+
+.no-stocks-dashboard {
+    margin-bottom: 3vh;
+    padding-bottom: 3vh;
+    color: darkslategray;
+    border-bottom: 1px solid $lightgray;
+    strong {
+        font-weight:bold;
+    }
+    p {
+        margin-bottom: 2vh;
+    }
+    a:not(.site-link) {
+        margin-right: 1vw;
+    }
+}

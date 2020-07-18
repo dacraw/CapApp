@@ -61,7 +61,19 @@ class GraphComponent extends Component {
         
         if (!stock) return null;
         const data = stock.chart;
-        if (!data) return <div height={200} style={{width: '710px', height:'200px'}}>You currently have no invested stocks!</div>
+        const noStocks = (
+            <div className="no-stocks-dashboard">
+                <p>Welcome to CapApp! This website is a stock trading project based on the popular investment trading website <a className="site-link" href="https://robinhood.com/" target="_blank">Robinhood</a>. Although <a href="https://iexcloud.io/" target="_blank" className="site-link">IEX Cloud API</a> is being used to produce real stock prices on this website, <strong>this website is purely for demonstrational purposes and the stocks traded here hold no tangible value.</strong></p>
+                <p>On this site, you may buy/sell stocks, view individual stock information, maintain stock watchlists and stay up-to-date with relevant business/stock news.</p>
+                <p>At the top is a ticker search - simply begin typing and a list will populate with the stocks available for trade on this website. At the right is a sidebar that changes depending on whether you're on the dashboard or stock show page. Use it to add watchlists through the dashboard, and trade stocks on the stock show page. </p>
+                <p>I hope you enjoy this project! Please reach out to me at one of the following links and have a great day! <span>&#128513;</span></p>
+                <div className="contact-links">
+                    <a href="https://www.linkedin.com/in/doug-a-crawford/" target="_blank"><img src={window.linkedinLogo} /></a>
+                    <a href="https://github.com/dacraw" target="_blank"><img src={window.githubLogo} /></a>
+                </div>
+            </div>
+        )
+        if (!data) return noStocks
         const expectedLength = 78;
         const dataLength = data.length
         if (dataLength < expectedLength){
