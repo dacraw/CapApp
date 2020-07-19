@@ -2,7 +2,7 @@ class Api::UsersController < ApplicationController
     def create
         @user = User.new(user_params)
         @user.cash_available = 10000.00
-        #debugger
+        
         if @user.save
             
             Portfolio.create({user_id: @user.id, symbol: 'AAPL', num_shares: 0, stock_price: 0 })

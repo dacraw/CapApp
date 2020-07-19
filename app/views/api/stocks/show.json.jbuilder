@@ -9,15 +9,15 @@ require_relative '../shared/stock_parser'
 stockParser = StockParser.new(@stock.symbol)
 chart = stockParser.getChart
 chart.each_with_index do |chartItem, idx|
-    #debugger
+    
     if chartItem['average'] == nil
-        #debugger
+        
         chart[idx]['average'] = chart[idx-1]['average'] || chart[idx-2]['average'] 
     end
 end
-#debugger
+
 price = stockParser.getPrice
-#debugger
+
 # price = stockParser.getPrice
 # chart = stockParser.getDefaultChart
 dollarChange = stockParser.getDollarChange

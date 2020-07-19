@@ -73,6 +73,7 @@ class DashNavBar extends React.Component{
     filterResults(e){
         e.preventDefault();
         const props = this.props; 
+
         $('.category').show();
         document.querySelectorAll('.stock-list ul li').forEach ( (item, idx) => {
             if (item.textContent === 'No results match.'){
@@ -122,10 +123,23 @@ class DashNavBar extends React.Component{
             $('.stock-list ul').append('<li class="no-results">No results match.</li>')
         }
     }
+    formatMoney(number, decPlaces, decSep, thouSep) {
+        decPlaces = isNaN(decPlaces = Math.abs(decPlaces)) ? 2 : decPlaces,
+        decSep = typeof decSep === "undefined" ? "." : decSep;
+        thouSep = typeof thouSep === "undefined" ? "," : thouSep;
+        var sign = number < 0 ? "-" : "";
+        var i = String(parseInt(number = Math.abs(Number(number) || 0).toFixed(decPlaces)));
+        var j = (j = i.length) > 3 ? j % 3 : 0;
+        
+        return sign +
+            (j ? i.substr(0, j) + thouSep : "") +
+            i.substr(j).replace(/(\decSep{3})(?=\decSep)/g, "$1" + thouSep) +
+            (decPlaces ? decSep + Math.abs(number - i).toFixed(decPlaces).slice(2) : "");
+    }
     
     render(){
         
-        const { currentUser, logout, cashAvailable, stocks } = this.props;
+        const { currentUser, logout, cashAvailable, stocks, portfolios } = this.props;
         if (!currentUser || !stocks) return null
         if (!cashAvailable) return null
          
@@ -147,10 +161,7 @@ class DashNavBar extends React.Component{
                         <i className="fas fa-search"></i>
                     </div>
                     <ul className="links">
-                        {/* <li><a>Free Stocks</a></li> */}
                         <li><Link to="/dashboard">Portfolio</Link></li>
-                        {/* <li><a>Cash</a></li> */}
-                        {/* <li><a>Messages</a></li> */}
                         <li className="account-dropdown"><a onClick={this.toggleAccountDropdown}>Account</a>
                             <ul className="account-options" id="dash-nav-account-options">
                                 <li>
@@ -158,7 +169,7 @@ class DashNavBar extends React.Component{
                                         <h3>{currentUser.username}</h3>
                                         <div className="double-col">
                                             <div>
-                                                <h4>{currentUser.portfolioValue}</h4>{/* REPLACE WITH PORTFOLIO VALUE */}
+                                                <h4>${this.formatMoney(portfolios.portfolioValue,2,".",",")}</h4>
                                                 <h5>Portfolio Value</h5>
                                             </div>
                                             <div>
@@ -169,17 +180,6 @@ class DashNavBar extends React.Component{
                                     </div>
                                 </li>
                                 <hr />
-                                {/* <li><a><i className="fas fa-gift"></i>Free Stock</a></li>
-                                <li><a><i className="fas fa-suitcase"></i>Account</a></li>
-                                <li><a><i className="fas fa-university"></i>Banking</a></li>
-                                <li><a><i className="fas fa-history"></i>History</a></li>
-                                <li><a><i className="fas fa-file-alt"></i>Documents</a></li>
-                                <li><a><i className="fas fa-cog"></i>Settings</a></li>
-                                <hr />
-                                <li><a><i className="fas fa-question"></i>Help Center</a></li>
-                                <li><a><i className="fas fa-info-circle"></i>Get Support</a></li>
-                                <li><a><i className="fas fa-bars"></i>Disclosures</a></li> */}
-                                {/* <hr /> */}
                                 <li><a onClick={logout}><i className="fas fa-sign-out-alt"></i>Logout</a></li>
                             </ul>
                         </li>

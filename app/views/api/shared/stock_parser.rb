@@ -18,7 +18,7 @@ class StockParser
         # response = Net::HTTP.get_response(uri)
         # @price = JSON.parse(response.body)[symbol.upcase]['price'].round(2)
         # @price
-        #debugger
+        
         @price = self.chart[-1]['average'] || self.chart[-1][:average]     
         @price.round(2)
         # currentPrice = 10
@@ -29,7 +29,7 @@ class StockParser
 
     def getDefaultPrice
         # using a default state for pricing to keep pressure off API key during demo
-        #debugger
+        
         average = self.chart[-1][:average] || self.chart[-1]['average']
         @price = average
         @price.round(2)
@@ -43,7 +43,7 @@ class StockParser
         uri = URI.parse("https://cloud.iexapis.com/stable/stock/#{self.symbol}/intraday-prices?chartInterval=5&token=#{ENV['REAL_IEX_KEY']}")
         # uri = URI.parse("https://sandbox.iexapis.com/stable/stock/#{self.symbol}/intraday-prices?chartInterval=5&token=#{ENV['TEST_IEX_KEY']}")
         response = Net::HTTP.get_response(uri)
-        #debugger
+        
         raw_chart = JSON.parse(response.body)
         raw_chart.each_with_index do |chartItem, idx|
             if (chartItem['average'] == nil) # check for nil values from api call and replace
@@ -55,7 +55,7 @@ class StockParser
     end
 
     def getDollarChange
-        #debugger
+        
         # set the dollar and percentage change for the day based on current price
         # using last price of the chart for current price
         average = self.chart[0][:average] || self.chart[0]['average']
@@ -65,9 +65,9 @@ class StockParser
     def getPercentageChange
         # set the dollar and percentage change for the day based on current price
         # using last price of the chart for current price
-        #debugger
+        
         # using last price of the chart for current price
-        #debugger
+        
         average = self.chart[0][:average] || self.chart[0]['average']
         @percentageChange = ((self.price / average - 1) * 100).round(2)
         @percentageChange

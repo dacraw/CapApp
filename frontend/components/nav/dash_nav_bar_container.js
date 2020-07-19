@@ -10,7 +10,7 @@ const mapStateToProps = ({session, entities: { users, stocks, portfolios }}, own
         currentUser: users[session.id],
         cashAvailable: portfolios.cashAvailable,
         stocks,
-        
+        portfolios,
     };
 };
 
