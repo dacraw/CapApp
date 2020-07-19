@@ -8,7 +8,6 @@ class Api::UsersController < ApplicationController
             Portfolio.create({user_id: @user.id, symbol: 'AAPL', num_shares: 0, stock_price: 0 })
             
             login(@user)
-            #render json: @user
             render :create
         else
             render json: @user.errors.full_messages, status: 422
