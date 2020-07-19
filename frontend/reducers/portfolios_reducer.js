@@ -9,12 +9,12 @@ export default (state = {}, action) => {
     let nextState;
     switch (action.type) {
         case RECEIVE_PORTFOLIO:
-            nextState = merge({}, state);
+            nextState = merge({}, state, action.portfolio);
             nextState['cashAvailable'] = action.portfolio.cashAvailable;
             nextState.stocks = merge({}, action.portfolio.stocks);
             Object.values(nextState.stocks).forEach(stock => !(stock.symbol in action.portfolio.stocks) ? delete nextState.stocks[stock.symbol] : null )
-            nextState['portfolioValue'] += action.portfolio.portfolioValue;
-            if (!Object.keys(nextState['history']).length) nextState['history'] = merge({}, action.portfolio.history)
+            nextState['portfolioValue'] += state.portfolioValue;
+            // nextState['history'] = merge({}, action.portfolio.history)
             return nextState
         case REMOVE_PORTFOLIO:
             return _nullState;
