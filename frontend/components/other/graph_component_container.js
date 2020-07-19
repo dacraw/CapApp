@@ -2,9 +2,9 @@ import {connect} from 'react-redux'
 import GraphComponent from './graph_component'
 import {withRouter} from 'react-router-dom'
 
-const mapStateToProps = ({ entities: { stocks } }, ownProps) => {
+const mapStateToProps = ({ entities: { portfolios } }, ownProps) => {
     return ({
-        // stock: stocks[ownProps.match.params.symbol.toUpperCase()],
+        portfolios,
     })
 }
 
