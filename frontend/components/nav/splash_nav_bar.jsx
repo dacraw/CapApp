@@ -24,7 +24,7 @@ class SplashNavBar extends React.Component {
         return (
             <div className="splash-nav-container">
                 <section className="splash-nav-main">
-                    <Link to="/"><img className="logo" src={window.logo} /></Link>
+                    <Link to="/" className="logo"></Link>
                     <nav className="splash-nav-links">
                         <li><a href='https://dacraw.github.io/' target="_blank">Personal Site</a></li>
                         <li><a href='https://github.com/dacrawford89' target="_blank">Github</a></li>
