@@ -19,9 +19,14 @@
        
         .logo-notext {
             display: block;
-            height: 45px;
-            width:40px;
+            width:25px;
+            height: 40px;
+            background-image: image_url('capAppLogo.png');
+            background-size: 25px 40px;
             margin-right: 20px;  
+            &:hover {
+                background-image: image_url('capAppLogo-hover.png');
+            }
         }
         
             
