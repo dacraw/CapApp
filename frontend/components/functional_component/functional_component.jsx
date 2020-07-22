@@ -25,13 +25,12 @@ class FunctionalComponent extends Component {
         // const { loading } = this.props;
         // if (loading) return <Loading />
         const { currentUser, stocks, stockLoader } = this.props;
-
-        if (!currentUser || Object.keys(stocks).length == 0) return null;
-
+        if (!currentUser) return null;
+        
         return (
             <main className="functional-component-container">
                 <section className="main">
-                {(stockLoader) ? <Loader /> : ""}
+                    {(stockLoader) ? <Loader /> : ""}
                     <Route path='/stocks/:symbol' component={StockShowContainer} />
                     <Route path='/dashboard' component={Dashboard} />
                     <Route path='/watchlist/:id' component={WatchlistShow} />

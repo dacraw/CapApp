@@ -32,8 +32,7 @@ class SplashNavBar extends React.Component {
                     </nav>
                     <div className="login-signup">
                         {logoutButton}
-                        <Link to="/login">Sign In</Link>
-                        <Link to="/signup">Sign Up</Link>
+                        {(!currentUser) ? <><Link to="/login">Sign In</Link><Link to="/signup">Sign Up</Link></> : <Link to="/dashboard">Account</Link>}
                     </div>
                 </section>
             </div>
