@@ -23,7 +23,11 @@ export default (props) => {
                 
             <form className="add-watched-stock" onSubmit={handleSubmit}>
                     <label htmlFor="add-watched-stock-symbol">Stock Symbol:</label>
-                    <input id="add-watched-stock-symbol" type="text" value={symbol} onChange={(e) => setSymbol(e.currentTarget.value)}/>
+                    {/* <input id="add-watched-stock-symbol" type="text" value={symbol} onChange={(e) => setSymbol(e.currentTarget.value)}/> */}
+                    <select defaultValue="Click here to select a stock" onChange={(e) => setSymbol(e.currentTarget.value)}> 
+                        <option value="Click here to select a stock" disabled>Click here to select a stock</option>
+                        {Object.keys(stocks).sort().map((stockSymbol, i) => <option key={i} value={stockSymbol}>{stockSymbol}</option>)}
+                    </select>
                     <input type="submit" value="Add Stock to List" />
             </form>
             </td>

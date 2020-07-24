@@ -65,10 +65,8 @@ class Index extends React.Component {
                         </ul>
                     </article>
                     <div className="disclosure">
-                        <h5>(c) 2020 CAP APP. All rights not reserved.</h5>
-                        <p> Vestibulum ac enim eu turpis euismod mattis et non nunc. Maecenas porta ante vitae lectus egestas malesuada. Nulla quis enim et est auctor eleifend. </p>
-                        <p> Mauris in lacus sed diam blandit pulvinar sit amet vitae libero. Sed tempus dolor non viverra hendrerit. </p>
-                        <p> Donec porttitor feugiat mollis. Curabitur lacinia ex vitae velit posuere vulputate. Cras in dignissim tortor.</p>
+                        <p>This website is a demostrational project based on the website <a href="https://www.robinhood.com" target="_blank">Robinhood.com.</a> None of the money is real. Although stock prices on the stock show page are pulled using IEX Cloud API, trading stocks on this website carries no financial value or risk. Please do not use personal information on this website as it is strictly for demostrational purposes only.</p>
+                        <p>Please reach out to me at any of the above links, or by emailing me at <span style={{fontWeight: "bold"}}>doug.a.crawford@gmail.com</span>. Thanks and enjoy the site!</p>
                     </div>
                 </section>
             </main>
