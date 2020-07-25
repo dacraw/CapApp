@@ -27,7 +27,7 @@ class SplashNavBar extends React.Component {
                     <Link to="/" className="logo"></Link>
                     <nav className="splash-nav-links">
                         <li><a href='https://dacraw.github.io/' target="_blank">Personal Site</a></li>
-                        <li><a href='https://github.com/dacrawford89' target="_blank">Github</a></li>
+                        <li><a href='https://github.com/dacraw' target="_blank">Github</a></li>
                         <li><a href='http://www.linkedin.com/in/doug-a-crawford' target="_blank">LinkedIn</a></li>
                     </nav>
                     <div className="login-signup">
