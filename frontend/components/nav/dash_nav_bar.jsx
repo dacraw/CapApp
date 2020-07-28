@@ -143,7 +143,7 @@ class DashNavBar extends React.Component{
         if (!currentUser || !stocks) return null
         if (!cashAvailable) return null
          
-        
+
         return (
             <div className="dashboard-nav-container">
                 <section className="content">
@@ -172,7 +172,7 @@ class DashNavBar extends React.Component{
                                         <h3>{currentUser.username}</h3>
                                         <div className="double-col">
                                             <div>
-                                                <h4>${this.formatMoney(portfolios.portfolioValue,2,".",",")}</h4>
+                                                <h4 id="dashboard-nav-pv">${this.formatMoney(portfolios.portfolioValue,2,".",",")}</h4>
                                                 <h5>Portfolio Value</h5>
                                             </div>
                                             <div>
