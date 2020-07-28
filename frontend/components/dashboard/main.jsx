@@ -54,7 +54,6 @@ class Dashboard extends React.Component {
                 });
 
                 // combinedStats['price'] = parseFloat(portfolios.portfolioValue.toFixed(2));
-                debugger
                 portfolioValue += historyItem.num_shares * stocks[historyItem.symbol].chart[stocks[historyItem.symbol].chart.length - 1].average
             
                 let combinedChart = combinedStats['chart'];

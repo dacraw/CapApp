@@ -25,7 +25,7 @@ class FunctionalComponent extends Component {
         // const { loading } = this.props;
         // if (loading) return <Loading />
         const { currentUser, stocks, stockLoader } = this.props;
-        if (!currentUser) return null;
+        if (!currentUser || !Object.keys(stocks).length) return null;
         
         return (
             <main className="functional-component-container">
