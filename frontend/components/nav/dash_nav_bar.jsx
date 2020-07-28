@@ -123,7 +123,19 @@ class DashNavBar extends React.Component{
             $('.stock-list ul').append('<li class="no-results">No results match.</li>')
         }
     }
-
+    formatMoney(number, decPlaces, decSep, thouSep) {
+        decPlaces = isNaN(decPlaces = Math.abs(decPlaces)) ? 2 : decPlaces,
+        decSep = typeof decSep === "undefined" ? "." : decSep;
+        thouSep = typeof thouSep === "undefined" ? "," : thouSep;
+        var sign = number < 0 ? "-" : "";
+        var i = String(parseInt(number = Math.abs(Number(number) || 0).toFixed(decPlaces)));
+        var j = (j = i.length) > 3 ? j % 3 : 0;
+        
+        return sign +
+            (j ? i.substr(0, j) + thouSep : "") +
+            i.substr(j).replace(/(\decSep{3})(?=\decSep)/g, "$1" + thouSep) +
+            (decPlaces ? decSep + Math.abs(number - i).toFixed(decPlaces).slice(2) : "");
+    }
     
     render(){
         
@@ -160,7 +172,7 @@ class DashNavBar extends React.Component{
                                         <h3>{currentUser.username}</h3>
                                         <div className="double-col">
                                             <div>
-                                                <h4 id="dashboard-nav-pv"></h4>
+                                                <h4 id="dashboard-nav-pv">${this.formatMoney(portfolios.portfolioValue,2,".",",")}</h4>
                                                 <h5>Portfolio Value</h5>
                                             </div>
                                             <div>
