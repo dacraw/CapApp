@@ -63,7 +63,6 @@ class Dashboard extends React.Component {
                 combinedStats['percentageChange'] = ((last.average / first.average - 1 ) * 100).toFixed(2);
                 combinedStats['dollarChange'] = (last.average - first.average).toFixed(2);
             })
-            console.log(combinedStats);
             combinedStats['price'] = portfolioValue;
             combinedStats['chart'][combinedStats['chart'].length-1].average = portfolioValue;
         }
