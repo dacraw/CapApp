@@ -39,10 +39,12 @@ json.history do
             
             json.stock_price item[:stock_price]
         end
-        # stockParser = StockParser.new(item.symbol)
-        # stockPrice = (priceHash[item.symbol]) ? priceHash[item.symbol] : stockParser.getPrice
-        # stockValue = item.num_shares * stockPrice
-        # portfolioValue += stockValue
+        if (!priceHash[item.symbol]) 
+            stockParser = StockParser.new(item.symbol)
+            priceHash[item.symbol] = stockParser.getChart[-1]['average']
+        end
+        stockValue = item.num_shares * priceHash[item.symbol]
+        portfolioValue += stockValue
     end
 end
 json.portfolioValue portfolioValue
