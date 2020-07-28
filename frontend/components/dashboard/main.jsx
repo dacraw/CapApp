@@ -34,6 +34,7 @@ class Dashboard extends React.Component {
             ownedStockSymbols = Object.values(portfolios.stocks).map(stock => stock.symbol)
         }
         const combinedStats = {};
+        let portfolioValue = 0;
         if (history){
             Object.values(history).forEach((historyItem, idx) => {
                 if (idx == 0) {
@@ -52,15 +53,19 @@ class Dashboard extends React.Component {
                     }
                 });
 
-                combinedStats['price'] = parseFloat(portfolios.portfolioValue.toFixed(2));
+                // combinedStats['price'] = parseFloat(portfolios.portfolioValue.toFixed(2));
+                debugger
+                portfolioValue += historyItem.num_shares * stocks[historyItem.symbol].chart[stocks[historyItem.symbol].chart.length - 1].average
             
                 let combinedChart = combinedStats['chart'];
                 let last = combinedChart[combinedChart.length - 1];
                 let first = combinedChart[0];
-                combinedStats['chart'][combinedStats['chart'].length-1].average = combinedStats['price'];
                 combinedStats['percentageChange'] = ((last.average / first.average - 1 ) * 100).toFixed(2);
                 combinedStats['dollarChange'] = (last.average - first.average).toFixed(2);
             })
+            console.log(combinedStats);
+            combinedStats['price'] = portfolioValue;
+            combinedStats['chart'][combinedStats['chart'].length-1].average = portfolioValue;
         }
 
         if (stockLoader) return <Loader />

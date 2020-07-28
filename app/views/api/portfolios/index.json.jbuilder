@@ -28,6 +28,7 @@ json.stocks do
     end
 end
 portfolioValue = 0
+priceHash = {};
 json.history do
     @portfolio.each do |item|
         
@@ -38,10 +39,10 @@ json.history do
             
             json.stock_price item[:stock_price]
         end
-        stockParser = StockParser.new(item.symbol)
-        stockPrice = item['stock_price']
-        stockValue = item.num_shares * stockPrice
-        portfolioValue += stockValue
+        # stockParser = StockParser.new(item.symbol)
+        # stockPrice = (priceHash[item.symbol]) ? priceHash[item.symbol] : stockParser.getPrice
+        # stockValue = item.num_shares * stockPrice
+        # portfolioValue += stockValue
     end
 end
 json.portfolioValue portfolioValue
