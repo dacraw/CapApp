@@ -77,9 +77,7 @@ class Dashboard extends React.Component {
                 combinedStats['dollarChange'] = (last.average - first.average).toFixed(2);
             })
             combinedStats['price'] = portfolios.portfolioValue;
-            debugger
             combinedStats['chart'][combinedStats['chart'].length-1].average = portfolios.portfolioValue;
-            console.log(combinedStats)
             // document.getElementById('dashboard-nav-pv').innerHTML = '$' + this.formatMoney(portfolioValue, 2, ".", ",");
         }
 
