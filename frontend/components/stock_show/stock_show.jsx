@@ -9,14 +9,9 @@ import Loading from '../other/loader'
 class StockShow extends Component {
     constructor(props) {
         super(props);
-        this.state = {
-            
-        }
-        
     }
     
     componentDidMount() {
-        debugger
         if (!this.props.stockSym.about){
             this.props.fetchStock(this.props.match.params.symbol.toUpperCase());
         }
