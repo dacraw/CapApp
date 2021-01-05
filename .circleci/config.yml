@@ -11,6 +11,9 @@ jobs:
     steps:
       - checkout
       - run:
+          name: Install Bundler
+          command: gem install bundler:2.1.4
+      - run:
           name: Which bundler?
           command: bundle -v
       - run:
