@@ -20,3 +20,5 @@ jobs:
       - run:
           name: Update Bundler
           command: bundle update --bundler
+      - browser-tools/install-chrome
+      - browser-tools/install-chromedriver
