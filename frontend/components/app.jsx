@@ -1,31 +1,34 @@
-import React from 'react';
-import {Route, Switch} from 'react-router-dom';
-import LoginContainer from './session/login_container';
-import SignupContainer from './session/signup_container';
-import SplashNavBarContainer from './nav/splash_nav_bar_container';
-import {AuthRoute} from '../util/route_util';
-import {ProtRoute} from '../util/route_util';
-import Splash from './splash/splash';
-import DashNavBarContainer from './nav/dash_nav_bar_container';
-import FunctionalComponent from './functional_component/functional_component_container';
+import React from "react";
+import { Route, Routes } from "react-router-dom";
+import LoginContainer from "./session/login_container";
+import SignupContainer from "./session/signup_container";
 
-const App = (props) => {
-    
-    return (
-        <>
-            <header>
-                <Route exact path="/" component={SplashNavBarContainer} />
-                <ProtRoute path={["/dashboard","/stocks","/stocks/:symbol", "/watchlist/:id"]} component={DashNavBarContainer} />
-            </header>
+import { AuthRoute } from "../util/route_util";
+import { ProtRoute } from "../util/route_util";
+import Splash from "./splash/splash";
+import Dashboard from "./dashboard/dashboard";
+import StockShow from "./stock_show/stock_show";
+import WatchlistShow from "./watchlist/watchlistShow";
 
-            <Switch>
-                <AuthRoute exact path="/signup" component={SignupContainer} />
-                <AuthRoute exact path="/login" component={LoginContainer} />
-                <ProtRoute path={["/stocks/:symbol", "/dashboard", "/watchlist/:id"]} component={FunctionalComponent} /> {/* dash */}
-                <Route exact path="/" component={Splash} /> {/* splash*/}
-            </Switch>
-        </>
-    )
+const App = () => {
+  return (
+    <>
+      <Routes>
+        <Route exact path="/" element={<Splash />} />
+
+        <Route element={<ProtRoute />}>
+          <Route path="/dashboard" element={<Dashboard />} />
+          <Route path="/stocks/:symbol" element={<StockShow />} />
+          <Route path="/dashboard/watchlist/:id" element={<WatchlistShow />} />
+        </Route>
+
+        <Route element={<AuthRoute />}>
+          <Route exact path="/signup" element={<SignupContainer />} />
+          <Route exact path="/login" element={<LoginContainer />} />
+        </Route>
+      </Routes>
+    </>
+  );
 };
 
-export default App
+export default App;

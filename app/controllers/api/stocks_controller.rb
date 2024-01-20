@@ -10,7 +10,9 @@ class Api::StocksController < ApplicationController
     end
 
     def index
-        @stocks = Stock.all
+        # byebug
+        # @stocks = Stock.find_by_symbol()
+        @stocks = Stock.where(symbol: ['META', "MSFT", "AAPL", "GOOG"])
         render :index
     end
 end

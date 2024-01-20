@@ -16,7 +16,7 @@ demo = User.create!({username: 'demo@demo.demo', password:'password', fname:'dem
 Stock.create({symbol: 'MSFT', company: 'Microsoft'})
 Stock.create({symbol: 'AAPL', company: 'Apple'})
 Stock.create({symbol: 'AMZN', company: 'Amazon'})
-Stock.create({symbol: 'FB', company: 'Facebook'})
+Stock.create({symbol: 'META', company: 'Facebook'})
 Stock.create({symbol: 'GOOG', company: 'Google'})
 Stock.create({symbol: 'JNJ', company: 'Johnson & Johnson'})
 Stock.create({symbol: 'JPM', company: 'JPMorgan Chase'})

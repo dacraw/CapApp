@@ -1,7 +1,7 @@
 class Api::PortfoliosController < ApplicationController
     def index
         @portfolio = Portfolio.where(user_id: params[:user_id])
-
+        # byebug
         render :index
     end
 

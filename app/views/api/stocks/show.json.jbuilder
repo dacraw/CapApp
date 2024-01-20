@@ -7,7 +7,7 @@ require_relative '../shared/stock_parser'
 
 # this uri uses the sandbox & test key
 stockParser = StockParser.new(@stock.symbol)
-chart = stockParser.getChart
+chart = stockParser.chart
 chart.each_with_index do |chartItem, idx|
     
     if chartItem['average'] == nil
@@ -31,7 +31,8 @@ percentageChange = stockParser.getPercentageChange
 
 
 # this pulls about copmany
-aboutUri = URI.parse("https://cloud.iexapis.com/stable/stock/#{@stock.symbol}/company?token=#{ENV['REAL_IEX_KEY']}")
+aboutUri = URI.parse("https://api.polygon.io/v3/reference/tickers/#{@stock.symbol}?apiKey=#{ENV['POLYGON_KEY']}")
+# aboutUri = URI.parse("https://cloud.iexapis.com/stable/stock/#{@stock.symbol}/company?token=#{ENV['REAL_IEX_KEY']}")
 # aboutUri = URI.parse("https://sandbox.iexapis.com/stable/stock/#{@stock.symbol}/company?token=#{ENV['TEST_IEX_KEY']}")
 #uri = URI.parse("https://sandbox.iexapis.com/stable/stock/market/batch?types=chart&symbols=fb&range=1d&token=#{ENV['TEST_IEX_KEY']}")
 aboutResponse = Net::HTTP.get_response(aboutUri)
@@ -54,7 +55,7 @@ json.set! @stock.symbol do
     company_news = news.fetch # pulls 
     json.news company_news
     
-    about = JSON.parse(aboutResponse.body) # 
+    about = JSON.parse(aboutResponse.body)["results"] # 
     json.about about
 
 end

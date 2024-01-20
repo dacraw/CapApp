@@ -1,32 +1,23 @@
-import React from 'react';
-import {connect} from 'react-redux';
-import {Route, Redirect} from 'react-router-dom';
+import React from "react";
+import { useSelector } from "react-redux";
+import { Navigate, Outlet } from "react-router-dom";
 
-const Auth = ({component: Component, path, loggedIn, exact }) => (
-    <Route
-        path={path}
-        exact={exact}
-        render={(props)=>(
-            !loggedIn ? ( <Component {...props} /> )
-            : ( <Redirect to="/dashboard" /> )
-        )}
-    />
-);
+export const AuthRoute = () => {
+  const loggedIn = useSelector((state) => state.session.id);
+  return loggedIn ? <Navigate to="/dashboard" /> : <Outlet />;
+  // <Routes>
+  //   <Route path={path} exact={exact}>
+  //     {loggedIn ? <Navigate to="/dashboard" /> : <Component {...props} />}
+  //   </Route>
+  // </Routes>
+};
 
-const Prot = ({ component: Component, exact, loggedIn, path }) => (
-    <Route
-        path={path}
-        exact={exact}
-        render={(props) => (
-            loggedIn ? <Component {...props} /> 
-            : <Redirect to="/" />
-        )}
-    />
-)
-
-const mapStateToProps = state => ({
-    loggedIn: Boolean(state.session.id)
-});
-
-export const AuthRoute = connect(mapStateToProps)(Auth);
-export const ProtRoute = connect(mapStateToProps)(Prot);
+export const ProtRoute = () => {
+  const loggedIn = useSelector((state) => state.session.id);
+  return loggedIn ? <Outlet /> : <Navigate to="/login" />;
+  // <Routes>
+  //   <Route path={path} exact={exact}>
+  //     {loggedIn ? <Component {...props} /> : <Navigate to="/" />}
+  //   </Route>
+  // </Routes>
+};

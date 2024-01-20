@@ -1,8 +1,5 @@
-import React from 'react'
-
+import React from "react";
 
 export default (props) => {
-    return (
-        <div class="loader-two">Loading...</div>
-    )
+  return <div className="loader-two">Loading...</div>;
 };

@@ -1,5 +1,3 @@
-import React from 'react'
+import React from "react";
 
-export default () => (
-    <div class="loader">Loading...</div>
-)
+export default () => <div className="loader">Loading...</div>;
