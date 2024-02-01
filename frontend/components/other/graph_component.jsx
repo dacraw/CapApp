@@ -155,7 +155,9 @@ const GraphComponent = (props) => {
         <span className="dollar">
           ${formatMoney(dollarChange, 2, ".", ",")}
         </span>
-        <span className="percentage">({percentageChange}%)</span>
+        <span className="percentage">
+          ({percentageChange === "NaN" ? 0.0 : percentageChange}%)
+        </span>
         <span className="timeframe">Today</span>
       </h2>
 
@@ -164,8 +166,6 @@ const GraphComponent = (props) => {
           className="stock-graph"
           onMouseMove={handleEnter}
           onMouseLeave={() => handleLeave(stock.price)}
-          // width={710}
-          // height={200}
           data={data}
         >
           <Line

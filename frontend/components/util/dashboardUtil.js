@@ -29,10 +29,10 @@ export const constructPortfolioGraph = (
     let combinedChart = combinedStats["chart"];
     let last = combinedChart[combinedChart.length - 1];
     let first = combinedChart[0];
-    combinedStats["percentageChange"] = (
-      (last.vw / first.vw - 1) *
-      100
-    ).toFixed(2);
+    combinedStats["percentageChange"] =
+      last.vw / first.vw === 0
+        ? 0.0
+        : ((last.vw / first.vw - 1) * 100).toFixed(2);
     combinedStats["dollarChange"] = (last.vw - first.vw).toFixed(2);
   });
   combinedStats["price"] = portfolios.portfolioValue;
