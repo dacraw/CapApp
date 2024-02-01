@@ -1,71 +1,78 @@
 .stock-show-container {
-   position: relative;
-    h1 {
-        font-family: $condensed;
-        font-size: 1.75em;
-    }
- 
-    
-    > section {
-        margin-bottom: 30px;
-        h1 {
-            padding-bottom: 20px;
-            margin-bottom: 20px;
-            border-bottom: 1px solid $lighter-gray;
-        }
-    }
-    .about {
-        p {
-            line-height: 1.5em;
-            margin-bottom: 30px;
-        }
-        table {
-            width: 100%;
-            text-align: left;
-            td, th {
-                padding: 5px;
-            }
-            th {
-                font-weight: 600;
-            }
-        }
-    }
-    .news {
-        h2 {
+  position: relative;
+  h1 {
+    font-family: $condensed;
+    font-size: 1.75em;
+  }
 
-        }
-        h3 {
-            font-weight: bold;
-        }
-        h4 {
-            color: $gray;
-        }
-        .news-item {
-            margin-bottom: 40px;
-            line-height: 1.5em;
-            a {
-                color: $black;
-                display: flex;
-                justify-content: space-between;
-                padding: 1vw;
-                &:hover {
-                    background-color: $lightblue;
-                }
-                div:first-child {
-                    width:60%;
-                }
-                img {
-                    width: 30%;
-                }
-            }
-        }
+  > section {
+    margin-bottom: 30px;
+    h1 {
+      padding-bottom: 20px;
+      margin-bottom: 20px;
+      border-bottom: 1px solid $lighter-gray;
     }
+  }
+  .about {
+    p {
+      line-height: 1.5em;
+      margin-bottom: 30px;
+    }
+    table {
+      width: 100%;
+      text-align: left;
+      td,
+      th {
+        padding: 5px;
+      }
+      th {
+        font-weight: 600;
+      }
+    }
+  }
+  .news {
+    h3 {
+      font-weight: bold;
+    }
+    h4 {
+      color: $gray;
+    }
+    .news-item {
+      margin-bottom: 40px;
+      line-height: 1.5em;
+      a {
+        color: $black;
+        display: flex;
+        justify-content: space-between;
+        padding: 1vw;
+
+        @media (max-width: 480px) {
+          display: block;
+        }
+        &:hover {
+          background-color: $lightblue;
+        }
+        div:first-child {
+          width: 60%;
+
+          @media (max-width: 480px) {
+            width: 100%;
+          }
+        }
+        img {
+          width: 30%;
+
+          @media (max-width: 480px) {
+            width: 100%;
+          }
+        }
+      }
+    }
+  }
 }
 
 .recharts-wrapper {
-    
-    .recharts-surface {
-        // border-bottom: 2px dotted $lighter-gray;
-    }
-        
+  .recharts-surface {
+    // border-bottom: 2px dotted $lighter-gray;
+  }
 }

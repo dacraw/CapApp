@@ -20,7 +20,6 @@ const StockShow = () => {
   const cashAvailable = useSelector(
     (state) => state.entities.users[session.id].cashAvailable
   );
-  const loading = useSelector((state) => state.loading);
   const symbol = match.params.symbol.toUpperCase();
 
   useEffect(() => {
@@ -41,12 +40,8 @@ const StockShow = () => {
     }
   }, [symbol]);
 
-  // this.props.fetchStock(sym.toUpperCase())
   if (!Object.keys(stocks).length) return null;
-  // if (loading) return <Loading />
   if (!stock || !stock.about) return null;
-
-  // add css class 'stock-negative' for negative change; default is green for positive
 
   return (
     <>
@@ -60,65 +55,21 @@ const StockShow = () => {
       </header>
       <main className="functional-component-container">
         <section className="main">
-          <main className="stock-show-container">
+          <div className="functional-component-container-top">
             <GraphComponent stock={stock} />
+            <aside className="stock-sidebar-container">
+              <StockShowSidebar />
+            </aside>
+          </div>
+
+          <main className="stock-show-container">
             <AboutComponent about={stock.about} />
             <NewsComponent news={stock.news} />
           </main>
         </section>
-        <div className="stock-sidebar-container">
-          <aside>
-            <StockShowSidebar />
-          </aside>
-        </div>
       </main>
     </>
   );
 };
-// class StockShow extends Component {
-//     constructor(props) {
-//         super(props);
-//     }
-
-//     componentDidMount() {
-//         if (!this.props.stockSym.about){
-//             this.props.fetchStock(this.props.match.params.symbol.toUpperCase());
-//         }
-
-//     }
-
-//     componentDidUpdate(prevProps){
-
-//         // check if the hash has changed; if so, fetch single stock info UNLESS already in the state
-//         // currently only fetching 1d graph
-//         const { fetchStock, stocks, match: { params: { symbol } } } = this.props;
-
-//         const sym = symbol.toUpperCase();
-//         if (sym !== prevProps.match.params.symbol.toUpperCase() && !!stocks[sym.toUpperCase()] && !stocks[sym].about){
-//             fetchStock(sym);
-//         }
-//     }
-
-//     render() {
-//         // this.props.fetchStock(sym.toUpperCase())
-//         const { stockSym, loading, stocks } = this.props;
-//         if (!Object.keys(stocks).length) return null
-//         // if (loading) return <Loading />
-//         if (!stockSym || !stockSym.about) return null
-
-//         // add css class 'stock-negative' for negative change; default is green for positive
-
-//         return (
-//             <main className="stock-show-container">
-
-//                 <GraphComponent stock={stockSym} />
-//                 <AboutComponent about={stockSym.about} />
-//                 <NewsComponent news={stockSym.news} />
-
-//             </main>
-
-//         )
-//     }
-// }
 
 export default StockShow;
