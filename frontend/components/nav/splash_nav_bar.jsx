@@ -8,7 +8,12 @@ import {
   faWindowClose,
   faNewspaper,
 } from "@fortawesome/free-regular-svg-icons";
-import { faGripLines, faDoorClosed } from "@fortawesome/free-solid-svg-icons";
+import {
+  faGripLines,
+  faDoorClosed,
+  faArrowCircleRight,
+  faArrowUp,
+} from "@fortawesome/free-solid-svg-icons";
 
 const SplashNavBar = (props) => {
   const sessionId = useSelector((state) => state.session.id);
@@ -109,19 +114,25 @@ const SplashNavBar = (props) => {
                 LinkedIn
               </a>
             </div>
-            <div>
-              {!currentUser ? (
-                <>
+
+            {!currentUser ? (
+              <>
+                <div>
+                  <FontAwesomeIcon icon={faArrowCircleRight} />
                   <Link to="/login">Sign In</Link>
+                </div>
+                <div>
+                  <FontAwesomeIcon icon={faArrowUp} />
                   <Link to="/signup">Sign Up</Link>
-                </>
-              ) : (
-                <>
-                  <FontAwesomeIcon icon={faUserCircle} />
-                  <Link to="/dashboard">View Your Portfolio</Link>
-                </>
-              )}
-            </div>
+                </div>
+              </>
+            ) : (
+              <div>
+                <FontAwesomeIcon icon={faUserCircle} />
+                <Link to="/dashboard">View Your Portfolio</Link>
+              </div>
+            )}
+
             <div>
               {currentUser && (
                 <>
