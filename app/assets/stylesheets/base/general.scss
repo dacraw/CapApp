@@ -1,25 +1,28 @@
-html{ 
-    min-height: 100%;
-    position: relative;
+html {
+  min-height: 100%;
+  position: relative;
 }
 
-body, #root {
-    min-height: 100vh;
+body,
+#root {
+  min-height: 100vh;
 }
 
 button.generic {
-    margin-top: 50px;
-    color: $white;
-    height: 50px;
-    display: block;
-    width: 100%;
-    border-radius: 5px;
-    background-color: $lightgreen;
+  margin-top: 50px;
+  color: $white;
+  height: 50px;
+  display: block;
+  width: 100%;
+  border-radius: 5px;
+  background-color: $lightgreen;
+  &:hover {
+    background-color: $darkgreen;
+  }
+  &.negative-change {
+    background-color: $red;
     &:hover {
-        background-color: $darkgreen;
+      background-color: $darkred;
     }
-    &.negative-change {
-        background-color: $red;
-        &:hover { background-color: $darkred;}
-    }
+  }
 }

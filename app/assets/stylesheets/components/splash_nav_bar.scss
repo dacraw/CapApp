@@ -1,80 +1,160 @@
 .splash-nav-container {
-    box-shadow: 0 1px 4px $gray;
-    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
-    font-size: 1.25em;
-    padding: 10px;
-    width:100vw;
-    position: fixed;
-    box-sizing: border-box;
-    height: 65px; //margin-top in splash must match this height
-    background-color: $white;
-    z-index: 1;
-    box-sizing:border-box;
-    .show {
-        display: flex;
+  box-shadow: 0 1px 4px $gray;
+  font-family: "Franklin Gothic Medium", "Arial Narrow", Arial, sans-serif;
+  font-size: 1.25em;
+  padding: 10px;
+  width: 100vw;
+  position: fixed;
+  box-sizing: border-box;
+  height: 65px; //margin-top in splash must match this height
+  background-color: $white;
+  z-index: 1;
+  box-sizing: border-box;
+  .show {
+    display: flex;
+  }
+
+  .splash-nav-content {
+    display: flex;
+    align-items: center;
+    flex: 1;
+    justify-content: space-between;
+
+    @media (max-width: 480px) {
+      display: none;
     }
+  }
+}
+
+.splash-nav-mobile-hamburger {
+  display: none;
+  @media (max-width: 480px) {
+    flex: 1;
+    align-items: center;
+    display: flex;
+    justify-content: space-between;
+  }
+}
+
+.close-mobile-nav {
+  position: absolute;
+  z-index: 20;
+  top: 10px;
+  color: darkred;
+  right: 0;
+}
+
+.splash-nav-container-mobile {
+  z-index: 10;
+  display: none;
+  position: relative;
+  height: 100vh;
+  width: 100%;
+
+  .splash-nav-mobile-content {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-around;
+    font-family: "Franklin Gothic Medium", "Arial Narrow", Arial, sans-serif;
+    font-size: 2em;
+    position: fixed;
+    background-color: white;
+    width: 100%;
+    height: 100%;
+
+    > div {
+      display: flex;
+      align-items: center;
+    }
+
+    img,
+    svg {
+      width: 25px;
+      height: 25px;
+      margin-right: 10px;
+    }
+
+    a {
+      text-decoration: none;
+      color: $black;
+    }
+
+    button {
+      background: none;
+      font-family: "Franklin Gothic Medium", "Arial Narrow", Arial, sans-serif;
+    }
+  }
+
+  @media (max-width: 480px) {
+    display: block;
+  }
 }
 
 .splash-nav-main {
-    width: 95%;
-    margin: 0 auto;
-   
-    
-    display: flex;
-    align-items: center;
-    height: 100%;
-    a {
-        color: $black;
-    }
-    .logo {
-        width: 160px;
-        height: 45px;
-        background-image: image_url('logo.png');
-        background-size: 160px 45px;
-        &:hover {
-            background-image: image_url('logo-hover.png');
-        }
-    }
+  width: 95%;
+  margin: 0 auto;
 
+  display: flex;
+  align-items: center;
+  height: 100%;
+  justify-content: space-between;
+  a {
+    color: $black;
+  }
+}
+.logo {
+  width: 160px;
+  height: 45px;
+  &:hover {
+    background-image: image_url("logo-hover.png");
+  }
 }
 
 .splash-nav-links {
-    font-size: .9em;
-    display: flex;
-    li {
-        padding-left: 50px;
-        a:hover {
-            color: $lightgreen;
-        }
+  font-size: 0.9em;
+  display: flex;
+  text-align: center;
+  align-items: center;
+  flex: 1;
+  justify-content: center;
+  li {
+    margin-left: 20px;
+    a:hover {
+      color: $lightgreen;
     }
+  }
 }
 
 .login-signup {
-    margin-left: auto; // floats the last div to the right of the navbar    
-    font-family: $narrow;
-    a { // signin/signup
-        margin-left: 20px;
-        font-weight: 900;
-        text-align: center;
-        font-family: $condensed;
-        &:first-child:hover { // sign in link
-            color: $lightgreen;
-        }
-        &:last-child { // sign up button 
-            padding: 13px 0;
-            display: inline-block;
-            width: 140px;
-            background-color: $lightgreen;
-            color: $black;
-            border-radius: 30px;
-        }
-        &:last-child:hover {// sign up button 
-            background-color: $green;
-        } 
+  font-family: $narrow;
+
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  justify-content: center;
+  a {
+    // signin/signup
+    margin-left: 20px;
+    font-weight: 900;
+    text-align: center;
+    font-family: $condensed;
+    &:first-child:hover {
+      // sign in link
+      color: $lightgreen;
     }
+    &:last-child {
+      // sign up button
+      padding: 13px 0;
+      display: inline-block;
+      width: 140px;
+      background-color: $lightgreen;
+      color: $black;
+      border-radius: 30px;
+    }
+    &:last-child:hover {
+      // sign up button
+      background-color: $green;
+    }
+  }
 }
-
-
-
-
-
