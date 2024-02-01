@@ -1,5 +1,4 @@
 export const createPortfolio = (portfolio) => {
-  debugger;
   return $.ajax({
     method: "POST",
     url: "api/portfolios",

@@ -35,7 +35,6 @@ const startCreatingPortfolio = () => ({
 });
 
 export const createPortfolio = (portfolio) => (dispatch) => {
-  debugger;
   dispatch(startCreatingPortfolio());
   return PortfolioUtil.createPortfolio(portfolio).then(
     (portfolio) => dispatch(receivePortfolio(portfolio)),
@@ -52,10 +51,8 @@ export const updatePortfolio = (portfolio) => (dispatch) => {
 
 export const fetchPortfolios = (currentUser) => (dispatch) => {
   dispatch(startLoadingPortfolios());
-  //   debugger;
   PortfolioUtil.fetchPortfolios(currentUser).then(
     (portfolios) => {
-      //   debugger;
       dispatch(receivePortfolios(portfolios));
     },
     (errs) => dispatch(receivePortfolioErrors(errs.responseJSON))

@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import React, { useEffect } from "react";
 import { useSelector, useDispatch } from "react-redux";
 import WatchlistStock from "./WatchlistStock";
 import AddWatchedStock from "./AddWatchedStock";
@@ -6,7 +6,7 @@ import { redirect, useParams } from "react-router-dom";
 import { fetchAllWatchlists } from "../../actions/watchlistActions";
 import DashNavBar from "../nav/dash_nav_bar";
 
-export default (props) => {
+export default () => {
   const dispatch = useDispatch();
   useEffect(() => {
     dispatch(fetchAllWatchlists());

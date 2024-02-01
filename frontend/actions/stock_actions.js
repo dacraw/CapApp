@@ -6,10 +6,12 @@ export const RECEIVE_STOCK_ERRORS = "RECEIVE_STOCK_ERRORS";
 export const START_LOADING_STOCK = "START_LOADING_STOCK";
 export const START_LOADING_STOCKS = "START_LOADING_STOCKS";
 
-const receiveStock = (stock) => ({
-  type: RECEIVE_STOCK,
-  stock,
-});
+const receiveStock = (stock) => {
+  return {
+    type: RECEIVE_STOCK,
+    stock,
+  };
+};
 
 const receiveStocks = (stocks) => ({
   type: RECEIVE_STOCKS,
@@ -31,7 +33,9 @@ const startLoadingStocks = () => ({
 export const fetchStock = (stockSymbol) => (dispatch) => {
   dispatch(startLoadingStock());
   return StockUtil.fetchStock(stockSymbol).then(
-    (stock) => dispatch(receiveStock(stock)),
+    (stock) => {
+      dispatch(receiveStock(stock));
+    },
     (errs) => dispatch(receiveStockErrors(errs.responseText))
   );
 };
