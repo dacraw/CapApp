@@ -208,88 +208,50 @@ const DashNavBar = (props) => {
   return (
     <>
       <div className="dashboard-nav-container">
-        <div className="dashboard-nav-mobile">
-          <Link to="/">
-            <img className="logo" src={window.logoNoText} />
-          </Link>
-          <div className="search-wrapper">
-            <input
-              id="stock-search"
-              onChange={(e) => {
-                filterResults(e);
-              }}
-              onKeyUp={enterSearchList}
-              value={searchValue}
-              className="search"
-              placeholder="Enter stock symbol"
-              type="text"
-              autoComplete="off"
-              name="stock-search"
-            />
+        <Link to="/">
+          <img className="logo" src={window.logoNoText} />
+        </Link>
+        <div className="search-wrapper">
+          <input
+            id="stock-search"
+            onChange={(e) => {
+              filterResults(e);
+            }}
+            onKeyUp={enterSearchList}
+            value={searchValue}
+            className="search"
+            placeholder="Enter stock symbol"
+            type="text"
+            autoComplete="off"
+            name="stock-search"
+          />
 
-            <section className="stock-list" id="stock-list">
-              <ul>
-                {/* <ul onKeyDown={this.navigateResults}> */}
-                <li className="category">Stocks</li>
-                {Object.values(stocks).map((stock, idx) => (
-                  <li key={idx}>
-                    <Link
-                      to={`/stocks/${
-                        stock.symbol ? stock.symbol.toLowerCase() : ""
-                      }`}
-                    >
-                      <span className="symbol">{stock.symbol}</span>
-                      <span className="company">{stock.company}</span>
-                    </Link>
-                  </li>
-                ))}
-              </ul>
-            </section>
-          </div>
+          <section className="stock-list" id="stock-list">
+            <ul>
+              <li className="category">Stocks</li>
+              {Object.values(stocks).map((stock, idx) => (
+                <li key={idx}>
+                  <Link
+                    to={`/stocks/${
+                      stock.symbol ? stock.symbol.toLowerCase() : ""
+                    }`}
+                  >
+                    <span className="symbol">{stock.symbol}</span>
+                    <span className="company">{stock.company}</span>
+                  </Link>
+                </li>
+              ))}
+            </ul>
+          </section>
+          <i className="fas fa-search"></i>
+        </div>
+        <div className="dashboard-nav-mobile">
           <div onClick={() => setShowMobileNav(true)}>
             <FontAwesomeIcon icon={faGripLines} />
           </div>
         </div>
 
         <section className="content">
-          <Link to="/">
-            <div className="logo-notext"></div>
-          </Link>
-          <div className="search-wrapper">
-            <input
-              id="stock-search"
-              onChange={(e) => {
-                filterResults(e);
-              }}
-              onKeyUp={enterSearchList}
-              value={searchValue}
-              className="search"
-              placeholder="Enter stock symbol"
-              type="text"
-              autoComplete="off"
-              name="stock-search"
-            />
-
-            <section className="stock-list" id="stock-list">
-              <ul>
-                <li className="category">Stocks</li>
-                {Object.values(stocks).map((stock, idx) => (
-                  <li key={idx}>
-                    <Link
-                      to={`/stocks/${
-                        stock.symbol ? stock.symbol.toLowerCase() : ""
-                      }`}
-                    >
-                      <span className="symbol">{stock.symbol}</span>
-                      <span className="company">{stock.company}</span>
-                    </Link>
-                  </li>
-                ))}
-              </ul>
-            </section>
-
-            <i className="fas fa-search"></i>
-          </div>
           <ul className="links">
             <li>
               <a href="https://dacraw.github.io/" target="_blank">
