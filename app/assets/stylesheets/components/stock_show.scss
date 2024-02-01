@@ -46,7 +46,7 @@
         justify-content: space-between;
         padding: 1vw;
 
-        @media (max-width: 480px) {
+        @media (max-width: 700px) {
           display: block;
         }
         &:hover {
@@ -55,14 +55,14 @@
         div:first-child {
           width: 60%;
 
-          @media (max-width: 480px) {
+          @media (max-width: 700px) {
             width: 100%;
           }
         }
         img {
           width: 30%;
 
-          @media (max-width: 480px) {
+          @media (max-width: 700px) {
             width: 100%;
           }
         }

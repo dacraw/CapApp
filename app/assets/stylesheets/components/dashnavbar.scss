@@ -42,7 +42,7 @@
     justify-content: space-between;
     flex: 1;
 
-    @media (max-width: 480px) {
+    @media (max-width: 700px) {
       display: none;
     }
   }
@@ -71,7 +71,7 @@
 .dashboard-nav-mobile {
   display: none;
 
-  @media (max-width: 480px) {
+  @media (max-width: 700px) {
     display: flex;
     justify-content: space-between;
     padding: 10px;

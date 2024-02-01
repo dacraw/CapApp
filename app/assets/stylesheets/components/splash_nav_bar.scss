@@ -20,7 +20,7 @@
     flex: 1;
     justify-content: space-between;
 
-    @media (max-width: 480px) {
+    @media (max-width: 700px) {
       display: none;
     }
   }
@@ -28,7 +28,7 @@
 
 .splash-nav-mobile-hamburger {
   display: none;
-  @media (max-width: 480px) {
+  @media (max-width: 700px) {
     flex: 1;
     align-items: center;
     display: flex;
@@ -86,7 +86,7 @@
     }
   }
 
-  @media (max-width: 480px) {
+  @media (max-width: 700px) {
     display: block;
   }
 }
