@@ -72,9 +72,6 @@ export default (props) => {
             <div
               className={`watchlist-sidebar-options watchlist-options-${watchlist.id}`}
             >
-              <Link to={`watchlist/${watchlist.id}`}>
-                <i className="fas fa-cog"></i>Edit List
-              </Link>
               <button
                 onClick={() => dispatch(deleteWatchlist(watchlist.id))}
                 type="button"
