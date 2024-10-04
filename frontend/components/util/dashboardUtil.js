@@ -3,43 +3,35 @@ export const constructPortfolioGraph = (
   portfolios,
   stocks
 ) => {
-  const combinedStats = {};
-  let portfolioValue = 0;
+  const today = new Date();
+  const priorDate = new Date(new Date().setDate(today.getDate() - 30));
+  const graphItems = [];
 
-  Object.values(portfolioHistory).forEach((historyItem, idx) => {
-    if (idx == 0) {
-      combinedStats["chart"] = _.cloneDeep(stocks[historyItem.symbol].chart);
-      combinedStats["chart"].forEach(
-        (item, csIdx) => (combinedStats.chart[csIdx].vw = 0)
-      );
-    }
-    combinedStats["chart"].forEach((dataPoint, idx) => {
-      if (new Date(historyItem.created_at) <= new Date(dataPoint.t)) {
-        combinedStats.chart[idx].vw +=
-          stocks[historyItem.symbol].chart[idx].vw * historyItem.num_shares;
+  // iterate through the last 30 days in order to determine portfolio value
+  for (const day = priorDate; day <= today; day.setDate(day.getDate() + 1)) {
+    const valuesObj = {};
+
+    // iterate through portfolio history items
+    // determine portfolio value at each of the last 30 days
+    Object.entries(portfolioHistory).forEach((item) => {
+      const itemDate = new Date(item[0]);
+      const itemHistory = item[1];
+      if (itemDate < day) {
+        const value = itemHistory.num_shares * itemHistory.stock_price;
+
+        if (valuesObj[day]) {
+          valuesObj[day] += value;
+        } else {
+          valuesObj[day] = value;
+        }
       }
     });
+    graphItems.push({ label: day.toLocaleDateString(), vw: valuesObj[day] });
+  }
 
-    portfolioValue +=
-      historyItem.num_shares *
-      stocks[historyItem.symbol].chart[
-        stocks[historyItem.symbol].chart.length - 1
-      ].vw;
-
-    let combinedChart = combinedStats["chart"];
-    let last = combinedChart[combinedChart.length - 1];
-    let first = combinedChart[0];
-    combinedStats["percentageChange"] =
-      last.vw / first.vw === 0
-        ? 0.0
-        : ((last.vw / first.vw - 1) * 100).toFixed(2);
-    combinedStats["dollarChange"] = (last.vw - first.vw).toFixed(2);
-  });
-  combinedStats["price"] = portfolios.portfolioValue;
-  combinedStats["chart"][combinedStats["chart"].length - 1].vw =
-    portfolios.portfolioValue;
-
-  return combinedStats;
+  return {
+    chart: graphItems,
+  };
 };
 
 export const enterSearchList = (e) => {
