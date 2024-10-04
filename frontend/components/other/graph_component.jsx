@@ -172,7 +172,7 @@ const GraphComponent = (props) => {
             isAnimationActive={false}
             connectNulls={true}
             type="linear"
-            dataKey={"vw"}
+            dataKey="vw"
             stroke={strokeColor}
             dot={false}
             strokeWidth="2"
