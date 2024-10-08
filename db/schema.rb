@@ -10,10 +10,20 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2024_01_17_004743) do
+ActiveRecord::Schema.define(version: 2024_10_07_220629) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
+
+  create_table "daily_stock_quotes", force: :cascade do |t|
+    t.bigint "stock_id"
+    t.json "data"
+    t.datetime "date_start"
+    t.datetime "date_end"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["stock_id"], name: "index_daily_stock_quotes_on_stock_id"
+  end
 
   create_table "portfolios", force: :cascade do |t|
     t.integer "user_id", null: false
