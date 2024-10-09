@@ -18,11 +18,40 @@ ownedStocks = current_user.stocks.pluck(:symbol)
         charts = stockParser.chart
         # charts = (ownedStocks.include?(stock.symbol)) ? stockParser.getChart : stockParser.chart
 
-        price = stockParser.getDefaultPrice
-        percentageChange = stockParser.getPercentageChange
-        json.price price
-        json.chart charts
-        json.percentageChange percentageChange
+        quote = stock.daily_stock_quotes.where("date_end >= ?", Date.today.beginning_of_day)
+
+    
+        chart = []
+        if quote.present?
+            data = quote.first.data["Time Series (Daily)"]
+            price = data.values.first
+            json.price price["4. close"] ? price["4. close"] : price["1. open"]
+
+            if price["4. close"]
+                percentage_change = (price["4. close"].to_f - price["1. open"].to_f) / price["1. open"].to_f * 100
+            else
+                previous_price = data.values.second
+                percentage_change = (price["1.open"].to_f - previous_price["4. close"].to_f) / previous_price["4. close"].to_f * 100
+            end
+            json.percentageChange percentage_change.round(2)
+
+            last_price = nil
+            (30.days.ago.to_i..Time.now.to_i).step(1.day).each do |seconds|
+                date_time = Time.at(seconds) 
+
+                value_at_date = data.dig(date_time.strftime("%Y-%m-%d"))
+
+                if value_at_date
+                    value = value_at_date["4. close"] ? value_at_date["4. close"] : value_at_date["1. open"]
+                    chart << { label: date_time.strftime("%Y-%m-%d"), vw: value}
+                    last_price = value
+                else
+                    chart << { label: date_time.strftime("%Y-%m-%d"), vw: last_price}
+                end
+            end
+        end
+        
+        json.chart chart
     end
 end
 
