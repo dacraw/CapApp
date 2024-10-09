@@ -1,4 +1,4 @@
-import React, { useEffect } from "react";
+import React, { useEffect, useState } from "react";
 import DashMainSidebar from "../dashboard/dash_main_sidebar_container";
 import Loader from "../other/loader";
 import NewsComponent from "../other/NewsComponent";
@@ -9,15 +9,21 @@ import DashNavBar from "../nav/dash_nav_bar";
 import { fetchPortfolios } from "../../actions/portfolio_actions";
 import DashboardContent from "./DashboardContent";
 import { constructPortfolioGraph } from "../util/dashboardUtil";
+import { portfolioValue } from "../../util/portfolio_util";
 
 const Dashboard = () => {
   const dispatch = useDispatch();
   const currentUser = useSelector((state) => state.session.id);
   const stockLoader = useSelector((state) => state.loading.stockLoader);
+  const [portfolioValues, setPortfolioValues] = useState([]);
 
   useEffect(() => {
     dispatch(fetchPortfolios(currentUser));
     dispatch(fetchStocks());
+  }, []);
+
+  useEffect(() => {
+    portfolioValue(currentUser).then((data) => setPortfolioValues(data));
   }, []);
 
   const user = useSelector((state) => state.session.id);
@@ -28,6 +34,7 @@ const Dashboard = () => {
   });
   const history = portfolios.history;
 
+  if (portfolioValues.length === 0) return null;
   if (!portfolios || !user || !stocks) return null;
   if (!currentUser || !Object.keys(stocks).length) return null;
 
@@ -44,13 +51,14 @@ const Dashboard = () => {
       <main className="functional-component-container">
         <section className="main">
           <div className="functional-component-container-top">
-            <GraphComponent
+            <GraphComponent stock={{ chart: portfolioValues }} />
+            {/* <GraphComponent
               stock={
                 history
                   ? constructPortfolioGraph(history, portfolios, stocks)
                   : {}
               }
-            />
+            /> */}
             <aside className="stock-sidebar-container">
               <DashMainSidebar stocks={stocks} portfolios={portfolios} />
             </aside>

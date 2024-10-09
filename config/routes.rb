@@ -5,7 +5,9 @@ Rails.application.routes.draw do
     resources :watchlists, only: [:index, :create, :destroy]
     resources :watched_stocks, only: [:create, :destroy]
     resources :users, only: [:create] do
-      resources :portfolios, param: :symbol, only: [:index, :update]
+      get 'portfolio_value', to: 'portfolios#portfolio_value'
+
+      resources :portfolios, param: :symbol, only: [:index, :update] 
     end
     resources :stocks, param: :symbol, only: [:show, :index]
     resource :session, only: [:create, :destroy]

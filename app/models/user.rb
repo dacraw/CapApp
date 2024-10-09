@@ -1,3 +1,5 @@
+require 'net/http'
+
 class User < ApplicationRecord
     validates :username, presence: { message: 'Please enter your email'}, email: {message: "Please enter a valid email."}, uniqueness: true
     validates :session_token, presence: true, uniqueness: true
@@ -44,6 +46,62 @@ class User < ApplicationRecord
     def reset_session_token!
         self.update(session_token: User.generate_session_token)
         self.session_token
+    end
+
+    def portfolio_value
+        # Iterate through the stocks owned by the current user in their portfolio
+        portfolios = self.portfolios
+        symbols_in_portfolio = portfolios.distinct.pluck(:symbol)
+        stocks = Stock.where('stocks.symbol IN (?)', symbols_in_portfolio)
+
+        # Store the values from the API call into a hash to use for calculating porfolio value on each of the last 30 days
+        hash = {}
+
+        stocks.each do |stock|
+            # first check if the API results have been persisted to the DB
+            cached_quote = stock.daily_stock_quotes.where('date_end >= ?', Date.today.beginning_of_day)
+            if cached_quote.present?
+                hash[stock.symbol] = cached_quote.first.data["Time Series (Daily)"]
+
+            else
+                # If an existing quote doesn't exist, save it
+                uri = URI.parse("https://www.alphavantage.co/query?function=TIME_SERIES_DAILY&symbol=#{stock.symbol}&apikey=#{ENV['ALPHA_VANTAGE_KEY']}")
+                response = Net::HTTP.get_response uri
+                data = JSON.parse response.body
+        
+                date_start = data['Time Series (Daily)'].keys.last
+                date_end = data['Time Series (Daily)'].keys.first
+
+                quote = DailyStockQuote.create(
+                    date_start: date_start,
+                    date_end: date_end,
+                    stock: stock,
+                    data: data
+                )
+                hash[stock.symbol] = data["Time Series (Daily)"]
+            end
+        end
+
+        # Form the JSON object for the frontend
+        arr = []
+        (30.days.ago.to_i..Time.now.to_i).step(1.day).each do |seconds|
+            date_time = Time.at(seconds) 
+
+            previous_transactions = portfolios.filter {|transaction| transaction[:created_at] <= date_time.utc}
+            value = 0
+            previous_transactions.each do |transaction|
+                price = hash.dig(transaction[:symbol], date_time.strftime("%Y-%m-%d"), "1. open")
+                if price
+                    value += transaction[:num_shares] * price.to_f
+                else
+                    value += transaction[:num_shares] * transaction[:stock_price]
+                end
+            end
+
+            arr << { label: date_time.strftime("%Y-%m-%d"), vw: value }
+        end
+
+        arr
     end
 end
 
