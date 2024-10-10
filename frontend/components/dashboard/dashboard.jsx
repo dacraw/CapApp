@@ -51,14 +51,22 @@ const Dashboard = () => {
       <main className="functional-component-container">
         <section className="main">
           <div className="functional-component-container-top">
-            <GraphComponent stock={{ chart: portfolioValues }} />
-            {/* <GraphComponent
-              stock={
-                history
-                  ? constructPortfolioGraph(history, portfolios, stocks)
-                  : {}
-              }
-            /> */}
+            <GraphComponent
+              stock={{
+                percentageChange: (
+                  ((portfolioValues[portfolioValues.length - 1].vw -
+                    portfolioValues[portfolioValues.length - 2].vw) /
+                    portfolioValues[portfolioValues.length - 2].vw) *
+                  100
+                ).toFixed(2),
+                dollarChange: (
+                  portfolioValues[portfolioValues.length - 1].vw -
+                  portfolioValues[portfolioValues.length - 2].vw
+                ).toFixed(2),
+                price: portfolioValues[portfolioValues.length - 1].vw,
+                chart: portfolioValues,
+              }}
+            />
             <aside className="stock-sidebar-container">
               <DashMainSidebar stocks={stocks} portfolios={portfolios} />
             </aside>
