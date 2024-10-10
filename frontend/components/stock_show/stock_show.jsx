@@ -23,7 +23,6 @@ const StockShow = () => {
   const symbol = match.params.symbol.toUpperCase();
 
   useEffect(() => {
-    dispatch(fetchStocks());
     dispatch(fetchStock(symbol));
     dispatch(fetchPortfolios(currentUser));
   }, [dispatch]);
