@@ -18,3 +18,9 @@ export const updatePortfolio = (portfolio) => {
     data: { portfolio },
   });
 };
+
+export const portfolioValue = (currentUser) => {
+  return $.ajax({
+    url: `api/users/${currentUser}/portfolio_value`,
+  });
+};
