@@ -7,14 +7,14 @@ require_relative '../shared/stock_parser'
 
 # this uri uses the sandbox & test key
 stockParser = StockParser.new(@stock.symbol)
-chart = stockParser.chart
-chart.each_with_index do |chartItem, idx|
-    
-    if chartItem['average'] == nil
-        
-        chart[idx]['average'] = chart[idx-1]['average'] || chart[idx-2]['average'] 
-    end
+
+quote = @stock.daily_stock_quotes.where('date_end >= ?', Date.today.beginning_of_day)
+
+if quote.blank?
+    quote = DailyStockQuote.fetch_daily_data @stockstock.symbol @stock.construct_stock_daily_graph
 end
+    
+chart = quote.first.construct_stock_daily_graph
 
 price = stockParser.getPrice
 
@@ -40,12 +40,10 @@ aboutResponse = Net::HTTP.get_response(aboutUri)
 json.set! @stock.symbol do
     json.symbol @stock.symbol
 
-    json.price price
+    json.price quote.first.data["Time Series (Daily)"].values.first["1. open"]
 
     json.chart chart
 
-    # chart
-    
     # set the dollar and percentage change for the day based on current price
     # using last price of the chart for current price
     json.dollarChange dollarChange
