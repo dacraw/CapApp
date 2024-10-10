@@ -22,32 +22,46 @@ ownedStocks = current_user.stocks.pluck(:symbol)
 
     
         chart = []
-        if quote.present?
-            data = quote.first.data["Time Series (Daily)"]
-            price = data.values.first
-            json.price price["4. close"] ? price["4. close"] : price["1. open"]
+        if quote.blank?
+            uri = URI.parse "https://www.alphavantage.co/query?function=TIME_SERIES_DAILY&symbol=#{stock.symbol}&apikey=#{ENV['ALPHA_VANTAGE_KEY']}"
+            response = Net::HTTP.get_response uri
+            data = JSON.parse response.body
 
-            if price["4. close"]
-                percentage_change = (price["4. close"].to_f - price["1. open"].to_f) / price["1. open"].to_f * 100
+            date_start = data['Time Series (Daily)'].keys.last
+            date_end = data['Time Series (Daily)'].keys.first
+            
+            quote = [DailyStockQuote.create(
+                date_start: date_start,
+                date_end: date_end,
+                stock: stock,
+                data: data
+            )]
+        end        
+
+        data = quote.first.data["Time Series (Daily)"]
+        price = data.values.first
+        json.price price["4. close"] ? price["4. close"] : price["1. open"]
+
+        if price["4. close"]
+            percentage_change = (price["4. close"].to_f - price["1. open"].to_f) / price["1. open"].to_f * 100
+        else
+            previous_price = data.values.second
+            percentage_change = (price["1.open"].to_f - previous_price["4. close"].to_f) / previous_price["4. close"].to_f * 100
+        end
+        json.percentageChange percentage_change.round(2)
+
+        last_price = nil
+        (30.days.ago.to_i..Time.now.to_i).step(1.day).each do |seconds|
+            date_time = Time.at(seconds) 
+
+            value_at_date = data.dig(date_time.strftime("%Y-%m-%d"))
+
+            if value_at_date
+                value = value_at_date["4. close"] ? value_at_date["4. close"] : value_at_date["1. open"]
+                chart << { label: date_time.strftime("%Y-%m-%d"), vw: value}
+                last_price = value
             else
-                previous_price = data.values.second
-                percentage_change = (price["1.open"].to_f - previous_price["4. close"].to_f) / previous_price["4. close"].to_f * 100
-            end
-            json.percentageChange percentage_change.round(2)
-
-            last_price = nil
-            (30.days.ago.to_i..Time.now.to_i).step(1.day).each do |seconds|
-                date_time = Time.at(seconds) 
-
-                value_at_date = data.dig(date_time.strftime("%Y-%m-%d"))
-
-                if value_at_date
-                    value = value_at_date["4. close"] ? value_at_date["4. close"] : value_at_date["1. open"]
-                    chart << { label: date_time.strftime("%Y-%m-%d"), vw: value}
-                    last_price = value
-                else
-                    chart << { label: date_time.strftime("%Y-%m-%d"), vw: last_price}
-                end
+                chart << { label: date_time.strftime("%Y-%m-%d"), vw: last_price}
             end
         end
         
