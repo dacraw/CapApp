@@ -62,23 +62,9 @@ class User < ApplicationRecord
             cached_quote = stock.daily_stock_quotes.where('date_end >= ?', Date.today.beginning_of_day)
             if cached_quote.present?
                 hash[stock.symbol] = cached_quote.first.data["Time Series (Daily)"]
-
             else
-                # If an existing quote doesn't exist, save it
-                uri = URI.parse("https://www.alphavantage.co/query?function=TIME_SERIES_DAILY&symbol=#{stock.symbol}&apikey=#{ENV['ALPHA_VANTAGE_KEY']}")
-                response = Net::HTTP.get_response uri
-                data = JSON.parse response.body
-        
-                date_start = data['Time Series (Daily)'].keys.last
-                date_end = data['Time Series (Daily)'].keys.first
-
-                quote = DailyStockQuote.create(
-                    date_start: date_start,
-                    date_end: date_end,
-                    stock: stock,
-                    data: data
-                )
-                hash[stock.symbol] = data["Time Series (Daily)"]
+                quote = DailyStockQuote.fetch_daily_data stock.symbol
+                hash[stock.symbol] = quote.first.data["Time Series (Daily)"]
             end
         end
 

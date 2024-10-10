@@ -23,19 +23,7 @@ ownedStocks = current_user.stocks.pluck(:symbol)
     
         chart = []
         if quote.blank?
-            uri = URI.parse "https://www.alphavantage.co/query?function=TIME_SERIES_DAILY&symbol=#{stock.symbol}&apikey=#{ENV['ALPHA_VANTAGE_KEY']}"
-            response = Net::HTTP.get_response uri
-            data = JSON.parse response.body
-
-            date_start = data['Time Series (Daily)'].keys.last
-            date_end = data['Time Series (Daily)'].keys.first
-            
-            quote = [DailyStockQuote.create(
-                date_start: date_start,
-                date_end: date_end,
-                stock: stock,
-                data: data
-            )]
+            quote = DailyStockQuote.fetch_daily_data stock.symbol
         end        
 
         data = quote.first.data["Time Series (Daily)"]
