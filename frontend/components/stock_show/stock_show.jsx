@@ -1,14 +1,12 @@
-import React, { Component, useEffect } from "react";
+import React, { useEffect } from "react";
 import GraphComponent from "../other/graph_component";
 import AboutComponent from "./about_component";
 import NewsComponent from "./news_component";
-import { Link, useMatch } from "react-router-dom";
-import Loading from "../other/loader";
+import { useMatch } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
 import { fetchStock } from "../../actions/stock_actions";
 import DashNavBar from "../nav/dash_nav_bar";
 import { fetchPortfolios } from "../../actions/portfolio_actions";
-import { fetchStocks } from "../../actions/stock_actions";
 import StockShowSidebar from "./stock_show_sidebar";
 
 const StockShow = () => {
@@ -23,13 +21,13 @@ const StockShow = () => {
   const symbol = match.params.symbol.toUpperCase();
 
   useEffect(() => {
-    dispatch(fetchStocks());
     dispatch(fetchStock(symbol));
     dispatch(fetchPortfolios(currentUser));
   }, [dispatch]);
 
   const stocks = useSelector((state) => state.entities.stocks);
   const stock = stocks[symbol];
+
   const portfolios = useSelector((state) => {
     return state.entities.portfolios;
   });

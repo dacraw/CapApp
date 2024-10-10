@@ -1,8 +1,14 @@
+require 'net/http'
+
 class Api::PortfoliosController < ApplicationController
     def index
         @portfolio = Portfolio.where(user_id: params[:user_id])
         # byebug
         render :index
+    end
+
+    def portfolio_value
+        render json: current_user.portfolio_value
     end
 
     def create
