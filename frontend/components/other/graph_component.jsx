@@ -35,9 +35,8 @@ const GraphComponent = (props) => {
   ]);
 
   const handleEnter = (e) => {
-    // debugger;
     if (!e.activePayload || !e.activePayload[0].value) return null;
-    setPrice(e.activePayload[0].value.toFixed(2));
+    setPrice(parseFloat(e.activePayload[0].value));
     setDollarChange(
       (e.activePayload[0].value - props.stock.chart[0].vw).toFixed(2)
     );
