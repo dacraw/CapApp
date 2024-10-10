@@ -25,4 +25,25 @@ class DailyStockQuote < ApplicationRecord
             data: data
         )]
     end
+
+    def construct_stock_daily_graph
+        chart = []
+        last_price = nil
+
+        (30.days.ago.to_i..Time.now.to_i).step(1.day).each do |seconds|
+            date_time = Time.at(seconds) 
+
+            value_at_date = self.data["Time Series (Daily)"].dig(date_time.strftime("%Y-%m-%d"))
+
+            if value_at_date
+                value = value_at_date["4. close"] ? value_at_date["4. close"] : value_at_date["1. open"]
+                chart << { label: date_time.strftime("%Y-%m-%d"), vw: value}
+                last_price = value
+            else
+                chart << { label: date_time.strftime("%Y-%m-%d"), vw: last_price}
+            end
+        end
+
+        chart
+    end
 end

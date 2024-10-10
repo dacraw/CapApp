@@ -72,7 +72,7 @@ class User < ApplicationRecord
         arr = []
         (30.days.ago.to_i..Time.now.to_i).step(1.day).each do |seconds|
             date_time = Time.at(seconds) 
-
+            
             previous_transactions = portfolios.filter {|transaction| transaction[:created_at] <= date_time.utc}
             value = 0
             previous_transactions.each do |transaction|

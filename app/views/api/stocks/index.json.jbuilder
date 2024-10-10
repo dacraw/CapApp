@@ -13,23 +13,19 @@ ownedStocks = current_user.stocks.pluck(:symbol)
 @stocks.each do |stock|
     json.set! stock.symbol do
         json.symbol stock.symbol
-        stockParser = StockParser.new(stock.symbol)
         json.extract! stock, :symbol, :company, :id
-        charts = stockParser.chart
-        # charts = (ownedStocks.include?(stock.symbol)) ? stockParser.getChart : stockParser.chart
 
+        # Fetch an existing quote from the DB, otherwise from the API
         quote = stock.daily_stock_quotes.where("date_end >= ?", Date.today.beginning_of_day)
-
-    
-        chart = []
-        if quote.blank?
-            quote = DailyStockQuote.fetch_daily_data stock.symbol
-        end        
+        quote = DailyStockQuote.fetch_daily_data stock.symbol if quote.blank?
 
         data = quote.first.data["Time Series (Daily)"]
+
+        # Price - prioritize close price, default is open price
         price = data.values.first
         json.price price["4. close"] ? price["4. close"] : price["1. open"]
 
+        # Percentage Change - if the data doesn't contain the close price, use the previous day's close price
         if price["4. close"]
             percentage_change = (price["4. close"].to_f - price["1. open"].to_f) / price["1. open"].to_f * 100
         else
@@ -38,22 +34,8 @@ ownedStocks = current_user.stocks.pluck(:symbol)
         end
         json.percentageChange percentage_change.round(2)
 
-        last_price = nil
-        (30.days.ago.to_i..Time.now.to_i).step(1.day).each do |seconds|
-            date_time = Time.at(seconds) 
-
-            value_at_date = data.dig(date_time.strftime("%Y-%m-%d"))
-
-            if value_at_date
-                value = value_at_date["4. close"] ? value_at_date["4. close"] : value_at_date["1. open"]
-                chart << { label: date_time.strftime("%Y-%m-%d"), vw: value}
-                last_price = value
-            else
-                chart << { label: date_time.strftime("%Y-%m-%d"), vw: last_price}
-            end
-        end
-        
-        json.chart chart
+        # Chart
+        json.chart quote.first.construct_stock_daily_graph
     end
 end
 
