@@ -2,10 +2,21 @@ import React from "react";
 
 export default ({ about }) => {
   if (!about) return null;
+  if (about.status === "ERROR") {
+    return (
+      <section className="about">
+        <p>
+          The 5 requests per minute limit for company information has been
+          exceeded, please wait a bit before checking back.
+        </p>
+      </section>
+    );
+  }
+
   return (
     <section className="about">
       <h1>About</h1>
-      <p>{about.description}</p>
+      <p>{about.results.description}</p>
       <table className="general">
         <tbody>
           <tr>
@@ -15,12 +26,12 @@ export default ({ about }) => {
             <th>Website</th>
           </tr>
           <tr>
-            <td>{about.market_cap}</td>
-            <td>{about.total_employees}</td>
-            <td>{about.address.state}</td>
+            <td>{about.results.market_cap}</td>
+            <td>{about.results.total_employees}</td>
+            <td>{about.results.address.state}</td>
             <td>
-              <a target="_blank" href={about.homepage_url}>
-                {about.name}
+              <a target="_blank" href={about.results.homepage_url}>
+                {about.results.name}
               </a>
             </td>
           </tr>
