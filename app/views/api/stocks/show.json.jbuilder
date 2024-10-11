@@ -2,10 +2,11 @@ require 'net/http'
 require 'uri'
 require 'json'
 require_relative '../shared/news_api'
+
 quote = @stock.daily_stock_quotes.where('date_end >= ?', Date.today.beginning_of_day)
 
 if quote.blank?
-    quote = DailyStockQuote.fetch_daily_data @stockstock.symbol @stock.construct_stock_daily_graph
+    quote = DailyStockQuote.fetch_daily_data @stock.symbol
 end
     
 chart = quote.first.construct_stock_daily_graph
