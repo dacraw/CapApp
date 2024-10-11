@@ -59,7 +59,7 @@ class User < ApplicationRecord
 
         stocks.each do |stock|
             # first check if the API results have been persisted to the DB
-            cached_quote = stock.daily_stock_quotes.where('date_end >= ?', Date.today.beginning_of_day)
+            cached_quote = stock.daily_stock_quotes.where('date_end >= ?', Time.now.utc.beginning_of_day)
             if cached_quote.present?
                 hash[stock.symbol] = cached_quote.first.data["Time Series (Daily)"]
             else
