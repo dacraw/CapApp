@@ -15,6 +15,8 @@ class DailyStockQuote < ApplicationRecord
         response = Net::HTTP.get_response uri
         data = JSON.parse response.body
 
+        puts "Fetch_daily_data, data: #{data}"
+
         date_start = data['Time Series (Daily)'].keys.last
         date_end = data['Time Series (Daily)'].keys.first
         
