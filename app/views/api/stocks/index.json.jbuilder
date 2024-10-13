@@ -16,7 +16,7 @@ ownedStocks = current_user.stocks.pluck(:symbol)
         json.extract! stock, :symbol, :company, :id
 
         # Fetch an existing quote from the DB, otherwise from the API
-        quote = stock.daily_stock_quotes.where("date_end >= ?", Date.today.beginning_of_day)
+        quote = stock.daily_stock_quotes.where("created_at >= ?", Time.now.utc.beginning_of_day)
         
         quote = DailyStockQuote.fetch_daily_data stock.symbol if quote.blank?
 
