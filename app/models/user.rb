@@ -51,7 +51,8 @@ class User < ApplicationRecord
     def portfolio_value
         # Iterate through the stocks owned by the current user in their portfolio
         portfolios = self.portfolios
-        symbols_in_portfolio = portfolios.distinct.pluck(:symbol)
+        symbols_in_portfolio = portfolios.group(:symbol).having('SUM(num_shares) > ?', 0).distinct.pluck(:symbol)
+
         stocks = Stock.where('stocks.symbol IN (?)', symbols_in_portfolio)
 
         # Store the values from the API call into a hash to use for calculating porfolio value on each of the last 30 days
