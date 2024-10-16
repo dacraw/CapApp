@@ -3,7 +3,7 @@ require 'uri'
 require 'json'
 require_relative '../shared/news_api'
 
-quote = @stock.daily_stock_quotes.where('created_at >= ?', Time.now.utc.beginning_of_day)
+quote = @stock.daily_stock_quotes.current
 
 if quote.blank?
     quote = DailyStockQuote.fetch_daily_data @stock.symbol

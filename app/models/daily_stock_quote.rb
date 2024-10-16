@@ -5,6 +5,8 @@ class DailyStockQuote < ApplicationRecord
     
     belongs_to :stock
 
+    scope :current, -> { where("created_at >= ?", Time.now.utc.beginning_of_day) }
+
     def self.fetch_daily_data(stock_ticker)
         stock = Stock.find_by_symbol(stock_ticker)
         if stock.blank?
