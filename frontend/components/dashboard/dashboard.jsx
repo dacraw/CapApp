@@ -1,5 +1,4 @@
 import React, { useEffect, useState } from "react";
-import DashMainSidebar from "../dashboard/dash_main_sidebar_container";
 import Loader from "../other/loader";
 import NewsComponent from "../other/NewsComponent";
 import GraphComponent from "../other/graph_component";
@@ -10,6 +9,7 @@ import { fetchPortfolios } from "../../actions/portfolio_actions";
 import DashboardContent from "./DashboardContent";
 import { constructPortfolioGraph } from "../util/dashboardUtil";
 import { portfolioValue } from "../../util/portfolio_util";
+import DashMainSidebar from "./dash_main_sidebar";
 
 const Dashboard = () => {
   const dispatch = useDispatch();
@@ -19,7 +19,6 @@ const Dashboard = () => {
 
   useEffect(() => {
     dispatch(fetchPortfolios(currentUser));
-    dispatch(fetchStocks());
   }, []);
 
   useEffect(() => {
@@ -28,15 +27,13 @@ const Dashboard = () => {
 
   const user = useSelector((state) => state.session.id);
 
-  const stocks = useSelector((state) => state.entities.stocks);
   const portfolios = useSelector((state) => {
     return state.entities.portfolios;
   });
-  const history = portfolios.history;
 
   if (portfolioValues.length === 0) return null;
-  if (!portfolios || !user || !stocks) return null;
-  if (!currentUser || !Object.keys(stocks).length) return null;
+  if (!portfolios || !user) return null;
+  if (!currentUser) return null;
 
   return (
     <>
@@ -44,7 +41,6 @@ const Dashboard = () => {
         <DashNavBar
           currentUser={currentUser}
           cashAvailable={portfolios.cashAvailable}
-          stocks={stocks}
           portfolios={portfolios}
         />
       </header>
@@ -68,7 +64,7 @@ const Dashboard = () => {
               }}
             />
             <aside className="stock-sidebar-container">
-              <DashMainSidebar stocks={stocks} portfolios={portfolios} />
+              <DashMainSidebar />
             </aside>
           </div>
 

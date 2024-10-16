@@ -80,7 +80,7 @@ const enterSearchList = (e) => {
   }
 };
 
-const DashNavBar = (props) => {
+const DashNavBar = () => {
   const [searchValue, setSearchValue] = useState("");
   const location = useLocation();
   const params = useParams();
