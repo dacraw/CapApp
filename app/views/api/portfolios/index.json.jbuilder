@@ -19,7 +19,7 @@ json.stocks do
             json.extract! summary, :symbol
             json.sum summary.sum.round(2)
             json.chart graph
-            json.percentageChange percentage_change
+            json.percentageChange percentage_change.round 2
             json.price price
         end
     end
