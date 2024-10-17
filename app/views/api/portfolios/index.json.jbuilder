@@ -2,6 +2,7 @@ require_relative '../shared/stock_parser'
 require_relative '../shared/news_api'
 
 json.cashAvailable number_to_currency(current_user.cash_available)
+json.portfolioGraph current_user.portfolio_value
 
 json.stocks do
     stock_share_summary = @portfolio.group(:symbol).select('symbol, SUM(num_shares)').having('SUM(num_shares) > ?', 0)

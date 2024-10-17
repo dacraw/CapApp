@@ -7,10 +7,6 @@ class Api::PortfoliosController < ApplicationController
         render :index
     end
 
-    def portfolio_value
-        render json: current_user.portfolio_value
-    end
-
     def create
         @portfolio = Portfolio.new(portfolio_params)
         cash_available = User.find(portfolio_params[:user_id]).cash_available
