@@ -1,9 +1,7 @@
 import React, { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { logout } from "../../actions/session_actions.js";
-import { Link, useLocation, useMatch, useParams } from "react-router-dom";
-import { fetchPortfolios } from "../../actions/portfolio_actions";
-import { fetchStocks } from "../../actions/stock_actions.js";
+import { Link, useLocation, useParams } from "react-router-dom";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import {
   faGripLines,
@@ -89,10 +87,6 @@ const DashNavBar = () => {
   const [showMobileNav, setShowMobileNav] = useState(false);
 
   const currentUser = useSelector((state) => state.session.id);
-  useEffect(() => {
-    // dispatch(fetchStocks());
-    // dispatch(fetchPortfolios(currentUser));
-  }, [dispatch]);
 
   const cashAvailable = useSelector(
     (state) => state.entities.portfolios.cashAvailable

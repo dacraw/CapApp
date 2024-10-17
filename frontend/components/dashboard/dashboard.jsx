@@ -1,20 +1,15 @@
 import React, { useEffect, useState } from "react";
-import Loader from "../other/loader";
 import NewsComponent from "../other/NewsComponent";
 import GraphComponent from "../other/graph_component";
-import { fetchStocks } from "../../actions/stock_actions";
 import { useDispatch, useSelector } from "react-redux";
 import DashNavBar from "../nav/dash_nav_bar";
 import { fetchPortfolios } from "../../actions/portfolio_actions";
-import DashboardContent from "./DashboardContent";
-import { constructPortfolioGraph } from "../util/dashboardUtil";
 import { portfolioValue } from "../../util/portfolio_util";
 import DashMainSidebar from "./dash_main_sidebar";
 
 const Dashboard = () => {
   const dispatch = useDispatch();
   const currentUser = useSelector((state) => state.session.id);
-  const stockLoader = useSelector((state) => state.loading.stockLoader);
   const [portfolioValues, setPortfolioValues] = useState([]);
 
   useEffect(() => {
