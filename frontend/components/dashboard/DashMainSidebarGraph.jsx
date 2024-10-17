@@ -10,11 +10,9 @@ import {
 } from "recharts";
 import { useSelector } from "react-redux";
 
-const DashMainSidebarGraph = ({ data, symbol }) => {
-  const percentageChange = useSelector((state) => {
-    return state.entities.stocks[symbol].percentageChange;
-  });
+const DashMainSidebarGraph = ({ data, symbol, percentageChange }) => {
   const strokeColor = percentageChange >= 0 ? "rgb(16, 197, 40)" : "#ff4f0b";
+
   return (
     <>
       <ResponsiveContainer>

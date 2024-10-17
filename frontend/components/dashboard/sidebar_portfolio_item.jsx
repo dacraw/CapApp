@@ -3,13 +3,9 @@ import { Link } from "react-router-dom";
 import DashMainSidebarGraph from "./DashMainSidebarGraph";
 import { useSelector } from "react-redux";
 
-const SidebarPortfolioItem = ({ ownedStock, stocks }) => {
-  if (!(ownedStock.symbol in stocks)) return null;
-  const dollarChangeStyle =
-    stocks[ownedStock.symbol].percentageChange <= 0 ? "negative" : "";
-  const chart = useSelector((state) => {
-    return state.entities.stocks[ownedStock.symbol].chart;
-  });
+const SidebarPortfolioItem = ({ ownedStock }) => {
+  const dollarChangeStyle = ownedStock.percentageChange <= 0 ? "negative" : "";
+  const chart = ownedStock.chart;
   const formatMoney = (number, decPlaces, decSep, thouSep) => {
     (decPlaces = isNaN((decPlaces = Math.abs(decPlaces))) ? 2 : decPlaces),
       (decSep = typeof decSep === "undefined" ? "." : decSep);
@@ -32,6 +28,7 @@ const SidebarPortfolioItem = ({ ownedStock, stocks }) => {
         : "")
     );
   };
+
   return (
     <>
       <li className="owned-stocks">
@@ -41,14 +38,18 @@ const SidebarPortfolioItem = ({ ownedStock, stocks }) => {
             <div className="num-shares">{ownedStock.sum} shares</div>
           </div>
           <div className="stock-mini-graph">
-            <DashMainSidebarGraph data={chart} symbol={ownedStock.symbol} />
+            <DashMainSidebarGraph
+              data={chart}
+              symbol={ownedStock.symbol}
+              percentageChange={ownedStock.percentageChange}
+            />
           </div>
           <div className="stock-info">
             <div className="price">
-              ${formatMoney(stocks[ownedStock.symbol].price, 2, ".", ",")}
+              ${formatMoney(ownedStock.price, 2, ".", ",")}
             </div>
             <div className={`percentage-change ${dollarChangeStyle}`}>
-              {stocks[ownedStock.symbol].percentageChange}%
+              {ownedStock.percentageChange}%
             </div>
           </div>
         </Link>
