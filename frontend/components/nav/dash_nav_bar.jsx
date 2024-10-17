@@ -1,9 +1,7 @@
 import React, { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { logout } from "../../actions/session_actions.js";
-import { Link, useLocation, useMatch, useParams } from "react-router-dom";
-import { fetchPortfolios } from "../../actions/portfolio_actions";
-import { fetchStocks } from "../../actions/stock_actions.js";
+import { Link, useLocation, useParams } from "react-router-dom";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import {
   faGripLines,
@@ -11,6 +9,7 @@ import {
   faNewspaper,
   faUserCircle,
 } from "@fortawesome/free-solid-svg-icons";
+import { fetchStocks } from "../../actions/stock_actions.js";
 
 const enterSearchList = (e) => {
   e.preventDefault();
@@ -80,7 +79,7 @@ const enterSearchList = (e) => {
   }
 };
 
-const DashNavBar = (props) => {
+const DashNavBar = () => {
   const [searchValue, setSearchValue] = useState("");
   const location = useLocation();
   const params = useParams();
@@ -89,14 +88,14 @@ const DashNavBar = (props) => {
   const [showMobileNav, setShowMobileNav] = useState(false);
 
   const currentUser = useSelector((state) => state.session.id);
-  useEffect(() => {
-    // dispatch(fetchStocks());
-    // dispatch(fetchPortfolios(currentUser));
-  }, [dispatch]);
 
   const cashAvailable = useSelector(
     (state) => state.entities.portfolios.cashAvailable
   );
+
+  useEffect(() => {
+    dispatch(fetchStocks());
+  }, []);
   const stocks = useSelector((state) => state.entities.stocks);
   const portfolios = useSelector((state) => state.entities.portfolios);
 

@@ -194,7 +194,7 @@ const GraphComponent = (props) => {
         </LineChart>
       </ResponsiveContainer>
       <ul className={`time-frame`}>
-        <li className={`selected ${dollarChangeDirection}`}>1D</li>
+        <li className={`selected ${dollarChangeDirection}`}>1M</li>
       </ul>
     </section>
   );
