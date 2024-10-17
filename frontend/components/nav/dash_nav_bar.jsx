@@ -9,6 +9,7 @@ import {
   faNewspaper,
   faUserCircle,
 } from "@fortawesome/free-solid-svg-icons";
+import { fetchStocks } from "../../actions/stock_actions.js";
 
 const enterSearchList = (e) => {
   e.preventDefault();
@@ -91,6 +92,10 @@ const DashNavBar = () => {
   const cashAvailable = useSelector(
     (state) => state.entities.portfolios.cashAvailable
   );
+
+  useEffect(() => {
+    dispatch(fetchStocks());
+  }, []);
   const stocks = useSelector((state) => state.entities.stocks);
   const portfolios = useSelector((state) => state.entities.portfolios);
 
