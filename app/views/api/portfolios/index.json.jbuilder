@@ -1,8 +1,10 @@
 require_relative '../shared/stock_parser'
 require_relative '../shared/news_api'
 
+portfolio_graph = current_user.portfolio_value
+
 json.cashAvailable number_to_currency(current_user.cash_available)
-json.portfolioGraph current_user.portfolio_value
+json.portfolioGraph portfolio_graph
 
 json.stocks do
     stock_share_summary = @portfolio.group(:symbol).select('symbol, SUM(num_shares)').having('SUM(num_shares) > ?', 0)
@@ -49,5 +51,5 @@ json.history do
         portfolioValue += stockValue
     end
 end
-json.portfolioValue portfolioValue.round(2)
+json.portfolioValue portfolio_graph.last[:vw]
 
