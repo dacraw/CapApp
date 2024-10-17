@@ -1,19 +1,7 @@
-# @portfolio represents a collection of items matching user_id
-
-# {
-#     1: {
-#         portfolio: []
-#     }
-# }
-
 require_relative '../shared/stock_parser'
 require_relative '../shared/news_api'
 
-
-
 json.cashAvailable number_to_currency(current_user.cash_available)
-
-        # json.chart
 
 json.stocks do
     stock_share_summary = @portfolio.group(:symbol).select('symbol, SUM(num_shares)').having('SUM(num_shares) > ?', 0)
@@ -61,8 +49,4 @@ json.history do
     end
 end
 json.portfolioValue portfolioValue.round(2)
-
-# news_API = NewsAPI.new
-# news = news_API.fetchBusiness
-# json.news news
 
