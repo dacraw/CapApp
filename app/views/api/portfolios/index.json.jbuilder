@@ -26,30 +26,6 @@ json.stocks do
         end
     end
 end
-portfolioValue = 0
-priceHash = {};
-json.history do
-    @portfolio.each do |item|
-        
-        created_at = item.created_at
-        json.set! created_at do
-            
-            json.extract! item, :id, :user_id, :symbol, :num_shares, :created_at
-            
-            json.stock_price item[:stock_price]
-        end
-        if (!priceHash[item.symbol]) 
-            stockParser = StockParser.new(item.symbol)
-            # byebug
-            priceHash[item.symbol] = stockParser.chart[-1][:average]
 
-            # for now while debugging, using default values
-            # priceHash[item.symbol] = stockParser.getChart[-1][:average]
-        end
-
-        stockValue = item.num_shares * priceHash[item.symbol]
-        portfolioValue += stockValue
-    end
-end
 json.portfolioValue portfolio_graph.last[:vw]
 

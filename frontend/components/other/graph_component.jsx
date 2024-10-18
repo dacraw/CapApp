@@ -29,16 +29,13 @@ const GraphComponent = (props) => {
   ]);
 
   const handleEnter = (e) => {
-    if (!e.activePayload || !e.activePayload[0].value) return null;
+    if (!e.activePayload) return null;
+    const percentageChange = e.activePayload[0].payload.percentageChange;
     setPrice(parseFloat(e.activePayload[0].value));
     setDollarChange(
       (e.activePayload[0].value - props.stock.chart[0].vw).toFixed(2)
     );
-    setPercentageChange(
-      ((e.activePayload[0].value / props.stock.chart[0].vw - 1) * 100).toFixed(
-        2
-      )
-    );
+    setPercentageChange(percentageChange);
   };
 
   const handleLeave = (value) => {
