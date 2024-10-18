@@ -85,7 +85,14 @@ class User < ApplicationRecord
                 end
             end
 
-            arr << { label: date_time.strftime("%Y-%m-%d"), vw: value }
+            percentage_change = 0.00
+
+            if arr.length > 0
+                previous_value = arr[-1][:vw]
+
+                percentage_change = (value - previous_value) / previous_value * 100 if previous_value != 0
+            end
+            arr << { label: date_time.strftime("%Y-%m-%d"), vw: value, percentageChange: percentage_change.round(2) }
         end
 
         arr
