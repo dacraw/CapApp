@@ -19,6 +19,11 @@ class DailyStockQuote < ApplicationRecord
 
         puts "Fetch_daily_data, data: #{data}"
 
+        if data.blank?
+            stock = Stock.find_by_symbol(stock_ticker)
+            return [stock.daily_stock_quotes.last]
+        end
+
         date_start = data['Time Series (Daily)'].keys.last
         date_end = data['Time Series (Daily)'].keys.first
         
