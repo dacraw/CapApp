@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { logout } from "../../actions/session_actions.js";
-import { Link, useLocation, useParams } from "react-router-dom";
+import { Link, useLocation, useParams } from "react-router";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import {
   faGripLines,
