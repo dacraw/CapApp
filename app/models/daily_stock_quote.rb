@@ -5,7 +5,23 @@ class DailyStockQuote < ApplicationRecord
     
     belongs_to :stock
 
-    scope :current, -> { where("created_at >= ?", Time.now.utc.beginning_of_day) }
+    scope :current, -> { where("created_at >= ?", Time.now.utc.beginning_of_day).order(created_at: :desc).limit(1) }
+
+    def self.current_time_eastern
+        Time.now.utc.in_time_zone('Eastern Time (US & Canada)')
+    end
+
+    def self.todays_market_close_time_eastern
+        Time
+            .now
+            .in_time_zone('Eastern Time (US & Canada)')
+            # using 35 mins to give api time to update after market close
+            .change(hour: 16, min: 35)
+    end
+
+    def self.market_has_closed?
+        DailyStockQuote.current_time_eastern >= DailyStockQuote.todays_market_close_time_eastern
+    end
 
     def self.fetch_daily_data(stock_ticker)
         stock = Stock.find_by_symbol(stock_ticker)
@@ -27,12 +43,12 @@ class DailyStockQuote < ApplicationRecord
         date_start = data['Time Series (Daily)'].keys.last
         date_end = data['Time Series (Daily)'].keys.first
         
-        [DailyStockQuote.create(
+        DailyStockQuote.create(
             date_start: date_start,
             date_end: date_end,
             stock: stock,
             data: data
-        )]
+        )
     end
 
     def construct_stock_daily_graph
