@@ -1,8 +1,8 @@
 import React from "react";
-import { Link } from "react-router-dom";
+import { Link } from "react-router";
 import DashMainSidebarGraph from "./DashMainSidebarGraph";
 import { useSelector, useDispatch } from "react-redux";
-import { Routes, Route, useLocation, Redirect } from "react-router-dom";
+import { Routes, Route, useLocation, Redirect } from "react-router";
 import { deleteWatchlist } from "../../actions/watchlistActions";
 
 export default (props) => {

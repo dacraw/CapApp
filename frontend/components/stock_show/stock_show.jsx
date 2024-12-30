@@ -2,7 +2,7 @@ import React, { useEffect } from "react";
 import GraphComponent from "../other/graph_component";
 import AboutComponent from "./about_component";
 import NewsComponent from "./news_component";
-import { useMatch } from "react-router-dom";
+import { useMatch } from "react-router";
 import { useDispatch, useSelector } from "react-redux";
 import { fetchStock } from "../../actions/stock_actions";
 import DashNavBar from "../nav/dash_nav_bar";

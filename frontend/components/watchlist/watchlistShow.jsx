@@ -2,7 +2,7 @@ import React, { useEffect } from "react";
 import { useSelector, useDispatch } from "react-redux";
 import WatchlistStock from "./WatchlistStock";
 import AddWatchedStock from "./AddWatchedStock";
-import { redirect, useParams } from "react-router-dom";
+import { redirect, useParams } from "react-router";
 import { fetchAllWatchlists } from "../../actions/watchlistActions";
 import DashNavBar from "../nav/dash_nav_bar";
 
