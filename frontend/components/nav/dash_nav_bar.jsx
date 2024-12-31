@@ -11,6 +11,7 @@ import {
 } from "@fortawesome/free-solid-svg-icons";
 import { fetchStocks } from "../../actions/stock_actions.js";
 import StockSearch from "./stock_search.jsx";
+import { usdFormatter } from "../util/moneyUtil.js";
 
 const DashNavBar = () => {
   const dispatch = useDispatch();
@@ -28,11 +29,6 @@ const DashNavBar = () => {
   }, []);
   const stocks = useSelector((state) => state.entities.stocks);
   const portfolios = useSelector((state) => state.entities.portfolios);
-
-  const formatter = new Intl.NumberFormat("en-US", {
-    style: "currency",
-    currency: "USD",
-  });
 
   if (!currentUser || !stocks) return null;
   if (!cashAvailable) return null;
@@ -92,7 +88,7 @@ const DashNavBar = () => {
                     <div className="double-col">
                       <div>
                         <h4 id="dashboard-nav-pv">
-                          {formatter.format(portfolios.portfolioValue)}
+                          {usdFormatter.format(portfolios.portfolioValue)}
                         </h4>
                         <h5>Portfolio Value</h5>
                       </div>
@@ -152,7 +148,8 @@ const DashNavBar = () => {
 
             <div>
               <span>
-                Portfolio Value: ${formatter.format(portfolios.portfolioValue)}
+                Portfolio Value:
+                {usdFormatter.format(portfolios.portfolioValue)}
               </span>
             </div>
             <div>

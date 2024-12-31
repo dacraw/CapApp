@@ -1,13 +1,9 @@
-import React, { Component, useEffect, useState } from "react";
+import React, { useEffect, useState } from "react";
 import LoaderTwo from "../other/loader2";
 import { useParams } from "react-router";
 import { useDispatch, useSelector } from "react-redux";
-import {
-  createPortfolio,
-  fetchPortfolios,
-  updatePortfolio,
-} from "../../actions/portfolio_actions";
-import { fetchStocks } from "../../actions/stock_actions";
+import { createPortfolio } from "../../actions/portfolio_actions";
+import { usdFormatter } from "../util/moneyUtil";
 
 const StockShowSidebar = () => {
   const dispatch = useDispatch();
@@ -121,11 +117,6 @@ const StockShowSidebar = () => {
       numShares == 0
         ? stock.price
         : Math.round((stock.price * numShares + Number.EPSILON) * 100) / 100;
-    const formatter = new Intl.NumberFormat("en-US", {
-      style: "currency",
-      currency: "USD",
-      minimumFractionDigits: 2,
-    });
 
     switch (investType) {
       case "Shares":
@@ -150,7 +141,7 @@ const StockShowSidebar = () => {
             <section className="line">
               <label>Market Price</label>
               <data className="cost-credit">
-                {formatter.format(stock.price)}
+                {usdFormatter.format(stock.price)}
               </data>
             </section>
             <hr />
@@ -158,7 +149,7 @@ const StockShowSidebar = () => {
               <label>
                 {formType === "buy" ? "Estimated Cost" : "Estimated Credit"}
               </label>
-              <data>{formatter.format(estimatedPrice)} </data>
+              <data>{usdFormatter.format(estimatedPrice)} </data>
             </section>
           </>
         );
