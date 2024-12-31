@@ -11,13 +11,6 @@ end
     
 chart = quote.first.construct_stock_daily_graph
 
-# this pulls about copmany
-
-# NEED TO CACHE THE ABOUT API REQUEST IN ORDER TO AVOID RECEIVING NO DATA
-
-# aboutUri = URI.parse("https://api.polygon.io/v3/reference/tickers/#{@stock.symbol}?apiKey=#{ENV['POLYGON_KEY']}")
-# aboutResponse = Net::HTTP.get_response(aboutUri)
-
 json.set! @stock.symbol do
     json.symbol @stock.symbol
 
