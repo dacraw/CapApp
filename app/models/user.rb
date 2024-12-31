@@ -59,14 +59,9 @@ class User < ApplicationRecord
         hash = {}
 
         stocks.each do |stock|
-            # first check if the API results have been persisted to the DB
-            cached_quote = stock.daily_stock_quotes.current
-            if cached_quote.present?
-                hash[stock.symbol] = cached_quote.first.data["Time Series (Daily)"]
-            else
-                quote = DailyStockQuote.fetch_daily_data stock.symbol
-                hash[stock.symbol] = quote.first.data["Time Series (Daily)"]
-            end
+            cached_quote = stock.cached_quote
+
+            hash[stock.symbol] = cached_quote.data["Time Series (Daily)"]
         end
 
         # Form the JSON object for the frontend

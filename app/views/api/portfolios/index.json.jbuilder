@@ -11,9 +11,8 @@ json.stocks do
 
     stock_share_summary.each do |summary|
         stock = Stock.find_by_symbol(summary.symbol)
-        quote = stock.daily_stock_quotes.current
-        quote = DailyStockQuote.fetch_daily_data stock.symbol if quote.blank?
-        graph = quote.first.construct_stock_daily_graph
+        quote = stock.cached_quote
+        graph = quote.construct_stock_daily_graph
         percentage_change = (graph[-1][:vw].to_f - graph[-2][:vw].to_f) / graph[-2][:vw].to_f * 100
         price = graph[-1][:vw]
 

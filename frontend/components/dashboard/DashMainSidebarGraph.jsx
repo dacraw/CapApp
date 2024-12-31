@@ -1,16 +1,14 @@
-import React, { Component } from "react";
+import React from "react";
 import {
   LineChart,
   Line,
   XAxis,
   YAxis,
-  Tooltip,
   ResponsiveContainer,
   ReferenceLine,
 } from "recharts";
-import { useSelector } from "react-redux";
 
-const DashMainSidebarGraph = ({ data, symbol, percentageChange }) => {
+const DashMainSidebarGraph = ({ data, percentageChange }) => {
   const strokeColor = percentageChange >= 0 ? "rgb(16, 197, 40)" : "#ff4f0b";
 
   return (
