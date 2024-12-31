@@ -9,20 +9,21 @@ class NewsAPI
     end
     
     def fetch
-        @uri = URI.parse("http://newsapi.org/v2/everything?qInTitle=#{@company}&sortBy=popularity&apiKey=#{ENV['NEWS_API_KEY']}")
-        # @uri = URI.parse("http://newsapi.org/v2/everything?q=#{@company}&from=2020-06-29&sortBy=popularity&apiKey=5c26c92dff4f467e84644baeb283abeb")
+        @uri = URI.parse("http://newsapi.org/v2/everything?qInTitle=#{@company}&sortBy=popularity&apiKey=#{ENV['NEWS_API_KEY']}&pageSize=5")
         @response = Net::HTTP.get_response(@uri)
         @parse = JSON.parse(@response.body)['articles']
-        @parse
-        # response
+
+        # some articles can have a "removed" status, let's exclude them
+        @parse.reject {|article| article["url"] == "https://removed.com"}
     end
 
     def fetchBusiness
-        @uri = URI.parse("https://newsapi.org/v2/top-headlines?category=business&country=us&apiKey=#{ENV['NEWS_API_KEY']}")
-        # @uri = URI.parse("http://newsapi.org/v2/everything?q=#{@company}&from=2020-06-29&sortBy=popularity&apiKey=5c26c92dff4f467e84644baeb283abeb")
+        @uri = URI.parse("https://newsapi.org/v2/top-headlines?category=business&country=us&apiKey=#{ENV['NEWS_API_KEY']}&pageSize=5")
         @response = Net::HTTP.get_response(@uri)
         @parse = JSON.parse(@response.body)['articles']
-        @parse
+        
+        # some articles can have a "removed" status, let's exclude them
+        @parse.reject {|article| article["url"] == "https://removed.com"}
     end
 end
 
