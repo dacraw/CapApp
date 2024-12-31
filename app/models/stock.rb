@@ -2,6 +2,7 @@ class Stock < ApplicationRecord
     validates :symbol, uniqueness: true
 
     has_many :daily_stock_quotes
+    has_many :company_abouts
 
     def cached_quote
         cached_quote = daily_stock_quotes.current.first
