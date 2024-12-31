@@ -29,9 +29,7 @@ json.set! @stock.symbol do
     percentage_change = ((current_price - previous_price) / previous_price * 100).round(2)
     json.percentageChange percentage_change
 
-    news = NewsAPI.new(@stock.company)
-    company_news = news.fetch # pulls 
-    json.news company_news
+    json.news @stock.cached_company_news.data
     
     about = JSON.parse(@stock.cached_company_about.data)
     json.about about

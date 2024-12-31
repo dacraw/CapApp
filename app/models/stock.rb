@@ -3,6 +3,7 @@ class Stock < ApplicationRecord
 
     has_many :daily_stock_quotes
     has_many :company_abouts
+    has_many :company_news
 
     def cached_quote
         cached_quote = daily_stock_quotes.current.first
@@ -22,5 +23,15 @@ class Stock < ApplicationRecord
         end
 
         cached_company_about
+    end
+
+    def cached_company_news
+        cached_company_news = company_news.order(created_at: :desc).limit(1).take
+
+        if (cached_company_news.present? && (cached_company_news.created_at.utc - Time.now.utc > 6.hours)) || cached_company_news.blank?
+            cached_company_news = CompanyNews.fetch_data self
+        end
+
+        cached_company_news
     end
 end
