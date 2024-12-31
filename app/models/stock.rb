@@ -13,4 +13,14 @@ class Stock < ApplicationRecord
 
         cached_quote
     end
+
+    def cached_company_about
+        cached_company_about = company_abouts.order(created_at: :desc).limit(1).take
+
+        if (cached_company_about.present? && (cached_company_about.created_at.utc - Time.now.utc > 6.months)) || cached_company_about.blank?
+            cached_company_about = CompanyAbout.fetch_data self
+        end
+
+        cached_company_about
+    end
 end
