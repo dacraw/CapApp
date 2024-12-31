@@ -28,8 +28,6 @@ const DashNavBar = () => {
   }, []);
   const stocks = useSelector((state) => state.entities.stocks);
   const portfolios = useSelector((state) => state.entities.portfolios);
-  console.log(stocks);
-  console.log(currentUser);
 
   const formatter = new Intl.NumberFormat("en-US", {
     style: "currency",
@@ -45,7 +43,9 @@ const DashNavBar = () => {
         <Link to="/">
           <img className="logo" src={window.logoNoText} />
         </Link>
+
         <StockSearch stocks={stocks} />
+
         <div className="dashboard-nav-mobile">
           <div onClick={() => setShowMobileNav(true)}>
             <FontAwesomeIcon icon={faGripLines} />
@@ -152,8 +152,7 @@ const DashNavBar = () => {
 
             <div>
               <span>
-                Portfolio Value: $
-                {formatMoney(portfolios.portfolioValue, 2, ".", ",")}
+                Portfolio Value: ${formatter.format(portfolios.portfolioValue)}
               </span>
             </div>
             <div>
