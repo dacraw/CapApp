@@ -18,7 +18,7 @@ class Stock < ApplicationRecord
     def cached_company_about
         cached_company_about = company_abouts.order(created_at: :desc).limit(1).take
 
-        if (cached_company_about.present? && (cached_company_about.created_at.utc - Time.now.utc > 6.months)) || cached_company_about.blank?
+        if (cached_company_about.present? && (Time.now.utc - cached_company_about.created_at.utc > 6.months)) || cached_company_about.blank?
             cached_company_about = CompanyAbout.fetch_data self
         end
 
@@ -28,7 +28,7 @@ class Stock < ApplicationRecord
     def cached_company_news
         cached_company_news = company_news.order(created_at: :desc).limit(1).take
 
-        if (cached_company_news.present? && (cached_company_news.created_at.utc - Time.now.utc > 6.hours)) || cached_company_news.blank?
+        if (cached_company_news.present? && (Time.now.utc - cached_company_news.created_at.utc > 6.hours)) || cached_company_news.blank?
             cached_company_news = CompanyNews.fetch_data self
         end
 

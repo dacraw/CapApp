@@ -4,7 +4,7 @@ class TopHeadlineNews < ApplicationRecord
     def self.fetch_data
         most_recent_top_headline_news = TopHeadlineNews.order(created_at: :desc).limit(1).take
 
-        if (most_recent_top_headline_news.present? && most_recent_top_headline_news.created_at.utc - Time.now > 6.hours) || most_recent_top_headline_news.blank?
+        if (most_recent_top_headline_news.present? && Time.now - most_recent_top_headline_news.created_at.utc > 6.hours) || most_recent_top_headline_news.blank?
             @uri = URI.parse("https://newsapi.org/v2/top-headlines?category=business&country=us&apiKey=#{ENV['NEWS_API_KEY']}&pageSize=5")
             @response = Net::HTTP.get_response(@uri)
             @parse = JSON.parse(@response.body)['articles']
