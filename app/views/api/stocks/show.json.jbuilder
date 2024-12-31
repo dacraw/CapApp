@@ -15,8 +15,8 @@ chart = quote.first.construct_stock_daily_graph
 
 # NEED TO CACHE THE ABOUT API REQUEST IN ORDER TO AVOID RECEIVING NO DATA
 
-aboutUri = URI.parse("https://api.polygon.io/v3/reference/tickers/#{@stock.symbol}?apiKey=#{ENV['POLYGON_KEY']}")
-aboutResponse = Net::HTTP.get_response(aboutUri)
+# aboutUri = URI.parse("https://api.polygon.io/v3/reference/tickers/#{@stock.symbol}?apiKey=#{ENV['POLYGON_KEY']}")
+# aboutResponse = Net::HTTP.get_response(aboutUri)
 
 json.set! @stock.symbol do
     json.symbol @stock.symbol
@@ -40,6 +40,6 @@ json.set! @stock.symbol do
     company_news = news.fetch # pulls 
     json.news company_news
     
-    about = JSON.parse(aboutResponse.body)
+    about = JSON.parse(@stock.cached_company_about.data)
     json.about about
 end

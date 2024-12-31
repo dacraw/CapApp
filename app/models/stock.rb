@@ -2,6 +2,7 @@ class Stock < ApplicationRecord
     validates :symbol, uniqueness: true
 
     has_many :daily_stock_quotes
+    has_many :company_abouts
 
     def cached_quote
         cached_quote = daily_stock_quotes.current.first
@@ -11,5 +12,15 @@ class Stock < ApplicationRecord
         end
 
         cached_quote
+    end
+
+    def cached_company_about
+        cached_company_about = company_abouts.order(created_at: :desc).limit(1).take
+
+        if (cached_company_about.present? && (cached_company_about.created_at.utc - Time.now.utc > 6.months)) || cached_company_about.blank?
+            cached_company_about = CompanyAbout.fetch_data self
+        end
+
+        cached_company_about
     end
 end
