@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[8.0].define(version: 2024_12_31_011911) do
+ActiveRecord::Schema[8.0].define(version: 2024_12_31_042537) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "pg_catalog.plpgsql"
 
@@ -20,6 +20,14 @@ ActiveRecord::Schema[8.0].define(version: 2024_12_31_011911) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["stock_id"], name: "index_company_abouts_on_stock_id"
+  end
+
+  create_table "company_news", force: :cascade do |t|
+    t.bigint "stock_id"
+    t.json "data", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["stock_id"], name: "index_company_news_on_stock_id"
   end
 
   create_table "daily_stock_quotes", force: :cascade do |t|
@@ -51,6 +59,12 @@ ActiveRecord::Schema[8.0].define(version: 2024_12_31_011911) do
     t.datetime "updated_at", precision: nil, null: false
     t.string "company"
     t.index ["symbol"], name: "index_stocks_on_symbol", unique: true
+  end
+
+  create_table "top_headline_news", force: :cascade do |t|
+    t.json "data", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
   end
 
   create_table "users", force: :cascade do |t|
