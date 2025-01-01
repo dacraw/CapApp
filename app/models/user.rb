@@ -72,7 +72,7 @@ class User < ApplicationRecord
             previous_transactions = portfolios.filter {|transaction| transaction[:created_at] <= date_time.utc}
             value = 0
             previous_transactions.each do |transaction|
-                price = hash.dig(transaction[:symbol], date_time.strftime("%Y-%m-%d"), "1. open")
+                price = hash.dig(transaction[:symbol], date_time.strftime("%Y-%m-%d"), "1. close")
                 if price
                     value += transaction[:num_shares] * price.to_f
                 else
