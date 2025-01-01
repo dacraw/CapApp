@@ -42,12 +42,19 @@ class DailyStockQuote < ApplicationRecord
 
         date_start = data['Time Series (Daily)'].keys.last
         date_end = data['Time Series (Daily)'].keys.first
+
+        reduced_data = {
+            **data,
+            "Time Series (Daily)": data['Time Series (Daily)'].entries[0..29].to_h
+        }
         
         DailyStockQuote.create(
             date_start: date_start,
             date_end: date_end,
             stock: stock,
-            data: data
+            # reduce amt of data stored to last 29 entries; 
+            # note that weekends are excluded from api data anyways, so this is a convervative clip
+            data: reduced_data
         )
     end
 
