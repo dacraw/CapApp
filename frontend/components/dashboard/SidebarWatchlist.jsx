@@ -22,66 +22,32 @@ export default (props) => {
   };
 
   return (
-    <>
-      {/* <Route path="/watchlist/:id">
-          <>
-            <Link
-              onMouseEnter={() => hideOptions()}
-              className="watchlist"
-              to={`${watchlist.id}`}
-            >
-              <i className="fas fa-lightbulb"></i>
-              <h2 className="watchlist-title">{watchlist.title}</h2>
-              <i
-                onClick={showOptions}
-                key={watchlist.id}
-                data-key={watchlist.id}
-                className="fas fa-ellipsis-h"
-              >
-                <div
-                  className={`watchlist-sidebar-options watchlist-options-${watchlist.id}`}
-                >
-                  <Link to={`${watchlist.id}`}>
-                    <i className="fas fa-cog"></i>Edit List
-                  </Link>
-                  <button
-                    onClick={() => dispatch(deleteWatchlist(watchlist.id))}
-                    type="button"
-                  >
-                    <i className="far fa-times-circle"></i>Delete List
-                  </button>
-                </div>
-              </i>
-            </Link>
-          </>
-        </Route> */}
-      <>
-        <Link
-          onMouseEnter={() => hideOptions()}
-          className="watchlist"
-          to={`watchlist/${watchlist.id}`}
+    <div>
+      <Link
+        onMouseEnter={() => hideOptions()}
+        className="watchlist"
+        to={`watchlist/${watchlist.id}`}
+      >
+        <i className="fas fa-lightbulb"></i>
+        <h2 className="watchlist-title">{watchlist.title}</h2>
+        <i
+          onClick={showOptions}
+          key={watchlist.id}
+          data-key={watchlist.id}
+          className="fas fa-ellipsis-h"
         >
-          <i className="fas fa-lightbulb"></i>
-          <h2 className="watchlist-title">{watchlist.title}</h2>
-          <i
-            onClick={showOptions}
-            key={watchlist.id}
-            data-key={watchlist.id}
-            className="fas fa-ellipsis-h"
+          <div
+            className={`watchlist-sidebar-options watchlist-options-${watchlist.id}`}
           >
-            <div
-              className={`watchlist-sidebar-options watchlist-options-${watchlist.id}`}
+            <button
+              onClick={() => dispatch(deleteWatchlist(watchlist.id))}
+              type="button"
             >
-              <button
-                onClick={() => dispatch(deleteWatchlist(watchlist.id))}
-                type="button"
-              >
-                <i className="far fa-times-circle"></i>Delete List
-              </button>
-            </div>
-          </i>
-        </Link>
-      </>
-    </>
+              <i className="far fa-times-circle"></i>Delete List
+            </button>
+          </div>
+        </i>
+      </Link>
+    </div>
   );
 };
