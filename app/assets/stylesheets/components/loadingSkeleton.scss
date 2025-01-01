@@ -1,0 +1,25 @@
+.skeleton {
+  display: inline-block;
+  width: 100%;
+  height: 1em;
+  background-color: #eee;
+  border-radius: 4px;
+  margin-bottom: 10px;
+  position: relative;
+  overflow: hidden;
+
+  &::after {
+    position: absolute;
+    inset: 0;
+    transform: translateX(-100%);
+    background-color: lightgray;
+    animation: 3s shimmer infinite;
+    content: "";
+  }
+}
+
+@keyframes shimmer {
+  100% {
+    transform: translateX(100%);
+  }
+}
