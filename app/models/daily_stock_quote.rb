@@ -15,8 +15,8 @@ class DailyStockQuote < ApplicationRecord
         Time
             .now
             .in_time_zone('Eastern Time (US & Canada)')
-            # using 35 mins to give api time to update after market close
-            .change(hour: 16, min: 35)
+            # using 40 mins to give api time to update after market close
+            .change(hour: 16, min: 40)
     end
 
     def self.market_has_closed?
