@@ -55,8 +55,13 @@ class DailyStockQuote < ApplicationRecord
         chart = []
         last_price = nil
 
-        (30.days.ago.utc.in_time_zone('Eastern Time (US & Canada)').to_i..DailyStockQuote.current_time_eastern.to_i).step(1.day).each do |seconds|
-            date_time = Time.at(seconds).utc
+        most_recent_date = data["Time Series (Daily)"].entries.first[0]
+        end_date = Time.parse(most_recent_date)
+        start_date = end_date - 30.days 
+
+
+        (start_date.to_i..end_date.to_i).step(1.day).each do |seconds|
+            date_time = Time.at(seconds)
 
             value_at_date = self.data["Time Series (Daily)"].dig(date_time.strftime("%Y-%m-%d"))
 
