@@ -22,7 +22,6 @@ export default () => {
   const watchlistsLoading = useSelector(
     (state) => state.loading.watchlistLoader
   );
-  console.log("watchlists", watchlists);
   return (
     <div>
       {watchlistsLoading ? (
