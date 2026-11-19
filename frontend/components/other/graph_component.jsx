@@ -29,13 +29,13 @@ const GraphComponent = (props) => {
   ]);
 
   const handleEnter = (e) => {
-    if (!e.activePayload) return null;
-    const percentageChange = e.activePayload[0].payload.percentageChange;
-    setPrice(parseFloat(e.activePayload[0].value));
-    setDollarChange(
-      (e.activePayload[0].value - props.stock.chart[0].vw).toFixed(2)
-    );
-    setPercentageChange(percentageChange);
+    // Recharts 3 no longer provides activePayload; look up the hovered point by index.
+    if (!e || e.activeTooltipIndex == null) return null;
+    const point = props.stock.chart[Number(e.activeTooltipIndex)];
+    if (!point || point.vw == null) return null;
+    setPrice(parseFloat(point.vw));
+    setDollarChange((point.vw - props.stock.chart[0].vw).toFixed(2));
+    setPercentageChange(point.percentageChange);
   };
 
   const handleLeave = (value) => {
